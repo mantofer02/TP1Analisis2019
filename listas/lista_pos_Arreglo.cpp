@@ -54,7 +54,7 @@ int Lista::primera() {
 
 void Lista::agregarAlFinal(int valor) {
 	this->lista[numero_elementos] = valor; 
-	++numero_elementos; 
+	++this->numero_elementos; 
 }
 
 
@@ -90,7 +90,7 @@ void Lista::insertar(int posicion, int valor) {
 			
 		if (posicion <= numero_elementos && posicion < this->longitud && posicion >= 0) {	//y es una posicion valida. 
 		 if (posicion < numero_elementos) {
-			for (int position = numero_elementos-1; posicion != posicion-1; --position) {		//realizo un corrimiento para insertar. 
+			for (int position = numero_elementos-1; position != posicion-1; --position) {		//realizo un corrimiento para insertar. 
 				this->lista[position+1] = this->lista[position]; 		
 			}
 			this->lista[posicion] = valor; 		 
