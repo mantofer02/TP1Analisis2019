@@ -25,32 +25,32 @@ class Lista {
 	
 private: 	
 int numero_elementos; 
-Posicion* primer_elemento; 
+Posicion* primera_posicion; 
 Posicion* ultima_posicion; 
 
 
 public: 
-Lista(); 
-void iniciar(); 											//O.B
-void destruir(); 											//O.B
-void insertar(Posicion* posicion, int valor); 				//O.B
-void agregarAlFinal(int valor); 							//O.B
-void borrar(Posicion * posicion); 							//0.B
-Posicion* primera(); 										//0.B
+Lista();
+void iniciar(); 										//O.B
+void destruir(); 										//O.B
+void insertar(Posicion* posicion, int valor); 			//O.B
+void agregarAlFinal(int valor); 						//O.B
+void borrar(Posicion * posicion); 						//0.B
+Posicion* primera(); 									//0.B
 //Posicion* siguiente(Posicion* posicion); 
-int NumElem(); 												//O.B
-void agregarAPosicion(int indice, int valor); 				//Algoritmo. 
-void borrarPosicion(int indice); 							//Algoritmo.
-string imprimirLista(); 
+int NumElem(); 											//O.B
+void AgregarPosicion(int indice, int valor); 			//Algoritmo. //convierte el indice que manda el usuario final a una posicion, para despues insertar
+void borrarPosicion(int indice); 						//Algoritmo. //parecido a AgregarPosicion e insertar. 
+string imprimirLista(); 								//Algoritmo. para probar la lista. 
 };
 
 
-Lista::Lista() : numero_elementos(0), primer_elemento(nullptr), ultima_posicion(nullptr) {	
+Lista::Lista() : numero_elementos(0), primera_posicion(nullptr), ultima_posicion(nullptr) {	
 } 
 
 void Lista::iniciar(){	
 	numero_elementos = 0; 
-	primer_elemento = nullptr; 
+	primera_posicion = nullptr; 
 	ultima_posicion = nullptr; 
 }
 
@@ -63,37 +63,38 @@ int Lista::NumElem() {
 }
 
 Posicion* Lista::primera() {
-	return this->primer_elemento; 
+	return this->primera_posicion; 
 }
 
 
-void Lista::agregarAPosicion(int indice, int valor) {
+void Lista::AgregarPosicion(int indice, int valor) {				
 	Posicion *temporal = primera(); 
-	if (indice <= NumElem()) {				//si se puede agregar a ese indice. 
+	if (indice <= NumElem()) {						//si se puede agregar a ese indice. 
 		
-			if (indice != 1) {					//si no quiero agregar al inicio de la lista
+			if (indice != 1) {						//si no quiero agregar al inicio de la lista
 			int indice_actual = 2; 
-			while (indice_actual < indice) {
+			while (indice_actual <= indice) {
 				temporal = temporal->siguiente(); 	
 				++indice_actual; 
 			}	
-			insertar(temporal, valor); 			//quiero insertar despues de la posicion temporal. 
+			insertar(temporal, valor); 				//quiero insertar despues de la posicion temporal. 
 		}
-		else {									//quiero agregar al inicio de la lista.
-		 if (primera() != nullptr) {			//si ya existe algo. 
+		else {										//quiero agregar al inicio de la lista.
+		 if (primera() != nullptr) {				//si ya existe algo. 
 			Posicion* nueva_posicion = new Posicion(primera(), valor);
-			this->primer_elemento = nueva_posicion;   
+			this->primera_posicion = nueva_posicion;
+			++this->numero_elementos;    
 		 }
-		 else {									//la lista esta vacia. 
+		 else {										//la lista esta vacia. 
 			 Posicion* nueva_posicion = new Posicion(valor);
-			 this->primer_elemento = nueva_posicion;  
+			 this->primera_posicion = nueva_posicion; 
+			 ++this->numero_elementos;  
 		 }	
 		}	
 			
 		
 	}
-	else {		
-		cout << "voy a agregar al final" << endl; 								//de lo contrario agrega al final. 
+	else {		 									 //de lo contrario agrega al final. 
 		agregarAlFinal(valor); 
 	}
 }
@@ -101,17 +102,21 @@ void Lista::agregarAPosicion(int indice, int valor) {
 
 void Lista::insertar(Posicion* posicion, int valor) {
  if (posicion->siguiente() != nullptr) {
-  Posicion* nueva_posicion = new Posicion(posicion->siguiente(), valor); 
+
+  Posicion* nueva_posicion = new Posicion(posicion->siguiente(), posicion->recuperar()); 
+  posicion->modificar(valor);
   posicion->establecerSiguiente(nueva_posicion);
-  ++this->numero_elementos;  	 
+  ++this->numero_elementos; 
+   	 
  }
  else {
-  Posicion* nueva_posicion = new Posicion(valor); 
+  Posicion* nueva_posicion = new Posicion(posicion->recuperar()); 
   posicion->establecerSiguiente(nueva_posicion); 
+  posicion->modificar(valor); 
   this->ultima_posicion = nueva_posicion; 
   ++this->numero_elementos; 
  }
-	
+
 }
 
 
@@ -124,7 +129,7 @@ void Lista::agregarAlFinal(int valor) {
 	}
 	else {
 		Posicion* nueva_posicion = new Posicion(valor); 
-		this->primer_elemento = nueva_posicion; 
+		this->primera_posicion = nueva_posicion; 
 		this->ultima_posicion = nueva_posicion; 
 		++this->numero_elementos; 
 	}
@@ -135,7 +140,8 @@ void Lista::borrar(Posicion* posicion) {							//se entiende que no es el primer
 	if (posicion->siguiente() != nullptr) {
 		Posicion * temporal = posicion->siguiente(); 
 		posicion->establecerSiguiente(temporal->siguiente()); 
-		delete temporal; 				
+		delete temporal; 	
+		++this->numero_elementos; 			
 	}
 	else {
 																	// se quiere eliminar algo que no existe. 	
@@ -144,12 +150,21 @@ void Lista::borrar(Posicion* posicion) {							//se entiende que no es el primer
 
 
 
-//void borrarPosicion(int indice); 							//Algoritmo.
-//string imprimirLista(); 
-
 void Lista::borrarPosicion(int indice) {
-	
-	
+if (indice != 1) {
+	Posicion *current_position = primera(); 
+	int indice_actual = 2; 
+	while (indice_actual < indice) {
+		++indice_actual; 
+		current_position = current_position->siguiente(); 
+	}
+	borrar(current_position); 	
+}
+else {
+	Posicion* temp = primera(); 
+	this->primera_posicion = temp->siguiente(); 
+	delete temp; 	
+}	
 }
 
 string Lista::imprimirLista() {
@@ -182,15 +197,26 @@ int position = 0;
 
 do {
 	
-cout << "ingrese la posicion a ingresar : " << endl; 
-cin>>position; 
-cout << "ingrese el valor :" << endl; 
-cin>>value; 
+cout << "1) Insertar, 2) Borrar" << endl; 
+cin >>option; 	
 
-lista->agregarAPosicion(position, value); 
-cout << lista->imprimirLista() << "\n" << endl; 
+if (option == 1) {
+	cout << "ingrese la posicion a ingresar : " << endl; 
+	cin>>position; 
+	cout << "ingrese el valor :" << endl; 
+	cin>>value; 
+
+	lista->AgregarPosicion(position, value); 
+	cout << lista->imprimirLista() << "\n" << endl; 	
+}
+else {
+	cout << "ingrese la posicion a borrar : " << endl; 
+	cin >>position; 
+	lista->borrarPosicion(position); 
+	cout << lista->imprimirLista() << "\n" << endl; 
+}	
 	
-	
+		
 	
 cout << "continuar : 1) SI - 2) NO\n"; 
 cin>>answer; 
