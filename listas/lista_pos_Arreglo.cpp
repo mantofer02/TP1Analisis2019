@@ -123,6 +123,23 @@ return ss.str();
 }
 
 
+void Lista::borrar(int posicion) {
+ if (posicion < this->numero_elementos) {
+	 
+	for (int position = posicion+1; position < this->numero_elementos; ++position) {
+		this->lista[position] = this->lista[position-1]; 
+	}
+	--this->numero_elementos;  	 
+ }	
+}
+
+
+void Lista::borrarPosicion(int posicion) {
+   posicion = traducir(posicion);
+   borrar(posicion);  
+}
+
+
 int main (int argc, char* argv[]) {
 	
 
@@ -152,7 +169,7 @@ int main (int argc, char* argv[]) {
 	else {
 		cout << "ingrese la posicion a borrar : " << endl; 
 		cin >>position; 
-		//lista->borrarPosicion(position); 
+		lista->borrarPosicion(position); 
 		cout << lista->imprimirLista() << "\n" << endl; 
 	}	
 		
