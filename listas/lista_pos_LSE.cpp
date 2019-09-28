@@ -103,18 +103,18 @@ void Lista::AgregarPosicion(int indice, int valor) {
 void Lista::insertar(Posicion* posicion, int valor) {
  if (posicion->siguiente() != nullptr) {
 
-  Posicion* nueva_posicion = new Posicion(posicion->siguiente(), posicion->recuperar()); 
-  posicion->modificar(valor);
-  posicion->establecerSiguiente(nueva_posicion);
-  ++this->numero_elementos; 
+	  Posicion* nueva_posicion = new Posicion(posicion->siguiente(), posicion->recuperar()); 
+	  posicion->modificar(valor);
+	  posicion->establecerSiguiente(nueva_posicion);
+	  ++this->numero_elementos; 
    	 
  }
  else {
-  Posicion* nueva_posicion = new Posicion(posicion->recuperar()); 
-  posicion->establecerSiguiente(nueva_posicion); 
-  posicion->modificar(valor); 
-  this->ultima_posicion = nueva_posicion; 
-  ++this->numero_elementos; 
+	  Posicion* nueva_posicion = new Posicion(posicion->recuperar()); 
+	  posicion->establecerSiguiente(nueva_posicion); 
+	  posicion->modificar(valor); 
+	  this->ultima_posicion = nueva_posicion; 
+	  ++this->numero_elementos; 
  }
 
 }
@@ -185,50 +185,50 @@ return ss.str();
 
 
 int main (int argc, char* argv[]) {
-	
-Lista* lista = new Lista(); 
-lista->iniciar(); 
-
-bool end = true; 
-int answer = -1; 
-int option = -1; 
-int value = 0;
-int position = 0; 
-
-do {
-	
-cout << "1) Insertar, 2) Borrar" << endl; 
-cin >>option; 	
-
-if (option == 1) {
-	cout << "ingrese la posicion a ingresar : " << endl; 
-	cin>>position; 
-	cout << "ingrese el valor :" << endl; 
-	cin>>value; 
-
-	lista->AgregarPosicion(position, value); 
-	cout << lista->imprimirLista() << "\n" << endl; 	
-}
-else {
-	cout << "ingrese la posicion a borrar : " << endl; 
-	cin >>position; 
-	lista->borrarPosicion(position); 
-	cout << lista->imprimirLista() << "\n" << endl; 
-}	
-	
 		
-	
-cout << "continuar : 1) SI - 2) NO\n"; 
-cin>>answer; 
-if (answer != 2) {
-	end = false; 
-}	
-else {
-	end = true; 
-}
-	
-}while(!end); 	
+	Lista* lista = new Lista(); 
+	lista->iniciar(); 
+
+	bool end = true; 
+	int answer = -1; 
+	int option = -1; 
+	int value = 0;
+	int position = 0; 
+
+	do {
+		
+	cout << "1) Insertar, 2) Borrar" << endl; 
+	cin >>option; 	
+
+	if (option == 1) {
+		cout << "ingrese la posicion a ingresar : " << endl; 
+		cin>>position; 
+		cout << "ingrese el valor :" << endl; 
+		cin>>value; 
+
+		lista->AgregarPosicion(position, value); 
+		cout << lista->imprimirLista() << "\n" << endl; 	
+	}
+	else {
+		cout << "ingrese la posicion a borrar : " << endl; 
+		cin >>position; 
+		lista->borrarPosicion(position); 
+		cout << lista->imprimirLista() << "\n" << endl; 
+	}	
+		
+			
+		
+	cout << "continuar : 1) SI - 2) NO\n"; 
+	cin>>answer; 
+	if (answer != 2) {
+		end = false; 
+	}	
+	else {
+		end = true; 
+	}
+		
+	}while(!end); 	
 
 
-return 0; 	
+	return 0; 	
 }
