@@ -2,12 +2,10 @@
 # Created by https://www.gitignore.io/api/c,c++
 # Edit at https://www.gitignore.io/?templates=c,c++
 
+#ejecutables
+fuck
+
 ### C ###
-
-#execuatables 
-fuck                    #asi le llamo a todos lis ejecutables, lol, agregar los suyos ahí 
-
-
 # Prerequisites
 *.d
 
@@ -81,3 +79,4 @@ dkms.conf
 # Executables
 
 # End of https://www.gitignore.io/api/c,c++
+
