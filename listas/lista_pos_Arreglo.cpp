@@ -133,6 +133,10 @@ void Lista::borrar(int posicion) {
  }	
 }
 
+int Lista::numElem() {
+	return this->numero_elementos; 
+}
+
 
 void Lista::borrarPosicion(int posicion) {
    posicion = traducir(posicion);
