@@ -58,9 +58,6 @@ void Lista::destruir() {
 
 }
 
-int Lista::NumElem() {
-	return this->numero_elementos; 
-}
 
 Posicion* Lista::primera() {
 	return this->primera_posicion; 
@@ -138,10 +135,23 @@ void Lista::agregarAlFinal(int valor) {
 
 void Lista::borrar(Posicion* posicion) {							//se entiende que no es el primero. 
 	if (posicion->siguiente() != nullptr) {
-		Posicion * temporal = posicion->siguiente(); 
-		posicion->establecerSiguiente(temporal->siguiente()); 
-		delete temporal; 	
-		++this->numero_elementos; 			
+		
+		if (posicion->siguiente()->siguiente() != nullptr) {		//si no quiero eliminar al ultimo. 
+			Posicion * temporal = posicion->siguiente(); 
+			posicion->establecerSiguiente(temporal->siguiente()); 
+			delete temporal; 	
+			--this->numero_elementos; 				
+		}
+		else {														//quiero eliminar al ultimo. 
+			Posicion* temporal = posicion->siguiente(); 
+			posicion->establecerSiguiente(nullptr);
+			--this->numero_elementos; 
+			delete temporal;  
+			this->ultima_posicion = posicion; 
+			
+		}
+			
+		
 	}
 	else {
 																	// se quiere eliminar algo que no existe. 	
@@ -151,19 +161,40 @@ void Lista::borrar(Posicion* posicion) {							//se entiende que no es el primer
 
 
 void Lista::borrarPosicion(int indice) {
-if (indice != 1) {
-	Posicion *current_position = primera(); 
-	int indice_actual = 2; 
-	while (indice_actual < indice) {
-		++indice_actual; 
-		current_position = current_position->siguiente(); 
+ if (numero_elementos != 0) {	
+	
+	if (indice != 1) {
+		Posicion *current_position = primera(); 
+		int indice_actual = 2; 
+		while (indice_actual < indice) {
+			++indice_actual; 
+			current_position = current_position->siguiente(); 
+		}
+		borrar(current_position); 	
 	}
-	borrar(current_position); 	
+	else {
+				
+		Posicion* temp = primera(); 
+		
+		if (temp->siguiente() != nullptr) {
+			this->primera_posicion = temp->siguiente(); 
+			delete temp; 
+			--this->numero_elementos; 
+		}
+		else {			
+			this->primera_posicion = nullptr; 
+			this->ultima_posicion = nullptr; 
+			this->numero_elementos = 0; 
+			delete temp;
+			
+		}
+		
+
+	}
+
 }
 else {
-	Posicion* temp = primera(); 
-	this->primera_posicion = temp->siguiente(); 
-	delete temp; 	
+			// la lista esta vacia. 
 }	
 }
 
@@ -181,6 +212,10 @@ ss << "\n";
 return ss.str(); 	
 }
 
+
+int Lista::NumElem() {
+	return this->numero_elementos; 
+}
 
 
 
@@ -207,13 +242,13 @@ int main (int argc, char* argv[]) {
 		cin>>value; 
 
 		lista->AgregarPosicion(position, value); 
-		cout << lista->imprimirLista() << "\n" << endl; 	
+		cout << lista->imprimirLista() << " NumElem: " << lista->NumElem() << "\n" << endl; 	
 	}
 	else {
 		cout << "ingrese la posicion a borrar : " << endl; 
 		cin >>position; 
 		lista->borrarPosicion(position); 
-		cout << lista->imprimirLista() << "\n" << endl; 
+		cout << lista->imprimirLista() << " NumElem: " << lista->NumElem() << "\n" << endl; 
 	}	
 		
 			
