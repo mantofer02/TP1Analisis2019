@@ -127,7 +127,7 @@ void Lista::borrar(int posicion) {
  if (posicion < this->numero_elementos) {
 	 
 	for (int position = posicion+1; position < this->numero_elementos; ++position) {
-		this->lista[position] = this->lista[position-1]; 
+		this->lista[position-1] = this->lista[position]; 
 	}
 	--this->numero_elementos;  	 
  }	
