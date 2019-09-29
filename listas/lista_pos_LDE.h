@@ -152,33 +152,59 @@ void Lista::agregarAlFinal(int valor) {
 
 void Lista::borrar(Posicion* posicion) {							//se entiende que no es el primero. 
 	if (posicion->siguiente() != nullptr) {
-		Posicion * temporal = posicion->siguiente(); 
-		posicion->establecerSiguiente(temporal->siguiente()); 
-		delete temporal; 	
-		++this->numero_elementos; 			
+		Posicion* temp = posicion->anterior(); 
+		temp->establecerSiguiente(posicion->siguiente()); 
+		posicion->siguiente()->establecerAnterior(temp);
+		temp = posicion; 
+		delete temp;  
+		--this->numero_elementos; 		
 	}
 	else {
-																	// se quiere eliminar algo que no existe. 	
+		Posicion* temp = ultima(); 
+		Posicion* before_temp = ultima()->anterior(); 
+		before_temp->establecerSiguiente(nullptr);
+		this->ultima_posicion = before_temp; 
+		--this->numero_elementos; 
+		delete temp;  																	// se quiere eliminar el ultimo elemento.
 	}	
 }
 
 
 
 void Lista::borrarPosicion(int indice) {
-if (indice != 1) {
-	Posicion *current_position = primera(); 
-	int indice_actual = 2; 
-	while (indice_actual < indice) {
-		++indice_actual; 
-		current_position = current_position->siguiente(); 
+if (this->numero_elementos != 0 && indice <= this->numero_elementos) { 	
+	
+	if (indice != 1) {		
+		Posicion *current_position = primera(); 
+		int indice_actual = 2; 
+		while (indice_actual <= indice) {
+			++indice_actual; 
+			current_position = current_position->siguiente(); 
+		}
+		borrar(current_position); 	
 	}
-	borrar(current_position); 	
+	else {
+		if (primera()->siguiente() != nullptr) {			//no hay solo un element. 
+			Posicion* temp = primera(); 	
+			this->primera_posicion = temp->siguiente(); 
+			primera()->establecerAnterior(nullptr); 
+			delete temp; 
+			--this->numero_elementos; 
+			
+		}
+		else {											//solo hay un elemento. 
+			Posicion* temp = primera(); 
+			delete temp; 	
+			this->ultima_posicion = nullptr; 
+			this->primera_posicion = nullptr;
+			this->numero_elementos = 0;  	
+		}
+	}	
+
 }
 else {
-	Posicion* temp = primera(); 
-	this->primera_posicion = temp->siguiente(); 
-	delete temp; 	
-}	
+		//la lista esta vacia o el elemento no existe. 
+}
 }
 
 string Lista::imprimirLista() {
