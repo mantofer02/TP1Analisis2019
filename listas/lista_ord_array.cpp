@@ -1,36 +1,36 @@
 #include "lista_ord_array.h"
 
-ListaOrdenadaArray::ListaOrdenadaArray(){
+Lista::Lista(){
 
 }
 
-ListaOrdenadaArray::~ListaOrdenadaArray(){
+Lista::~Lista(){
     delete array;
     numeroElementos = 0;
     tamanoMaximo = 0;
 }
 
-void ListaOrdenadaArray::iniciar(int tamanoMaximo){
+void Lista::iniciar(int tamanoMaximo){
     this->tamanoMaximo = tamanoMaximo;
     array = new int[tamanoMaximo];
     numeroElementos=0;
 }
 
-void ListaOrdenadaArray::destruir(){
+void Lista::destruir(){
     delete this;
 }
 
-void ListaOrdenadaArray::vaciar(){
+void Lista::vaciar(){
     for(int i=0;i<numeroElementos;i++){
         array[i] = 0;    
     }
 }
 
-int ListaOrdenadaArray::vacia(){
+int Lista::vacia(){
     return numeroElementos == 0;
 }
 
-void ListaOrdenadaArray::agregar(int elemento){
+void Lista::agregar(int elemento){
     if(!(this->tamanoMaximo==numeroElementos)){
         int agregue = 0;
         for(int i=0;i<=numeroElementos && !agregue;i++){
@@ -45,6 +45,7 @@ void ListaOrdenadaArray::agregar(int elemento){
         }
         if(!agregue){
             array[numeroElementos] = elemento;
+            cout << "Se agrega el elemento "<< elemento << " con exito.\n";
         }
         numeroElementos++;
     }
@@ -53,9 +54,10 @@ void ListaOrdenadaArray::agregar(int elemento){
     }
 }
 
-void ListaOrdenadaArray::borrar(int elemento){
+void Lista::borrar(int elemento){
     if(!vacia()){
-        for(int i=0;i<=numeroElementos;i++){
+        int encontre = 0;
+        for(int i=0;i<=numeroElementos && encontre;i++){
             if(elemento == array[i]){
                 cout << "Se borra el elemento con exito.\n";
                 array[i] = 0;
@@ -64,15 +66,20 @@ void ListaOrdenadaArray::borrar(int elemento){
                 }
             }
         }
-        array[numeroElementos-1]=0;
-        numeroElementos--;
+        if(encontre){
+            array[numeroElementos-1]=0;
+            numeroElementos--;
+        }
+        else{
+            cout << "No se pudo borrar el elemento deseado, ya que no estaba en la lista.\n";     
+        }
     }
     else{
-       cout << "El elemento deseado no estaba en la lista.\n";
+        cout << "No se pudo borrar el elemento deseado, ya que la lista esta vacia.\n";
     }
 }
 
-int ListaOrdenadaArray::primero(){
+int Lista::primero(){
     int primero = 0;
     if(vacia()){
         cout << "La lista esta vacia.\n";
@@ -83,7 +90,7 @@ int ListaOrdenadaArray::primero(){
     return primero;
 }
 
-int ListaOrdenadaArray::ultimo(){
+int Lista::ultimo(){
     int ultimo = 0;
     if(vacia()){
         cout << "La lista esta vacia.\n";
@@ -94,7 +101,7 @@ int ListaOrdenadaArray::ultimo(){
     return ultimo;
 }
 
-int ListaOrdenadaArray::siguiente(int elemento){
+int Lista::siguiente(int elemento){
     int resultado = 0;
     int encontro = 0; 
     for(int i=0; i<numeroElementos; i++){
@@ -115,7 +122,7 @@ int ListaOrdenadaArray::siguiente(int elemento){
     return resultado;
 }
 
-int ListaOrdenadaArray::anterior(int elemento){
+int Lista::anterior(int elemento){
     int resultado = 0;
     int encontro=0;
     for(int i=0; i<numeroElementos; i++){
@@ -135,11 +142,11 @@ int ListaOrdenadaArray::anterior(int elemento){
     }
     return resultado;
 }
-int ListaOrdenadaArray::numElem(){
+int Lista::numElem(){
     return numeroElementos;
 }
 
-void ListaOrdenadaArray::imprimir(){
+void Lista::imprimir(){
     cout << "{"; 
     for(int i=0;i<numeroElementos;i++){
         cout << array[i] << " ";   

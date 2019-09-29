@@ -3,27 +3,33 @@
 #include <iostream>
 #include <algorithm>
 #include <array>
+#include <iostream>
+using namespace std;
 
-class ListaOrdenadaLSE{
+class Lista{
     
     class Elemento;
     
-        private:
+    private:
         
-        int numElem;
-        int M;//tamaño maximo 
-        Elemento * lista;
+        int numeroElementos;
+        int tamanoMaximo; 
+        Elemento * primeraPosicion;
+        Elemento * ultimaPosicion;
 
         class Elemento{
             public:
                 int elemento;
                 Elemento * siguiente;
+                Elemento(int);
+                ~Elemento();
+                void imprimir();
         };
 
     public:
-        ListaOrdenadaLSE();
-        ~ListaOrdenadaLSE();
-        void iniciar();
+        Lista();
+        ~Lista();
+        void iniciar(int);
         void destruir();
         void vaciar();
         int vacia();
@@ -34,6 +40,7 @@ class ListaOrdenadaLSE{
         int siguiente(int);
         int anterior(int);
         int numElem();
+        void imprimir();
 };
 
 #endif

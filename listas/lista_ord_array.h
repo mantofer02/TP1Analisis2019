@@ -6,14 +6,14 @@
 #include <iostream>
 using namespace std;
 
-class ListaOrdenadaArray{
+class Lista{
     private:
         int tamanoMaximo;
         int numeroElementos;
         int* array;
     public:
-        ListaOrdenadaArray();
-        ~ListaOrdenadaArray();
+        Lista();
+        ~Lista();
         void iniciar(int);
         void destruir();
         void vaciar();
