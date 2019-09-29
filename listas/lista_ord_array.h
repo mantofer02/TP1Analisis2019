@@ -3,15 +3,18 @@
 #include <iostream>
 #include <algorithm>
 #include <array>
+#include <iostream>
+using namespace std;
 
 class ListaOrdenadaArray{
     private:
-        int numElem;
+        int tamanoMaximo;
+        int numeroElementos;
         int* array;
     public:
         ListaOrdenadaArray();
         ~ListaOrdenadaArray();
-        void iniciar();
+        void iniciar(int);
         void destruir();
         void vaciar();
         int vacia();
@@ -22,6 +25,7 @@ class ListaOrdenadaArray{
         int siguiente(int);
         int anterior(int);
         int numElem();
+        void imprimir();
 };
 
 #endif

@@ -5,9 +5,13 @@
 #include <array>
 
 class ListaOrdenadaLSE{
-    private:
+    
+    class Elemento;
+    
+        private:
+        
         int numElem;
-        class Elemento;
+        int M;//tamaño maximo 
         Elemento * lista;
 
         class Elemento{
