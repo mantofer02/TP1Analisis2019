@@ -43,7 +43,7 @@ Posicion* primera();
 Posicion* ultima();		 								//0.B
 //Posicion* siguiente(Posicion* posicion); 
 int NumElem(); 											//O.B
-void AgregarPosicion(int indice, int valor); 			//Algoritmo. //convierte el indice que manda el usuario final a una posicion, para despues insertar
+void agregarPosicion(int indice, int valor); 			//Algoritmo. //convierte el indice que manda el usuario final a una posicion, para despues insertar
 void borrarPosicion(int indice); 						//Algoritmo. //parecido a AgregarPosicion e insertar. 
 string imprimirLista(); 								//Algoritmo. para probar la lista. 
 string imprimirListaRevez(); 
@@ -75,7 +75,7 @@ Posicion* Lista::ultima() {
 	return this->ultima_posicion; 
 }
 
-void Lista::AgregarPosicion(int indice, int valor) {				
+void Lista::agregarPosicion(int indice, int valor) {				
 	Posicion *temporal = primera(); 
 	if (indice <= NumElem()) {						//si se puede agregar a ese indice. 
 		
@@ -208,58 +208,5 @@ for (int iteration = this->numero_elementos; iteration != 0; --iteration) {
 ss << "\n"; 
 
 return ss.str(); 		
-}
-
-
-int main (int argc, char* argv[]) {
-		
-	Lista* lista = new Lista(); 
-	lista->iniciar(); 
-
-	bool end = true; 
-	int answer = -1; 
-	int option = -1; 
-	int value = 0;
-	int position = 0; 
-
-	do {
-		
-	cout << "1) Insertar, 2) Borrar" << endl; 
-	cin >>option; 	
-
-	if (option == 1) {
-		cout << "ingrese la posicion a ingresar : " << endl; 
-		cin>>position; 
-		cout << "ingrese el valor :" << endl; 
-		cin>>value; 
-
-		lista->AgregarPosicion(position, value);
-		cout << "derecho : " << endl;  
-		cout << lista->imprimirLista() << "\n";
-		cout << "revez : " << endl;  
-		cout << lista->imprimirListaRevez() << "\n"; 	
-	}
-	else {
-		cout << "ingrese la posicion a borrar : " << endl; 
-		cin >>position; 
-		lista->borrarPosicion(position); 
-		cout << lista->imprimirLista() << "\n" << endl; 
-	}	
-		
-			
-		
-	cout << "continuar : 1) SI - 2) NO\n"; 
-	cin>>answer; 
-	if (answer != 2) {
-		end = false; 
-	}	
-	else {
-		end = true; 
-	}
-		
-	}while(!end); 	
-
-
-	return 0; 	
 }
 
