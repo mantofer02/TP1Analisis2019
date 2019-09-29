@@ -6,7 +6,6 @@ Lista::Elemento::Elemento(int elemento){
 }
 
 Lista::Elemento::~Elemento(){
-    this->elemento = 0;
     if(siguiente){
         delete siguiente;
     }
@@ -30,8 +29,9 @@ void Lista::destruir(){
 }
 
 void Lista::vaciar(){
-    Elemento * temp = primeraPosicion;
-    delete temp;
+    delete  primeraPosicion;
+    this->primeraPosicion = 0;
+    this->ultimaPosicion = 0;
 }
 
 int Lista::vacia(){
@@ -105,11 +105,25 @@ void Lista::borrar(int elemento){
 }
 
 int Lista::primero(){
-    return primeraPosicion->elemento;
+    int resultado = -1;
+    if (primeraPosicion){
+        resultado = primeraPosicion->elemento;
+    }
+    else{
+        cout << "La lista esta vacia, por lo que no se puede devolver un primer elemento.\n";
+    }
+    return resultado;
 }
 
 int Lista::ultimo(){
-    return ultimaPosicion->elemento;
+    int resultado = -1;
+    if (ultimaPosicion){
+        resultado = ultimaPosicion->elemento;
+    }
+    else{
+        cout << "La lista esta vacia, por lo que no se puede devolver un primer elemento.\n";
+    }
+    return resultado;
 }
 
 int Lista::siguiente(int elemento){
