@@ -3,32 +3,28 @@
 using namespace std; 
 
 
-class Lista {
-	
-private: 
-int* lista; 
-int numero_elementos; 
-int longitud; 	
-	
-public: 
-Lista(); 
-void iniciar(int longitud); 
-void destruir(); 
-int recuperar(int posicion); 
-void modificar(int posicion, int valor); 
-int siguiente(int posicion); 
-void insertar(int posicion, int valor); 
-void agregarAlFinal(int valor); 
-int traducir(int posicion); 
-void agregarPosicion(int posicion, int valor); 
-void borrar(int posicion); 
-void borrarPosicion(int posicion); 
-int primera(); 
-int NumElem(); 
-string imprimirLista(); 
-
-
-	
+class Lista{
+	private: 
+		int* lista; 
+		int numero_elementos; 
+		int longitud; 	
+		
+	public: 
+		Lista(); 
+		void iniciar(int longitud); 
+		void destruir(); 
+		int recuperar(int posicion); 
+		void modificar(int posicion, int valor); 
+		int siguiente(int posicion); 
+		void insertar(int posicion, int valor); 
+		void agregarAlFinal(int valor); 
+		int traducir(int posicion); 
+		void agregarPosicion(int posicion, int valor); 
+		void borrar(int posicion); 
+		void borrarPosicion(int posicion); 
+		int primera(); 
+		int NumElem(); 
+		string imprimirLista(); 
 }; 
 
 
