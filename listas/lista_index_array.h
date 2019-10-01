@@ -3,15 +3,16 @@
 #include <iostream>
 #include <algorithm>
 #include <array>
+#define elementoNulo -99999
 
-class Lista_Indexada_Array{
+class Lista{
     public:
-        Lista_Indexada_Array();
+        Lista();
         void iniciar(int); 
         void vaciar();
         bool vacio();
         void destruir();
-        ~Lista_Indexada_Array();
+        ~Lista();
         void insertar(int, int);
         void borrar(int);
         int recuperar(int);

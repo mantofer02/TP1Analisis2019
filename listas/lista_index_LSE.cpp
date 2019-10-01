@@ -1,19 +1,19 @@
 #include "lista_index_LSE.h"
 
-Lista_Indexada_LSE::Lista_Indexada_LSE(){
+Lista::Lista(){
     this->inicio = 0;
     this->contador = 0;
     this->m = 0;
 }
 
-void Lista_Indexada_LSE::iniciar(int m){
+void Lista::iniciar(int m){
     this->m = m;
     for(int i = 0; i < m; i++){
         crearCelda(i);
     }
 }
 
-void Lista_Indexada_LSE::crearCelda(int indice){
+void Lista::crearCelda(int indice){
     if(!inicio){
         Celda* nueva = new Celda(indice);
         inicio = nueva;
@@ -27,14 +27,103 @@ void Lista_Indexada_LSE::crearCelda(int indice){
     }
 }
 
-Lista_Indexada_LSE::Celda::Celda(int indice){
+Lista::Celda::Celda(int indice){
     this->indice = indice;
-    elemento = 0;
+    this->elemento = 0;
     this->siguiente = 0;
 }
 
-void Lista_Indexada_LSE::insertar(int indice, int elemento){
+void Lista::insertar(int indice, int elemento){
+    //Se asume que ya se inicializo
     if(indice < m){
-        
+        Celda* actual = inicio;
+            while(indice != actual->indice){
+                actual = actual->siguiente;
+            }
+        actual->elemento = elemento;
+        contador++;
+    }
+}
+
+void Lista::modificarElemento(int indice, int elemento){
+    if(indice < m){
+        Celda* actual = inicio;
+        while(indice != actual->indice){
+            actual = actual->siguiente;
+        }
+        actual->elemento = elemento;
+    }
+}
+
+void Lista::borrar(int indice){
+    if(indice < m){
+        Celda* actual = inicio;
+        while(indice != actual->indice){
+            actual = actual->siguiente;
+        }
+        if(actual->elemento != elemntoNulo){
+            actual->elemento = elemntoNulo;
+            contador--;
+        }
+    }
+}
+
+int Lista::numElem(){
+    return contador;
+}
+
+int Lista::recuperar(int indice){
+    int elementoADevolver = 0;
+    if(indice < m){
+        Celda* actual = inicio;
+        while(indice != actual->indice){
+            actual = actual->siguiente;
+        }
+        elementoADevolver = actual->elemento;
+    }
+    return elementoADevolver;
+}
+
+void Lista::intercambiar(int indice1, int indice2){
+    if(indice1, indice2  < m){
+        int elemento3 = 0;
+        Celda* actual1 = inicio;
+        Celda* actual2 = inicio;
+        while(indice1 != actual1->indice){
+            actual1 = actual1->siguiente;
+        }
+        while(indice2 != actual2->indice){
+            actual2 = actual2->siguiente;
+        }
+        elemento3 = actual2->elemento;
+        actual2->elemento = actual1->elemento;
+        actual1->elemento = elemento3;
+    }
+}
+
+bool Lista::vacio(){
+    bool estaVacio = true;
+        if(inicio)
+            estaVacio = false;
+    return estaVacio;
+}
+
+void Lista::vaciar(){
+    for(int i = 0; i < m; i++)
+        borrar(i);
+}
+
+Lista :: ~Lista(){
+    if(inicio)
+        delete inicio;
+}
+
+void Lista :: imprimirLista(){
+    if(inicio){
+        Celda* actual = inicio;
+        while(actual){
+            std::cout << "Indice : " << actual->indice << " Elemento : " <<actual->elemento << std:: endl;
+            actual = actual->siguiente;
+        }
     }
 }

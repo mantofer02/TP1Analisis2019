@@ -3,17 +3,17 @@
 #include <iostream>
 #include <algorithm>
 #include <array>
-#define indiceNulo -1
+#define elemntoNulo -9999999
 
 // PREGUNTAR SI LOS INDICES PUEDEN NO ESTAR SECUENCIALES 2 4 6 7 12 
 
-class Lista_Indexada_LSE{
+class Lista{
     private:
         struct Celda{
             Celda(int indice);
-            void setElemento(int elemento);
-            int getElemento();
-            int getIndice();
+            // void setElemento(int elemento);
+            // int getElemento();
+            // int getIndice();
             int indice;
             int elemento;
             Celda* siguiente;
@@ -22,18 +22,19 @@ class Lista_Indexada_LSE{
         int contador;
         int m;
     public:
-        Lista_Indexada_LSE();
+        Lista();
         void iniciar(int m); 
         void vaciar();
         bool vacio();
         void crearCelda(int);
         void destruir();
-        ~Lista_Indexada_LSE();
+        ~Lista();
         void insertar(int, int);
         void borrar(int);
         int recuperar(int);
         void modificarElemento(int, int);
         void intercambiar(int indice1, int indice2);
         int numElem();
+        void imprimirLista();
 };
 #endif
