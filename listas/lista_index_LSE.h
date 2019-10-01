@@ -17,6 +17,7 @@ class Lista{
             int indice;
             int elemento;
             Celda* siguiente;
+            ~Celda();
         };
         Celda* inicio;
         int contador;

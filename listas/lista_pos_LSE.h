@@ -3,52 +3,46 @@
 using namespace std; 
 
 
-class Posicion {
-	
-private: 	
-Posicion* sucesor; 
-int valor; 
+class Posicion {		
+	private: 	
+		Posicion* sucesor; 
+		int valor; 
 
-public: 
-Posicion() : sucesor(nullptr) {}
-Posicion(int valor) : valor(valor), sucesor(nullptr) {}
-Posicion(Posicion*siguiente, int valor) : sucesor(siguiente), valor(valor) {}	
-int recuperar() {return this->valor;}
-void modificar(int valor) {this->valor = valor; }
-Posicion* siguiente() {return this->sucesor; }
-void establecerSiguiente(Posicion* siguiente) {this->sucesor = siguiente; }
-	
+	public: 
+		Posicion() : sucesor(nullptr) {}
+		Posicion(int valor) : valor(valor), sucesor(nullptr) {}
+		Posicion(Posicion*siguiente, int valor) : sucesor(siguiente), valor(valor) {}	
+		int recuperar() {return this->valor;}
+		void modificar(int valor) {this->valor = valor; }
+		Posicion* siguiente() {return this->sucesor; }
+		void establecerSiguiente(Posicion* siguiente) {this->sucesor = siguiente; }
 };
 
-
-class Lista {
-	
-private: 	
-int numero_elementos; 
-Posicion* primera_posicion; 
-Posicion* ultima_posicion; 
-
-
-public: 
-Lista();
-void iniciar(); 										//O.B
-Posicion* siguiente(Posicion* posicion); 				//O.B
-void modificar(Posicion* posicion, int valor); 			//O.B
-int recuperar(Posicion* posicion);						//O.B 										
-void insertar(Posicion* posicion, int valor); 			//O.B
-void agregarAlFinal(int valor); 						//O.B
-void borrar(Posicion * posicion); 						//0.B
-Posicion* primera(); 									//0.B
-bool vacia(); 											//0.B
-void vaciar(); 											//O.B
-void destruir(); 										//O.B
-int NumElem(); 											//O.B
-void agregarPosicion(int indice, int valor); 			//Algoritmo. //convierte el indice que manda el usuario final a una posicion, para despues insertar
-void borrarPosicion(int indice); 						//Algoritmo. //parecido a AgregarPosicion e insertar. 
-void modificarPosicion(int indice, int valor); 			//Algoritmo. 
-int recuperarPosicion(int indice);						//Algoritmo.  
-string imprimirLista(); 								//Algoritmo. para probar la lista. 
-Posicion* traducir(int indice); 						//traduce indices a posiciones, para poder usar los algoritmos y que estos usen los O.B
+class Lista {	
+	private: 	
+		int numero_elementos; 
+		Posicion* primera_posicion; 
+		Posicion* ultima_posicion; 
+	public: 
+		Lista();
+		void iniciar(); 										//O.B
+		Posicion* siguiente(Posicion* posicion); 				//O.B
+		void modificar(Posicion* posicion, int valor); 			//O.B
+		int recuperar(Posicion* posicion);						//O.B 										
+		void insertar(Posicion* posicion, int valor); 			//O.B
+		void agregarAlFinal(int valor); 						//O.B
+		void borrar(Posicion * posicion); 						//0.B
+		Posicion* primera(); 									//0.B
+		bool vacia(); 											//0.B
+		void vaciar(); 											//O.B
+		void destruir(); 										//O.B
+		int NumElem(); 											//O.B
+		void agregarPosicion(int indice, int valor); 			//Algoritmo. //convierte el indice que manda el usuario final a una posicion, para despues insertar
+		void borrarPosicion(int indice); 						//Algoritmo. //parecido a AgregarPosicion e insertar. 
+		void modificarPosicion(int indice, int valor); 			//Algoritmo. 
+		int recuperarPosicion(int indice);						//Algoritmo.  
+		string imprimirLista(); 								//Algoritmo. para probar la lista. 
+		Posicion* traducir(int indice); 						//traduce indices a posiciones, para poder usar los algoritmos y que estos usen los O.B
 };
 
 
