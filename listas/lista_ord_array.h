@@ -26,6 +26,7 @@ class Lista{
         int anterior(int);
         int numElem();
         void imprimir();
+        void imprimirMenu();
 };
 
 #endif

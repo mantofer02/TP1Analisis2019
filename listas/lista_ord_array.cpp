@@ -153,3 +153,11 @@ void Lista::imprimir(){
     }
     cout << "}";
 }
+
+void Lista::imprimirMenu(){
+    //cout << "Bienvenido al programa de prueba de las implementaciones de los diferentes modelos de lista.\nPara seleccionar el modelo a utilizar, digite el numero correspondiente al modelo deseado y a su respectiva estructuda de datos:\n " << endl;
+    //cout << "1. Lista posicionada usando un arrewglo.\n2. Lista posicionada usando una Lista Simplemente Enlazada." << endl;
+    //cout << "3. Lista posicionada usando una Lista Doblemente Enlazada.\n4. Lista ordenada usando un arreglo." << endl;
+    //cout << "5. Lista ordenada usando una Lista Simplemente Enlazada.\n6. Lista indexada usando un arreglo." << endl;
+    //cout << "7. Lista indexada usando una Lista Simplemente Enlazada." << endl;
+}
