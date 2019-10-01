@@ -1,7 +1,7 @@
 #include <iostream>
 //#include "lista_pos_LSE.h"
-#include "lista_pos_Arreglo.h"
-//#include "lista_pos_LDE.h"
+//#include "lista_pos_Arreglo.h"
+#include "lista_pos_LDE.h"
 using namespace std; 
 
 
@@ -9,8 +9,8 @@ using namespace std;
 int main (int argc, char* argv[]) {
 		
 	Lista* lista = new Lista(); 
-	//lista->iniciar(); 
-	lista->iniciar(10); 
+	lista->iniciar(); 
+	//lista->iniciar(10); 
 	
 	bool end = true; 
 	int answer = -1; 

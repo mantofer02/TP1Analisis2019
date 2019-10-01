@@ -36,17 +36,25 @@ public:
 Lista();
 void iniciar(); 										//O.B
 void destruir(); 										//O.B
+void vaciar();											//O.B 
+bool vacia(); 											//O.B
 void insertar(Posicion* posicion, int valor); 			//O.B
 void agregarAlFinal(int valor); 						//O.B
 void borrar(Posicion * posicion); 						//0.B
-Posicion* primera(); 	
+Posicion* primera(); 									//O.B
 Posicion* ultima();		 								//0.B
-//Posicion* siguiente(Posicion* posicion); 
 int NumElem(); 											//O.B
+Posicion* siguiente(Posicion* posicion);				//O.B 
+Posicion* anterior(Posicion* posicion); 				//O.B
+void modificar(Posicion* posicion, int valor); 			//O.B
+int recuperar(Posicion* posicion);						//O.B 
+Posicion* traducir(int indice);							//Algoritmo
 void agregarPosicion(int indice, int valor); 			//Algoritmo. //convierte el indice que manda el usuario final a una posicion, para despues insertar
 void borrarPosicion(int indice); 						//Algoritmo. //parecido a AgregarPosicion e insertar. 
+void modificarPosicion(int indice, int valor);			//Algoritmo. 
+int recuperarPosicion(int indice, int valor);			//Algoritmo.  
 string imprimirLista(); 								//Algoritmo. para probar la lista. 
-string imprimirListaRevez(); 
+string imprimirListaRevez();  							//Algoritmo.
 };
 
 
@@ -60,6 +68,24 @@ void Lista::iniciar(){
 }
 
 void Lista::destruir() {	
+	vaciar(); 
+}
+
+bool Lista::vacia() {
+	return (this->numero_elementos == 0); 
+}
+
+void Lista::vaciar() {
+	Posicion* current_position = primera(); 
+	Posicion* temp; 
+	while (current_position != nullptr) {
+		temp = current_position; 
+		current_position = current_position->siguiente(); 
+		delete temp; 
+	}
+	this->primera_posicion = nullptr; 
+	this->ultima_posicion = nullptr; 
+	this->numero_elementos = 0; 
 
 }
 
@@ -67,25 +93,80 @@ int Lista::NumElem() {
 	return this->numero_elementos; 
 }
 
+Posicion* Lista::traducir(int indice) {
+	Posicion* temp = nullptr; 
+	
+	if (indice >= 1) {
+		temp = primera();  
+		int current_index = 2; 
+		while (current_index <= indice && temp != nullptr) {
+			temp = temp->siguiente(); 
+			++current_index; 
+		}			
+	}
+	
+	return temp; 
+}
+
 Posicion* Lista::primera() {
 	return this->primera_posicion; 
 }
+
+Posicion* Lista::siguiente(Posicion* posicion) {
+	return posicion->siguiente(); 
+} 
+
+Posicion* Lista::anterior(Posicion* posicion) {
+	return posicion->anterior(); 
+}
+
+
+void Lista::modificar(Posicion* posicion, int valor) {
+	posicion->modificar(valor); 
+}
+
+int Lista::recuperar(Posicion* posicion) {
+	return posicion->recuperar(); 
+} 
 
 Posicion* Lista::ultima() {
 	return this->ultima_posicion; 
 }
 
+
+
+void Lista::modificarPosicion(int indice, int valor) {
+	Posicion* posicion = traducir(indice); 
+	if (posicion != nullptr) {
+		posicion->modificar(valor); 
+	}
+	else {
+		//la posición que se quiere modificar no existe. 
+	}	
+}
+	
+
+int Lista::recuperarPosicion(int indice, int valor) {
+	Posicion* posicion = traducir(indice);	
+	int value = 0; 
+	if (posicion != nullptr) {
+		value = posicion->recuperar(); 
+	}
+	else {
+		//la posición de la que se quiere recuperar no existe. 
+	} 
+	
+return value; 
+}		
+
+
 void Lista::agregarPosicion(int indice, int valor) {				
 	Posicion *temporal = primera(); 
 	if (indice <= NumElem()) {						//si se puede agregar a ese indice. 
 		
-			if (indice != 1) {						//si no quiero agregar al inicio de la lista
-			int indice_actual = 2; 
-			while (indice_actual <= indice) {
-				temporal = temporal->siguiente(); 	
-				++indice_actual; 
-			}	
-			insertar(temporal, valor); 				//quiero insertar despues de la posicion temporal. 
+		if (indice != 1) {						//si no quiero agregar al inicio de la lista
+			temporal = traducir(indice); 
+			insertar(temporal, valor); 						
 		}
 		else {										//quiero agregar al inicio de la lista.
 		 if (primera() != nullptr) {				//si ya existe algo. 
@@ -110,6 +191,8 @@ void Lista::agregarPosicion(int indice, int valor) {
 		agregarAlFinal(valor); 
 	}
 }
+
+
 
 
 void Lista::insertar(Posicion* posicion, int valor) {
@@ -175,12 +258,7 @@ void Lista::borrarPosicion(int indice) {
 if (this->numero_elementos != 0 && indice <= this->numero_elementos) { 	
 	
 	if (indice != 1) {		
-		Posicion *current_position = primera(); 
-		int indice_actual = 2; 
-		while (indice_actual <= indice) {
-			++indice_actual; 
-			current_position = current_position->siguiente(); 
-		}
+		Posicion *current_position = traducir(indice); 
 		borrar(current_position); 	
 	}
 	else {

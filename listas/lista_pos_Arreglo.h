@@ -11,19 +11,24 @@ class Lista{
 		
 	public: 
 		Lista(); 
-		void iniciar(int longitud); 
-		void destruir(); 
-		int recuperar(int posicion); 
-		void modificar(int posicion, int valor); 
-		int siguiente(int posicion); 
-		void insertar(int posicion, int valor); 
-		void agregarAlFinal(int valor); 
-		int traducir(int posicion); 
-		void agregarPosicion(int posicion, int valor); 
-		void borrar(int posicion); 
-		void borrarPosicion(int posicion); 
-		int primera(); 
-		int NumElem(); 
+		void iniciar(int longitud); 					//O.B
+		void destruir(); 								//0.B
+		bool vacia(); 									//O.B
+		void vaciar(); 									//O.B
+		int primera(); 									//O.B
+		int NumElem(); 									//0.B
+		int recuperar(int posicion); 					//O.B
+		void modificar(int posicion, int valor); 		//O.B
+		int siguiente(int posicion); 					//O.B
+		void insertar(int posicion, int valor); 		//O.B	
+		void agregarAlFinal(int valor); 				//O.B
+		void borrar(int posicion); 						//O.B
+		int traducir(int posicion); 					//Algoritmo.		//traduce el indice del usuario al indice de la lista. osea de 1 a 0 o de 2 a 1. 					
+		void borrarPosicion(int posicion); 				//Algoritmo. 
+		void agregarPosicion(int posicion, int valor); 	//Algoritmo. 
+		void modificarPosicion(int indice, int valor);	//Algoritmo. 
+		int recuperarPosicion(int indice);  			//Algoritmo. 
+		
 		string imprimirLista(); 
 }; 
 
@@ -40,7 +45,15 @@ void Lista::iniciar(int longitud) {			//hay que cononcer M.
 
 
 void Lista::destruir() {
-	
+	this->numero_elementos = 0; 
+}
+
+void Lista::vaciar() {
+	this->numero_elementos = 0; 
+}
+
+bool Lista::vacia() {
+	return (this->numero_elementos == 0); 
 }
 
 
@@ -54,24 +67,39 @@ void Lista::agregarAlFinal(int valor) {
 }
 
 
+void modificarPosicion(int indice, int valor) {
+	int position = traducir(indice);
+	modificar(position, valor);  
+}
+
+
+int recuperarPosicion(int indice) {
+	int position = traducir(indice);
+	int value = 0; 
+	if (position != -1) {
+		value = recuperar(position); 
+	}
+	else {
+		// la posición es invalida. 
+	} 
+	return value; 
+}
+
 int Lista::traducir(int posicion) {
 	return posicion-1; 	
 } 
 
-int Lista::recuperar(int posicion) {		//requiere que la posicion exista. 	
-	posicion = traducir(posicion); 	
+int Lista::recuperar(int posicion) {		//requiere que la posicion exista. 		
 	return this->lista[posicion]; 	
 } 
 
 
-void Lista::modificar(int posicion, int valor) {		//requiere que la posicion exista. 
-	posicion = traducir(posicion); 	
+void Lista::modificar(int posicion, int valor) {		//requiere que la posicion exista. 	
 	this->lista[posicion] = valor; 
 }
 
 
-int Lista::siguiente(int posicion) {
-	 posicion = traducir(posicion); 	
+int Lista::siguiente(int posicion) {	
 	 if (posicion < this->numero_elementos) {			//si es una posicion valida. 
 		return posicion+1; 
 	 }
