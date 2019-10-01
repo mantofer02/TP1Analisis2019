@@ -69,5 +69,3 @@
         int Lista::numElem(){
             return contador;
         }
-        // No puede ser atributo, necesita tamaño fijo
-        //std :: array <int, M> miArray;
