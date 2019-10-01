@@ -19,6 +19,7 @@ class Lista_Indexada_Array{
         void intercambiar(int indice1, int indice2);
         int numElem();
     private:
+
         int contador;
         int m;
         int* listaIndexa;
