@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <array>
 #include <iostream>
+#include <limits>
 using namespace std;
 
 class Lista{
