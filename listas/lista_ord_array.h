@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <array>
 #include <iostream>
+#include<limits>
 using namespace std;
 
 class Lista{
@@ -26,7 +27,7 @@ class Lista{
         int anterior(int);
         int numElem();
         void imprimir();
-        void imprimirMenu();
+        void imprimirMenu(Lista *);        
 };
 
 #endif

@@ -10,6 +10,6 @@ using namespace std;
 
 int main (int argc, char* argv[]) {
     Lista * lista = new Lista();
-    lista->imprimirMenu();
+    lista->imprimirMenu(lista);
     return 0; 	
 }
