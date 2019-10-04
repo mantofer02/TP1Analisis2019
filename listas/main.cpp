@@ -66,7 +66,6 @@ switch (option) {
 	
 	default:
 	
-	cout << "picha se mama" << endl; 
 	
 	break; 
 	
