@@ -2,6 +2,7 @@
 #include <sstream>
 using namespace std; 
 
+typedef Posicion* Pos; 
 
 class Posicion {		
 	private: 	

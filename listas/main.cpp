@@ -4,6 +4,7 @@ using namespace std;
 //#include "lista_pos_LDE.h"
 //#include "lista_pos_LSE.h"
 
+
 int main (int argc, char*argv[]) {
 	
 Lista *lista = new Lista(); 

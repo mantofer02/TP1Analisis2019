@@ -5,7 +5,7 @@ using namespace std;
 
 #define length 20;
 
-typedef int Posicion; 
+typedef int Pos; 
 
 class Lista{
 	private: 
