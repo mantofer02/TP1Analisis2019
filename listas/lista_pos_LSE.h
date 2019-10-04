@@ -114,7 +114,6 @@ void Lista::modificarPosicion(int indice, int valor) {
 } 
 
 
-
 int Lista::recuperarPosicion(int indice) {
 	Posicion* temp = traducir(indice);
 	int value = 0; 
@@ -129,58 +128,58 @@ return value;
 } 
 
 
-void Lista::agregarPosicion(int indice, int valor) {					
-	Posicion *temporal;
-	if (indice >= 1) {
-		if (indice <= NumElem()) {						//si se puede agregar a ese indice. 
-			
-			if (indice != 1) {						
-				temporal = traducir(indice); 
-				insertar(temporal, valor); 				//quiero insertar despues de la posicion temporal. 
-			}
-			else {										//quiero agregar al inicio de la lista.
-				 if (primera() != nullptr) {				//si ya existe algo. 
-					Posicion* nueva_posicion = new Posicion(primera(), valor);
-					this->primera_posicion = nueva_posicion;
-					++this->numero_elementos;    
-				 }
-				 else {										//la lista esta vacia. 
-					 Posicion* nueva_posicion = new Posicion(valor);
-					 this->primera_posicion = nueva_posicion; 
-					 ++this->numero_elementos;  
-				 }	
-			}	
-				
-			
-		}
-		else {		 									 //de lo contrario agrega al final. 
-			agregarAlFinal(valor); 
-		}
-		
-	}
-	else {
-			//la posición ingresada no es valida. 
-	}
+void Lista::agregarPosicion(int indice, int valor) {
+	Posicion* temp = traducir(indice);
+	insertar(temp, valor);  	
 }
 
 
 void Lista::insertar(Posicion* posicion, int valor) {
- if (posicion->siguiente() != nullptr) {
+ if (posicion != nullptr) {
+	if (posicion != primera()) {
+		
+	 if (posicion->siguiente() != nullptr) {
 
 	  Posicion* nueva_posicion = new Posicion(posicion->siguiente(), posicion->recuperar()); 
 	  posicion->modificar(valor);
 	  posicion->establecerSiguiente(nueva_posicion);
 	  ++this->numero_elementos; 
    	 
- }
- else {
+	}
+	else {
 	  Posicion* nueva_posicion = new Posicion(posicion->recuperar()); 
 	  posicion->establecerSiguiente(nueva_posicion); 
 	  posicion->modificar(valor); 
 	  this->ultima_posicion = nueva_posicion; 
 	  ++this->numero_elementos; 
+	}
+		
+		
+		
+	} 
+	else {
+		
+		if (primera() != nullptr) {				//si ya existe algo. 
+			Posicion* nueva_posicion = new Posicion(primera(), valor);
+			this->primera_posicion = nueva_posicion;
+			++this->numero_elementos;    
+		}
+		else {										//la lista esta vacia. 
+			Posicion* nueva_posicion = new Posicion(valor);
+			this->primera_posicion = nueva_posicion; 
+			++this->numero_elementos;  
+		}	
+				
+	}
+	 	 
  }
-
+ else {
+	 
+	agregarAlFinal(valor); 
+	 
+ }
+	
+	
 }
 
 
@@ -200,64 +199,57 @@ void Lista::agregarAlFinal(int valor) {
 }
 
 
-void Lista::borrar(Posicion* posicion) {							//se entiende que no es el primero. 
-	if (posicion->siguiente() != nullptr) {
-		
-		if (posicion->siguiente()->siguiente() != nullptr) {		//si no quiero eliminar al ultimo. 
-			Posicion * temporal = posicion->siguiente(); 
-			posicion->establecerSiguiente(temporal->siguiente()); 
-			delete temporal; 	
-			--this->numero_elementos; 				
-		}
-		else {														//quiero eliminar al ultimo. 
-			Posicion* temporal = posicion->siguiente(); 
-			posicion->establecerSiguiente(nullptr);
-			--this->numero_elementos; 
-			delete temporal;  
-			this->ultima_posicion = posicion; 
-			
-		}
-			
-		
-	}
-	else {
-																	// se quiere eliminar algo que no existe. 	
-	}	
-}
-
-
-
 void Lista::borrarPosicion(int indice) {
- if (numero_elementos != 0 && indice > 0) {	
-	
-	if (indice != 1) {
-		Posicion *current_position = traducir(indice-1);		//se quiere llegar a una posicion anterior para borrar.  
-		borrar(current_position); 	
+	Posicion* temp = traducir(indice);
+	borrar(temp);  
+}
+
+
+void Lista::borrar(Posicion* posicion) {
+	if (this->numero_elementos != 0 && posicion != nullptr) {
+		
+		if (posicion != primera()) {
+			
+			Posicion* position = primera(); 
+			while (position->siguiente() != posicion) {
+				position = position->siguiente(); 
+			}
+			
+			if (position->siguiente()->siguiente() != nullptr) {		//si no quiero eliminar al ultimo. 
+				Posicion * temporal = position->siguiente(); 
+				position->establecerSiguiente(temporal->siguiente()); 
+				delete temporal; 	
+				--this->numero_elementos; 				
+			}
+			else {														//quiero eliminar al ultimo. 
+				Posicion* temporal = posicion->siguiente(); 
+				posicion->establecerSiguiente(nullptr);
+				--this->numero_elementos; 
+				delete temporal;  
+				this->ultima_posicion = posicion; 		
+			}
+					
+		}
+		else {		
+			Posicion* temp = primera(); 
+			
+			if (temp->siguiente() != nullptr) {
+				this->primera_posicion = temp->siguiente(); 
+				delete temp; 
+				--this->numero_elementos; 
+			}
+			else {			
+				this->primera_posicion = nullptr; 
+				this->ultima_posicion = nullptr; 
+				this->numero_elementos = 0; 
+				delete temp;
+				
+			}					
+		}				
 	}
 	else {
-				
-		Posicion* temp = primera(); 
-		
-		if (temp->siguiente() != nullptr) {
-			this->primera_posicion = temp->siguiente(); 
-			delete temp; 
-			--this->numero_elementos; 
-		}
-		else {			
-			this->primera_posicion = nullptr; 
-			this->ultima_posicion = nullptr; 
-			this->numero_elementos = 0; 
-			delete temp;
-			
-		}
-		
-
-	}
-
-}
-else {
-			// la lista esta vacia ó el indice ingresado no es valido. 
-}	
+		//no hay nada que borrar. 
+	}	
 }
 
 
