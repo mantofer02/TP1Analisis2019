@@ -1,8 +1,8 @@
 #include <iostream>
 using namespace std; 
-//#include "lista_pos_Arreglo.h"
+#include "lista_pos_Arreglo.h"
 //#include "lista_pos_LDE.h"
-#include "lista_pos_LSE.h"
+//#include "lista_pos_LSE.h"
 
 
 void insertarPosicion(int indice, int valor, Lista* lista); 
@@ -13,6 +13,23 @@ int siguientePosicion(int indice, Lista* lista);
 int anteriorPosicion(int indice, Lista* lista); 
 int primeraPosicion(Lista* lista); 
 int ultimaPosicion(Lista* lista); 
+void iniciarLista(Lista* lista); 
+void vaciarLista(Lista* lista); 
+void destruirLista(Lista* lista); 
+
+
+
+void iniciarLista(Lista* lista) {
+	lista->iniciar(); 
+}
+
+void vaciarLista(Lista* lista) {
+	lista->vaciar(); 
+}
+
+void destruirLista(Lista* lista) {
+	lista->destruir(); 
+}
 
 
 int primeraPosicion(Lista* lista) {
@@ -106,7 +123,7 @@ bool end = false;
 
 do {
 	
-cout << "1) Agregar Elemento \n 2) Borrar Elemento \n 3) Modificar Elemento \n 4) Recuperar Elemento \n 5) Siguiente Elemento \n 6) Anterior Elemento \n 7) Primer Elemento \n 8) Ultimo Elemento" << endl; 
+cout << "1) Agregar Elemento \n 2) Borrar Elemento \n 3) Modificar Elemento \n 4) Recuperar Elemento \n 5) Siguiente Elemento \n 6) Anterior Elemento \n 7) Primer Elemento \n 8) Ultimo Elemento \n 9) Iniciar Lista \n 10) Vaciar Lista \n 11) Destruir Lista" << endl; 
 cin >>option; 
 
 
@@ -184,6 +201,28 @@ switch (option) {
 		cout << "Ultimo : " <<  ultimaPosicion(lista) << endl; 
 	
 	break; 
+	
+	
+	case 9: 
+	
+		iniciarLista(lista); 
+	
+	break; 
+	
+	
+	case 10: 
+	
+		vaciarLista(lista); 
+		
+	break; 
+	
+	
+	case 11: 
+	
+		destruirLista(lista); 
+
+	break; 
+	
 	
 	default:
 	
