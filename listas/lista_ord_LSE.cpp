@@ -44,6 +44,12 @@ void Lista::agregar(int elemento){
     if(!vacia()){
         Elemento * temp = primeraPosicion;
         int agregue = 0;  
+        if(temp && temp->elemento > nuevo->elemento){
+            nuevo->siguiente = temp;
+            primeraPosicion = nuevo;
+            agregue=1;    
+            cout << "Se agrega el elemento "<< elemento << " con exito.\n";          
+        }
         while(temp!=nullptr && !agregue){
             if(temp->elemento == elemento){
                 cout << "El elemento "<< elemento <<" ya esta en la lista.\n"<< endl;
@@ -57,6 +63,7 @@ void Lista::agregar(int elemento){
                         nuevo->siguiente = temp->siguiente;
                         temp->siguiente = nuevo;
                         agregue = 1;
+                        cout << "Se agrega el elemento "<< elemento << " con exito.\n";
                     }
                     else{
                         temp = temp->siguiente;
@@ -70,6 +77,7 @@ void Lista::agregar(int elemento){
         if(!agregue){
             ultimaPosicion->siguiente = nuevo;
             ultimaPosicion = nuevo;
+            cout << "Se agrega el elemento "<< elemento << " con exito.\n";
         }
     }
     else{
@@ -218,7 +226,7 @@ void Lista::Elemento::imprimir(){
 }
 
 void Lista::imprimirMenu(Lista * lista){
-    cout << "Bienvenido al programa de prueba de la lista ordenada implementada a través de un array. Digite los dígitos correspondientes a los operadores básicos que desea usar:\n" << endl;
+    cout << "Bienvenido al programa de prueba de la lista ordenada implementada a través de una lista simplemente enlazada. Digite los dígitos correspondientes a los operadores básicos que desea usar:\n" << endl;
     cout << "1. Iniciar.\n2. Destruir.\n3. Vaciar.\n4. Vacia.\n5. Agregar.\n6. Borrar.\n7. Primero.\n8. Ultimo.\n9. Siguiente.\n10. Anterior.\n11. NumElem\n12. Imprimir.\n13. Salir." << endl;
     int decision = 0;
     if(!(cin >> decision)){
