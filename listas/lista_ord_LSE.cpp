@@ -20,14 +20,26 @@ Lista::~Lista(){
     tamanoMaximo = 0;
 }
 
+//Iniciar(L)
+//Efecto: Este operador asigna e inicializa la Lista Ordenada que se va a usar.
+//Requiere: Que la lista no haya sido inicializada anteriormente.
+//Modifica: Los espacios de memoria que la Lista va utilizar (Si es estática, no se necesitan más espacios de memoria para el manejo de la lista).
 void Lista::iniciar(){
     cout << "La lista ha sido inicializada con exito.\n"<< endl;                    
 }
 
+//Destruir(L)
+//Efecto: Este operador libera los espacios y usos de memoria utilizados por la lista, además de sus elementos..
+//Requiere: Para este operador se requiere que la Lista L haya sido inicializada
+//Modifica: Modifica la misma lista haciéndola inutilizable. Además se modifica la memoria, liberando sus espacios en donde se tenía un uso asignado para la lista.
 void Lista::destruir(){
     delete this;
 }
 
+//Vaciar(L)
+//Efecto: Vacía la lista sacando todos los elementos de la lista. Como es una lista Ordenada solo quedan las celdas vacías.
+//Requiere: Que una lista L haya sido inicializada anteriormente y este activa.
+//Modifica: La lista en sí, sacando los elementos de la lista. Puede ser que no elimine los elementos, queda a discreción de la implementación.
 void Lista::vaciar(){
     delete  primeraPosicion;
     this->primeraPosicion = 0;
@@ -35,10 +47,22 @@ void Lista::vaciar(){
     numeroElementos = 0;
 }
 
+
+//Vacía(L) → Bool
+//Efecto : Retorna un booleano indicando si la lista está vacía o no.
+//Requiere: Una lista inicializada.
+//Modifica: Este operador no modifica nada.
 int Lista::vacia(){
     return primeraPosicion == 0;
 }
 
+//Agregar(L, e)
+//Efecto: Agrega el elemento e a la lista L. Como es una Lista Ordenada, la lista esta ordenada ascendentemente. Se busca la primera celda vacía que encuentra y 
+//esa es la posición en la cual el elemento va a ser insertado. Se podría implementar una lista en la cual la misma estructura tiene implementada el sistema de
+//ordenamiento, entonces no sería un agregado secuencial, sin embargo ya seria una lista ordenada de uso específico. Pero, por defecto y convenio se espera que 
+//cuando se agreguen los elementos vayan en orden ascendente y el usuario es quien tiene la responsabilidad de eso.
+//Requiere: Este operador requiere una lista L ya inicializada un un elemento e, el cual no es vacío.
+//Modifica: Este operador modifica la lista, incrementando su cantidad de elementos + 1.
 void Lista::agregar(int elemento){
     Elemento * nuevo = new Elemento(elemento);
     if(!vacia()){
@@ -88,6 +112,12 @@ void Lista::agregar(int elemento){
     numeroElementos++;
 }
 
+
+//Borrar(e)
+//Efecto: Este operador recorre toda la lista en busca del elemento e. Si este elemento existe lo borra de la lista. Si hay elementos a la derecha del elemento
+//que se quiso borrar, todos son desplazados una posición para hacer la lista continua, además de respetar el criterio de ordenamiento.
+//Requiere: Este operador requiere que e no sea un valor vacío. No es un requisito pero es preferible que e fuera un elemento que se sabe que está en la lista.
+//Modifica: Este operador modifica al elemento e, borrandolo de la lista. Además modifica la lista reduciendo su cantidad de elementos por 1.
 void Lista::borrar(int elemento){
     if(!vacia()){
         Elemento * temp = primeraPosicion;
@@ -121,6 +151,11 @@ void Lista::borrar(int elemento){
     }
 }
 
+//Primero(L) → e
+//Efecto: Este operador devuelve , si existe, el primer elemento de la Lista Ordenada. Como la lista está ordenada ascendentemente el elemento que devuelva va a
+//ser el del valor más bajo.
+//Requiere: Una lista L inicializada.
+//Modifica: Este operador no modifica nada dentro de la lista.
 int Lista::primero(){
     int resultado = -1;
     if (primeraPosicion){
@@ -132,6 +167,11 @@ int Lista::primero(){
     return resultado;
 }
 
+//Último(L) → e
+//Efecto: Este operador devuelve , si existe, el último elemento de la Lista Ordenada. Como la lista está ordenada ascendentemente el elemento que devuelva va a
+//ser el del valor más alto.
+//Requiere: Una lista L inicializada.
+//Modifica: Este operador no modifica nada dentro de la lista.
 int Lista::ultimo(){
     int resultado = -1;
     if (ultimaPosicion){
@@ -143,6 +183,11 @@ int Lista::ultimo(){
     return resultado;
 }
 
+//Siguiente(e) → eSiguiente
+//Efecto : Este operador devuelve , si existe, el elemento que está siguiente a e. Como la lista está ordenada ascendentemente el elemento que devuelva va a tener
+//un valor mayor a e.
+//Requiere: Una lista L inicializada.
+//Modifica : Este operador no modifica nada dentro de la lista.
 int Lista::siguiente(int elemento){
     Elemento * temp = primeraPosicion;
     int resultado = 0;
@@ -174,6 +219,11 @@ int Lista::siguiente(int elemento){
     return resultado;
 }
 
+//Anterior(e) → eAnterior
+//Efecto: Este operador devuelve , si existe, el elemento que está anterior a e. Como la lista está ordenada ascendentemente el elemento que devuelva va a tener
+//un valor menor a e.
+//Requiere: Una lista L inicializada Además, es preferible que e no sea el primer elemento de la lista.
+//Modifica: Este operador no modifica nada dentro de la lista.
 int Lista::anterior(int elemento){
     Elemento * temp = primeraPosicion;
     int resultado = 0;
@@ -205,6 +255,11 @@ int Lista::anterior(int elemento){
     return resultado;
 }
 
+//NumElem(L) → número
+//Efecto: Este operador cuenta la cantidad de elementos de la lista y devuelve un número que indica la cantidad de elementos que se encuentran en la lista.
+//Requiere: Este operador requiere una lista L inicializada.
+//Modifica: Este operador modifica al número que va a devolver. Si se quisiera como opción de diseño, se podría implementar un contador de elementos que
+//incremente cada vez que se agrega algo. Si así fuera el caso no se modificaría nada.
 int Lista::numElem(){
     return numeroElementos;
 }
