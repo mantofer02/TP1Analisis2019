@@ -179,7 +179,7 @@ void Lista::imprimirMenu(Lista * lista){
         imprimirMenu(lista);
     }
     else{
-        if(0 < decision || 14 < decision){
+        if(0 < decision || 14 > decision){
             if(decision == 1){
                 decision = 0;
                 cout << "Ingrese un valor valido para M (tamano maximo de la lista)" << endl;
@@ -191,6 +191,7 @@ void Lista::imprimirMenu(Lista * lista){
                 }
                 if(decision>0){
                     lista->iniciar(decision);
+                    decision=0;
                     imprimirMenu(lista);
                 }  
                 else{
@@ -234,6 +235,7 @@ void Lista::imprimirMenu(Lista * lista){
                     imprimirMenu(lista);
                 }
                 lista->agregar(decision);
+                decision=0;
                 imprimirMenu(lista); 
             }
             if(decision == 6){
@@ -246,6 +248,7 @@ void Lista::imprimirMenu(Lista * lista){
                     imprimirMenu(lista);
                 }
                 lista->borrar(decision);
+                decision=0;
                 imprimirMenu(lista);
             }
             if(decision == 7){
@@ -275,6 +278,7 @@ void Lista::imprimirMenu(Lista * lista){
                 if(resultado != -1){
                     cout << "El elemento siguiente a "<< decision <<" es " << resultado << ".\n"<< endl;
                 }
+                decision=0;
                 lista->imprimirMenu(lista);
             }
             if(decision == 10){
@@ -290,11 +294,13 @@ void Lista::imprimirMenu(Lista * lista){
                 if(resultado != -1){
                     cout << "El elemento anterior a "<< decision <<" es " << resultado << ".\n"<< endl;
                 }
+                decision=0;
                 lista->imprimirMenu(lista);
             }
             if(decision == 11){
                 decision = lista->numElem(); 
                 cout << "El numero de elementos de la lista es " <<decision<<".\n"<< endl ;
+                decision=0;
                 lista->imprimirMenu(lista);
             }
             if(decision == 12){
