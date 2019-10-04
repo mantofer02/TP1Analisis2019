@@ -129,8 +129,6 @@ void Lista :: imprimirLista(){
 }
 
 Lista :: Celda :: ~Celda(){
-    if(this->siguiente){
+    if(this->siguiente)
         delete this->siguiente;
-        delete this;
-    }
 }
