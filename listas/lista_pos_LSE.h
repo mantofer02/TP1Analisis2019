@@ -128,7 +128,8 @@ int Lista::recuperarPosicion(int indice) {
 return value; 
 } 
 
-void Lista::agregarPosicion(int indice, int valor) {				
+
+void Lista::agregarPosicion(int indice, int valor) {					
 	Posicion *temporal;
 	if (indice >= 1) {
 		if (indice <= NumElem()) {						//si se puede agregar a ese indice. 
@@ -273,10 +274,9 @@ Posicion* Lista::traducir(int indice) {
 			temp = temp->siguiente(); 
 			++indice_actual; 
 		}
-		return temp; 	
 	
 	}
-
+return temp; 
 }
 
 string Lista::imprimirLista() {

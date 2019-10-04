@@ -3,6 +3,10 @@
 using namespace std; 
 
 
+#define length 20;
+
+typedef int Posicion; 
+
 class Lista{
 	private: 
 		int* lista; 
@@ -11,7 +15,7 @@ class Lista{
 		
 	public: 
 		Lista(); 
-		void iniciar(int longitud); 					//O.B
+		void iniciar(); 								//O.B
 		void destruir(); 								//0.B
 		bool vacia(); 									//O.B
 		void vaciar(); 									//O.B
@@ -37,8 +41,8 @@ Lista::Lista() {
 	
 }
 
-void Lista::iniciar(int longitud) {			//hay que cononcer M.
- this->longitud = longitud;  
+void Lista::iniciar() {			//hay que cononcer M.
+ this->longitud = length;  
  this->lista = (int*)calloc(longitud, sizeof(int)); 
  this->numero_elementos = 0; 	
 }
@@ -67,13 +71,13 @@ void Lista::agregarAlFinal(int valor) {
 }
 
 
-void modificarPosicion(int indice, int valor) {
+void Lista::modificarPosicion(int indice, int valor) {
 	int position = traducir(indice);
 	modificar(position, valor);  
 }
 
 
-int recuperarPosicion(int indice) {
+int Lista::recuperarPosicion(int indice) {
 	int position = traducir(indice);
 	int value = 0; 
 	if (position != -1) {
@@ -89,7 +93,7 @@ int Lista::traducir(int posicion) {
 	return posicion-1; 	
 } 
 
-int Lista::recuperar(int posicion) {		//requiere que la posicion exista. 		
+int Lista::recuperar(int posicion) {					//requiere que la posicion exista. 		
 	return this->lista[posicion]; 	
 } 
 
