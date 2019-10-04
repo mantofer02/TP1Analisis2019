@@ -19,8 +19,9 @@ class Lista{
         void modificarElemento(int, int);
         void intercambiar(int indice1, int indice2);
         int numElem();
+        void imprimirLista();
+    
     private:
-
         int contador;
         int m;
         int* listaIndexa;

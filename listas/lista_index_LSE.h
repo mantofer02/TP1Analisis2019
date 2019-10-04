@@ -11,9 +11,6 @@ class Lista{
     private:
         struct Celda{
             Celda(int indice);
-            // void setElemento(int elemento);
-            // int getElemento();
-            // int getIndice();
             int indice;
             int elemento;
             Celda* siguiente;

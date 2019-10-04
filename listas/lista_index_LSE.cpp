@@ -11,7 +11,9 @@ void Lista::iniciar(int m){
     for(int i = 0; i < m; i++){
         crearCelda(i);
     }
-}
+} // void setElemento(int elemento);
+            // int getElemento();
+            // int getIndice();
 
 void Lista::crearCelda(int indice){
     if(!inicio){
@@ -122,7 +124,11 @@ void Lista :: imprimirLista(){
     if(inicio){
         Celda* actual = inicio;
         while(actual){
-            std::cout << "Indice : " << actual->indice << " Elemento : " <<actual->elemento << std:: endl;
+            if(actual->indice == elemntoNulo){
+                std::cout << "Indice : " << actual->indice << " Sin Elemento" << std:: endl;
+            }else{
+                std::cout << "Indice : " << actual->indice << " Elemento : " <<actual->elemento << std:: endl;
+                }
             actual = actual->siguiente;
         }
     }
