@@ -1,8 +1,8 @@
 #include <iostream>
 using namespace std; 
 //#include "lista_pos_Arreglo.h"
-#include "lista_pos_LDE.h"
-//#include "lista_pos_LSE.h"
+//#include "lista_pos_LDE.h"
+#include "lista_pos_LSE.h"
 
 
 void insertarPosicion(int indice, int valor, Lista* lista); 
@@ -13,7 +13,6 @@ int siguientePosicion(int indice, Lista* lista);
 int anteriorPosicion(int indice, Lista* lista); 
 int primeraPosicion(Lista* lista); 
 int ultimaPosicion(Lista* lista); 
-
 
 
 int primeraPosicion(Lista* lista) {
