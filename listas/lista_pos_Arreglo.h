@@ -22,12 +22,14 @@ class Lista{
 		void vaciar(); 									//O.B
 		int primera(); 									//O.B
 		int NumElem(); 									//0.B
+		int ultima(); 									//0.B
 		int recuperar(int posicion); 					//O.B
 		void modificar(int posicion, int valor); 		//O.B
 		int siguiente(int posicion); 					//O.B
 		void insertar(int posicion, int valor); 		//O.B	
 		void agregarAlFinal(int valor); 				//O.B
 		void borrar(int posicion); 						//O.B
+		int anterior(int posicion); 					//O.B
 		int traducir(int posicion); 					//Algoritmo.		//traduce el indice del usuario al indice de la lista. osea de 1 a 0 o de 2 a 1. 							
 		string imprimirLista(); 
 }; 
@@ -61,6 +63,11 @@ int Lista::primera() {
  return 0; 	
 }
 
+
+int Lista::ultima() {
+	return this->numero_elementos-1; 
+}
+
 void Lista::agregarAlFinal(int valor) {
 	this->lista[numero_elementos] = valor; 
 	++this->numero_elementos; 
@@ -89,6 +96,15 @@ int Lista::siguiente(int posicion) {
 	 else {
 		 return -1; 									//si retorna -1. esa posicion no es valida, no tiene siguiente. 
 	 }	
+}
+
+int Lista::anterior(int posicion) {
+	if (posicion < this->numero_elementos && posicion-1 >= 0) {
+		return posicion-1; 
+	}
+	else {
+		return -1; 
+	}
 }
 
 

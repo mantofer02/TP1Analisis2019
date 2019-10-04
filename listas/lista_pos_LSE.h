@@ -31,6 +31,7 @@ class Lista {
 		Lista();
 		void iniciar(); 										//O.B
 		Posicion* siguiente(Posicion* posicion); 				//O.B
+		Posicion* anterior(Posicion* posicion);					//0.B 
 		void modificar(Posicion* posicion, int valor); 			//O.B
 		int recuperar(Posicion* posicion);						//O.B 										
 		void insertar(Posicion* posicion, int valor); 			//O.B
@@ -55,6 +56,23 @@ void Lista::iniciar(){
 	primera_posicion = nullptr; 
 	ultima_posicion = nullptr; 
 }
+
+
+Posicion* Lista::anterior(Posicion* posicion) {
+	Posicion* temporal = nullptr; 
+	
+	if (posicion != nullptr) {
+	
+		temporal = primera(); 
+		while (temporal->siguiente() != posicion) {
+			temporal = temporal->siguiente(); 
+		}
+	
+	}
+	
+	return temporal; 	
+}
+
 
 bool Lista::vacia() {
 	return (this->numero_elementos == 0); 

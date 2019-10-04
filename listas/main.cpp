@@ -1,14 +1,66 @@
 #include <iostream>
 using namespace std; 
 //#include "lista_pos_Arreglo.h"
-//#include "lista_pos_LDE.h"
-#include "lista_pos_LSE.h"
+#include "lista_pos_LDE.h"
+//#include "lista_pos_LSE.h"
 
 
 void insertarPosicion(int indice, int valor, Lista* lista); 
 void borrarPosicion(int indice, Lista* lista); 						 
 void modificarPosicion(int indice, int valor, Lista* lista);			
-int recuperarPosicion(int indice, Lista* lista);			
+int recuperarPosicion(int indice, Lista* lista);	
+int siguientePosicion(int indice, Lista* lista); 		
+int anteriorPosicion(int indice, Lista* lista); 
+int primeraPosicion(Lista* lista); 
+int ultimaPosicion(Lista* lista); 
+
+
+
+int primeraPosicion(Lista* lista) {
+	
+	Pos primera = lista->primera(); 
+	int pos = 0; 
+	
+	if (primera != PosNula) {
+		pos = lista->recuperar(primera); 
+	}
+	return pos; 
+}
+
+
+int ultimaPosicion(Lista* lista) {
+	Pos ultima = lista->ultima(); 
+	int pos = 0; 
+	if (ultima != PosNula) {
+		pos = lista->recuperar(ultima); 
+	}
+	return pos; 
+}
+
+
+
+int anteriorPosicion(int indice, Lista* lista) {
+	Pos temporal = lista->traducir(indice);
+	Pos before_one = lista->anterior(temporal);
+	int value = 0; 
+	if (before_one != PosNula) {
+		value = lista->recuperar(before_one); 
+	} 
+	return value;  
+}
+
+
+int siguientePosicion(int indice, Lista* lista) {	
+	Pos temporal = lista->traducir(indice);
+	Pos next_one = lista->siguiente(temporal);
+	int value = 0; 
+	if (next_one != PosNula) {
+		value = lista->recuperar(next_one); 
+	} 
+	 
+	return value; 
+}
+
 
 
 void insertarPosicion(int indice, int valor, Lista* lista) {
@@ -55,7 +107,7 @@ bool end = false;
 
 do {
 	
-cout << "1) Agregar Elemento \n 2) Borrar Elemento \n 3) Modificar Elemento \n 4) Recuperar Elemento" << endl; 
+cout << "1) Agregar Elemento \n 2) Borrar Elemento \n 3) Modificar Elemento \n 4) Recuperar Elemento \n 5) Siguiente Elemento \n 6) Anterior Elemento \n 7) Primer Elemento \n 8) Ultimo Elemento" << endl; 
 cin >>option; 
 
 
@@ -103,6 +155,36 @@ switch (option) {
 	
 	break; 
 	
+	
+	case 5: 
+		cout << "Posicion : "; 
+		cin >>position; 
+		cout << "siguiente : " << siguientePosicion(position, lista) << endl; 
+	
+	break; 
+	
+	case 6: 
+	
+		cout << "Posicion :"; 
+		cin >>position; 
+		cout << "Anterior : " << anteriorPosicion(position, lista) << endl; 
+	
+	break; 
+	
+	
+	case 7: 
+	
+		cout << "Primero : " <<  primeraPosicion(lista) << endl; 
+	
+	
+	break; 
+	
+	
+	case 8: 
+		
+		cout << "Ultimo : " <<  ultimaPosicion(lista) << endl; 
+	
+	break; 
 	
 	default:
 	
