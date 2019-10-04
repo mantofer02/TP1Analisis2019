@@ -30,7 +30,7 @@ class Lista{
     public:
         Lista();
         ~Lista();
-        void iniciar(int);
+        void iniciar();
         void destruir();
         void vaciar();
         int vacia();

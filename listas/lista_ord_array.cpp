@@ -21,9 +21,9 @@ void Lista::destruir(){
 }
 
 void Lista::vaciar(){
-    for(int i=0;i<numeroElementos;i++){
-        array[i] = 0;    
-    }
+    delete array;
+    array = new int[tamanoMaximo];
+    numeroElementos = 0;
     cout <<"La lista ha sido vaciada con exito.\n"<< endl;
 }
 
@@ -35,6 +35,12 @@ void Lista::agregar(int elemento){
     if(!(this->tamanoMaximo==numeroElementos)){
         int agregue = 0;
         for(int i=0;i<=numeroElementos && !agregue;i++){
+            if(array[i] == elemento){
+                i = numeroElementos;
+                agregue=1;
+                numeroElementos--;
+                cout << "El elemento "<< elemento << " ya esta en la lista.\n"<< endl;                
+            }
             if(elemento<array[i]){
                 for(int k = numeroElementos;k>i;k--){
                     array[k] = array[k-1];
@@ -58,7 +64,7 @@ void Lista::agregar(int elemento){
 void Lista::borrar(int elemento){
     if(!vacia()){
         int encontre = 0;
-        for(int i=0;i<=numeroElementos && encontre;i++){
+        for(int i=0;i<=numeroElementos && !encontre;i++){
             if(elemento == array[i]){
                 encontre = 1;
                 cout << "Se borra el elemento "<<elemento<<" con exito.\n"<< endl;
@@ -155,7 +161,9 @@ int Lista::numElem(){
 void Lista::imprimir(){
     cout << "{"; 
     for(int i=0;i<numeroElementos;i++){
-        cout << array[i] << " ";   
+        if(array[i]!=0){
+            cout << array[i] << " ";   
+        }   
     }
     cout << "}"<< endl;
 }

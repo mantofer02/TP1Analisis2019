@@ -20,8 +20,8 @@ Lista::~Lista(){
     tamanoMaximo = 0;
 }
 
-void Lista::iniciar(int tamanoMaximo){
-    this->tamanoMaximo = tamanoMaximo;
+void Lista::iniciar(){
+    cout << "La lista ha sido inicializada con exito.\n"<< endl;                    
 }
 
 void Lista::destruir(){
@@ -32,6 +32,7 @@ void Lista::vaciar(){
     delete  primeraPosicion;
     this->primeraPosicion = 0;
     this->ultimaPosicion = 0;
+    numeroElementos = 0;
 }
 
 int Lista::vacia(){
@@ -44,18 +45,26 @@ void Lista::agregar(int elemento){
         Elemento * temp = primeraPosicion;
         int agregue = 0;  
         while(temp!=nullptr && !agregue){
-            if(temp->siguiente){
-                if(temp->siguiente->elemento > nuevo->elemento){
-                    nuevo->siguiente = temp->siguiente;
-                    temp->siguiente = nuevo;
-                    agregue = 1;
-                }
-                else{
-                temp = temp->siguiente;
-                }
+            if(temp->elemento == elemento){
+                cout << "El elemento "<< elemento <<" ya esta en la lista.\n"<< endl;
+                agregue = 1;
+                temp=nullptr;
+                numeroElementos--;
             }
             else{
-                temp = temp->siguiente;
+                if(temp->siguiente){
+                    if(temp->siguiente->elemento > nuevo->elemento){
+                        nuevo->siguiente = temp->siguiente;
+                        temp->siguiente = nuevo;
+                        agregue = 1;
+                    }
+                    else{
+                        temp = temp->siguiente;
+                    }
+                }
+                else{
+                    temp = temp->siguiente;
+                }
             }
         }
         if(!agregue){
@@ -121,7 +130,7 @@ int Lista::ultimo(){
         resultado = ultimaPosicion->elemento;
     }
     else{
-        cout << "La lista esta vacia, por lo que no se puede devolver un primer elemento.\n";
+        cout << "La lista esta vacia, por lo que no se puede devolver un ultimo elemento.\n";
     }
     return resultado;
 }
@@ -129,24 +138,30 @@ int Lista::ultimo(){
 int Lista::siguiente(int elemento){
     Elemento * temp = primeraPosicion;
     int resultado = 0;
-    if(ultimaPosicion->elemento == elemento){
-        resultado = -1;
-        cout << "El elemento deseado es el ultimo de la lista.\n";
+    if(temp){
+        if(ultimaPosicion->elemento == elemento){
+            resultado = -1;
+            cout << "El elemento deseado es el ultimo de la lista.\n";
+        }
+        else{
+            int encontre = 0;
+            while(temp!=nullptr && !encontre){
+                if(temp->elemento == elemento){
+                    resultado = temp->siguiente->elemento;
+                    encontre = 1;
+                }
+                else{
+                    temp = temp->siguiente;
+                }
+            }
+            if(!encontre){
+                cout << "El elemento deseado no esta en la lista\n";
+            }
+        }
     }
     else{
-        int encontre = 0;
-        while(temp!=nullptr && !encontre){
-            if(temp->elemento == elemento){
-                resultado = temp->siguiente->elemento;
-                encontre = 1;
-            }
-            else{
-                temp = temp->siguiente;
-            }
-        }
-        if(!encontre){
-            cout << "El elemento deseado no esta en la lista\n";
-        }
+        resultado = -1;
+        cout <<"La lista esta vacia.\n"<< endl;
     }
     return resultado;
 }
@@ -154,25 +169,31 @@ int Lista::siguiente(int elemento){
 int Lista::anterior(int elemento){
     Elemento * temp = primeraPosicion;
     int resultado = 0;
-    if(temp->elemento == elemento){
-        resultado = -1;
-        cout << "El elemento deseado es el primero de la lista.\n";
+    if(temp){
+        if(temp->elemento == elemento){
+            resultado = -1;
+            cout << "El elemento deseado es el primero de la lista.\n";
+        }
+        else{
+            int encontre = 0;
+            while(temp!=nullptr && !encontre){
+                if(temp->siguiente->elemento == elemento){
+                    resultado = temp->elemento;
+                    encontre = 1;
+                }
+                else{
+                    temp = temp->siguiente;
+                }
+            }
+            if(!encontre){
+                cout << "El elemento deseado no esta en la lista\n";
+            }
+        }
     }
     else{
-        int encontre = 0;
-        while(temp!=nullptr && !encontre){
-            if(temp->siguiente->elemento == elemento){
-                resultado = temp->elemento;
-                encontre = 1;
-            }
-            else{
-                temp = temp->siguiente;
-            }
-        }
-        if(!encontre){
-            cout << "El elemento deseado no esta en la lista\n";
-        }
-    }
+        resultado = -1;
+        cout <<"La lista esta vacia.\n"<< endl;
+    }    
     return resultado;
 }
 
@@ -209,22 +230,8 @@ void Lista::imprimirMenu(Lista * lista){
     else{
         if(0 < decision || 14 < decision){
             if(decision == 1){
-                decision = 0;
-                cout << "Ingrese un valor valido para M (tamano maximo de la lista)" << endl;
-                if(!(cin >> decision)){
-                    cin.clear();
-                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                    cout << "El valor que introdujo no es valido. Por favor intente de nuevo." << endl;
-                    imprimirMenu(lista);
-                }
-                if(decision>0){
-                    lista->iniciar(decision);
-                    imprimirMenu(lista);
-                }  
-                else{
-                    cout << "El valor que introdujo no es valido. Por favor intente de nuevo." << endl;
-                    imprimirMenu(lista);
-                }
+                lista->iniciar();
+                imprimirMenu(lista);
             }
             if(decision == 2){
                 cout << "CUIDADO! Si destruye la lista, debera reiniciar el programa. Esta seguro?\n1. Si.\n2. No.\n" << endl; 
