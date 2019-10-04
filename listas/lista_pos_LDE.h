@@ -3,7 +3,8 @@
 using namespace std; 
 
 
-typedef Posicion* Pos; 
+
+#define PosNula nullptr
 
 
 class Posicion {
@@ -26,6 +27,7 @@ void establecerSiguiente(Posicion* siguiente) {this->sucesor = siguiente; }
 void establecerAnterior(Posicion* anterior) {this->antecesor = anterior; } 	
 };
 
+typedef Posicion* Pos; 
 
 class Lista {
 	
@@ -52,11 +54,7 @@ Posicion* anterior(Posicion* posicion); 				//O.B
 void modificar(Posicion* posicion, int valor); 			//O.B
 int recuperar(Posicion* posicion);						//O.B 
 Posicion* traducir(int indice);							//Algoritmo
-void agregarPosicion(int indice, int valor); 			//Algoritmo. //convierte el indice que manda el usuario final a una posicion, para despues insertar
-void borrarPosicion(int indice); 						//Algoritmo. //parecido a AgregarPosicion e insertar. 
-void modificarPosicion(int indice, int valor);			//Algoritmo. 
-int recuperarPosicion(int indice, int valor);			//Algoritmo.  
-string imprimirLista(); 								//Algoritmo. para probar la lista. 
+string imprimirLista(); 								//Algoritmo. 
 string imprimirListaRevez();  							//Algoritmo.
 };
 
@@ -137,39 +135,6 @@ Posicion* Lista::ultima() {
 }
 
 
-
-void Lista::modificarPosicion(int indice, int valor) {
-	Posicion* posicion = traducir(indice); 
-	if (posicion != nullptr) {
-		posicion->modificar(valor); 
-	}
-	else {
-		//la posición que se quiere modificar no existe. 
-	}	
-}
-	
-
-int Lista::recuperarPosicion(int indice, int valor) {
-	Posicion* posicion = traducir(indice);	
-	int value = 0; 
-	if (posicion != nullptr) {
-		value = posicion->recuperar(); 
-	}
-	else {
-		//la posición de la que se quiere recuperar no existe. 
-	} 
-	
-return value; 
-}		
-
-
-void Lista::agregarPosicion(int indice, int valor) {
-	Posicion* temporal = traducir(indice); 
-	insertar(temporal, valor); 
-}
-
-
-
 void Lista::insertar(Posicion* posicion, int valor) {
 	
 	if (posicion != nullptr) {
@@ -214,7 +179,7 @@ void Lista::insertar(Posicion* posicion, int valor) {
 	}
 	
 	else {
-		//la posicion ingresada no es valida. 	
+		agregarAlFinal(valor); 	
 	}
 		
 }
@@ -281,12 +246,6 @@ void Lista::borrar(Posicion* posicion) {
 	}
 		
 }
-
-void Lista::borrarPosicion(int indice) {
-	Posicion* temporal = traducir(indice);
-	borrar(temporal);  	
-}
-
 
 string Lista::imprimirLista() {
 stringstream ss; 

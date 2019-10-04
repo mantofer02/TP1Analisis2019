@@ -1,8 +1,44 @@
 #include <iostream>
 using namespace std; 
-#include "lista_pos_Arreglo.h"
+//#include "lista_pos_Arreglo.h"
 //#include "lista_pos_LDE.h"
-//#include "lista_pos_LSE.h"
+#include "lista_pos_LSE.h"
+
+
+void insertarPosicion(int indice, int valor, Lista* lista); 
+void borrarPosicion(int indice, Lista* lista); 						 
+void modificarPosicion(int indice, int valor, Lista* lista);			
+int recuperarPosicion(int indice, Lista* lista);			
+
+
+void insertarPosicion(int indice, int valor, Lista* lista) {
+	Pos temporal = lista->traducir(indice);
+	lista->insertar(temporal, valor);  	
+}
+
+
+void borrarPosicion(int indice, Lista* lista) {
+	Pos temporal = lista->traducir(indice);
+	lista->borrar(temporal);  
+}
+
+
+void modificarPosicion(int indice, int valor, Lista* lista) {
+	Pos temporal = lista->traducir(indice);
+	if (temporal != PosNula) {
+		lista->modificar(temporal, valor); 
+	} 
+}
+
+
+int recuperarPosicion(int indice, Lista* lista) {
+	int value = 0; 
+	Pos temporal = lista->traducir(indice);
+	if (temporal != PosNula) {
+		value = lista->recuperar(temporal); 
+	}
+	return value;  	
+}
 
 
 int main (int argc, char*argv[]) {
@@ -32,7 +68,8 @@ switch (option) {
 		cout << "Valor : "; 
 		cin >> value; 
 		
-		lista->agregarPosicion(position, value); 
+		insertarPosicion(position, value, lista); 
+		
 		cout << lista->imprimirLista() << endl; 
 	break; 
 	
@@ -42,7 +79,8 @@ switch (option) {
 	
 		cout << "Posicicon : "; 
 		cin >> position; 
-		lista->borrarPosicion(position); 
+		
+		borrarPosicion(position, lista); 	
 		cout << lista->imprimirLista() << endl; 	
 	break; 	
 	
@@ -52,7 +90,8 @@ switch (option) {
 		cin >>position; 
 		cout << "Valor : "; 
 		cin >>value; 
-		lista->modificarPosicion(position, value); 
+		
+		modificarPosicion(position, value, lista); 
 		cout << lista->imprimirLista() << endl; 
 	break; 
 	
@@ -60,7 +99,7 @@ switch (option) {
 	case 4: 
 		cout << "Posicion : "; 
 		cin >> position; 
-		cout << "elemento : " << lista->recuperarPosicion(position) << endl;
+		cout << "elemento : " <<  recuperarPosicion(position, lista) << endl; 
 	
 	break; 
 	

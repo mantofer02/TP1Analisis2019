@@ -2,7 +2,8 @@
 #include <sstream>
 using namespace std; 
 
-typedef Posicion* Pos; 
+
+#define PosNula nullptr
 
 class Posicion {		
 	private: 	
@@ -18,6 +19,8 @@ class Posicion {
 		Posicion* siguiente() {return this->sucesor; }
 		void establecerSiguiente(Posicion* siguiente) {this->sucesor = siguiente; }
 };
+
+typedef Posicion* Pos; 
 
 class Lista {	
 	private: 	
@@ -38,12 +41,8 @@ class Lista {
 		void vaciar(); 											//O.B
 		void destruir(); 										//O.B
 		int NumElem(); 											//O.B
-		void agregarPosicion(int indice, int valor); 			//Algoritmo. //convierte el indice que manda el usuario final a una posicion, para despues insertar
-		void borrarPosicion(int indice); 						//Algoritmo. //parecido a AgregarPosicion e insertar. 
-		void modificarPosicion(int indice, int valor); 			//Algoritmo. 
-		int recuperarPosicion(int indice);						//Algoritmo.  
-		string imprimirLista(); 								//Algoritmo. para probar la lista. 
-		Posicion* traducir(int indice); 						//traduce indices a posiciones, para poder usar los algoritmos y que estos usen los O.B
+		string imprimirLista(); 								//Algoritmo. 
+		Posicion* traducir(int indice); 						//Algoritmo. 
 };
 
 
@@ -100,38 +99,6 @@ void Lista::modificar(Posicion* posicion, int valor) {
 
 int Lista::recuperar(Posicion* posicion) {
 	return posicion->recuperar(); 
-}
-
-
-void Lista::modificarPosicion(int indice, int valor) {
-	Posicion* temp = traducir(indice); 
-	if (temp != nullptr) {
-		temp->modificar(valor); 
-	}
-	else {
-			//la posición ingresada no fue valida. 
-	}
-	
-} 
-
-
-int Lista::recuperarPosicion(int indice) {
-	Posicion* temp = traducir(indice);
-	int value = 0; 
-	if (temp != nullptr) {
-		value = temp->recuperar(); 
-	}
-	else {
-		//la posición ingresada es invalida. 
-	} 
-	
-return value; 
-} 
-
-
-void Lista::agregarPosicion(int indice, int valor) {
-	Posicion* temp = traducir(indice);
-	insertar(temp, valor);  	
 }
 
 
@@ -197,12 +164,6 @@ void Lista::agregarAlFinal(int valor) {
 		this->ultima_posicion = nueva_posicion; 
 		++this->numero_elementos; 
 	}
-}
-
-
-void Lista::borrarPosicion(int indice) {
-	Posicion* temp = traducir(indice);
-	borrar(temp);  
 }
 
 
@@ -290,4 +251,5 @@ return ss.str();
 int Lista::NumElem() {
 	return this->numero_elementos; 
 }
+
 
