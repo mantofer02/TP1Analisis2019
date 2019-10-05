@@ -7,14 +7,14 @@
 #include <limits>
 using namespace std;
 
-class Lista{
+class Lista_Ord{
     private:
         int tamanoMaximo;
         int numeroElementos;
         int* array;
     public:
-        Lista();
-        ~Lista();
+        Lista_Ord();
+        ~Lista_Ord();
         void iniciar(int);
         void destruir();
         void vaciar();
@@ -27,7 +27,7 @@ class Lista{
         int anterior(int);
         int numElem();
         void imprimir();
-        void imprimirMenu(Lista *);        
+        void imprimirMenu(Lista_Ord *);        
 };
 
 #endif

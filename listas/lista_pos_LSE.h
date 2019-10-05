@@ -135,7 +135,7 @@ void Lista::agregarPosicion(int indice, int valor) {
 			
 			if (indice != 1) {						
 				temporal = traducir(indice); 
-				insertar(temporal, valor); 				//quiero insertar despues de la posicion temporal. 
+				(temporal, valor); 				//quiero insertar despues de la posicion temporal. 
 			}
 			else {										//quiero agregar al inicio de la lista.
 				 if (primera() != nullptr) {				//si ya existe algo. 

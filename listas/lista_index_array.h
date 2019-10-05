@@ -1,25 +1,30 @@
-#ifndef Lista_Indexada_Mia
-#define Lista_Indexada_Mia
+#ifndef Lista_Index_Indexada_Mia
+#define Lista_Index_Indexada_Mia
 #include <iostream>
 #include <algorithm>
 #include <array>
 #define elementoNulo -99999
 
-class Lista{
+class Lista_Index{
     public:
-        Lista();
+        Lista_Index();
         void iniciar(int); 
         void vaciar();
         bool vacio();
         void destruir();
-        ~Lista();
+        ~Lista_Index();
         void insertar(int, int);
+        // void insertar(int*);
         void borrar(int);
+        // void borrar(int*);
         int recuperar(int);
+        // int recuperar(int*);
         void modificarElemento(int, int);
+        // void modificarElemento(int*);
         void intercambiar(int indice1, int indice2);
+        // void intercambiar(int*);
         int numElem();
-        void imprimirLista();
+        void imprimirLista_Index();
     
     private:
         int contador;

@@ -1,5 +1,5 @@
-#ifndef Lista_Indexada_Mia2
-#define Lista_Indexada_Mia2
+#ifndef Lista_Index_Indexada_Mia2
+#define Lista_Index_Indexada_Mia2
 #include <iostream>
 #include <algorithm>
 #include <array>
@@ -7,7 +7,7 @@
 
 // PREGUNTAR SI LOS INDICES PUEDEN NO ESTAR SECUENCIALES 2 4 6 7 12 
 
-class Lista{
+class Lista_Index{
     private:
         struct Celda{
             Celda(int indice);
@@ -20,19 +20,19 @@ class Lista{
         int contador;
         int m;
     public:
-        Lista();
+        Lista_Index();
         void iniciar(int m); 
         void vaciar();
         bool vacio();
         void crearCelda(int);
         void destruir();
-        ~Lista();
+        ~Lista_Index();
         void insertar(int, int);
         void borrar(int);
         int recuperar(int);
         void modificarElemento(int, int);
         void intercambiar(int indice1, int indice2);
         int numElem();
-        void imprimirLista();
+        void imprimirLista_Index();
 };
 #endif

@@ -7,7 +7,7 @@
 #include <limits>
 using namespace std;
 
-class Lista{
+class Lista_Ord{
     
     class Elemento;
     
@@ -28,8 +28,8 @@ class Lista{
         };
 
     public:
-        Lista();
-        ~Lista();
+        Lista_Ord();
+        ~Lista_Ord();
         void iniciar();
         void destruir();
         void vaciar();
@@ -42,7 +42,7 @@ class Lista{
         int anterior(int);
         int numElem();
         void imprimir();
-        void imprimirMenu(Lista *);
+        void imprimirMenu(Lista_Ord *);
 };
 
 #endif
