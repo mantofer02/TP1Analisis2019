@@ -1,20 +1,3 @@
-<<<<<<< HEAD
-//#include "lista_pos_Arreglo.h"
-//#include "lista_pos_LSE.h"
-//#include "lista_pos_LDE.h"
-//#include "lista_ord_array.h"
-//#include "lista_ord_LSE.h"
-//#include "lista_index_array.h"
-//#include "lista_index_LSE.h"
-//#include <iostream>
-// using namespace std; 
-
-#include "Interfaz.h"
-
-int main(){
-    Interfaz miInterfaz;
-    return 0;
-=======
 #include <iostream>
 using namespace std; 
 #include "lista_pos_Arreglo.h"
@@ -254,7 +237,6 @@ cin >>option;
 
 if (option == 2) {
 	end = true; 
->>>>>>> b2e8069a9cea519cac82ea023379fed625c28b59
 }
 	
 	

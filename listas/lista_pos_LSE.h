@@ -38,6 +38,7 @@ class Lista {
 		void agregarAlFinal(int valor); 						//O.B
 		void borrar(Posicion * posicion); 						//0.B
 		Posicion* primera(); 									//0.B
+		Posicion* ultima(); 									//O.B
 		bool vacia(); 											//0.B
 		void vaciar(); 											//O.B
 		void destruir(); 										//O.B
@@ -73,6 +74,10 @@ Posicion* Lista::anterior(Posicion* posicion) {
 	return temporal; 	
 }
 
+
+Posicion* Lista::ultima() {
+	return this->ultima_posicion; 
+}
 
 bool Lista::vacia() {
 	return (this->numero_elementos == 0); 
