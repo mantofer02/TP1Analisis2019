@@ -2,4 +2,5 @@
 
 int main(){
     Interfaz miInterfaz;
+    return 0;
 }

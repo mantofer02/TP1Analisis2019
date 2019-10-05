@@ -22,13 +22,13 @@ class Posicion {
 
 typedef Posicion* Pos; 
 
-class Lista {	
+class Lista_Pos {	
 	private: 	
 		int numero_elementos; 
 		Posicion* primera_posicion; 
 		Posicion* ultima_posicion; 
 	public: 
-		Lista();
+		Lista_Pos();
 		void iniciar(); 										//O.B
 		Posicion* siguiente(Posicion* posicion); 				//O.B
 		Posicion* anterior(Posicion* posicion);					//0.B 
@@ -48,18 +48,18 @@ class Lista {
 };
 
 
-Lista::Lista() : numero_elementos(0), primera_posicion(nullptr), ultima_posicion(nullptr) {	
+Lista_Pos::Lista_Pos() : numero_elementos(0), primera_posicion(nullptr), ultima_posicion(nullptr) {	
 } 
 
 
-void Lista::iniciar(){	
+void Lista_Pos::iniciar(){	
 	numero_elementos = 0; 
 	primera_posicion = nullptr; 
 	ultima_posicion = nullptr; 
 }
 
 
-Posicion* Lista::anterior(Posicion* posicion) {
+Posicion* Lista_Pos::anterior(Posicion* posicion) {
 	Posicion* temporal = nullptr; 
 	
 	if (posicion != nullptr) {
@@ -75,16 +75,16 @@ Posicion* Lista::anterior(Posicion* posicion) {
 }
 
 
-Posicion* Lista::ultima() {
+Posicion* Lista_Pos::ultima() {
 	return this->ultima_posicion; 
 }
 
-bool Lista::vacia() {
+bool Lista_Pos::vacia() {
 	return (this->numero_elementos == 0); 
 }
 
 
-void Lista::vaciar() {
+void Lista_Pos::vaciar() {
 	Posicion* current_position = primera(); 
 	Posicion*temp; 
 	for (int index_lista = 0; index_lista < this->numero_elementos; ++index_lista) {
@@ -100,33 +100,33 @@ void Lista::vaciar() {
 	
 }
 
-void Lista::destruir() {	
+void Lista_Pos::destruir() {	
 	vaciar(); 
 }
 
 
-Posicion* Lista::primera() {
+Posicion* Lista_Pos::primera() {
 	return this->primera_posicion; 
 }
 
 
-Posicion* Lista::siguiente(Posicion* posicion) {
+Posicion* Lista_Pos::siguiente(Posicion* posicion) {
 	return posicion->siguiente(); 
 }
 
 
-void Lista::modificar(Posicion* posicion, int valor) {
+void Lista_Pos::modificar(Posicion* posicion, int valor) {
 	posicion->modificar(valor); 
 }
 
 
-int Lista::recuperar(Posicion* posicion) {
+int Lista_Pos::recuperar(Posicion* posicion) {
 	return posicion->recuperar(); 
 }
 
 
 <<<<<<< HEAD
-void Lista::modificarPosicion(int indice, int valor) {
+void Lista_Pos::modificarPosicion(int indice, int valor) {
 	Posicion* temp = traducir(indice); 
 	if (temp != nullptr) {
 		temp->modificar(valor); 
@@ -139,7 +139,7 @@ void Lista::modificarPosicion(int indice, int valor) {
 
 
 
-int Lista::recuperarPosicion(int indice) {
+int Lista_Pos::recuperarPosicion(int indice) {
 	Posicion* temp = traducir(indice);
 	int value = 0; 
 	if (temp != nullptr) {
@@ -152,7 +152,7 @@ int Lista::recuperarPosicion(int indice) {
 return value; 
 } 
 
-void Lista::agregarPosicion(int indice, int valor) {				
+void Lista_Pos::agregarPosicion(int indice, int valor) {				
 	Posicion *temporal;
 	if (indice >= 1) {
 		if (indice <= NumElem()) {						//si se puede agregar a ese indice. 
@@ -161,13 +161,13 @@ void Lista::agregarPosicion(int indice, int valor) {
 				temporal = traducir(indice); 
 				(temporal, valor); 				//quiero insertar despues de la posicion temporal. 
 			}
-			else {										//quiero agregar al inicio de la lista.
+			else {										//quiero agregar al inicio de la Lista_Pos.
 				 if (primera() != nullptr) {				//si ya existe algo. 
 					Posicion* nueva_posicion = new Posicion(primera(), valor);
 					this->primera_posicion = nueva_posicion;
 					++this->numero_elementos;    
 				 }
-				 else {										//la lista esta vacia. 
+				 else {										//la Lista_Pos esta vacia. 
 					 Posicion* nueva_posicion = new Posicion(valor);
 					 this->primera_posicion = nueva_posicion; 
 					 ++this->numero_elementos;  
@@ -189,7 +189,7 @@ void Lista::agregarPosicion(int indice, int valor) {
 
 =======
 >>>>>>> b2e8069a9cea519cac82ea023379fed625c28b59
-void Lista::insertar(Posicion* posicion, int valor) {
+void Lista_Pos::insertar(Posicion* posicion, int valor) {
  if (posicion != nullptr) {
 	if (posicion != primera()) {
 		
@@ -219,7 +219,7 @@ void Lista::insertar(Posicion* posicion, int valor) {
 			this->primera_posicion = nueva_posicion;
 			++this->numero_elementos;    
 		}
-		else {										//la lista esta vacia. 
+		else {										//la Lista_Pos esta vacia. 
 			Posicion* nueva_posicion = new Posicion(valor);
 			this->primera_posicion = nueva_posicion; 
 			++this->numero_elementos;  
@@ -238,7 +238,7 @@ void Lista::insertar(Posicion* posicion, int valor) {
 }
 
 
-void Lista::agregarAlFinal(int valor) {
+void Lista_Pos::agregarAlFinal(int valor) {
 	if (this->numero_elementos != 0) {
 		Posicion* nueva_posicion = new Posicion(valor); 
 		this->ultima_posicion->establecerSiguiente(nueva_posicion); 
@@ -254,7 +254,7 @@ void Lista::agregarAlFinal(int valor) {
 }
 
 
-void Lista::borrar(Posicion* posicion) {
+void Lista_Pos::borrar(Posicion* posicion) {
 	if (this->numero_elementos != 0 && posicion != nullptr) {
 		
 		if (posicion != primera()) {
@@ -302,7 +302,7 @@ void Lista::borrar(Posicion* posicion) {
 }
 
 
-Posicion* Lista::traducir(int indice) {
+Posicion* Lista_Pos::traducir(int indice) {
 	
 	Posicion* temp = nullptr; 
 	
@@ -320,7 +320,7 @@ Posicion* Lista::traducir(int indice) {
 return temp; 
 }
 
-string Lista::imprimirLista() {
+string Lista_Pos::imprimirLista() {
 stringstream ss; 
 
 Posicion* temporal = primera(); 
@@ -335,7 +335,7 @@ return ss.str();
 }
 
 
-int Lista::NumElem() {
+int Lista_Pos::NumElem() {
 	return this->numero_elementos; 
 }
 

@@ -21,7 +21,7 @@ class Lista_Index{
         int m;
     public:
         Lista_Index();
-        void iniciar(int m); 
+        void iniciar(); 
         void vaciar();
         bool vacio();
         void crearCelda(int);

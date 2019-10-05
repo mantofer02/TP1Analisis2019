@@ -8,14 +8,14 @@ using namespace std;
 
 typedef int Pos; 
 
-class Lista{
+class Lista_Pos{
 	private: 
-		int* lista; 
+		int* ListaPos; 
 		int numero_elementos; 
 		int longitud; 	
 		
 	public: 
-		Lista(); 
+		Lista_Pos(); 
 		void iniciar(); 								//O.B
 		void destruir(); 								//0.B
 		bool vacia(); 									//O.B
@@ -30,66 +30,66 @@ class Lista{
 		void agregarAlFinal(int valor); 				//O.B
 		void borrar(int posicion); 						//O.B
 		int anterior(int posicion); 					//O.B
-		int traducir(int posicion); 					//Algoritmo.		//traduce el indice del usuario al indice de la lista. osea de 1 a 0 o de 2 a 1. 							
+		int traducir(int posicion); 					//Algoritmo.		//traduce el indice del usuario al indice de la Lista_Pos. osea de 1 a 0 o de 2 a 1. 							
 		string imprimirLista(); 
 }; 
 
 
-Lista::Lista() {
+Lista_Pos::Lista_Pos() {
 	
 }
 
-void Lista::iniciar() {			//hay que cononcer M.
+void Lista_Pos::iniciar() {			//hay que cononcer M.
  this->longitud = length;  
- this->lista = (int*)calloc(longitud, sizeof(int)); 
+ this->ListaPos = (int*)calloc(longitud, sizeof(int)); 
  this->numero_elementos = 0; 	
 }
 
 
-void Lista::destruir() {
+void Lista_Pos::destruir() {
 	this->numero_elementos = 0; 
 }
 
-void Lista::vaciar() {
+void Lista_Pos::vaciar() {
 	this->numero_elementos = 0; 
 }
 
-bool Lista::vacia() {
+bool Lista_Pos::vacia() {
 	return (this->numero_elementos == 0); 
 }
 
 
-int Lista::primera() {
+int Lista_Pos::primera() {
  return 0; 	
 }
 
 
-int Lista::ultima() {
+int Lista_Pos::ultima() {
 	return this->numero_elementos-1; 
 }
 
-void Lista::agregarAlFinal(int valor) {
-	this->lista[numero_elementos] = valor; 
+void Lista_Pos::agregarAlFinal(int valor) {
+	this->ListaPos[numero_elementos] = valor; 
 	++this->numero_elementos; 
 }
 
 
 
-int Lista::traducir(int posicion) {
+int Lista_Pos::traducir(int posicion) {
 	return posicion-1; 	
 } 
 
-int Lista::recuperar(int posicion) {					//requiere que la posicion exista. 		
-	return this->lista[posicion]; 	
+int Lista_Pos::recuperar(int posicion) {					//requiere que la posicion exista. 		
+	return this->ListaPos[posicion]; 	
 } 
 
 
-void Lista::modificar(int posicion, int valor) {		//requiere que la posicion exista. 	
-	this->lista[posicion] = valor; 
+void Lista_Pos::modificar(int posicion, int valor) {		//requiere que la posicion exista. 	
+	this->ListaPos[posicion] = valor; 
 }
 
 
-int Lista::siguiente(int posicion) {	
+int Lista_Pos::siguiente(int posicion) {	
 	 if (posicion < this->numero_elementos) {			//si es una posicion valida. 
 		return posicion+1; 
 	 }
@@ -98,7 +98,7 @@ int Lista::siguiente(int posicion) {
 	 }	
 }
 
-int Lista::anterior(int posicion) {
+int Lista_Pos::anterior(int posicion) {
 	if (posicion < this->numero_elementos && posicion-1 >= 0) {
 		return posicion-1; 
 	}
@@ -108,15 +108,15 @@ int Lista::anterior(int posicion) {
 }
 
 
-void Lista::insertar(int posicion, int valor) {  
+void Lista_Pos::insertar(int posicion, int valor) {  
 	if (this->numero_elementos < this->longitud) {		//si no esta lleno el array
 			
 		if (posicion <= numero_elementos && posicion < this->longitud && posicion >= 0) {	//y es una posicion valida. 
 		 if (posicion < numero_elementos) {
 			for (int position = numero_elementos-1; position != posicion-1; --position) {		//realizo un corrimiento para insertar. 
-				this->lista[position+1] = this->lista[position]; 		
+				this->ListaPos[position+1] = this->ListaPos[position]; 		
 			}
-			this->lista[posicion] = valor; 		 
+			this->ListaPos[posicion] = valor; 		 
 			++this->numero_elementos; 
 		 }
 		 else {
@@ -131,10 +131,10 @@ void Lista::insertar(int posicion, int valor) {
 
 
 
-string Lista::imprimirLista() {
+string Lista_Pos::imprimirLista() {
 stringstream ss; 
 for (int iteration = 0; iteration < this->numero_elementos; ++iteration) {
- ss << this->lista[iteration] << " "; 	
+ ss << this->ListaPos[iteration] << " "; 	
 }
 ss << "\n"; 	
 	
@@ -142,17 +142,17 @@ return ss.str();
 }
 
 
-void Lista::borrar(int posicion) {
+void Lista_Pos::borrar(int posicion) {
  if (posicion < this->numero_elementos) {
 	 
 	for (int position = posicion+1; position < this->numero_elementos; ++position) {
-		this->lista[position-1] = this->lista[position]; 
+		this->ListaPos[position-1] = this->ListaPos[position]; 
 	}
 	--this->numero_elementos;  	 
  }	
 }
 
-int Lista::NumElem() {
+int Lista_Pos::NumElem() {
 	return this->numero_elementos; 
 }
 
