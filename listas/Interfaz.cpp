@@ -6,6 +6,8 @@
 
 
 Interfaz :: Interfaz(){
+    miListaPos = new Lista_Pos();
+    miListaPos->iniciar();
     tipoDeLista = 0;
     cout << "Bienvenido " << endl;
     menu();
@@ -22,6 +24,8 @@ void Interfaz :: menu(){
         escogioListaOrdenada();
     if(tipoDeLista == Indexada)
         escogioListaIndexada();
+    if(tipoDeLista == Posicionada)
+        escogioListaPosicionada();
 }
 
 void Interfaz :: escogioListaOrdenada(){
@@ -92,27 +96,6 @@ void Interfaz :: escogioListaOrdenada(){
 }
 
 void Interfaz :: escogioListaIndexada(){
-    /*
-
-    void iniciar(); 
-        // hacer un iniciar con una firma diferente
-        bool vacio();
-        void destruir();
-        ~Lista_Index();
-        void insertar(int, int);
-        void borrar(int);
-
-        int recuperar(int);  
-        
-        void modificarElemento(int, int);      
-        
-        void intercambiar(int indice1, int indice2);
-        int numElem();
-        
-        void imprimirLista_Index();
-
-    */
-    
     
     int operacion = 0;
     cout << "1) iniciar();" << endl;
@@ -193,4 +176,174 @@ void Interfaz :: escogioListaIndexada(){
     menu();
 }
 
+void Interfaz :: escogioListaPosicionada(){
+    int option = 0; 
+    int position = 0; 
+    int value = 0; 
+    cout << " 1) Agregar Elemento \n 2) Borrar Elemento \n 3) Modificar Elemento \n 4) Recuperar Elemento \n 5) Siguiente Elemento \n 6) Anterior Elemento \n 7) Primer Elemento \n 8) Ultimo Elemento \n 9) Iniciar Lista \n 10) Vaciar Lista \n 11) Destruir Lista \n 12 Imprimir Lista \n 13) Agregar Al Final" << endl; 
+    cin >>option; 
+    switch (option){
+	case 1: 
+		cout << "Posicion : "; 
+		cin >> position; 
+		cout << "Valor : "; 
+		cin >> value; 
+		insertarPosicion(position, value, miListaPos); 
+	    break; 
+	case 2: 
+		cout << "Posicicon : "; 
+		cin >> position; 
+		borrarPosicion(position, miListaPos); 	
+        break; 	
+	case 3: 
+		cout << "Posicion : "; 
+		cin >>position; 
+		cout << "Valor : "; 
+		cin >>value; 
+		modificarPosicion(position, value, miListaPos); 
+	    break; 
+	case 4: 
+		cout << "Posicion : "; 
+		cin >> position; 
+		cout << "elemento : " <<  recuperarPosicion(position, miListaPos) << endl; 
+	    break; 
+	case 5: 
+		cout << "Posicion : "; 
+		cin >>position; 
+		cout << "siguiente : " << siguientePosicion(position, miListaPos) << endl; 
+	    break; 
+	case 6: 
+		cout << "Posicion :"; 
+		cin >>position; 
+		cout << "Anterior : " << anteriorPosicion(position, miListaPos) << endl; 
+	    break; 
+	case 7: 
+		cout << "Primero : " <<  primeraPosicion(miListaPos) << endl; 
+	    break; 
+	case 8: 
+		cout << "Ultimo : " <<  ultimaPosicion(miListaPos) << endl; 
+	    break; 
+	case 9: 
+		iniciarLista(miListaPos); 
+	    break; 
+	case 10: 
+		vaciarLista(miListaPos); 
+	    break; 
+	case 11: 
+		destruirLista(miListaPos); 
+	    break; 
+	case 12: 
+		cout << imprimirLista(miListaPos) << endl; 
+	    break; 
+	case 13: 
+		cout << "Valor : " << endl; 
+		cin >>value; 
+		agregarPosicionAlFinal(value, miListaPos); 
+	break; 	
+    }
+    escogioListaPosicionada();
+}	
+			 
 
+void Interfaz ::iniciarLista(Lista_Pos* lista) {
+	lista->iniciar(); 
+}
+
+
+void Interfaz ::agregarPosicionAlFinal(int valor, Lista_Pos* lista) {
+	lista->agregarAlFinal(valor); 
+}
+
+
+string Interfaz :: imprimirLista(Lista_Pos* lista) {
+	return lista->imprimirLista(); 
+}
+
+void Interfaz :: vaciarLista(Lista_Pos* lista) {
+	lista->vaciar(); 
+}
+
+void Interfaz ::destruirLista(Lista_Pos* lista) {
+	lista->destruir(); 
+}
+
+
+int  Interfaz :: primeraPosicion(Lista_Pos* lista) {
+	
+	Pos primera = lista->primera(); 
+	int pos = 0; 
+	
+	if (primera != PosNula) {
+		pos = lista->recuperar(primera); 
+	}
+	return pos; 
+}
+
+
+int Interfaz :: ultimaPosicion(Lista_Pos* lista) {
+	Pos ultima = lista->ultima(); 
+	int pos = 0; 
+	if (ultima != PosNula) {
+		pos = lista->recuperar(ultima); 
+	}
+	return pos; 
+}
+
+
+
+int Interfaz :: anteriorPosicion(int indice, Lista_Pos* lista) {
+	Pos temporal = lista->traducir(indice);
+	Pos before_one = lista->anterior(temporal);
+	int value = 0; 
+	if (before_one != PosNula) {
+		value = lista->recuperar(before_one); 
+	} 
+	return value;  
+}
+
+
+int Interfaz :: siguientePosicion(int indice, Lista_Pos* lista) {	
+	Pos temporal = lista->traducir(indice);
+	Pos next_one = lista->siguiente(temporal);
+	int value = 0; 
+	if (next_one != PosNula) {
+		value = lista->recuperar(next_one); 
+	} 
+	 
+	return value; 
+}
+
+
+
+void Interfaz :: insertarPosicion(int indice, int valor, Lista_Pos* lista) {
+	Pos temporal = lista->traducir(indice);
+	lista->insertar(temporal, valor);  	
+}
+
+
+void  Interfaz :: borrarPosicion(int indice, Lista_Pos* lista) {
+	Pos temporal = lista->traducir(indice);
+	lista->borrar(temporal);  
+}
+
+
+void Interfaz :: modificarPosicion(int indice, int valor, Lista_Pos* lista) {
+	Pos temporal = lista->traducir(indice);
+	if (temporal != PosNula) {
+		lista->modificar(temporal, valor); 
+	} 
+}
+
+
+int Interfaz :: recuperarPosicion(int indice, Lista_Pos* lista) {
+	int value = 0; 
+	Pos temporal = lista->traducir(indice);
+	if (temporal != PosNula) {
+		value = lista->recuperar(temporal); 
+	}
+	return value;  	
+}
+
+Interfaz :: ~Interfaz(){
+    delete miListaPos;
+}
