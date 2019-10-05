@@ -56,7 +56,7 @@ Requiere : 1) que el índice sea un valor válido de 0 a M-1, donde M es la long
 Modiﬁca :  1) aumenta el contador de elementos que se encuentran en la lista.  
            2) cambia el valor contenido en el índice del vector al que se agrega.
 */
-void Lista_Index::insertar(int indice, int elemento){
+void Lista_Index::agregar(int indice, int elemento){
     //Se asume que ya se inicializo
     if(indice < m){
         Celda* actual = inicio;
@@ -203,7 +203,7 @@ Lista_Index :: ~Lista_Index(){
 /*
 
 */
-void Lista_Index :: imprimirLista_Index(){
+void Lista_Index :: imprimirLista(){
     if(inicio){
         Celda* actual = inicio;
         while(actual){

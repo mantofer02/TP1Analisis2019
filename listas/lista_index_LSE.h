@@ -27,12 +27,12 @@ class Lista_Index{
         void crearCelda(int);
         void destruir();
         ~Lista_Index();
-        void insertar(int, int);
+        void agregar(int, int);
         void borrar(int);
         int recuperar(int);
         void modificarElemento(int, int);
         void intercambiar(int indice1, int indice2);
         int numElem();
-        void imprimirLista_Index();
+        void imprimirLista();
 };
 #endif

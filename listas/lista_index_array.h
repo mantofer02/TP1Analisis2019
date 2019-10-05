@@ -9,22 +9,18 @@ class Lista_Index{
     public:
         Lista_Index();
         void iniciar(); 
+        // hacer un iniciar con una firma diferente
         void vaciar();
-        bool vacio();
+        bool vacia();
         void destruir();
         ~Lista_Index();
-        void insertar(int, int);
-        // void insertar(int*);
+        void agregar(int, int);
         void borrar(int);
-        // void borrar(int*);
-        int recuperar(int);
-        // int recuperar(int*);
-        void modificarElemento(int, int);
-        // void modificarElemento(int*);
+        int recuperar(int);  
+        void modificarElemento(int, int);      
         void intercambiar(int indice1, int indice2);
-        // void intercambiar(int*);
         int numElem();
-        void imprimirLista_Index();
+        void imprimirLista();
     
     private:
         int contador;

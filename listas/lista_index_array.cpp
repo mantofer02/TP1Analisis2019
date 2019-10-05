@@ -21,6 +21,9 @@ Modiﬁca :   1) parámetro contador con la cantidad de elementos, lo deja en 0.
 void Lista_Index::iniciar(){
     this->m = M;
     listaIndexa = new int[m];
+    for (int i = 0; i < m; i++){
+        agregar(i, elementoNulo);
+    }
     contador = 0;
 }
 
@@ -39,7 +42,7 @@ Efecto : retorna un booleano de si la cantidad de elementos es igual a 0 o no.
 Requiere : que la lista exista y se encuentre inicializada. 
 Modiﬁca : no modiﬁca nada, solo retorna información existente.
 */
-bool Lista_Index::vacio(){
+bool Lista_Index::vacia(){
     bool estaVacio = false;
     if(contador == 0)
         estaVacio = true;
@@ -72,7 +75,7 @@ Requiere : 1) que el índice sea un valor válido de 0 a M-1, donde M es la long
 Modiﬁca :  1) aumenta el contador de elementos que se encuentran en la lista.  
            2) cambia el valor contenido en el índice del vector al que se agrega.
 */
-void Lista_Index::insertar(int indice, int elemento){
+void Lista_Index::agregar(int indice, int elemento){
     if(indice < m)
         listaIndexa[indice] = elemento;
         contador++;
@@ -102,7 +105,7 @@ Requiere : 1)Que la lista exista y se encuentre inicializada.
 Modiﬁca : no modiﬁca nada solo retorna información ya existente.
 */
 int Lista_Index::recuperar(int indice){
-    int elementoAdevolver = 0;
+    int elementoAdevolver = elementoNulo;
     if(indice < m)
         elementoAdevolver = listaIndexa[indice];
     return elementoAdevolver;
@@ -146,7 +149,7 @@ int Lista_Index::numElem(){
     return contador;
 }
 
-void Lista_Index::imprimirLista_Index(){
+void Lista_Index::imprimirLista(){
     for(int i = 0; i < m; i++){
         if(listaIndexa[i] == elementoNulo){
             std::cout << "Indice : " << i << " Sin Elemento" << std:: endl;

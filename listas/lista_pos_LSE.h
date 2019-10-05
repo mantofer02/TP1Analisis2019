@@ -125,7 +125,6 @@ int Lista_Pos::recuperar(Posicion* posicion) {
 }
 
 
-<<<<<<< HEAD
 void Lista_Pos::modificarPosicion(int indice, int valor) {
 	Posicion* temp = traducir(indice); 
 	if (temp != nullptr) {
@@ -187,8 +186,6 @@ void Lista_Pos::agregarPosicion(int indice, int valor) {
 }
 
 
-=======
->>>>>>> b2e8069a9cea519cac82ea023379fed625c28b59
 void Lista_Pos::insertar(Posicion* posicion, int valor) {
  if (posicion != nullptr) {
 	if (posicion != primera()) {
