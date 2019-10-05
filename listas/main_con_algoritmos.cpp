@@ -1,8 +1,8 @@
 #include <iostream>
 using namespace std; 
 //#include "lista_pos_Arreglo.h"
-//#include "lista_pos_LDE.h"
-#include "lista_pos_LSE.h"
+#include "lista_pos_LDE.h"
+//#include "lista_pos_LSE.h"
 
 
 void insertarPosicion(int indice, int valor, Lista_Pos* lista); 

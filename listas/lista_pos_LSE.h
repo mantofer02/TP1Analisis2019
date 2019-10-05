@@ -125,67 +125,6 @@ int Lista_Pos::recuperar(Posicion* posicion) {
 }
 
 
-void Lista_Pos::modificarPosicion(int indice, int valor) {
-	Posicion* temp = traducir(indice); 
-	if (temp != nullptr) {
-		temp->modificar(valor); 
-	}
-	else {
-			//la posición ingresada no fue valida. 
-	}
-	
-} 
-
-
-
-int Lista_Pos::recuperarPosicion(int indice) {
-	Posicion* temp = traducir(indice);
-	int value = 0; 
-	if (temp != nullptr) {
-		value = temp->recuperar(); 
-	}
-	else {
-		//la posición ingresada es invalida. 
-	} 
-	
-return value; 
-} 
-
-void Lista_Pos::agregarPosicion(int indice, int valor) {				
-	Posicion *temporal;
-	if (indice >= 1) {
-		if (indice <= NumElem()) {						//si se puede agregar a ese indice. 
-			
-			if (indice != 1) {						
-				temporal = traducir(indice); 
-				(temporal, valor); 				//quiero insertar despues de la posicion temporal. 
-			}
-			else {										//quiero agregar al inicio de la Lista_Pos.
-				 if (primera() != nullptr) {				//si ya existe algo. 
-					Posicion* nueva_posicion = new Posicion(primera(), valor);
-					this->primera_posicion = nueva_posicion;
-					++this->numero_elementos;    
-				 }
-				 else {										//la Lista_Pos esta vacia. 
-					 Posicion* nueva_posicion = new Posicion(valor);
-					 this->primera_posicion = nueva_posicion; 
-					 ++this->numero_elementos;  
-				 }	
-			}	
-				
-			
-		}
-		else {		 									 //de lo contrario agrega al final. 
-			agregarAlFinal(valor); 
-		}
-		
-	}
-	else {
-			//la posición ingresada no es valida. 
-	}
-}
-
-
 void Lista_Pos::insertar(Posicion* posicion, int valor) {
  if (posicion != nullptr) {
 	if (posicion != primera()) {
