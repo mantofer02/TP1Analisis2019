@@ -15,7 +15,7 @@ class Lista_Ord{
     public:
         Lista_Ord();
         ~Lista_Ord();
-        void iniciar(int);
+        void iniciar();
         void destruir();
         void vaciar();
         int vacia();
@@ -26,8 +26,8 @@ class Lista_Ord{
         int siguiente(int);
         int anterior(int);
         int numElem();
-        void imprimir();
-        void imprimirMenu(Lista_Ord *);        
+        // void imprimir();
+        // void imprimirMenu(Lista_Ord *);        
 };
 
 #endif

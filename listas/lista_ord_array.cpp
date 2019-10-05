@@ -1,4 +1,5 @@
 #include "lista_ord_array.h"
+#define MAX 20
 
 Lista_Ord::Lista_Ord(){
 
@@ -14,8 +15,8 @@ Lista_Ord::~Lista_Ord(){
 //Efecto: Este operador asigna e inicializa la Lista_Ord Ordenada que se va a usar
 //Requiere: Que la lista no haya sido inicializada anteriormente
 //Modifica: Los espacios de memoria que la Lista_Ord va utilizar (Si es estática, no se necesitan más espacios de memoria para el manejo de la lista)
-void Lista_Ord::iniciar(int tamanoMaximo){
-    this->tamanoMaximo = tamanoMaximo;
+void Lista_Ord::iniciar(){
+    this->tamanoMaximo = MAX;
     array = new int[tamanoMaximo];
     numeroElementos=0;
 }
@@ -212,160 +213,160 @@ int Lista_Ord::numElem(){
     return numeroElementos;
 }
 
-void Lista_Ord::imprimir(){
-    cout << "{"; 
-    for(int i=0;i<numeroElementos;i++){
-        if(array[i]!=0){
-            cout << array[i] << " ";   
-        }   
-    }
-    cout << "}"<< endl;
-}
+// void Lista_Ord::imprimir(){
+//     cout << "{"; 
+//     for(int i=0;i<numeroElementos;i++){
+//         if(array[i]!=0){
+//             cout << array[i] << " ";   
+//         }   
+//     }
+//     cout << "}"<< endl;
+// }
 
-void Lista_Ord::imprimirMenu(Lista_Ord * lista){
-    cout << "Bienvenido al programa de prueba de la lista ordenada implementada a través de un array. Digite los dígitos correspondientes a los operadores básicos que desea usar:\n" << endl;
-    cout << "1. Iniciar.\n2. Destruir.\n3. Vaciar.\n4. Vacia.\n5. Agregar.\n6. Borrar.\n7. Primero.\n8. Ultimo.\n9. Siguiente.\n10. Anterior.\n11. NumElem\n12. Imprimir.\n13. Salir." << endl;
-    int decision = 0;
-    if(!(cin >> decision)){
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        cout << "El valor que introdujo no es valido. Por favor intente de nuevo." << endl;
-        imprimirMenu(lista);
-    }
-    else{
-        if(0 < decision || 14 > decision){
-            if(decision == 1){
-                decision = 0;
-                cout << "Ingrese un valor valido para M (tamano maximo de la lista)" << endl;
-                if(!(cin >> decision)){
-                    cin.clear();
-                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                    cout << "El valor que introdujo no es valido. Por favor intente de nuevo." << endl;
-                    imprimirMenu(lista);
-                }
-                if(decision>0){
-                    lista->iniciar(decision);
-                    decision=0;
-                    imprimirMenu(lista);
-                }  
-                else{
-                    cout << "El valor que introdujo no es valido. Por favor intente de nuevo." << endl;
-                    imprimirMenu(lista);
-                }
-            }
-            if(decision == 2){
-                cout << "CUIDADO! Si destruye la lista, debera reiniciar el programa. Esta seguro?\n1. Si.\n2. No.\n" << endl; 
-                if(!(cin >> decision)){
-                    cin.clear();
-                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                    cout << "El valor que introdujo no es valido. Por favor intente de nuevo." << endl;
-                    imprimirMenu(lista);
-                }
-                if(decision == 2){
-                    imprimirMenu(lista);
-                }
-            }
-            if(decision == 3){
-                lista->vaciar();
-                imprimirMenu(lista);           
-            }
-            if(decision == 4){
-                int vacia = lista->vacia();
-                if(vacia){
-                    cout << "La lista esta vacia.\n" << endl;
-                }
-                else{
-                    cout << "La lista no esta vacia.\n" << endl;
-                }
-                imprimirMenu(lista);
-            }
-            if(decision == 5){
-                decision = 0;
-                cout << "Digite el numero que desea agregar:\n" << endl;
-                if(!(cin >> decision)){
-                    cin.clear();
-                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                    cout << "El valor que introdujo no es valido. Por favor intente de nuevo." << endl;
-                    imprimirMenu(lista);
-                }
-                lista->agregar(decision);
-                decision=0;
-                imprimirMenu(lista); 
-            }
-            if(decision == 6){
-                decision = 0;
-                cout << "Digite el numero que desea borrar:\n" << endl;
-                if(!(cin >> decision)){
-                    cin.clear();
-                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                    cout << "El valor que introdujo no es valido. Por favor intente de nuevo." << endl;
-                    imprimirMenu(lista);
-                }
-                lista->borrar(decision);
-                decision=0;
-                imprimirMenu(lista);
-            }
-            if(decision == 7){
-                int primero = lista->primero();
-                if(primero>-1){
-                    cout << "El primer elemento de la lista es "<< primero << ".\n" << endl;
-                }
-                lista->imprimirMenu(lista);
-            }
-            if(decision == 8){
-                int ultimo = lista->ultimo();
-                if(ultimo>-1){
-                    cout << "El ultimo elemento de la lista es "<< ultimo << ".\n" << endl;
-                }
-                lista->imprimirMenu(lista);
-            }
-            if(decision == 9){
-                decision = 0;
-                cout << "Digite el numero del cual desea averiguar:\n" << endl;
-                if(!(cin >> decision)){
-                    cin.clear();
-                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                    cout << "El valor que introdujo no es valido. Por favor intente de nuevo." << endl;
-                    imprimirMenu(lista);
-                }
-                int resultado = lista->siguiente(decision);
-                if(resultado != -1){
-                    cout << "El elemento siguiente a "<< decision <<" es " << resultado << ".\n"<< endl;
-                }
-                decision=0;
-                lista->imprimirMenu(lista);
-            }
-            if(decision == 10){
-                decision = 0;
-                cout << "Digite el numero del cual desea averiguar:\n" << endl;
-                if(!(cin >> decision)){
-                    cin.clear();
-                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                    cout << "El valor que introdujo no es valido. Por favor intente de nuevo." << endl;
-                    imprimirMenu(lista);
-                }
-                int resultado = lista->anterior(decision);
-                if(resultado != -1){
-                    cout << "El elemento anterior a "<< decision <<" es " << resultado << ".\n"<< endl;
-                }
-                decision=0;
-                lista->imprimirMenu(lista);
-            }
-            if(decision == 11){
-                decision = lista->numElem(); 
-                cout << "El numero de elementos de la lista es " <<decision<<".\n"<< endl ;
-                decision=0;
-                lista->imprimirMenu(lista);
-            }
-            if(decision == 12){
-                cout << "L:";
-                lista->imprimir();
-                imprimirMenu(lista);
-            }
-        }
-        else{
-            cout << "El valor que introdujo no es valido. Por favor intente de nuevo." << endl;
-            imprimirMenu(lista);
-        }
-    }
-}
+// void Lista_Ord::imprimirMenu(Lista_Ord * lista){
+//     cout << "Bienvenido al programa de prueba de la lista ordenada implementada a través de un array. Digite los dígitos correspondientes a los operadores básicos que desea usar:\n" << endl;
+//     cout << "1. Iniciar.\n2. Destruir.\n3. Vaciar.\n4. Vacia.\n5. Agregar.\n6. Borrar.\n7. Primero.\n8. Ultimo.\n9. Siguiente.\n10. Anterior.\n11. NumElem\n12. Imprimir.\n13. Salir." << endl;
+//     int decision = 0;
+//     if(!(cin >> decision)){
+//         cin.clear();
+//         cin.ignore(numeric_limits<streamsize>::max(), '\n');
+//         cout << "El valor que introdujo no es valido. Por favor intente de nuevo." << endl;
+//         imprimirMenu(lista);
+//     }
+//     else{
+//         if(0 < decision || 14 > decision){
+//             if(decision == 1){
+//                 decision = 0;
+//                 cout << "Ingrese un valor valido para M (tamano maximo de la lista)" << endl;
+//                 if(!(cin >> decision)){
+//                     cin.clear();
+//                     cin.ignore(numeric_limits<streamsize>::max(), '\n');
+//                     cout << "El valor que introdujo no es valido. Por favor intente de nuevo." << endl;
+//                     imprimirMenu(lista);
+//                 }
+//                 if(decision>0){
+//                     lista->iniciar(decision);
+//                     decision=0;
+//                     imprimirMenu(lista);
+//                 }  
+//                 else{
+//                     cout << "El valor que introdujo no es valido. Por favor intente de nuevo." << endl;
+//                     imprimirMenu(lista);
+//                 }
+//             }
+//             if(decision == 2){
+//                 cout << "CUIDADO! Si destruye la lista, debera reiniciar el programa. Esta seguro?\n1. Si.\n2. No.\n" << endl; 
+//                 if(!(cin >> decision)){
+//                     cin.clear();
+//                     cin.ignore(numeric_limits<streamsize>::max(), '\n');
+//                     cout << "El valor que introdujo no es valido. Por favor intente de nuevo." << endl;
+//                     imprimirMenu(lista);
+//                 }
+//                 if(decision == 2){
+//                     imprimirMenu(lista);
+//                 }
+//             }
+//             if(decision == 3){
+//                 lista->vaciar();
+//                 imprimirMenu(lista);           
+//             }
+//             if(decision == 4){
+//                 int vacia = lista->vacia();
+//                 if(vacia){
+//                     cout << "La lista esta vacia.\n" << endl;
+//                 }
+//                 else{
+//                     cout << "La lista no esta vacia.\n" << endl;
+//                 }
+//                 imprimirMenu(lista);
+//             }
+//             if(decision == 5){
+//                 decision = 0;
+//                 cout << "Digite el numero que desea agregar:\n" << endl;
+//                 if(!(cin >> decision)){
+//                     cin.clear();
+//                     cin.ignore(numeric_limits<streamsize>::max(), '\n');
+//                     cout << "El valor que introdujo no es valido. Por favor intente de nuevo." << endl;
+//                     imprimirMenu(lista);
+//                 }
+//                 lista->agregar(decision);
+//                 decision=0;
+//                 imprimirMenu(lista); 
+//             }
+//             if(decision == 6){
+//                 decision = 0;
+//                 cout << "Digite el numero que desea borrar:\n" << endl;
+//                 if(!(cin >> decision)){
+//                     cin.clear();
+//                     cin.ignore(numeric_limits<streamsize>::max(), '\n');
+//                     cout << "El valor que introdujo no es valido. Por favor intente de nuevo." << endl;
+//                     imprimirMenu(lista);
+//                 }
+//                 lista->borrar(decision);
+//                 decision=0;
+//                 imprimirMenu(lista);
+//             }
+//             if(decision == 7){
+//                 int primero = lista->primero();
+//                 if(primero>-1){
+//                     cout << "El primer elemento de la lista es "<< primero << ".\n" << endl;
+//                 }
+//                 lista->imprimirMenu(lista);
+//             }
+//             if(decision == 8){
+//                 int ultimo = lista->ultimo();
+//                 if(ultimo>-1){
+//                     cout << "El ultimo elemento de la lista es "<< ultimo << ".\n" << endl;
+//                 }
+//                 lista->imprimirMenu(lista);
+//             }
+//             if(decision == 9){
+//                 decision = 0;
+//                 cout << "Digite el numero del cual desea averiguar:\n" << endl;
+//                 if(!(cin >> decision)){
+//                     cin.clear();
+//                     cin.ignore(numeric_limits<streamsize>::max(), '\n');
+//                     cout << "El valor que introdujo no es valido. Por favor intente de nuevo." << endl;
+//                     imprimirMenu(lista);
+//                 }
+//                 int resultado = lista->siguiente(decision);
+//                 if(resultado != -1){
+//                     cout << "El elemento siguiente a "<< decision <<" es " << resultado << ".\n"<< endl;
+//                 }
+//                 decision=0;
+//                 lista->imprimirMenu(lista);
+//             }
+//             if(decision == 10){
+//                 decision = 0;
+//                 cout << "Digite el numero del cual desea averiguar:\n" << endl;
+//                 if(!(cin >> decision)){
+//                     cin.clear();
+//                     cin.ignore(numeric_limits<streamsize>::max(), '\n');
+//                     cout << "El valor que introdujo no es valido. Por favor intente de nuevo." << endl;
+//                     imprimirMenu(lista);
+//                 }
+//                 int resultado = lista->anterior(decision);
+//                 if(resultado != -1){
+//                     cout << "El elemento anterior a "<< decision <<" es " << resultado << ".\n"<< endl;
+//                 }
+//                 decision=0;
+//                 lista->imprimirMenu(lista);
+//             }
+//             if(decision == 11){
+//                 decision = lista->numElem(); 
+//                 cout << "El numero de elementos de la lista es " <<decision<<".\n"<< endl ;
+//                 decision=0;
+//                 lista->imprimirMenu(lista);
+//             }
+//             if(decision == 12){
+//                 cout << "L:";
+//                 lista->imprimir();
+//                 imprimirMenu(lista);
+//             }
+//         }
+//         else{
+//             cout << "El valor que introdujo no es valido. Por favor intente de nuevo." << endl;
+//             imprimirMenu(lista);
+//         }
+//     }
+// }
