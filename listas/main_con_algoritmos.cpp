@@ -1,38 +1,50 @@
 #include <iostream>
 using namespace std; 
-#include "lista_pos_Arreglo.h"
+//#include "lista_pos_Arreglo.h"
 //#include "lista_pos_LDE.h"
-//#include "lista_pos_LSE.h"
+#include "lista_pos_LSE.h"
 
 
-void insertarPosicion(int indice, int valor, Lista* lista); 
-void borrarPosicion(int indice, Lista* lista); 						 
-void modificarPosicion(int indice, int valor, Lista* lista);			
-int recuperarPosicion(int indice, Lista* lista);	
-int siguientePosicion(int indice, Lista* lista); 		
-int anteriorPosicion(int indice, Lista* lista); 
-int primeraPosicion(Lista* lista); 
-int ultimaPosicion(Lista* lista); 
-void iniciarLista(Lista* lista); 
-void vaciarLista(Lista* lista); 
-void destruirLista(Lista* lista); 
+void insertarPosicion(int indice, int valor, Lista_Pos* lista); 
+void borrarPosicion(int indice, Lista_Pos* lista); 						 
+void modificarPosicion(int indice, int valor, Lista_Pos* lista);			
+int recuperarPosicion(int indice, Lista_Pos* lista);	
+int siguientePosicion(int indice, Lista_Pos* lista); 		
+int anteriorPosicion(int indice, Lista_Pos* lista); 
+int primeraPosicion(Lista_Pos* lista); 
+int ultimaPosicion(Lista_Pos* lista); 
+void iniciarLista(Lista_Pos* lista); 
+void vaciarLista(Lista_Pos* lista); 
+void destruirLista(Lista_Pos* lista); 
+string imprimirLista(Lista_Pos* lista); 
+void agregarPosicionAlFinal(int valor, Lista_Pos* lista); 
 
 
 
-void iniciarLista(Lista* lista) {
+void iniciarLista(Lista_Pos* lista) {
 	lista->iniciar(); 
 }
 
-void vaciarLista(Lista* lista) {
+
+void agregarPosicionAlFinal(int valor, Lista_Pos* lista) {
+	lista->agregarAlFinal(valor); 
+}
+
+
+string imprimirLista(Lista_Pos* lista) {
+	return lista->imprimirLista(); 
+}
+
+void vaciarLista(Lista_Pos* lista) {
 	lista->vaciar(); 
 }
 
-void destruirLista(Lista* lista) {
+void destruirLista(Lista_Pos* lista) {
 	lista->destruir(); 
 }
 
 
-int primeraPosicion(Lista* lista) {
+int primeraPosicion(Lista_Pos* lista) {
 	
 	Pos primera = lista->primera(); 
 	int pos = 0; 
@@ -44,7 +56,7 @@ int primeraPosicion(Lista* lista) {
 }
 
 
-int ultimaPosicion(Lista* lista) {
+int ultimaPosicion(Lista_Pos* lista) {
 	Pos ultima = lista->ultima(); 
 	int pos = 0; 
 	if (ultima != PosNula) {
@@ -55,7 +67,7 @@ int ultimaPosicion(Lista* lista) {
 
 
 
-int anteriorPosicion(int indice, Lista* lista) {
+int anteriorPosicion(int indice, Lista_Pos* lista) {
 	Pos temporal = lista->traducir(indice);
 	Pos before_one = lista->anterior(temporal);
 	int value = 0; 
@@ -66,7 +78,7 @@ int anteriorPosicion(int indice, Lista* lista) {
 }
 
 
-int siguientePosicion(int indice, Lista* lista) {	
+int siguientePosicion(int indice, Lista_Pos* lista) {	
 	Pos temporal = lista->traducir(indice);
 	Pos next_one = lista->siguiente(temporal);
 	int value = 0; 
@@ -79,19 +91,19 @@ int siguientePosicion(int indice, Lista* lista) {
 
 
 
-void insertarPosicion(int indice, int valor, Lista* lista) {
+void insertarPosicion(int indice, int valor, Lista_Pos* lista) {
 	Pos temporal = lista->traducir(indice);
 	lista->insertar(temporal, valor);  	
 }
 
 
-void borrarPosicion(int indice, Lista* lista) {
+void borrarPosicion(int indice, Lista_Pos* lista) {
 	Pos temporal = lista->traducir(indice);
 	lista->borrar(temporal);  
 }
 
 
-void modificarPosicion(int indice, int valor, Lista* lista) {
+void modificarPosicion(int indice, int valor, Lista_Pos* lista) {
 	Pos temporal = lista->traducir(indice);
 	if (temporal != PosNula) {
 		lista->modificar(temporal, valor); 
@@ -99,7 +111,7 @@ void modificarPosicion(int indice, int valor, Lista* lista) {
 }
 
 
-int recuperarPosicion(int indice, Lista* lista) {
+int recuperarPosicion(int indice, Lista_Pos* lista) {
 	int value = 0; 
 	Pos temporal = lista->traducir(indice);
 	if (temporal != PosNula) {
@@ -111,7 +123,7 @@ int recuperarPosicion(int indice, Lista* lista) {
 
 int main (int argc, char*argv[]) {
 	
-Lista *lista = new Lista(); 
+Lista_Pos *lista = new Lista_Pos(); 
 lista->iniciar(); 
 
 
@@ -123,7 +135,7 @@ bool end = false;
 
 do {
 	
-cout << "1) Agregar Elemento \n 2) Borrar Elemento \n 3) Modificar Elemento \n 4) Recuperar Elemento \n 5) Siguiente Elemento \n 6) Anterior Elemento \n 7) Primer Elemento \n 8) Ultimo Elemento \n 9) Iniciar Lista \n 10) Vaciar Lista \n 11) Destruir Lista" << endl; 
+cout << " 1) Agregar Elemento \n 2) Borrar Elemento \n 3) Modificar Elemento \n 4) Recuperar Elemento \n 5) Siguiente Elemento \n 6) Anterior Elemento \n 7) Primer Elemento \n 8) Ultimo Elemento \n 9) Iniciar Lista \n 10) Vaciar Lista \n 11) Destruir Lista \n 12 Imprimir Lista \n 13) Agregar Al Final" << endl; 
 cin >>option; 
 
 
@@ -138,7 +150,6 @@ switch (option) {
 		
 		insertarPosicion(position, value, lista); 
 		
-		cout << lista->imprimirLista() << endl; 
 	break; 
 	
 	
@@ -149,7 +160,7 @@ switch (option) {
 		cin >> position; 
 		
 		borrarPosicion(position, lista); 	
-		cout << lista->imprimirLista() << endl; 	
+
 	break; 	
 	
 	
@@ -160,7 +171,7 @@ switch (option) {
 		cin >>value; 
 		
 		modificarPosicion(position, value, lista); 
-		cout << lista->imprimirLista() << endl; 
+
 	break; 
 	
 	
@@ -223,6 +234,20 @@ switch (option) {
 
 	break; 
 	
+	
+	case 12: 
+		cout << imprimirLista(lista) << endl; 
+		
+	break; 
+	
+	
+	case 13: 
+		cout << "Valor : " << endl; 
+		cin >>value; 
+	
+		agregarPosicionAlFinal(value, lista); 
+	
+	break; 
 	
 	default:
 	
