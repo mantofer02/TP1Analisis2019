@@ -8,7 +8,7 @@
 class Lista_Index{
     public:
         Lista_Index();
-        void iniciar(int); 
+        void iniciar(); 
         void vaciar();
         bool vacio();
         void destruir();

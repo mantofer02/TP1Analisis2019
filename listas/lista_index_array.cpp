@@ -1,4 +1,7 @@
 #include "lista_index_array.h"
+#define M 20
+
+
 /*
 Metodo Constructor de Lista_Index
 */
@@ -15,8 +18,8 @@ Modiﬁca :   1) parámetro contador con la cantidad de elementos, lo deja en 0.
             2) reserva memoria estática suﬁciente para la cantidad de índices igual a la longitud del parámetro inicial.
 
 */
-void Lista_Index::iniciar(int m){
-    this->m = m;
+void Lista_Index::iniciar(){
+    this->m = M;
     listaIndexa = new int[m];
     contador = 0;
 }

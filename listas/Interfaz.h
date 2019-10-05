@@ -1,10 +1,10 @@
-// #include "lista_index_LSE.h"
-// #include "lista_index_array.h"
-#include <iostream>
+#ifndef miInterfazota
+#define miInterfazota
 
 #define Ordenada 1
 #define Posicionada 2
 #define Indexada 3
+
 #include <iostream>
 
 #include "lista_index_LSE.h"
@@ -36,7 +36,7 @@ class Interfaz{
         }
 
         void menu(){
-            cout << "Bienvenido " <<endl;
+            cout << "Bienvenido " << endl;
             cout << "Digite :" << endl;
             cout << "1: Si desea una lista Ordenada" << endl;
             cout << "2: Si desea una lista Posicionada" << endl;
@@ -59,8 +59,8 @@ class Interfaz{
             cout << "11) numElem()" << endl;
             cin >> operacion;
             switch (operacion){
+                int parametro = 0;
                 case 1:
-                    int parametro = 0;
                     cout << "Ingrese Parametro" << endl;
                     // NO SIRVE PARA LA ORDENADA ENLAZADA
                     miListaOrdena.iniciar(parametro);
@@ -92,3 +92,5 @@ class Interfaz{
         }
 
 };
+
+#endif

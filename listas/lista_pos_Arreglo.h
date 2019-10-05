@@ -3,6 +3,11 @@
 using namespace std; 
 
 
+#define length 20
+#define PosNula -1
+
+typedef int Pos; 
+
 class Lista{
 	private: 
 		int* lista; 
@@ -11,24 +16,21 @@ class Lista{
 		
 	public: 
 		Lista(); 
-		void iniciar(int longitud); 					//O.B
+		void iniciar(); 								//O.B
 		void destruir(); 								//0.B
 		bool vacia(); 									//O.B
 		void vaciar(); 									//O.B
 		int primera(); 									//O.B
 		int NumElem(); 									//0.B
+		int ultima(); 									//0.B
 		int recuperar(int posicion); 					//O.B
 		void modificar(int posicion, int valor); 		//O.B
 		int siguiente(int posicion); 					//O.B
 		void insertar(int posicion, int valor); 		//O.B	
 		void agregarAlFinal(int valor); 				//O.B
 		void borrar(int posicion); 						//O.B
-		int traducir(int posicion); 					//Algoritmo.		//traduce el indice del usuario al indice de la lista. osea de 1 a 0 o de 2 a 1. 					
-		void borrarPosicion(int posicion); 				//Algoritmo. 
-		void agregarPosicion(int posicion, int valor); 	//Algoritmo. 
-		void modificarPosicion(int indice, int valor);	//Algoritmo. 
-		int recuperarPosicion(int indice);  			//Algoritmo. 
-		
+		int anterior(int posicion); 					//O.B
+		int traducir(int posicion); 					//Algoritmo.		//traduce el indice del usuario al indice de la lista. osea de 1 a 0 o de 2 a 1. 							
 		string imprimirLista(); 
 }; 
 
@@ -37,8 +39,8 @@ Lista::Lista() {
 	
 }
 
-void Lista::iniciar(int longitud) {			//hay que cononcer M.
- this->longitud = longitud;  
+void Lista::iniciar() {			//hay que cononcer M.
+ this->longitud = length;  
  this->lista = (int*)calloc(longitud, sizeof(int)); 
  this->numero_elementos = 0; 	
 }
@@ -61,35 +63,23 @@ int Lista::primera() {
  return 0; 	
 }
 
+
+int Lista::ultima() {
+	return this->numero_elementos-1; 
+}
+
 void Lista::agregarAlFinal(int valor) {
 	this->lista[numero_elementos] = valor; 
 	++this->numero_elementos; 
 }
 
 
-void modificarPosicion(int indice, int valor) {
-	int position = traducir(indice);
-	modificar(position, valor);  
-}
-
-
-int recuperarPosicion(int indice) {
-	int position = traducir(indice);
-	int value = 0; 
-	if (position != -1) {
-		value = recuperar(position); 
-	}
-	else {
-		// la posición es invalida. 
-	} 
-	return value; 
-}
 
 int Lista::traducir(int posicion) {
 	return posicion-1; 	
 } 
 
-int Lista::recuperar(int posicion) {		//requiere que la posicion exista. 		
+int Lista::recuperar(int posicion) {					//requiere que la posicion exista. 		
 	return this->lista[posicion]; 	
 } 
 
@@ -106,6 +96,15 @@ int Lista::siguiente(int posicion) {
 	 else {
 		 return -1; 									//si retorna -1. esa posicion no es valida, no tiene siguiente. 
 	 }	
+}
+
+int Lista::anterior(int posicion) {
+	if (posicion < this->numero_elementos && posicion-1 >= 0) {
+		return posicion-1; 
+	}
+	else {
+		return -1; 
+	}
 }
 
 
@@ -131,10 +130,6 @@ void Lista::insertar(int posicion, int valor) {
 }
 
 
-void Lista::agregarPosicion(int posicion, int valor) {
-	posicion = traducir(posicion); 	//el array posee posición 0, por eso se le reduce 1.  
-	insertar(posicion, valor);						
-}
 
 string Lista::imprimirLista() {
 stringstream ss; 
@@ -161,9 +156,4 @@ int Lista::NumElem() {
 	return this->numero_elementos; 
 }
 
-
-void Lista::borrarPosicion(int posicion) {
-   posicion = traducir(posicion);
-   borrar(posicion);  
-}
 

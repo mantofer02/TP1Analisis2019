@@ -15,11 +15,8 @@ Requiere: que la lista exista.
 Modiﬁca :   1) parámetro contador con la cantidad de elementos, lo deja en 0. 
             2) reserva memoria estática suﬁciente para la cantidad de índices igual a la longitud del parámetro inicial.
 */
-void Lista_Index::iniciar(int m){
-    this->m = m;
-    for(int i = 0; i < m; i++){
-        crearCelda(i);
-    }
+void Lista_Index::iniciar(){
+    contador = 0;
 }
 
 /*
