@@ -16,6 +16,10 @@ void Lista_Pos::iniciar(){
 	ultima_posicion = nullptr; 
 }
 
+//Anterior(posición)
+//Efecto: Este operador básico retorna la posición anterior a una posición determinada.
+//Requiere:Este operador básico requiere una Lista Posicionada previamente inicializada y la posición debe pertenecer a la Lista Posicionada. 
+//Modifica: Este operador básico no modifica nada.
 
 Posicion* Lista_Pos::anterior(Posicion* posicion) {
 	Posicion* temporal = nullptr; 
@@ -32,6 +36,10 @@ Posicion* Lista_Pos::anterior(Posicion* posicion) {
 	return temporal; 	
 }
 
+//Última()
+//Efecto: Este operador básico retorna la última posición almacenada en la lista.
+//Requiere:Este operador básico requiere una Lista Posicionada previamente inicializada y una Lista Posicionada no vacía.
+//Modifica: Este operador básico no modifica nada.
 
 Posicion* Lista_Pos::ultima() {
 	return this->ultima_posicion; 
@@ -82,10 +90,21 @@ void Lista_Pos::destruir() {
 }
 
 
+//Primera()
+//Efecto: Este operador básico retorna la primera posición almacenada en la lista.
+//Requiere:Este operador básico requiere de una Lista Posicionada previamente inicializada y una Lista Posicionada no vacía.
+//Modifica: Este operador básico no modifica nada.
+
 Posicion* Lista_Pos::primera() {
 	return this->primera_posicion; 
 }
 
+
+
+//Siguiente(posición)
+//Efecto: Este operador básico retorna la posición siguiente a una posición determinada.
+//Requiere:Este operador básico requiere una Lista Posicionada previamente inicializada y la posición debe pertenecer a la Lista Posicionada. 
+//Modifica: Este operador básico no modifica nada.
 
 Posicion* Lista_Pos::siguiente(Posicion* posicion) {
 	return posicion->siguiente(); 
