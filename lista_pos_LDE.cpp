@@ -35,7 +35,7 @@ int Lista_Pos::NumElem() {
 	return this->numero_elementos; 
 }
 
-Lista_Pos::Posicion* Lista_Pos::traducir(int indice) {
+Posicion* Lista_Pos::traducir(int indice) {
 	Posicion* temp = nullptr; 
 	if (indice >= 1) {
 		temp = primera();  
@@ -49,15 +49,15 @@ Lista_Pos::Posicion* Lista_Pos::traducir(int indice) {
 	return temp; 
 }
 
-Lista_Pos::Posicion* Lista_Pos::primera() {
+Posicion* Lista_Pos::primera() {
 	return this->primera_posicion; 
 }
 
-Lista_Pos::Posicion* Lista_Pos::siguiente(Posicion* posicion) {
+Posicion* Lista_Pos::siguiente(Posicion* posicion) {
 	return posicion->siguiente(); 
 } 
 
-Lista_Pos::Posicion* Lista_Pos::anterior(Posicion* posicion) {
+Posicion* Lista_Pos::anterior(Posicion* posicion) {
 	return posicion->anterior(); 
 }
 
@@ -70,7 +70,7 @@ int Lista_Pos::recuperar(Posicion* posicion) {
 	return posicion->recuperar(); 
 } 
 
-Lista_Pos::Posicion* Lista_Pos::ultima() {
+Posicion* Lista_Pos::ultima() {
 	return this->ultima_posicion; 
 }
 

@@ -26,7 +26,7 @@ class Lista_Ord{
         int siguiente(int);
         int anterior(int);
         int numElem();
-        // void imprimir();
+        void imprimir();
         // void imprimirMenu(Lista_Ord *);        
 };
 

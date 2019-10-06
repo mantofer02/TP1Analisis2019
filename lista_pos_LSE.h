@@ -6,13 +6,10 @@
 using namespace std; 
 #define PosNula nullptr
 
-class Lista_Pos {	
-	private:
-	    class Posicion {		
+class Posicion {		
 			private: 	
 				Posicion* sucesor; 
 				int valor; 
-
 			public: 
 				Posicion() : sucesor(nullptr) {}
 				Posicion(int valor) : valor(valor), sucesor(nullptr) {}
@@ -22,10 +19,13 @@ class Lista_Pos {
 				Posicion* siguiente() {return this->sucesor; }
 				void establecerSiguiente(Posicion* siguiente) {this->sucesor = siguiente; }
 		};
-	typedef Posicion* Pos; 
-	int numero_elementos; 
-	Posicion* primera_posicion; 
-	Posicion* ultima_posicion; 
+typedef Posicion* Pos;
+
+class Lista_Pos {	
+	private:
+		int numero_elementos; 
+		Posicion* primera_posicion; 
+		Posicion* ultima_posicion; 
 	public: 
 		Lista_Pos();
 		void iniciar(); 										//O.B

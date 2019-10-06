@@ -12,7 +12,7 @@ void Lista_Pos::iniciar(){
 }
 
 
-Lista_Pos::Posicion* Lista_Pos::anterior(Posicion* posicion) {
+Posicion* Lista_Pos::anterior(Posicion* posicion) {
 	Posicion* temporal = nullptr; 
 	
 	if (posicion != nullptr) {
@@ -28,7 +28,7 @@ Lista_Pos::Posicion* Lista_Pos::anterior(Posicion* posicion) {
 }
 
 
-Lista_Pos :: Posicion* Lista_Pos::ultima() {
+Posicion* Lista_Pos::ultima() {
 	return this->ultima_posicion; 
 }
 
@@ -58,12 +58,12 @@ void Lista_Pos::destruir() {
 }
 
 
-Lista_Pos :: Posicion* Lista_Pos::primera() {
+Posicion* Lista_Pos::primera() {
 	return this->primera_posicion; 
 }
 
 
-Lista_Pos::Posicion* Lista_Pos::siguiente(Posicion* posicion) {
+Posicion* Lista_Pos::siguiente(Posicion* posicion) {
 	return posicion->siguiente(); 
 }
 
@@ -179,7 +179,7 @@ void Lista_Pos::borrar(Posicion* posicion) {
 }
 
 
-Lista_Pos::Posicion* Lista_Pos::traducir(int indice) {
+Posicion* Lista_Pos::traducir(int indice) {
 	Posicion* temp = nullptr; 
 	if (indice >= 1) {
 		temp = primera(); 

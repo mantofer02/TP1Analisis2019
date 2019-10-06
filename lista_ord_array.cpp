@@ -213,15 +213,15 @@ int Lista_Ord::numElem(){
     return numeroElementos;
 }
 
-// void Lista_Ord::imprimir(){
-//     cout << "{"; 
-//     for(int i=0;i<numeroElementos;i++){
-//         if(array[i]!=0){
-//             cout << array[i] << " ";   
-//         }   
-//     }
-//     cout << "}"<< endl;
-// }
+void Lista_Ord::imprimir(){
+    cout << "{"; 
+    for(int i=0;i<numeroElementos;i++){
+        if(array[i]!=0){
+            cout << array[i] << " ";   
+        }   
+    }
+    cout << "}"<< endl;
+}
 
 // void Lista_Ord::imprimirMenu(Lista_Ord * lista){
 //     cout << "Bienvenido al programa de prueba de la lista ordenada implementada a través de un array. Digite los dígitos correspondientes a los operadores básicos que desea usar:\n" << endl;
