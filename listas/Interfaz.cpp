@@ -180,67 +180,104 @@ void Interfaz :: escogioListaPosicionada(){
     int option = 0; 
     int position = 0; 
     int value = 0; 
-    cout << " 1) Agregar Elemento \n 2) Borrar Elemento \n 3) Modificar Elemento \n 4) Recuperar Elemento \n 5) Siguiente Elemento \n 6) Anterior Elemento \n 7) Primer Elemento \n 8) Ultimo Elemento \n 9) Iniciar Lista \n 10) Vaciar Lista \n 11) Destruir Lista \n 12 Imprimir Lista \n 13) Agregar Al Final" << endl; 
+    
+    cout << "1) agregar(int , int)" << endl;	
+    cout << "2) borrar(int)" << endl;
+    cout << "3) modificarElemento(int, int)" << endl;
+    cout << "4) recuperar(int)" << endl;	
+    cout << "5) siguiente(int)" << endl; 
+    cout << "6) anterior(int)" << endl; 
+    cout << "7) primero()" << endl; 
+    cout << "8) ultimo()" << endl;  
+    cout << "9) iniciar();" << endl;	
+    cout << "10) vaciar();" << endl;		    	
+    cout << "11) destruir();" << endl;		
+    cout << "12) imprimirLista()" << endl;
+    cout << "13) agregarAlFinal()" << endl; 
+    cout << "14) salir /NOTA: se regresara al menu principal" << endl; 
+    
     cin >>option; 
     switch (option){
 	case 1: 
-		cout << "Posicion : "; 
-		cin >> position; 
-		cout << "Valor : "; 
-		cin >> value; 
-		insertarPosicion(position, value, miListaPos); 
+	
+		    cout << "Digite una posicion para la lista posicionada" << endl;
+			cin >> position; 
+
+          
+            cout << "Digite el elemento que desea insertar" << endl;
+			cin >> value; 
+			
+			insertarPosicion(position, value, miListaPos); 
+			
 	    break; 
 	case 2: 
-		cout << "Posicicon : "; 
+	
+	    cout << "Digite la posicion del elemento que desea borrar de la lista " << endl;
 		cin >> position; 
 		borrarPosicion(position, miListaPos); 	
+		
         break; 	
 	case 3: 
-		cout << "Posicion : "; 
+		cout << "Digite la posicion del elemento que desea modificar de la lista" << endl; 
 		cin >>position; 
-		cout << "Valor : "; 
+		cout << "Digite el nuevo valor de la posicion que desea modificar" << endl; 
 		cin >>value; 
 		modificarPosicion(position, value, miListaPos); 
 	    break; 
 	case 4: 
-		cout << "Posicion : "; 
+		cout << "Digite la posicion del elemento que desea recuperar" << endl; 
 		cin >> position; 
-		cout << "elemento : " <<  recuperarPosicion(position, miListaPos) << endl; 
+		cout << "El elemento recuperado de dicha posicion corresponde al  : " <<  recuperarPosicion(position, miListaPos) << endl; 
 	    break; 
 	case 5: 
-		cout << "Posicion : "; 
+		cout << "Digite la posicion del elemento al que desea conocer su siguiente" << endl; 
 		cin >>position; 
-		cout << "siguiente : " << siguientePosicion(position, miListaPos) << endl; 
+		cout << "El elemento siguiente a la posicion ingresada corresponde al : " << siguientePosicion(position, miListaPos) << endl; 
 	    break; 
 	case 6: 
-		cout << "Posicion :"; 
+		cout << "Digite la posicion del elemento al que desea conocer el anterior" << endl; 
 		cin >>position; 
-		cout << "Anterior : " << anteriorPosicion(position, miListaPos) << endl; 
+		cout << "El elemento anterior a la posicion ingresaada corresponde al : " << anteriorPosicion(position, miListaPos) << endl; 
 	    break; 
 	case 7: 
-		cout << "Primero : " <<  primeraPosicion(miListaPos) << endl; 
+		cout << "El primer elemento de la lista corresponde al  : " <<  primeraPosicion(miListaPos) << endl; 
 	    break; 
 	case 8: 
-		cout << "Ultimo : " <<  ultimaPosicion(miListaPos) << endl; 
+		cout << "El ultimo elemento de la lista corresponde al : " <<  ultimaPosicion(miListaPos) << endl; 
 	    break; 
 	case 9: 
+		cout << "Se inicio la lista posicionada" << endl; 
 		iniciarLista(miListaPos); 
 	    break; 
 	case 10: 
+		cout << "Se va a vaciar la lista posicionada" << endl; 
 		vaciarLista(miListaPos); 
 	    break; 
 	case 11: 
+		cout << "Se va a destruir la lista posicionada" << endl; 
 		destruirLista(miListaPos); 
 	    break; 
 	case 12: 
+		cout << "Imprimiendo lista" << endl; 
 		cout << imprimirLista(miListaPos) << endl; 
 	    break; 
 	case 13: 
-		cout << "Valor : " << endl; 
+		cout << "Digite el elemento que desea ingresar al final de la lista" << endl; 
 		cin >>value; 
 		agregarPosicionAlFinal(value, miListaPos); 
 	break; 	
+	
+	case 14: 
+		menu(); 	
+	break; 
+	
+	
+	default: 
+		cout << "la opcion seleccionada no es valida" << endl; 
+		escogioListaPosicionada(); 	
+	break; 
     }
+    
     escogioListaPosicionada();
 }	
 			 
