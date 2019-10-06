@@ -17,17 +17,7 @@ void Lista_Pos::iniciar(){
 }
 
 
-<<<<<<< HEAD:lista_pos_LSE.cpp
 Posicion* Lista_Pos::anterior(Posicion* posicion) {
-=======
-//Anterior(posición)
-//Efecto: Este operador básico retorna la posición anterior a una posición determinada.
-//Requiere:Este operador básico requiere una Lista Posicionada previamente inicializada y la posición debe pertenecer a la Lista Posicionada. 
-//Modifica: Este operador básico no modifica nada.
-
-
-Lista_Pos::Posicion* Lista_Pos::anterior(Posicion* posicion) {
->>>>>>> 1351b6f5af07c94daf308eb4c2a4477f70378534:listas/lista_pos_LSE.cpp
 	Posicion* temporal = nullptr; 
 	
 	if (posicion != nullptr) {
@@ -43,18 +33,7 @@ Lista_Pos::Posicion* Lista_Pos::anterior(Posicion* posicion) {
 }
 
 
-<<<<<<< HEAD:lista_pos_LSE.cpp
 Posicion* Lista_Pos::ultima() {
-=======
-
-//Última()
-//Efecto: Este operador básico retorna la última posición almacenada en la lista.
-//Requiere:Este operador básico requiere una Lista Posicionada previamente inicializada y una Lista Posicionada no vacía.
-//Modifica: Este operador básico no modifica nada.
-
-
-Lista_Pos :: Posicion* Lista_Pos::ultima() {
->>>>>>> 1351b6f5af07c94daf308eb4c2a4477f70378534:listas/lista_pos_LSE.cpp
 	return this->ultima_posicion; 
 }
 
@@ -103,31 +82,12 @@ void Lista_Pos::destruir() {
 }
 
 
-<<<<<<< HEAD:lista_pos_LSE.cpp
 Posicion* Lista_Pos::primera() {
-=======
-//Primera()
-//Efecto: Este operador básico retorna la primera posición almacenada en la lista.
-//Requiere:Este operador básico requiere de una Lista Posicionada previamente inicializada y una Lista Posicionada no vacía.
-//Modifica: Este operador básico no modifica nada.
-
-
-Lista_Pos :: Posicion* Lista_Pos::primera() {
->>>>>>> 1351b6f5af07c94daf308eb4c2a4477f70378534:listas/lista_pos_LSE.cpp
 	return this->primera_posicion; 
 }
 
 
-<<<<<<< HEAD:lista_pos_LSE.cpp
 Posicion* Lista_Pos::siguiente(Posicion* posicion) {
-=======
-//Siguiente(posición)
-//Efecto: Este operador básico retorna la posición siguiente a una posición determinada.
-//Requiere:Este operador básico requiere una Lista Posicionada previamente inicializada y la posición debe pertenecer a la Lista Posicionada. 
-//Modifica: Este operador básico no modifica nada.
-
-Lista_Pos::Posicion* Lista_Pos::siguiente(Posicion* posicion) {
->>>>>>> 1351b6f5af07c94daf308eb4c2a4477f70378534:listas/lista_pos_LSE.cpp
 	return posicion->siguiente(); 
 }
 
