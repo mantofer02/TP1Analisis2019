@@ -1,5 +1,5 @@
 #include "lista_ord_array.h"
-#define MAX 20
+#define MAX 100
 
 Lista_Ord::Lista_Ord(){
 
@@ -17,6 +17,12 @@ Lista_Ord::~Lista_Ord(){
 //Modifica: Los espacios de memoria que la Lista_Ord va utilizar (Si es estática, no se necesitan más espacios de memoria para el manejo de la lista)
 void Lista_Ord::iniciar(){
     this->tamanoMaximo = MAX;
+    array = new int[tamanoMaximo];
+    numeroElementos=0;
+}
+
+void Lista_Ord::iniciar(int m){
+    this->tamanoMaximo = m;
     array = new int[tamanoMaximo];
     numeroElementos=0;
 }

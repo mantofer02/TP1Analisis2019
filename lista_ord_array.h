@@ -16,6 +16,7 @@ class Lista_Ord{
         Lista_Ord();
         ~Lista_Ord();
         void iniciar();
+        void iniciar(int);
         void destruir();
         void vaciar();
         int vacia();

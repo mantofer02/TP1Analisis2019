@@ -8,7 +8,8 @@
 class Lista_Index{
     public:
         Lista_Index();
-        void iniciar(); 
+        void iniciar();
+        void iniciar(int); 
         // hacer un iniciar con una firma diferente
         void vaciar();
         bool vacia();

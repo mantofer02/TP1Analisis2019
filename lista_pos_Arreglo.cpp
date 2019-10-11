@@ -1,7 +1,6 @@
 #include "lista_pos_Arreglo.h"
 
-
-Lista_Pos::Lista_Pos() {
+Lista_Pos::Lista_Pos(){
 	
 }
 
