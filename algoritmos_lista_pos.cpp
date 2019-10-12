@@ -83,6 +83,33 @@ else {
 }
 
 
+void Algoritmos_Pos::seleccion(Lista_Pos lista) {
+int amount_elements = lista.NumElem();  
+Pos p_1 = primera();  
+Pos p_2 = primera(); 
+Pos lower_pos = PosNula;  
+int temp_value = 0; 
+ 
+ for (int iteration = 0; iteration < amount_elements; ++iteration) {
+	 lower_pos = p_1; 
+	 p_2 = lista.siguiente(p_1); 
+	 for (int find_lower = iteration+1; find_lower < amount_elements; ++find_lower) {
+		 if (lista.recuperar(p_2) < lista.recuperar(lower_pos)) {
+			 lower_pos = p_2; 
+		 }
+		 p_2 = lista.siguiente(p_2); 		 
+	 }
+	 if (p_1 != lower_pos) {
+		 temp_value = lista.recuperar(p_1);
+		 lista.modificar(p_1, lista.recuperar(lower_pos));
+		 lista.modificar(lower_pos, temp_value);   
+	 }
+	 p_1 = lista.siguiente(p_1); 
+ }
+ 
+	
+}
+
 
 
 
