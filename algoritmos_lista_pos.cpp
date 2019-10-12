@@ -110,6 +110,30 @@ int temp_value = 0;
 	
 }
 
+void Algoritmos_Pos::seleccionRecursivo(Lista_Pos lista, Pos pos) {
+ 
+  if (lista.siguiente(pos) != PosNula) {
+	  Pos p_2 = lista.siguiente(pos);
+	  Pos lower_pos = pos; 
+	  while (p_2 != PosNula) {
+		 if (lista.recuperar(p_2) < lista.recuperar(lower_pos)) {
+			 lower_pos = p_2;  
+		 }
+		 p_2 = lista.siguiente(p_2); 	  
+	  }
+	  if (pos != lower_pos) {
+		  int temp_value = lista.recuperar(pos);
+		  lista.modificar(pos, lista.recuperar(lower_pos));
+		  lista.modificar(lower_pos, temp_value);   
+	  } 
+	  seleccionRecursivo(lista, lista.siguiente(pos));  
+  }
+  else {
+	//condicion de parada.  
+  }
+		
+}
+
 
 
 
