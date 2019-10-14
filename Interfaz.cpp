@@ -189,7 +189,7 @@ void Interfaz :: escogioListaIndexada(){
             cin >> parametro1;
             cout << "Digite el elemento que desea modificar" << endl;
             cin >> parametro2;
-            miListaIndex.modificarElemento(parametro1, parametro2);
+            miListaIndex.modificar(parametro1, parametro2);
             escogioListaIndexada();
             break;
         case 9:

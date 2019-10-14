@@ -18,7 +18,7 @@ class Lista_Index{
         void agregar(int, int);
         void borrar(int);
         int recuperar(int);  
-        void modificarElemento(int, int);      
+        void modificar(int, int);      
         void intercambiar(int indice1, int indice2);
         int numElem();
         void imprimirLista();

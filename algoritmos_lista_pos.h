@@ -16,6 +16,11 @@ class Algoritmos_Pos{
       int simetrica(Lista_Pos); // Se pueden cambiar las firmas y hacerlo por omision, pero hay que ver si se puede quitar
       void invertir(Lista_Pos); //Ver si tiene que devolver una lista nueva o modifica la misma
       int buscar(Lista_Pos, int);
-      void eliminarRepetidos(Lista_Pos);  
+      void eliminarRepetidos(Lista_Pos);  // Falta
+      void burbuja(Lista_Pos);
+      void seleccion(Lista_Pos);
+      void seleccionRecursivo(Lista_Pos, Pos);
+      Lista_Pos mergeSort(Lista_Pos);
+      Lista_Pos merge(Lista_Pos, Lista_Pos);
 };
 #endif

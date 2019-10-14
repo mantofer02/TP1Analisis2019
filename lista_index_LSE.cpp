@@ -76,7 +76,7 @@ Requiere : 1)Que la lista exista y se encuentre inicializada.
            4)Que el índice solicitado sea menor a la cantidad de elementos de la lista. 
 Modiﬁca : el elemento contenido en la posición indice de la lista.
 */
-void Lista_Index::modificarElemento(int indice, int elemento){
+void Lista_Index::modificar(int indice, int elemento){
     if(indice < m){
         Celda* actual = inicio;
         while(indice != actual->indice){
