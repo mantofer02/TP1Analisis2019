@@ -200,6 +200,25 @@ return pivote_position;
 } 
 
 
+void Algoritmos_Pos::insercion(Lista_Pos lista) {
+	
+		//falta. 
+	
+}
+
+
+
+void Algoritmos_Pos::quickSort_insercion(Lista_Pos lista) {
+	if (lista.NumElem() < 100) {
+		
+		//aqui se hace insercion. 
+				
+	}
+	else {
+		quickSort(lista); 	
+	}
+		
+}
 
 
 
