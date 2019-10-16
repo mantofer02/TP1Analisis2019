@@ -32,6 +32,7 @@ class Lista_Pos{
 		void agregarAlFinal(int valor); 				//O.B
 		void borrar(int posicion); 						//O.B
 		int anterior(int posicion); 					//O.B
+		void intercambiar(int p_1, int p_2);			//O.B 
 		int traducir(int posicion); 					//Algoritmo.		//traduce el indice del usuario al indice de la Lista_Pos. osea de 1 a 0 o de 2 a 1. 							
 		string imprimirLista(); 
 }; 

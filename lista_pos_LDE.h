@@ -46,6 +46,7 @@ public:
 	Posicion* anterior(Posicion* posicion); 				//O.B
 	void modificar(Posicion* posicion, int valor); 			//O.B
 	int recuperar(Posicion* posicion);						//O.B 
+	void intercambiar(Posicion* p_1, Posicion* p_2);		//O.B 
 	Posicion* traducir(int indice);							//Algoritmo
 	string imprimirLista(); 								//Algoritmo. 
 	string imprimirListaRevez();  							//Algoritmo.

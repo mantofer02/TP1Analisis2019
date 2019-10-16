@@ -36,6 +36,16 @@ Posicion* Lista_Pos::anterior(Posicion* posicion) {
 	return temporal; 	
 }
 
+
+
+void Lista_Pos::intercambiar(Posicion* p_1, Posicion* p_2) {
+	int temporal_value = p_1.recuperar(); 
+	p_1.modificar(p_2.recuperar()); 
+	p_2.modificar(temporal_value); 		
+}	
+	
+
+
 //Última()
 //Efecto: Este operador básico retorna la última posición almacenada en la lista.
 //Requiere:Este operador básico requiere una Lista Posicionada previamente inicializada y una Lista Posicionada no vacía.

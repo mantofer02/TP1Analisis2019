@@ -28,6 +28,14 @@ void Lista_Pos::destruir() {
 
 
 
+void Lista_Pos::intercambiar(Posicion* p_1, Posicion* p_2) {
+	int temporal_value = p_1.recuperar(); 
+	p_1.modificar(p_2.recuperar()); 
+	p_2.modificar(temporal_value); 		
+}
+
+
+
 //Vacía() 
 //Efecto: Este operador básico retorna un booleano para determinar si la ListaPosicionada no contiene elementos almacenados en ella. 
 //Requiere: Este operador básico requiere una Lista Posicionada previamente inicializada. 

@@ -42,6 +42,7 @@ class Lista_Pos {
 		void vaciar(); 											//O.B
 		void destruir(); 										//O.B
 		int NumElem(); 											//O.B
+		void intercambiar(Posicion* p_1, Posicion* p_2);		//O.B 
 		string imprimirLista(); 								//Algoritmo. 
 		Posicion* traducir(int indice); 						//Algoritmo. 
 };

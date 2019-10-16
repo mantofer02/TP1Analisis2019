@@ -29,6 +29,14 @@ void Lista_Pos::destruir() {
 }
 
 
+
+void intercambiar(int p_1, int p_2) {
+	int temporal_value = this->listaPos[p_1]; 
+	this->listaPos[p_1] = this->listaPos[p_2];
+	this->listaPos[p_2] = temporal_value;  	
+}
+
+
 //Vaciar() 
 //Efecto: Este operador básico se encarga de eliminar todos los elementos en todas las posiciones de la Lista Posicionada, sin necesariamente destruir la Lista Posicionada. 
 //Requiere:Este operador básico requiere una Lista Posicionada previamente inicializada. 
