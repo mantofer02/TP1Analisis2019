@@ -135,10 +135,10 @@ void Algoritmos_Pos::seleccionRecursivo(Lista_Pos lista, Pos pos) {
 void Algoritmos_Pos::quickSort(Lista_Pos lista) {
  
  if (lista.NumElem() >= 2) {
-	 return quickSortRecursivo(lista, lista.primera(), lista.ultima());  
+	  quickSortRecursivo(lista, lista.primera(), lista.ultima());  
  }
  else { 
-		return lista; 
+		//no hay nada que modificar. 
  }		
 	
 }
