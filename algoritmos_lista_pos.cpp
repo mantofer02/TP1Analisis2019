@@ -131,6 +131,78 @@ void Algoritmos_Pos::seleccionRecursivo(Lista_Pos lista, Pos pos) {
 		
 }
 
+
+void Algoritmos_Pos::quickSort(Lista_Pos lista) {
+ 
+ if (lista.NumElem() >= 2) {
+	 return quickSortRecursivo(lista, lista.primera(), lista.ultima());  
+ }
+ else { 
+		return lista; 
+ }		
+	
+}
+
+
+void Algoritmos_Pos::quickSortRecursivo(Lista_Pos lista, Pos low, Pos high) {
+
+
+	Pos pivote_position = buscarPivote(lista, low, high); 
+
+	if (pivote_position != PosNula) {
+
+	Pos p_1 = low; 
+	Pos p_2 = high; 
+		
+		while (lista.siguiente(p_2) != p_1) {	
+			lista.intercambiar(p_1, p_2);	 
+
+			while (lista.recuperar(p_1) <= lista.recuperar(pivote_position)) {		// p_1 != PosNula? 
+				p_1 = lista.siguiente(p_1); 
+			}
+
+
+			while (lista.recuperar(p_2) > lista.recuperar(pivote_position)) {
+				p_2 = lista.anterior(p_2); 		
+			}	
+
+			
+		}
+		
+		quickSortRecursivo(lista, low, p_2);
+		quickSortRecursivo(lista, p_1, high);  	
+		
+	}	
+		
+}
+
+
+
+Pos Algoritmos_Pos::buscarPivote(Lista_Pos lista, Pos low, Pos high) {
+Pos pivote_position = PosNula; 
+Pos p_1 = low; 
+
+while (p_1 != high && lista.recuperar(p_1) == lista.recuperar(lista.siguiente(p_1))) {
+	p_1 = lista.siguiente(p_1); 	
+}
+
+if (p_1 != high) {
+	if (lista.recuperar(p_1) < lista.recuperar(lista.siguiente(p_1))) {
+		pivote_position = low; 
+	}
+	else {
+		pivote_position = lista.siguiente(p_1); 
+	}
+}
+
+
+return pivote_position; 	
+} 
+
+
+
+
+
 Lista_Pos Algoritmos_Pos::mergeSort(Lista_Pos lista){
     if(lista.NumElem() == 1){
         return lista;

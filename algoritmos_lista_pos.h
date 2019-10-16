@@ -20,6 +20,9 @@ class Algoritmos_Pos{
       void burbuja(Lista_Pos);
       void seleccion(Lista_Pos);
       void seleccionRecursivo(Lista_Pos, Pos);
+      void quickSort(Lista_Pos lista); 
+      void quickSortRecursivo(Lista_Pos lista, Pos low, Pos high); 
+      Pos buscarPivote(Lista_Pos lista, Pos low, Pos high); 
       Lista_Pos mergeSort(Lista_Pos);
       Lista_Pos merge(Lista_Pos, Lista_Pos);
 };
