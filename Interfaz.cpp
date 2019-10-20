@@ -331,7 +331,8 @@ void Interfaz :: escogioListaPosicionada(){
 	
 	
 	case 15: 
-		//burbuja(); 
+		algoritmos.burbuja(miListaPos); 
+		escogioListaPosicionada(); 
 	
 	break; 
 	

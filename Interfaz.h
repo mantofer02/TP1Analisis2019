@@ -26,6 +26,7 @@ class Interfaz{
         Lista_Ord miListaOrdena;
         Lista_Index miListaIndex;
         Lista_Pos miListaPos; 
+		Algoritmos_Pos algoritmos; 
 
     public: 
         Interfaz();

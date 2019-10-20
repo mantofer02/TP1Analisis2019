@@ -1,10 +1,15 @@
 #include "algoritmos_lista_pos.h"
-
-Algoritmos_Pos :: Algoritmos_Pos(Lista_Pos lista){
+/*
+Algoritmos_Pos :: Algoritmos_Pos(Lista_Pos &lista){
     this->lista = lista;
 }
+*/
 
-int Algoritmos_Pos :: simetrica(Lista_Pos lista){
+Algoritmos_Pos::Algoritmos_Pos() {
+	
+}
+
+int Algoritmos_Pos :: simetrica(Lista_Pos &lista){
     int esSimetrica = 1;
     Pos pos1 = lista.primera();
     Pos pos2 = lista.ultima();
@@ -19,7 +24,7 @@ int Algoritmos_Pos :: simetrica(Lista_Pos lista){
     return esSimetrica;
 }
 
-void Algoritmos_Pos :: invertir(Lista_Pos lista){
+void Algoritmos_Pos :: invertir(Lista_Pos &lista){
     Pos pos1 = lista.primera();
     Pos pos2 = lista.ultima();
     int elemento1;
@@ -32,7 +37,7 @@ void Algoritmos_Pos :: invertir(Lista_Pos lista){
     }
 }
 
-int Algoritmos_Pos::buscar(Lista_Pos lista, int elemento){
+int Algoritmos_Pos::buscar(Lista_Pos &lista, int elemento){
     int esta = 0;
     int stop = 0;
     Pos posActual = lista.primera();
@@ -46,11 +51,11 @@ int Algoritmos_Pos::buscar(Lista_Pos lista, int elemento){
     return esta;
 }
 
-void Algoritmos_Pos::eliminarRepetidos(Lista_Pos lista){
+void Algoritmos_Pos::eliminarRepetidos(Lista_Pos &lista){
 
 }
 
-void Algoritmos_Pos::burbuja(Lista_Pos lista) {	
+void Algoritmos_Pos::burbuja(Lista_Pos &lista) {	
  int amount_elements = lista.NumElem(); 
  Pos p_1 = PosNula; 
  Pos p_2 = PosNula; 
@@ -83,7 +88,7 @@ else {
 }
 
 
-void Algoritmos_Pos::seleccion(Lista_Pos lista) {
+void Algoritmos_Pos::seleccion(Lista_Pos &lista) {
 int amount_elements = lista.NumElem();  
 Pos p_1 = lista.primera();  
 Pos p_2 = lista.primera(); 
@@ -107,7 +112,7 @@ int temp_value = 0;
     }	
 }
 
-void Algoritmos_Pos::seleccionRecursivo(Lista_Pos lista, Pos pos) {
+void Algoritmos_Pos::seleccionRecursivo(Lista_Pos &lista, Pos pos) {
  
   if (lista.siguiente(pos) != PosNula) {
 	  Pos p_2 = lista.siguiente(pos);
@@ -132,7 +137,7 @@ void Algoritmos_Pos::seleccionRecursivo(Lista_Pos lista, Pos pos) {
 }
 
 
-void Algoritmos_Pos::quickSort(Lista_Pos lista) {
+void Algoritmos_Pos::quickSort(Lista_Pos &lista) {
  
  if (lista.NumElem() >= 2) {
 	  quickSortRecursivo(lista, lista.primera(), lista.ultima());  
@@ -144,7 +149,7 @@ void Algoritmos_Pos::quickSort(Lista_Pos lista) {
 }
 
 
-void Algoritmos_Pos::quickSortRecursivo(Lista_Pos lista, Pos low, Pos high) {
+void Algoritmos_Pos::quickSortRecursivo(Lista_Pos &lista, Pos low, Pos high) {
 
 
 	Pos pivote_position = buscarPivote(lista, low, high); 
@@ -178,7 +183,7 @@ void Algoritmos_Pos::quickSortRecursivo(Lista_Pos lista, Pos low, Pos high) {
 
 
 
-Pos Algoritmos_Pos::buscarPivote(Lista_Pos lista, Pos low, Pos high) {
+Pos Algoritmos_Pos::buscarPivote(Lista_Pos &lista, Pos low, Pos high) {
 Pos pivote_position = PosNula; 
 Pos p_1 = low; 
 
@@ -200,7 +205,7 @@ return pivote_position;
 } 
 
 
-void Algoritmos_Pos::insercion(Lista_Pos lista) {
+void Algoritmos_Pos::insercion(Lista_Pos &lista) {
  if (lista.NumElem() >= 2) {
 	Pos p_1 = lista.primera();  
 	Pos aux_p_1 = p_1; 
@@ -231,7 +236,7 @@ void Algoritmos_Pos::insercion(Lista_Pos lista) {
 
 
 
-void Algoritmos_Pos::quickSort_insercion(Lista_Pos lista) {
+void Algoritmos_Pos::quickSort_insercion(Lista_Pos &lista) {
 	if (lista.NumElem() < 100) {
 		
 		insercion(lista); 
@@ -245,7 +250,7 @@ void Algoritmos_Pos::quickSort_insercion(Lista_Pos lista) {
 
 
 
-Lista_Pos Algoritmos_Pos::mergeSort(Lista_Pos lista){
+Lista_Pos Algoritmos_Pos::mergeSort(Lista_Pos &lista){
     if(lista.NumElem() == 1){
         return lista;
     }else{
@@ -271,7 +276,7 @@ Lista_Pos Algoritmos_Pos::mergeSort(Lista_Pos lista){
     }
 }
 
-Lista_Pos Algoritmos_Pos::merge(Lista_Pos listaA, Lista_Pos listaB){
+Lista_Pos Algoritmos_Pos::merge(Lista_Pos &listaA, Lista_Pos &listaB){
     Lista_Pos listaC;
     listaC.iniciar();
     while (listaA.NumElem() && listaB.NumElem()){
