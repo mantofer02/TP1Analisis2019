@@ -203,7 +203,7 @@ return pivote_position;
 void Algoritmos_Pos::insercion(Lista_Pos lista) {
  if (lista.NumElem() >= 2) {
 	Pos p_1 = lista.primera();  
-	Pos aux_p1 = p_1; 
+	Pos aux_p_1 = p_1; 
 	
 	while (p_1 != PosNula) {
 		aux_p_1 = p_1; 
@@ -275,7 +275,7 @@ Lista_Pos Algoritmos_Pos::merge(Lista_Pos listaA, Lista_Pos listaB){
     Lista_Pos listaC;
     listaC.iniciar();
     while (listaA.NumElem() && listaB.NumElem()){
-        if(listaA.recuperar(listaA.primera) > listaB.recuperar(listaB.primera)){
+        if(listaA.recuperar(listaA.primera()) > listaB.recuperar(listaB.primera())){
             listaC.insertar(listaC.ultima(), listaB.recuperar(listaB.primera()));
             listaB.borrar(listaB.primera());
         }else{
