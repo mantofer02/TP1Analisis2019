@@ -6,8 +6,8 @@
 
 
 Interfaz :: Interfaz(){
-    miListaPos = new Lista_Pos();
-    miListaPos->iniciar();
+  //  miListaPos = new Lista_Pos();
+    miListaPos.iniciar();
     tipoDeLista = 0;
     cout << "Bienvenido " << endl;
     menu();
@@ -252,14 +252,14 @@ void Interfaz :: escogioListaPosicionada(){
             cout << "Digite el elemento que desea insertar" << endl;
 			cin >> value; 
 			
-			insertarPosicion(position, value, miListaPos); 
+			insertarPosicion(position, value, &miListaPos); 
 		    escogioListaPosicionada();	
 	    break; 
 	case 2: 
 	
 	    cout << "Digite la posicion del elemento que desea borrar de la lista " << endl;
 		cin >> position; 
-		borrarPosicion(position, miListaPos); 	
+		borrarPosicion(position, &miListaPos); 	
 		escogioListaPosicionada();
         break; 	
 	case 3: 
@@ -267,61 +267,61 @@ void Interfaz :: escogioListaPosicionada(){
 		cin >>position; 
 		cout << "Digite el nuevo valor de la posicion que desea modificar" << endl; 
 		cin >>value; 
-		modificarPosicion(position, value, miListaPos); 
+		modificarPosicion(position, value, &miListaPos); 
 	    escogioListaPosicionada();
         break; 
 	case 4: 
 		cout << "Digite la posicion del elemento que desea recuperar" << endl; 
 		cin >> position; 
-		cout << "El elemento recuperado de dicha posicion corresponde al  : " <<  recuperarPosicion(position, miListaPos) << endl; 
+		cout << "El elemento recuperado de dicha posicion corresponde al  : " <<  recuperarPosicion(position, &miListaPos) << endl; 
 	    escogioListaPosicionada();
         break; 
 	case 5: 
 		cout << "Digite la posicion del elemento al que desea conocer su siguiente" << endl; 
 		cin >>position; 
-		cout << "El elemento siguiente a la posicion ingresada corresponde al : " << siguientePosicion(position, miListaPos) << endl; 
+		cout << "El elemento siguiente a la posicion ingresada corresponde al : " << siguientePosicion(position, &miListaPos) << endl; 
 	    escogioListaPosicionada();
         break; 
 	case 6: 
 		cout << "Digite la posicion del elemento al que desea conocer el anterior" << endl; 
 		cin >>position; 
-		cout << "El elemento anterior a la posicion ingresaada corresponde al : " << anteriorPosicion(position, miListaPos) << endl; 
+		cout << "El elemento anterior a la posicion ingresaada corresponde al : " << anteriorPosicion(position, &miListaPos) << endl; 
 	    escogioListaPosicionada();
         break; 
 	case 7: 
-		cout << "El primer elemento de la lista corresponde al  : " <<  primeraPosicion(miListaPos) << endl; 
+		cout << "El primer elemento de la lista corresponde al  : " <<  primeraPosicion(&miListaPos) << endl; 
 	    escogioListaPosicionada();
         break; 
 	case 8: 
-		cout << "El ultimo elemento de la lista corresponde al : " <<  ultimaPosicion(miListaPos) << endl; 
+		cout << "El ultimo elemento de la lista corresponde al : " <<  ultimaPosicion(&miListaPos) << endl; 
 	    escogioListaPosicionada();
         break; 
 	case 9: 
 		cout << "Se inicio la lista posicionada" << endl; 
-		iniciarLista(miListaPos); 
+		iniciarLista(&miListaPos); 
 	    escogioListaPosicionada();
         break; 
 	case 10: 
 		cout << "Se va a vaciar la lista posicionada" << endl; 
-		vaciarLista(miListaPos); 
+		vaciarLista(&miListaPos); 
 	    escogioListaPosicionada();
         break; 
 	case 11: 
 		cout << "Se va a destruir la lista posicionada" << endl; 
-		destruirLista(miListaPos); 
+		destruirLista(&miListaPos); 
 	    escogioListaPosicionada();
         break; 
 	case 12: 
 		cout << "Imprimiendo lista" << endl; 
 		cout << "------------------------" << endl;
-        cout << imprimirLista(miListaPos) << endl; 
+        cout << imprimirLista(&miListaPos) << endl; 
         cout << "------------------------" << endl;
 	    escogioListaPosicionada();
         break; 
 	case 13: 
 		cout << "Digite el elemento que desea ingresar al final de la lista" << endl; 
 		cin >>value; 
-		agregarPosicionAlFinal(value, miListaPos);
+		agregarPosicionAlFinal(value, &miListaPos);
         escogioListaPosicionada(); 
 	break; 	
 	
@@ -443,5 +443,6 @@ int Interfaz :: recuperarPosicion(int indice, Lista_Pos* lista) {
 }
 
 Interfaz :: ~Interfaz(){
-    delete miListaPos;
+    //delete miListaPos;
+    miListaPos.destruir(); 
 }

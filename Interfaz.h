@@ -25,7 +25,7 @@ class Interfaz{
         int tipoDeLista;
         Lista_Ord miListaOrdena;
         Lista_Index miListaIndex;
-        Lista_Pos *miListaPos; 
+        Lista_Pos miListaPos; 
 
     public: 
         Interfaz();
