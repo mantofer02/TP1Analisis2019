@@ -244,6 +244,7 @@ void Interfaz :: escogioListaPosicionada(){
     cout << "16) Seleccion" << endl; 
     cout << "17) Seleccion recursivo" << endl;
     cout << "18) Insercion" << endl; 
+    cout << "19) QuickSort" << endl; 
     cin >>option; 
     switch (option){
 	case 1: 
@@ -356,6 +357,12 @@ void Interfaz :: escogioListaPosicionada(){
 	
 	break; 
 	
+	case 19: 
+		algoritmos.quickSort(miListaPos);
+		escogioListaPosicionada();  
+	
+	break; 
+	
 	default: 
 		cout << "La opcion seleccionada no es valida" << endl; 
 		escogioListaPosicionada(); 	
@@ -417,6 +424,9 @@ int Interfaz :: anteriorPosicion(int indice, Lista_Pos* lista) {
 	if (before_one != PosNula) {
 		value = lista->recuperar(before_one); 
 	} 
+	else {
+		cout << "la posición que desea ingresar no es valida " << endl; 
+	}
 	return value;  
 }
 
