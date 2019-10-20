@@ -239,7 +239,8 @@ void Interfaz :: escogioListaPosicionada(){
     cout << "11) destruir();" << endl;		
     cout << "12) imprimirLista()" << endl;
     cout << "13) agregarAlFinal()" << endl; 
-    cout << "14) EXIT" << endl;  
+    cout << "14) EXIT" << endl; 
+    cout << "15) Burbuja" << endl;  
     cin >>option; 
     switch (option){
 	case 1: 
@@ -328,6 +329,11 @@ void Interfaz :: escogioListaPosicionada(){
 		menu(); 	
 	break; 
 	
+	
+	case 15: 
+		//burbuja(); 
+	
+	break; 
 	
 	default: 
 		cout << "La opcion seleccionada no es valida" << endl; 

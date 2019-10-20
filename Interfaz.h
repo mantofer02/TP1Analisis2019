@@ -14,6 +14,9 @@
 // #include "lista_pos_LSE.h"
 #include "lista_pos_LDE.h"
 
+#include "algoritmos_lista_pos.h"
+
+
 
 using namespace std;
 
