@@ -201,8 +201,31 @@ return pivote_position;
 
 
 void Algoritmos_Pos::insercion(Lista_Pos lista) {
+ if (lista.NumElem() >= 2) {
+	Pos p_1 = lista.primera();  
+	Pos aux_p1 = p_1; 
 	
-		//falta. 
+	while (p_1 != PosNula) {
+		aux_p_1 = p_1; 
+		Pos p_2 = lista.anterior(p_1); 
+		while (p_2 != PosNula) {
+			if (lista.recuperar(p_2) > lista.recuperar(p_1)) {
+				lista.intercambiar(p_1, p_2); 	
+				p_1 = p_2; 
+				p_2 = lista.anterior(p_2); 	
+			}
+		}
+		p_1 = lista.siguiente(aux_p_1); 		
+	}	 
+ }
+ else {
+		//no hay nada que ordenar. 
+ }	
+ 
+
+
+
+
 	
 }
 
@@ -211,7 +234,7 @@ void Algoritmos_Pos::insercion(Lista_Pos lista) {
 void Algoritmos_Pos::quickSort_insercion(Lista_Pos lista) {
 	if (lista.NumElem() < 100) {
 		
-		//aqui se hace insercion. 
+		insercion(lista); 
 				
 	}
 	else {
