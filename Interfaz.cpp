@@ -241,6 +241,9 @@ void Interfaz :: escogioListaPosicionada(){
     cout << "13) agregarAlFinal()" << endl; 
     cout << "14) EXIT" << endl; 
     cout << "15) Burbuja" << endl;  
+    cout << "16) Seleccion" << endl; 
+    cout << "17) Seleccion recursivo" << endl;
+    cout << "18) Insercion" << endl; 
     cin >>option; 
     switch (option){
 	case 1: 
@@ -333,6 +336,23 @@ void Interfaz :: escogioListaPosicionada(){
 	case 15: 
 		algoritmos.burbuja(miListaPos); 
 		escogioListaPosicionada(); 
+	
+	break; 
+	
+	case 16: 
+		algoritmos.seleccion(miListaPos);
+		escogioListaPosicionada();  
+	break; 
+	
+	case 17: 
+		algoritmos.seleccionRecursivo(miListaPos, miListaPos.primera()); 
+		escogioListaPosicionada(); 
+	
+	break; 
+	
+	case 18: 
+		algoritmos.insercion(miListaPos);
+		escogioListaPosicionada();  
 	
 	break; 
 	

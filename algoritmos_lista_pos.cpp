@@ -215,7 +215,7 @@ void Algoritmos_Pos::insercion(Lista_Pos &lista) {
 		Pos p_2 = lista.anterior(p_1); 
 		while (p_2 != PosNula) {
 			if (lista.recuperar(p_2) > lista.recuperar(p_1)) {
-				lista.intercambiar(p_1, p_2); 	
+				lista.intercambiar(p_2,p_1); 	
 				p_1 = p_2; 
 				p_2 = lista.anterior(p_2); 	
 			}
@@ -225,13 +225,7 @@ void Algoritmos_Pos::insercion(Lista_Pos &lista) {
  }
  else {
 		//no hay nada que ordenar. 
- }	
- 
-
-
-
-
-	
+ }		
 }
 
 
