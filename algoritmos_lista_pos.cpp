@@ -325,8 +325,8 @@ while (p_2 != PosNula) {
 
 void interseccionOrdenada_v1(Lista_Pos &l1, Lista_Pos &l2,Lista_Pos &l3) {
 	l3.iniciar(); 
-	p_1 = l1.primera(); 
-	p_2 = l2.primera(); 
+	Pos p_1 = l1.primera(); 
+	Pos p_2 = l2.primera(); 
 
 
 	while (p_1 != PosNula || p_2 != PosNula) {
