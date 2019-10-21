@@ -261,6 +261,38 @@ void Algoritmos_Pos::quickSort_insercion(Lista_Pos &lista) {
 
 
 
+void unionOrdenada(Lista_Pos &l1, Lista_Pos &l2) {
+
+Pos p_1 = l1.primera(); 
+Pos p_2 = l2.primera(); 
+
+while (p_1 != PosNula || p_2 != PosNula) {
+	if (l1.recuperar(p_1) < l2.recuperar(p_2)) {
+		p_1 = l1.siguiente(p_1); 	
+	}
+	else {
+		if (l1.recuperar(p_1) == l2.recuperar(p_2)) {
+			p_1 = l1.siguiente(p_1);
+			p_2 = l2.siguiente(p_2);  
+		}
+		else {	//tengo que agregar p_2 a l1
+			l1.insertar(p_1, l2.recuperar(p_2));
+			 p_1 = l1.siguiente(p_1); 
+			 p_2 = l2.siguiente(p_2); 					
+		}
+	}
+	
+}
+
+
+while (p_2 != PosNula) {
+	l1.agregarAlFinal(l2.recuperar(p_2));
+	p_2 = l2.siguiente(p_2);  	
+}
+	
+}
+
+
 Lista_Pos Algoritmos_Pos::mergeSort(Lista_Pos &lista){
     if(lista.NumElem() == 1){
         return lista;
