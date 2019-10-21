@@ -323,7 +323,36 @@ while (p_2 != PosNula) {
 	
 }
 
+void interseccionOrdenada_v1(Lista_Pos &l1, Lista_Pos &l2,Lista_Pos &l3) {
+	l3.iniciar(); 
+	p_1 = l1.primera(); 
+	p_2 = l2.primera(); 
 
+
+	while (p_1 != PosNula || p_2 != PosNula) {
+		if (l1.recuperar(p_1) < l2.recuperar(p_2)) {
+			p_1 = l1.siguiente(p_1); 
+		}
+		else {
+		  if (l1.recuperar(p_1) > l2.recuperar(p_2)) {
+			  p_1 = l2.siguiente(p_2); 
+		  }
+		  else { //son iguales. 
+			 l3.agregarAlFinal(l1.recuperar(p_1));
+			 p_1 = l1.siguiente(p_1); 
+			 p_2 = l2.siguiente(p_2);  	  
+		  }	
+		}
+	}
+		 
+}
+
+
+void interseccionOrdenada_v2(Lista_Pos &l1, Lista_Pos &l2, Lista_Pos &l3) {
+		  
+		
+
+}
 
 
 
