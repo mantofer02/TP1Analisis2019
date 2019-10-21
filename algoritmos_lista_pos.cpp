@@ -293,6 +293,41 @@ while (p_2 != PosNula) {
 }
 
 
+void unionNoOrdenada(Lista_Pos &l1, Lista_Pos &l2) {
+	
+Pos p_2 = l2.primera(); 
+Pos p_1; 
+
+bool is_it_there = false; 
+
+while (p_2 != PosNula) {
+	p_1 = l1.primera(); 
+	while (p_1 != PosNula) {
+		if (l2.recuperar(p_2) == l1.recuperar(p_1)) {
+			is_it_there = true; 
+			p_1 = PosNula; 
+		}
+		else {
+			p_1 = l1.siguiente(p_1); 
+		}	
+	}
+	if (!is_it_there) {
+		l1.agregarAlFinal(l2.recuperar(p_2)); 
+	}	
+
+	p_2 = l2.siguiente(p_2); 	
+		
+}	
+
+	
+	
+}
+
+
+
+
+
+
 Lista_Pos Algoritmos_Pos::mergeSort(Lista_Pos &lista){
     if(lista.NumElem() == 1){
         return lista;

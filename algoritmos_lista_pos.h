@@ -26,6 +26,7 @@ class Algoritmos_Pos{
       void quickSort_insercion(Lista_Pos &lista); 
       Pos buscarPivote(Lista_Pos &lista, Pos low, Pos high); 
       void unionOrdenada(Lista_Pos &l1, Lista_Pos &l2); 
+      void unionNoOrdenada(Lista_Pos &l1, Lista_Pos &l2); 
       Lista_Pos mergeSort(Lista_Pos &lista);
       Lista_Pos merge(Lista_Pos &, Lista_Pos &);
 };
