@@ -11,6 +11,7 @@ class Lista_Index{
     private:
         struct Celda{
             Celda(int indice);
+            Celda(int,int);
             int indice;
             int elemento;
             Celda* siguiente;
@@ -27,7 +28,7 @@ class Lista_Index{
         bool vacia();
         void crearCelda(int);
         void destruir();
-        ~Lista_Index();
+        //~Lista_Index();
         void agregar(int, int);
         void borrar(int);
         int recuperar(int);

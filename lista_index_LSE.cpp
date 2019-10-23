@@ -8,7 +8,7 @@ Metodo Constructor de Lista_Index
 Lista_Index::Lista_Index(){
     this->inicio = 0;
     this->contador = 0;
-    this->m = 0;
+    // this->m = 0;
 }
 
 /*
@@ -21,18 +21,18 @@ Modiﬁca :   1) parámetro contador con la cantidad de elementos, lo deja en 0.
 void Lista_Index::iniciar(){
     contador = 0;
     this->m = M;
-    for(int i = 0; i < m; i++){
-        crearCelda(i);
-    }
+    // for(int i = 0; i < m; i++){
+    //     crearCelda(i);
+    // }
 }
 
 
 void Lista_Index::iniciar(int m){
     contador = 0;
     this->m = m;
-    for(int i = 0; i < m; i++){
-        crearCelda(i);
-    }    
+    // for(int i = 0; i < m; i++){
+    //     crearCelda(i);
+    // }    
 }
 
 /*
@@ -74,14 +74,32 @@ Modiﬁca :  1) aumenta el contador de elementos que se encuentran en la lista.
 */
 void Lista_Index::agregar(int indice, int elemento){
     //Se asume que ya se inicializo
-    if(indice < m){
-        Celda* actual = inicio;
-            while(indice != actual->indice){
-                actual = actual->siguiente;
+        if(!inicio){
+            Celda* nueva = new Celda(indice, elemento);
+            inicio = nueva;
+        }else{
+            if(indice < inicio->indice){
+                Celda* nueva = new Celda(indice,elemento);
+                inicio->siguiente = nueva;
+                inicio = nueva;
+            }else{
+                Celda* actual = inicio;
+                while (actual && actual->indice < indice){
+                    if (!actual->siguiente){
+                        Celda* nueva = new Celda(indice,elemento);
+                        actual->siguiente = nueva;
+                    }else{
+                        if(actual->siguiente->indice > indice){
+                            Celda* nueva = new Celda(indice,elemento);
+                            nueva->siguiente = actual->siguiente;
+                            actual->siguiente = nueva;
+                        }
+                    }
+                    actual = actual->siguiente;
+                }               
             }
-        actual->elemento = elemento;
+        }
         contador++;
-    }
 }
 
 /*
@@ -93,13 +111,17 @@ Requiere : 1)Que la lista exista y se encuentre inicializada.
 Modiﬁca : el elemento contenido en la posición indice de la lista.
 */
 void Lista_Index::modificar(int indice, int elemento){
-    if(indice < m){
         Celda* actual = inicio;
-        while(indice != actual->indice){
-            actual = actual->siguiente;
+        if(inicio->indice == indice){
+            inicio->elemento = elemento;
+        }else{
+            while(actual && indice > actual->indice){
+                if(indice == actual->indice){
+                    actual->elemento = elemento;
+                }
+                actual = actual->siguiente;
+            }
         }
-        actual->elemento = elemento;
-    }
 }
 
 /*
@@ -111,14 +133,19 @@ Modiﬁca : el contador de elementos.
 
 */
 void Lista_Index::borrar(int indice){
-    if(indice < m){
-        Celda* actual = inicio;
-        while(indice != actual->indice){
+    Celda* actual = inicio;        
+    if(inicio->indice == indice){
+        inicio = actual->siguiente;
+        delete actual;
+    }else{
+        while(actual && indice > actual->indice){
+            if(indice == actual->siguiente->indice){
+                Celda * temp = actual->siguiente;
+                actual->siguiente = temp->siguiente;
+                delete temp;
+                contador--;
+            }
             actual = actual->siguiente;
-        }
-        if(actual->elemento != elementoNulo){
-            actual->elemento = elementoNulo;
-            contador--;
         }
     }
 }
@@ -211,10 +238,11 @@ void Lista_Index::destruir(){
 /*
 Operador propio del modelo Lista_IndexIndexadaLSE. Nos permite liberar el espacio de memoria.
 */
-Lista_Index :: ~Lista_Index(){
-    if(inicio)
-        delete inicio;
-}
+
+// Lista_Index :: ~Lista_Index(){
+//     if(inicio)
+//         delete inicio;
+// }
 
 /*
 
@@ -223,11 +251,7 @@ void Lista_Index :: imprimirLista(){
     if(inicio){
         Celda* actual = inicio;
         while(actual){
-            if(actual->elemento == elementoNulo){
-                std::cout << "Indice : " << actual->indice << " Sin Elemento" << std:: endl;
-            }else{
                 std::cout << "Indice : " << actual->indice << " Elemento : " <<actual->elemento << std:: endl;
-                }
             actual = actual->siguiente;
         }
     }
@@ -237,8 +261,7 @@ void Lista_Index :: imprimirLista(){
 Operador propio del modelo Lista_IndexIndexadaLSE. Nos permite liberar el espacio de memoria.
 */
 Lista_Index :: Celda :: ~Celda(){
-    if(this->siguiente)
-        delete this->siguiente;
+    this->siguiente = 0;
 }
 
 int Lista_Index::primerIndice(){
@@ -247,4 +270,10 @@ int Lista_Index::primerIndice(){
 
 int Lista_Index::ultimoIndice(){
     return m;
+}
+
+Lista_Index::Celda::Celda(int indice, int elemento){
+    this->indice = indice;
+    this->elemento = elemento;
+    this->siguiente - 0;
 }
