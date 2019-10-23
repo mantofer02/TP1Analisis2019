@@ -1,16 +1,12 @@
 #ifndef Lista_Index_Indexada_Mia2
 #define Lista_Index_Indexada_Mia2
 #include <iostream>
-#include <algorithm>
-#include <array>
-#define elementoNulo -9999999
 
 // PREGUNTAR SI LOS INDICES PUEDEN NO ESTAR SECUENCIALES 2 4 6 7 12 
 
 class Lista_Index{
     private:
         struct Celda{
-            Celda(int indice);
             Celda(int,int);
             int indice;
             int elemento;
@@ -19,14 +15,12 @@ class Lista_Index{
         };
         Celda* inicio;
         int contador;
-        int m;
     public:
         Lista_Index();
         void iniciar();
-        void iniciar(int); 
+        //void iniciar(int); 
         void vaciar();
         bool vacia();
-        void crearCelda(int);
         void destruir();
         //~Lista_Index();
         void agregar(int, int);

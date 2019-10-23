@@ -177,7 +177,7 @@ void Interfaz :: escogioListaIndexada(){
         case 7:
             cout << "¿Que indice desea ver ?" << endl;
             cin >> parametro1;
-            if(miListaIndex.recuperar(parametro1) == elementoNulo){
+            if(miListaIndex.recuperar(parametro1) < 1){
                 cout << "Este indice no posee elemento" << endl;
             }else{
                 cout << "Indice : " << parametro1 << "Elemento :" << miListaIndex.recuperar(parametro1) << endl; 
