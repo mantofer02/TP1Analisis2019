@@ -3,8 +3,8 @@
 
 #include <iostream>
 
-// #include "lista_index_LSE.h"
- #include "lista_index_array.h"
+#include "lista_index_LSE.h"
+//  #include "lista_index_array.h"
 // #include "lista_pos_Arreglo.h"
 
 #include "lista_ord_array.h"
@@ -14,7 +14,7 @@
 // #include "lista_pos_LSE.h"
 #include "lista_pos_LDE.h"
 
-#include "algoritmos_lista_pos.h"
+// #include "algoritmos_lista_pos.h"
 
 
 
@@ -26,7 +26,7 @@ class Interfaz{
         Lista_Ord miListaOrdena;
         Lista_Index miListaIndex;
         Lista_Pos miListaPos; 
-		Algoritmos_Pos algoritmos; 
+		// Algoritmos_Pos algoritmos; 
 
     public: 
         Interfaz();

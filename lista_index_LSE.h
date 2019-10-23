@@ -3,7 +3,7 @@
 #include <iostream>
 #include <algorithm>
 #include <array>
-#define elemntoNulo -9999999
+#define elementoNulo -9999999
 
 // PREGUNTAR SI LOS INDICES PUEDEN NO ESTAR SECUENCIALES 2 4 6 7 12 
 
@@ -21,9 +21,10 @@ class Lista_Index{
         int m;
     public:
         Lista_Index();
-        void iniciar(); 
+        void iniciar();
+        void iniciar(int); 
         void vaciar();
-        bool vacio();
+        bool vacia();
         void crearCelda(int);
         void destruir();
         ~Lista_Index();
@@ -34,5 +35,7 @@ class Lista_Index{
         void intercambiar(int indice1, int indice2);
         int numElem();
         void imprimirLista();
+        int primerIndice();
+        int ultimoIndice();
 };
 #endif

@@ -163,3 +163,11 @@ void Lista_Index::imprimirLista(){
         }
     }
 }
+
+int Lista_Index::primerIndice(){
+    return 0;
+}
+
+int Lista_Index::ultimoIndice(){
+    return m;
+}

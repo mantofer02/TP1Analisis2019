@@ -6,42 +6,44 @@ Algoritmos_Index :: Algoritmos_Index(Lista_Index lista){
 
 int Algoritmos_Index :: simetrica(Lista_Index lista){
     int esSimetrica = 1;
-    Pos pos1 = lista.primera();
-    Pos pos2 = lista.ultima();
-    while (pos1 < pos2 && lista.recuperar(pos1) == lista.recuperar(pos2)){
-        pos1 = lista.siguiente(pos1);
-        pos2 = lista.anterior(pos2);
+    int indice1 = lista.primerIndice();
+    int indice2 = lista.ultimoIndice();
+    while (indice1 < indice2 && lista.recuperar(pos1) == lista.recuperar(pos2)){
+        indice1++;
+        indice2--;
     }
     
-    if(pos1 < pos2)
+    if(indice1 < indice2)
         esSimetrica = 0;
     
     return esSimetrica;
 }
 
 void Algoritmos_Index :: invertir(Lista_Index lista){
-    int pos1 = 0;
-    int pos2 = lista.numElem() - 1;
+    int indice1 = lista.primerIndice();
+    int indice2 = lista.ultimoIndice();
     int elemento1;
-    while (pos1 < pos2){
-        elemento1 = lista.recuperar(pos1);
-        lista.modificar(pos1, lista.recuperar(pos2));
-        lista.modificar(pos2, elemento1);
-        pos1 = lista.siguiente(pos1);
-        pos2 = lista.anterior(pos2);
+    while (indice1 < indice2){
+        elemento1 = lista.recuperar(indice1);
+        lista.modificar(indice1, lista.recuperar(indice2));
+        lista.modificar(indice2, elemento1);
+        indice1++;
+        indice2--;
     }
 }
 
 int Algoritmos_Index::buscar(Lista_Index lista, int elemento){
     int esta = 0;
     int stop = 0;
-    Pos posActual = lista.primera();
-    while (posActual != PosNula && !stop){
-        if (lista.recuperar(posActual) == elemento){
+    // Pos posActual = lista.primera();
+    int indiceActual = lista.primerIndice();
+    while (indiceActual < lista.ultimoIndice() && !stop){
+        if (lista.recuperar(indiceActual) == elemento){
             esta = 1;
             stop = 1;
         }
-        posActual = lista.siguiente(posActual);
+        // posActual = lista.siguiente(posActual);
+        indiceActual++;
     }
     return esta;
 }

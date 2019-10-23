@@ -357,8 +357,10 @@ void interseccionOrdenada_v2(Lista_Pos &l1, Lista_Pos &l2, Lista_Pos &l3) {
 
 
 
-Lista_Pos Algoritmos_Pos::mergeSort(Lista_Pos &lista){
-    if(lista.NumElem() == 1){
+Lista_Pos Algoritmos_Pos::mergeSort(Lista_Pos lista){
+    cout << "Aqui esta la lista" << endl;
+	lista.imprimirLista();
+	if(lista.NumElem() == 1){
         return lista;
     }else{
         Lista_Pos primeraMitad;
@@ -376,14 +378,17 @@ Lista_Pos Algoritmos_Pos::mergeSort(Lista_Pos &lista){
             segundaMitad.insertar(posActual, lista.recuperar(posActual));
             posActual = lista.siguiente(posActual);
         }
-        
+        cout << "1" << endl;
+		// primeraMitad.imprimirLista();
         primeraMitad = mergeSort(primeraMitad);
+		cout << "2" << endl;
         segundaMitad = mergeSort(segundaMitad);
+		cout << "3" << endl;
         return merge(primeraMitad, segundaMitad);
     }
 }
 
-Lista_Pos Algoritmos_Pos::merge(Lista_Pos &listaA, Lista_Pos &listaB){
+Lista_Pos Algoritmos_Pos::merge(Lista_Pos listaA, Lista_Pos listaB){
     Lista_Pos listaC;
     listaC.iniciar();
     while (listaA.NumElem() && listaB.NumElem()){

@@ -22,6 +22,8 @@ class Lista_Index{
         void intercambiar(int indice1, int indice2);
         int numElem();
         void imprimirLista();
+        int primerIndice();
+        int ultimoIndice();
     
     private:
         int contador;

@@ -2,6 +2,9 @@
 /*
 Metodo Constructor de Lista_Index
 */
+
+#define M 100
+
 Lista_Index::Lista_Index(){
     this->inicio = 0;
     this->contador = 0;
@@ -17,6 +20,19 @@ Modiﬁca :   1) parámetro contador con la cantidad de elementos, lo deja en 0.
 */
 void Lista_Index::iniciar(){
     contador = 0;
+    this->m = M;
+    for(int i = 0; i < m; i++){
+        crearCelda(i);
+    }
+}
+
+
+void Lista_Index::iniciar(int m){
+    contador = 0;
+    this->m = m;
+    for(int i = 0; i < m; i++){
+        crearCelda(i);
+    }    
 }
 
 /*
@@ -44,7 +60,7 @@ Siempre necesita un parametro para inicializar cada celda.
 */
 Lista_Index::Celda::Celda(int indice){
     this->indice = indice;
-    this->elemento = elemntoNulo;
+    this->elemento = elementoNulo;
     this->siguiente = 0;
 }
 
@@ -100,8 +116,8 @@ void Lista_Index::borrar(int indice){
         while(indice != actual->indice){
             actual = actual->siguiente;
         }
-        if(actual->elemento != elemntoNulo){
-            actual->elemento = elemntoNulo;
+        if(actual->elemento != elementoNulo){
+            actual->elemento = elementoNulo;
             contador--;
         }
     }
@@ -165,7 +181,7 @@ Efecto : retorna un booleano de si la cantidad de elementos es igual a 0 o no.
 Requiere : que la lista exista y se encuentre inicializada. 
 Modiﬁca : no modiﬁca nada, solo retorna información existente.
 */
-bool Lista_Index::vacio(){
+bool Lista_Index::vacia(){
     bool estaVacio = true;
         if(inicio)
             estaVacio = false;
@@ -207,7 +223,7 @@ void Lista_Index :: imprimirLista(){
     if(inicio){
         Celda* actual = inicio;
         while(actual){
-            if(actual->indice == elemntoNulo){
+            if(actual->elemento == elementoNulo){
                 std::cout << "Indice : " << actual->indice << " Sin Elemento" << std:: endl;
             }else{
                 std::cout << "Indice : " << actual->indice << " Elemento : " <<actual->elemento << std:: endl;
@@ -223,4 +239,12 @@ Operador propio del modelo Lista_IndexIndexadaLSE. Nos permite liberar el espaci
 Lista_Index :: Celda :: ~Celda(){
     if(this->siguiente)
         delete this->siguiente;
+}
+
+int Lista_Index::primerIndice(){
+    return 0;
+}
+
+int Lista_Index::ultimoIndice(){
+    return m;
 }
