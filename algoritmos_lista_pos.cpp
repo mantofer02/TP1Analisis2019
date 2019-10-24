@@ -278,7 +278,7 @@ void Algoritmos_Pos::quickSort_insercion(Lista_Pos &lista) {
 
 
 
-void unionOrdenada(Lista_Pos &l1, Lista_Pos &l2) {
+void Algoritmos_Pos::unionOrdenada(Lista_Pos &l1, Lista_Pos &l2) {
 
 Pos p_1 = l1.primera(); 
 Pos p_2 = l2.primera(); 
@@ -310,7 +310,7 @@ while (p_2 != PosNula) {
 }
 
 
-void unionNoOrdenada(Lista_Pos &l1, Lista_Pos &l2) {
+void Algoritmos_Pos::unionNoOrdenada(Lista_Pos &l1, Lista_Pos &l2) {
 	
 Pos p_2 = l2.primera(); 
 Pos p_1; 
@@ -340,7 +340,7 @@ while (p_2 != PosNula) {
 	
 }
 
-void interseccionOrdenada_v1(Lista_Pos &l1, Lista_Pos &l2,Lista_Pos &l3) {
+void Algoritmos_Pos::interseccionOrdenada_v1(Lista_Pos &l1, Lista_Pos &l2,Lista_Pos &l3) {
 	l3.iniciar(); 
 	Pos p_1 = l1.primera(); 
 	Pos p_2 = l2.primera(); 
@@ -365,7 +365,7 @@ void interseccionOrdenada_v1(Lista_Pos &l1, Lista_Pos &l2,Lista_Pos &l3) {
 }
 
 
-void interseccionOrdenada_v2(Lista_Pos &l1, Lista_Pos &l2, Lista_Pos &l3) {
+void Algoritmos_Pos::interseccionOrdenada_v2(Lista_Pos &l1, Lista_Pos &l2, Lista_Pos &l3) {
 		  
 		
 
@@ -373,7 +373,7 @@ void interseccionOrdenada_v2(Lista_Pos &l1, Lista_Pos &l2, Lista_Pos &l3) {
 
 
 
-void interseccion(Lista_Pos&l1, Lista_Pos&l2, Lista_Pos&l3) {
+void Algoritmos_Pos::interseccion(Lista_Pos&l1, Lista_Pos&l2, Lista_Pos&l3) {
 	Pos p_1 = l1.primera(); 
 	Pos p_2 = PosNula; 
 	

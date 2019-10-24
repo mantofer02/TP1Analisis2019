@@ -245,6 +245,7 @@ void Interfaz :: escogioListaPosicionada(){
     cout << "17) Seleccion recursivo" << endl;
     cout << "18) Insercion" << endl; 
     cout << "19) QuickSort" << endl; 
+    cout << "20) mergeSort" << endl; 
     cin >>option; 
     switch (option){
 	case 1: 
@@ -362,6 +363,14 @@ void Interfaz :: escogioListaPosicionada(){
 		escogioListaPosicionada();  
 	
 	break; 
+	
+	case 20: 
+		algoritmos.mergeSort_v2(miListaPos);
+		escogioListaPosicionada();  
+	
+	break; 
+	
+	
 	
 	default: 
 		cout << "La opcion seleccionada no es valida" << endl; 
