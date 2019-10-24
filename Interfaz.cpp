@@ -259,6 +259,9 @@ void Interfaz :: escogioListaPosicionada(){
     cout << "20) mergeSort" << endl; 
     cout << "21) UnionOrdenada" << endl; 
     cout << "22) UnionNoOrdenada" << endl;  
+    cout << "23) InterseccionOrdenadaV1" << endl; 
+    cout << "24) InterseccionNoOrdenadaV2" << endl; 
+    cout << "25) Interseccion" << endl; 
     cin >>option; 
     switch (option){
 	case 1: 
@@ -412,6 +415,24 @@ void Interfaz :: escogioListaPosicionada(){
 	case 22: 
 		algoritmos.unionNoOrdenada(miListaPos, aux_1); //aun no probado
 		escogioListaPosicionada(); 
+	
+	break; 
+	
+	case 23: 
+		algoritmos.interseccionOrdenada_v1(miListaPos, aux_1, aux_2); //aun no probado. 
+	
+	break; 
+	
+	
+	
+	case 24: 
+		algoritmos.interseccionOrdenada_v2(miListaPos, aux_1, aux_2);	//aun no probado  
+	
+	break; 
+	
+	
+	case 25: 
+		algoritmos.interseccion(miListaPos, aux_1, aux_2);			//aun no probado.  
 	
 	break; 
 	
