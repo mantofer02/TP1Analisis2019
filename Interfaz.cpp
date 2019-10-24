@@ -335,30 +335,30 @@ void Interfaz :: escogioListaPosicionada(){
 	
 	
 	case 15: 
-		// algoritmos.burbuja(miListaPos); 
+		algoritmos.burbuja(miListaPos); 
 		escogioListaPosicionada(); 
 	
 	break; 
 	
 	case 16: 
-		// algoritmos.seleccion(miListaPos);
+		 algoritmos.seleccion(miListaPos);
 		escogioListaPosicionada();  
 	break; 
 	
 	case 17: 
-		// algoritmos.seleccionRecursivo(miListaPos, miListaPos.primera()); 
+		 algoritmos.seleccionRecursivo(miListaPos, miListaPos.primera()); 
 		escogioListaPosicionada(); 
 	
 	break; 
 	
 	case 18: 
-		// algoritmos.insercion(miListaPos);
+		 algoritmos.insercion(miListaPos);
 		escogioListaPosicionada();  
 	
 	break; 
 	
 	case 19: 
-		// algoritmos.quickSort(miListaPos);
+		algoritmos.quickSort(miListaPos);
 		escogioListaPosicionada();  
 	
 	break; 
