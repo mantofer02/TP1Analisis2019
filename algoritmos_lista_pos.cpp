@@ -151,39 +151,46 @@ void Algoritmos_Pos::quickSort(Lista_Pos &lista) {
 
 void Algoritmos_Pos::quickSortRecursivo(Lista_Pos &lista, Pos low, Pos high) {
 
+	//cout << "low : " << lista.recuperar(low) << " high : " << lista.recuperar(high) << endl; 
 
-	Pos pivote_position = buscarPivote(lista, low, high); 
-
-	if (pivote_position != PosNula) {
-
-	Pos p_1 = low; 
-	Pos p_2 = high; 
+	if (low != high) {	
 		
-		while (lista.siguiente(p_2) != p_1) {	
-			lista.intercambiar(p_1, p_2);	 
+		Pos pivote_position = buscarPivote(lista, low, high); 
 
-			while (lista.recuperar(p_1) <= lista.recuperar(pivote_position)) {		// p_1 != PosNula? 
-				p_1 = lista.siguiente(p_1); 
-			}
+		if (pivote_position != PosNula) {
 
-
-			while (lista.recuperar(p_2) > lista.recuperar(pivote_position)) {
-				p_2 = lista.anterior(p_2); 		
-			}	
-
+		Pos p_1 = low; 
+		Pos p_2 = high; 
 			
-		}
-		
-		quickSortRecursivo(lista, low, p_2);
-		quickSortRecursivo(lista, p_1, high);  	
-		
-	}	
-		
+			while (/*lista.siguiente(p_2) != p_1*/ p_2 != lista.anterior(p_1)) {	
+				if(p_1 != pivote_position && p_2 != pivote_position) { //FALTABA ESTO
+					lista.intercambiar(p_2, p_1);	 
+				}														//FALTABA ESTO
+				
+				while (lista.recuperar(p_1) < lista.recuperar(pivote_position)) {		// p_1 != PosNula? 
+					p_1 = lista.siguiente(p_1); 
+				}
+
+
+				while (lista.recuperar(p_2) >= lista.recuperar(pivote_position)) {
+					p_2 = lista.anterior(p_2); 		
+				}	
+
+				
+			}
+			
+			quickSortRecursivo(lista, low, p_2);
+			quickSortRecursivo(lista, p_1, high);  	
+			
+		}	
+			
+	}
 }
 
 
 
 Pos Algoritmos_Pos::buscarPivote(Lista_Pos &lista, Pos low, Pos high) {
+cout << lista.imprimirLista(); 	
 Pos pivote_position = PosNula; 
 Pos p_1 = low; 
 
@@ -193,13 +200,23 @@ while (p_1 != high && lista.recuperar(p_1) == lista.recuperar(lista.siguiente(p_
 
 if (p_1 != high) {
 	if (lista.recuperar(p_1) < lista.recuperar(lista.siguiente(p_1))) {
-		pivote_position = low; 
+		//pivote_position = low; 
+		pivote_position = lista.siguiente(p_1); 
 	}
 	else {
-		pivote_position = lista.siguiente(p_1); 
+		pivote_position = low; 
+		//pivote_position = lista.siguiente(p_1); 
 	}
 }
 
+#if 0
+if (pivote_position != PosNula) {
+cout << "el pivote seleccionado corresponde a : " << lista.recuperar(pivote_position) << endl; 
+}
+else {
+		cout << "no hay pivote uyuyuyu " << endl;  
+}
+#endif
 
 return pivote_position; 	
 } 
