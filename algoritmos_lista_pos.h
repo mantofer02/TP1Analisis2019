@@ -27,6 +27,7 @@ class Algoritmos_Pos{
       Pos buscarPivote(Lista_Pos &lista, Pos low, Pos high); 
       void unionOrdenada(Lista_Pos &l1, Lista_Pos &l2); 
       void unionNoOrdenada(Lista_Pos &l1, Lista_Pos &l2); 
+      void interseccion(Lista_Pos &l1, Lista_Pos &l2, Lista_Pos &l3); 
       void interseccionOrdenada_v1(Lista_Pos &l1, Lista_Pos &l2,Lista_Pos &l3); 
       void interseccionOrdenada_v2(Lista_Pos &l1, Lista_Pos &l2, Lista_Pos &l3); 
       Lista_Pos mergeSort(Lista_Pos);

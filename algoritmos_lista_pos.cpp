@@ -373,6 +373,27 @@ void interseccionOrdenada_v2(Lista_Pos &l1, Lista_Pos &l2, Lista_Pos &l3) {
 
 
 
+void interseccion(Lista_Pos&l1, Lista_Pos&l2, Lista_Pos&l3) {
+	Pos p_1 = l1.primera(); 
+	Pos p_2 = PosNula; 
+	
+	while (p_1 != PosNula) {
+		p_2 = l2.primera(); 
+		while (p_2 != PosNula) {
+			if (l1.recuperar(p_1) == l2.recuperar(p_2)) {
+				l3.agregarAlFinal(l1.recuperar(p_1));
+				p_2 = PosNula;  
+			}
+			else {
+				p_2 = l2.siguiente(p_2);  
+			}		
+		}
+		
+		p_1 = l1.siguiente(p_1); 
+	}	
+}
+
+
 
 Lista_Pos Algoritmos_Pos::mergeSort(Lista_Pos lista){
     cout << "Aqui esta la lista" << endl;
