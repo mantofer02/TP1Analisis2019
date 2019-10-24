@@ -16,5 +16,5 @@ class Algoritmos_Ordenada{
         void eliminarElementosRepetidos(Lista_Ord);
         Lista_Ord unionListas(Lista_Ord);
         Lista_Ord interseccion(Lista_Ord);
-}
+};
 #endif
