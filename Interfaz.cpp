@@ -225,6 +225,17 @@ void Interfaz :: escogioListaPosicionada(){
     int option = 0; 
     int position = 0; 
     int value = 0; 
+    int lista_id = -1;
+    bool id_valido = false;  
+    cout << "Puede trabajar con 3 listas, para utilizar los algoritmos " << endl; 
+    while (!id_valido) {
+		cout << "1) lista del programa \n 2) lista auxiliar 1 \n 3) lista auxiliar 2" << endl;  
+		cin >> lista_id; 
+		if ( 0 < lista_id < 4) {
+			id_valido = true; 
+		}
+	}
+    
     cout <<"Menu de la Lista Posicionada" << endl;
     cout << "1) agregar(int , int)" << endl;	
     cout << "2) borrar(int)" << endl;
@@ -246,6 +257,8 @@ void Interfaz :: escogioListaPosicionada(){
     cout << "18) Insercion" << endl; 
     cout << "19) QuickSort" << endl; 
     cout << "20) mergeSort" << endl; 
+    cout << "21) UnionOrdenada" << endl; 
+    cout << "22) UnionNoOrdenada" << endl;  
     cin >>option; 
     switch (option){
 	case 1: 
@@ -256,9 +269,28 @@ void Interfaz :: escogioListaPosicionada(){
           
             cout << "Digite el elemento que desea insertar" << endl;
 			cin >> value; 
+			switch(lista_id) {
+				
+				case 1: 
+				insertarPosicion(position, value, &miListaPos); 
+				escogioListaPosicionada();	
+		    
+				break; 
+				
+				
+				case 2: 
+				insertarPosicion(position, value, &aux_1); 
+				escogioListaPosicionada(); 
+				
+				
+				case 3: 
+				insertarPosicion(position, value, &aux_2); 
+				escogioListaPosicionada(); 
+				break; 
+		    
+		    
+			}
 			
-			insertarPosicion(position, value, &miListaPos); 
-		    escogioListaPosicionada();	
 	    break; 
 	case 2: 
 	
@@ -336,41 +368,52 @@ void Interfaz :: escogioListaPosicionada(){
 	
 	
 	case 15: 
-		algoritmos.burbuja(miListaPos); 
+		algoritmos.burbuja(miListaPos); 			//probado y funciona
 		escogioListaPosicionada(); 
 	
 	break; 
 	
 	case 16: 
-		 algoritmos.seleccion(miListaPos);
+		 algoritmos.seleccion(miListaPos);					//probado y funciona. 
 		escogioListaPosicionada();  
 	break; 
 	
 	case 17: 
-		 algoritmos.seleccionRecursivo(miListaPos, miListaPos.primera()); 
+		 algoritmos.seleccionRecursivo(miListaPos, miListaPos.primera()); 	//probado y funciona
 		escogioListaPosicionada(); 
 	
 	break; 
 	
 	case 18: 
-		 algoritmos.insercion(miListaPos);
+		 algoritmos.insercion(miListaPos);		//probado y funciona. 
 		escogioListaPosicionada();  
 	
 	break; 
 	
 	case 19: 
-		algoritmos.quickSort(miListaPos);
+		algoritmos.quickSort(miListaPos);		//probado y funciona
 		escogioListaPosicionada();  
 	
 	break; 
 	
 	case 20: 
-		algoritmos.mergeSort_v2(miListaPos);
+		algoritmos.mergeSort_v2(miListaPos);		//probado y funciona
 		escogioListaPosicionada();  
 	
 	break; 
 	
 	
+	case 21: 
+		algoritmos.unionOrdenada(miListaPos, aux_1);	//aun no probado 
+		escogioListaPosicionada(); 
+	break; 
+	
+	
+	case 22: 
+		algoritmos.unionNoOrdenada(miListaPos, aux_1); //aun no probado
+		escogioListaPosicionada(); 
+	
+	break; 
 	
 	default: 
 		cout << "La opcion seleccionada no es valida" << endl; 
