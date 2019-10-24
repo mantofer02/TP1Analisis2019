@@ -32,5 +32,7 @@ class Algoritmos_Pos{
       void interseccionOrdenada_v2(Lista_Pos &l1, Lista_Pos &l2, Lista_Pos &l3); 
       Lista_Pos mergeSort(Lista_Pos);
       Lista_Pos merge(Lista_Pos, Lista_Pos);
+      void mergeSort_v2(Lista_Pos&lista); 
+      void merge_v2(Lista_Pos&lista_1, Lista_Pos&lista_2, Lista_Pos&lista); 
 };
 #endif

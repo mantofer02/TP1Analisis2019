@@ -395,6 +395,77 @@ void interseccion(Lista_Pos&l1, Lista_Pos&l2, Lista_Pos&l3) {
 
 
 
+
+void Algoritmos_Pos::mergeSort_v2(Lista_Pos &lista) {
+	
+	if (lista.NumElem() > 1) {
+		int mid = lista.NumElem()/2; 
+		Pos current_pos = lista.primera(); 
+		
+		Lista_Pos primeraMitad;
+		primeraMitad.iniciar();  
+		Lista_Pos segundaMitad;
+		segundaMitad.iniciar();  
+		
+		for (int first_half = 0; first_half < mid; ++first_half) {
+			primeraMitad.agregarAlFinal(lista.recuperar(current_pos)); 
+			current_pos = lista.siguiente(current_pos);  
+		}
+		
+		for (int second_half = mid; second_half < lista.NumElem(); ++second_half) {
+			segundaMitad.agregarAlFinal(lista.recuperar(current_pos));
+			current_pos = lista.siguiente(current_pos);  
+		}
+		
+	 mergeSort_v2(primeraMitad);
+	 mergeSort_v2(segundaMitad);
+	 merge_v2(primeraMitad, segundaMitad, lista);   	
+		
+	}
+	else {
+		//condicion de parada. 
+	}
+	
+}
+
+
+
+void Algoritmos_Pos::merge_v2(Lista_Pos&lista_1, Lista_Pos&lista_2, Lista_Pos&lista) {
+	
+	lista.vaciar(); 
+	Pos current_1 = lista_1.primera(); 
+	Pos current_2 = lista_2.primera(); 
+	
+	while (current_1 != PosNula && current_2 != PosNula) {
+		if (lista_1.recuperar(current_1) < lista_2.recuperar(current_2)) {
+			lista.agregarAlFinal(lista_1.recuperar(current_1)); 
+			current_1 = lista_1.siguiente(current_1);  
+		}
+		else {
+			lista.agregarAlFinal(lista_2.recuperar(current_2));
+			current_2 = lista_2.siguiente(current_2);  
+		}
+		
+	}
+	
+	while (current_1 != PosNula) {
+		lista.agregarAlFinal(lista_1.recuperar(current_1));
+		current_1 = lista_1.siguiente(current_1);  		
+	}
+	
+	
+	while (current_2 != PosNula) {
+		lista.agregarAlFinal(lista_2.recuperar(current_2));
+		current_2 = lista_2.siguiente(current_2);  	
+	}
+	
+	
+	lista_1.destruir(); 
+	lista_2.destruir(); 
+}
+
+
+
 Lista_Pos Algoritmos_Pos::mergeSort(Lista_Pos lista){
     cout << "Aqui esta la lista" << endl;
 	lista.imprimirLista();
@@ -425,6 +496,10 @@ Lista_Pos Algoritmos_Pos::mergeSort(Lista_Pos lista){
         return merge(primeraMitad, segundaMitad);
     }
 }
+
+
+
+
 
 Lista_Pos Algoritmos_Pos::merge(Lista_Pos listaA, Lista_Pos listaB){
     Lista_Pos listaC;
