@@ -227,9 +227,9 @@ void Interfaz :: escogioListaPosicionada(){
     int value = 0; 
     int lista_id = -1;
     bool id_valido = false;  
-    cout << "Puede trabajar con 3 listas, para utilizar los algoritmos " << endl; 
-    while (!id_valido) {
-		cout << "1) lista del programa \n 2) lista auxiliar 1 \n 3) lista auxiliar 2" << endl;  
+    cout << "Puede trabajar con 3 listas, para utilizar los algoritmos " << endl; 	//DE MOMENTO SOLO AGREGAR/IMPRIMIR Y AGREGARALFINAL
+    while (!id_valido) {															//FUNCIONAN PARA LAS LISTAS AUXILIARES
+		cout << "1) lista del programa \n 2) lista auxiliar 1 \n 3) lista auxiliar 2" << endl;  //SUFICIENTE PARA HACER PRUEBAS. 
 		cin >> lista_id; 
 		if ( 0 < lista_id < 4) {
 			id_valido = true; 
@@ -249,7 +249,7 @@ void Interfaz :: escogioListaPosicionada(){
     cout << "10) vaciar();" << endl;		    	
     cout << "11) destruir();" << endl;		
     cout << "12) imprimirLista()" << endl;
-    cout << "13) agregarAlFinal()" << endl; 
+    cout << "13) agregarAlFinal()" << endl;				 
     cout << "14) EXIT" << endl; 
     cout << "15) Burbuja" << endl;  
     cout << "16) Seleccion" << endl; 
@@ -352,17 +352,68 @@ void Interfaz :: escogioListaPosicionada(){
 	    escogioListaPosicionada();
         break; 
 	case 12: 
-		cout << "Imprimiendo lista" << endl; 
-		cout << "------------------------" << endl;
-        cout << imprimirLista(&miListaPos) << endl; 
-        cout << "------------------------" << endl;
-	    escogioListaPosicionada();
+	
+				switch(lista_id) {
+				
+				case 1: 
+					cout << "Imprimiendo lista" << endl; 
+					cout << "------------------------" << endl;
+					cout << imprimirLista(&miListaPos) << endl; 
+					cout << "------------------------" << endl;
+					escogioListaPosicionada();
+				break; 
+				
+				
+				case 2: 
+					cout << "Imprimiendo lista" << endl; 
+					cout << "------------------------" << endl;
+					cout << imprimirLista(&aux_1) << endl; 
+					cout << "------------------------" << endl;
+					escogioListaPosicionada();
+							
+				
+				case 3: 
+					cout << "Imprimiendo lista" << endl; 
+					cout << "------------------------" << endl;
+					cout << imprimirLista(&aux_2) << endl; 
+					cout << "------------------------" << endl;
+					escogioListaPosicionada();
+				break; 
+		    	    
+			}
+			 
         break; 
 	case 13: 
-		cout << "Digite el elemento que desea ingresar al final de la lista" << endl; 
-		cin >>value; 
-		agregarPosicionAlFinal(value, &miListaPos);
-        escogioListaPosicionada(); 
+	
+	
+				switch(lista_id) {
+				
+				case 1: 
+				
+					cout << "Digite el elemento que desea ingresar al final de la lista" << endl; 
+					cin >>value; 
+					agregarPosicionAlFinal(value, &miListaPos);
+					escogioListaPosicionada(); 		    
+				break; 
+				
+				
+				case 2: 
+					cout << "Digite el elemento que desea ingresar al final de la lista" << endl; 
+					cin >>value; 
+					agregarPosicionAlFinal(value, &aux_1);
+					escogioListaPosicionada(); 
+
+				
+				case 3: 			
+					cout << "Digite el elemento que desea ingresar al final de la lista" << endl; 
+					cin >>value; 
+					agregarPosicionAlFinal(value, &aux_2);
+					escogioListaPosicionada(); 
+				break; 
+		    
+		    
+			}
+	    
 	break; 	
 	
 	case 14: 
