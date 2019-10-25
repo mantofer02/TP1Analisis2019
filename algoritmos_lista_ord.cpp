@@ -66,7 +66,21 @@ int Algoritmos_Ordenada::contenida(Lista_Ord otra){//falta terminar esto, pero t
 }
 
 int Algoritmos_Ordenada::pertenece(int elemento){
-    
+    int resultado = 0;
+    if(lista.numElem() > 0){
+        int numero = lista.primero();
+        int encontre = 0;
+        while(numero != lista.siguiente(lista.ultimo()) && !encontre){
+            if(numero == elemento){
+                encontre = 1;
+                resultado = 1;
+            }
+            else{
+                numero = lista.siguiente(numero);
+            }
+        }
+    }
+    return resultado;
 }
 
 void Algoritmos_Ordenada::eliminarElementosRepetidos(Lista_Ord){
@@ -74,7 +88,7 @@ void Algoritmos_Ordenada::eliminarElementosRepetidos(Lista_Ord){
 }
 
 Lista_Ord Algoritmos_Ordenada::unionListas(Lista_Ord){
-
+    
 }
 
 Lista_Ord Algoritmos_Ordenada::interseccion(Lista_Ord){
