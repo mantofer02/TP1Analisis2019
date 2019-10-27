@@ -1,9 +1,7 @@
 #ifndef Lista_Index_Indexada_Mia
 #define Lista_Index_Indexada_Mia
+
 #include <iostream>
-#include <algorithm>
-#include <array>
-#define elementoNulo -99999
 
 class Lista_Index{
     public:
@@ -12,10 +10,10 @@ class Lista_Index{
         void iniciar(int); 
         // hacer un iniciar con una firma diferente
         void vaciar();
-        bool vacia();
+        int vacia();
         void destruir();
         ~Lista_Index();
-        void agregar(int, int);
+        void agregar(int);
         void borrar(int);
         int recuperar(int);  
         void modificar(int, int);      
@@ -27,9 +25,10 @@ class Lista_Index{
     
     private:
         int contador;
-        int m;
-        int* listaIndexa;
-        // No puede ser atributo, necesita tamaño fijo
-        //std :: array <int, M> miArray;
+        int primerIndex;
+        int ultimoIndex;
+        int tamanyo;
+        int* listaIndexada;
+        
 };
 #endif
