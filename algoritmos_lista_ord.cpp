@@ -1,7 +1,7 @@
 #include "algoritmos_lista_ord.h"
 
 
-Algoritmos_Ordenada::Algoritmos_Ordenada(Lista_Ord lista){
+Algoritmos_Ordenada::Algoritmos_Ordenada(Lista_Ord & lista){
     this->lista = lista;
 }
 
@@ -9,7 +9,7 @@ void Algoritmos_Ordenada::listar(){
     this->lista.imprimir();
 }
 
-int Algoritmos_Ordenada::iguales(Lista_Ord otra){
+int Algoritmos_Ordenada::iguales(Lista_Ord & otra){
     int resultado = 1;
     if(this->lista.numElem() == otra.numElem() && this->lista.numElem()!=0 && otra.numElem()!=0){
         int elemento1 = this->lista.primero();
@@ -30,21 +30,24 @@ int Algoritmos_Ordenada::iguales(Lista_Ord otra){
     return resultado;
 }
 
-void Algoritmos_Ordenada::copiar(Lista_Ord otra){
+void Algoritmos_Ordenada::copiar(Lista_Ord & otra){
     otra.vaciar();
     if(!lista.vacia()){
         int elemento = lista.primero();
-        for(int i = 0; i < lista.numElem();i++){
+        cout << elemento << endl;
+        cout << lista.siguiente(lista.ultimo()) << endl;
+        while(elemento != lista.siguiente(lista.ultimo())){
             otra.agregar(elemento);
+            elemento = lista.siguiente(elemento);
         }
     }
 }
 
-int Algoritmos_Ordenada::contenida(Lista_Ord otra){//falta terminar esto, pero tengo que estudiar jeje  
+int Algoritmos_Ordenada::contenida(Lista_Ord & otra){//falta terminar esto, pero tengo que estudiar jeje  
     int resultado = 1;
     if(this->lista.numElem() <= otra.numElem() && !otra.vacia()){
-        int elemento1 = lista.primero;
-        int elemento2 = otra.primero; 
+        int elemento1 = lista.primero();
+        int elemento2 = otra.primero(); 
         while(elemento1 != elemento2 && elemento2 != otra.siguiente(otra.ultimo())){
             elemento2 = otra.siguiente(elemento2); 
         }
@@ -52,8 +55,18 @@ int Algoritmos_Ordenada::contenida(Lista_Ord otra){//falta terminar esto, pero t
             resultado = 0;
         }
         else{
-            while(elemento2 != otra.siguiente(otra.ultimo())){
-
+            while(elemento1 != lista.siguiente(lista.ultimo()) && resultado == 1){
+                if(elemento1 < elemento2){
+                    resultado = 0;
+                }
+                else{
+                    if(elemento1 == elemento2){
+                        elemento1 = lista.siguiente(elemento1);                         
+                    }
+                    else{
+                        elemento2 = otra.siguiente(elemento2);
+                    }
+                }
             }
         }
     }
@@ -83,14 +96,86 @@ int Algoritmos_Ordenada::pertenece(int elemento){
     return resultado;
 }
 
-void Algoritmos_Ordenada::eliminarElementosRepetidos(Lista_Ord){
-    
+void Algoritmos_Ordenada::eliminarElementosRepetidos(Lista_Ord & otra){
+    int elemento1 = lista.primero();
+    int elemento2 = otra.primero();
+    int enCasoDeBorrar = 0;
+    cout << lista.siguiente(lista.ultimo()) << endl;
+    cout << otra.siguiente(otra.ultimo()) << endl;
+    while(elemento1 != lista.siguiente(lista.ultimo()) && elemento2 != otra.siguiente(otra.ultimo())){
+        if(elemento1 == elemento2){            
+            enCasoDeBorrar = lista.siguiente(elemento1);
+            lista.borrar(elemento1);
+            elemento1 = enCasoDeBorrar;
+        }
+        else{
+            if(elemento1 < elemento2){
+                elemento1 = lista.siguiente(elemento1);
+            }
+            else{
+                elemento2 = otra.siguiente(elemento2);
+            }
+        }
+    }
 }
 
-Lista_Ord Algoritmos_Ordenada::unionListas(Lista_Ord){
-    
+Lista_Ord Algoritmos_Ordenada::unionListas(Lista_Ord & otra){
+    Lista_Ord respuesta;
+    respuesta.iniciar();
+    int elemento1 = lista.primero();
+    int elemento2 = otra.primero();
+    while(elemento1 != lista.siguiente(lista.ultimo()) && elemento2 != otra.siguiente(otra.ultimo())){
+        if(elemento1 == elemento2){            
+            respuesta.agregar(elemento1);
+            elemento1 = lista.siguiente(elemento1);
+            elemento2 = otra.siguiente(elemento2);   
+        }
+        else{
+            if(elemento1 < elemento2){
+                respuesta.agregar(elemento1);
+                elemento1 = lista.siguiente(elemento1);
+            }
+            else{
+                respuesta.agregar(elemento2);
+                elemento2 = otra.siguiente(elemento2);
+            }
+        }
+    }
+    if(elemento1 != lista.siguiente(lista.ultimo())){
+        while(elemento1 != lista.siguiente(lista.ultimo())){
+            respuesta.agregar(elemento1);
+            elemento1 = lista.siguiente(elemento1);
+        }
+    }
+    if(elemento2 != otra.siguiente(otra.ultimo())){
+        while(elemento2 != otra.siguiente(otra.ultimo())){
+            respuesta.agregar(elemento2);
+            elemento2 = otra.siguiente(elemento2);
+        }
+    }
+    return respuesta;
 }
 
-Lista_Ord Algoritmos_Ordenada::interseccion(Lista_Ord){
 
+Lista_Ord Algoritmos_Ordenada::interseccion(Lista_Ord & otra){
+    Lista_Ord respuesta;
+    respuesta.iniciar();
+    int elemento1 = lista.primero();
+    int elemento2 = otra.primero();
+    while(elemento1 != lista.siguiente(lista.ultimo()) && elemento2 != otra.siguiente(otra.ultimo())){
+        if(elemento1 == elemento2){            
+            respuesta.agregar(elemento1);   
+            elemento1 = lista.siguiente(elemento1);
+            elemento2 = otra.siguiente(elemento2);
+        }
+        else{
+            if(elemento1 < elemento2){
+                elemento1 = lista.siguiente(elemento1);
+            }
+            else{
+                elemento2 = otra.siguiente(elemento2);
+            }
+        }
+    }
+    return respuesta;
 }

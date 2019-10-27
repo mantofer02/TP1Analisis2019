@@ -151,7 +151,7 @@ int Lista_Ord::ultimo(){
         ultimo = -1;
     }
     else{
-        ultimo = array[0];
+        ultimo = array[numeroElementos-1];
     }
     return ultimo;
 }

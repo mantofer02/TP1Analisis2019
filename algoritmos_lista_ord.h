@@ -7,14 +7,14 @@ class Algoritmos_Ordenada{
     private:
         Lista_Ord lista;
     public:
-        Algoritmos_Ordenada(Lista_Ord);
+        Algoritmos_Ordenada(Lista_Ord &);
         void listar();
-        int iguales(Lista_Ord);
-        void copiar(Lista_Ord);
-        int contenida(Lista_Ord);
+        int iguales(Lista_Ord &);
+        void copiar(Lista_Ord &);
+        int contenida(Lista_Ord &);
         int pertenece(int elemento);
-        void eliminarElementosRepetidos(Lista_Ord);
-        Lista_Ord unionListas(Lista_Ord);
-        Lista_Ord interseccion(Lista_Ord);
+        void eliminarElementosRepetidos(Lista_Ord &);
+        Lista_Ord unionListas(Lista_Ord &);
+        Lista_Ord interseccion(Lista_Ord &);
 };
 #endif
