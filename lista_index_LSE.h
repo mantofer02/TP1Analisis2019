@@ -9,6 +9,7 @@ class Lista_Index{
         struct Celda{
             Celda(int);
             Celda * siguiente;
+            ~Celda();
             int elemento;
         };
         int contador;

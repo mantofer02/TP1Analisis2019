@@ -32,14 +32,17 @@ Modiﬁca : no modiﬁca nada.
 void Lista_Index :: destruir(){
     if(primera){
         Celda * actual = primera;
-        while(primera->siguiente){
+        while(primera != ultima){
             actual = primera;
-            while(actual->siguiente->siguiente){
+            while(actual->siguiente != ultima){
                 actual = actual->siguiente;
             }
-            delete actual->siguiente;
+            ultima = actual;
+            delete ultima->siguiente;
+            delete actual;
         }
         delete primera;
+        primera = 0;
         ultima = 0;
     }
 }
@@ -182,7 +185,7 @@ Operador propio del modelo Lista_IndexIndexadaLSE. Nos permite liberar el espaci
 */
 
 Lista_Index :: ~Lista_Index(){
-    //destruir();
+    destruir();
     //Arreglar
 }
 
@@ -245,4 +248,8 @@ void Lista_Index :: imprimirLista(){
 Lista_Index :: Celda :: Celda(int elemento){
     this->elemento = elemento;
     siguiente = 0;
+}
+
+Lista_Index :: Celda :: ~Celda(){
+    this->siguiente = 0;
 }

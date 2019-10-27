@@ -161,11 +161,9 @@ void Interfaz :: escogioListaIndexada(){
             escogioListaIndexada();
             break;
         case 5:
-            cout << "Digite un indice para la lista indexada" << endl;
-            cin >> parametro1;
             cout << "Digite el elemento que desea insertar" << endl;
-            cin >> parametro2;
-            miListaIndex.agregar(parametro1, parametro2);
+            cin >> parametro1;
+            miListaIndex.agregar(parametro1);
             escogioListaIndexada();
             break;
         case 6:
