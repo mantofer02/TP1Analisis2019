@@ -14,7 +14,7 @@
 // #include "lista_pos_LSE.h"
 #include "lista_pos_LDE.h"
 
-// #include "algoritmos_lista_pos.h"
+ #include "algoritmos_lista_pos.h"
 
 //Falta 
 
@@ -27,7 +27,9 @@ class Interfaz{
         Lista_Ord miListaOrdena;
         Lista_Index miListaIndex;
         Lista_Pos miListaPos; 
-		// Algoritmos_Pos algoritmos; 
+        Lista_Pos aux_1; 		//se necesitan para los algoritmos de uniones e intersecciones. 
+        Lista_Pos aux_2; 
+		 Algoritmos_Pos algoritmos; 
 
     public: 
         Interfaz();

@@ -225,6 +225,17 @@ void Interfaz :: escogioListaPosicionada(){
     int option = 0; 
     int position = 0; 
     int value = 0; 
+    int lista_id = -1;
+    bool id_valido = false;  
+    cout << "Puede trabajar con 3 listas, para utilizar los algoritmos " << endl; 	//DE MOMENTO SOLO AGREGAR/IMPRIMIR Y AGREGARALFINAL
+    while (!id_valido) {															//FUNCIONAN PARA LAS LISTAS AUXILIARES
+		cout << "1) lista del programa \n 2) lista auxiliar 1 \n 3) lista auxiliar 2" << endl;  //SUFICIENTE PARA HACER PRUEBAS. 
+		cin >> lista_id; 
+		if ( 0 < lista_id < 4) {
+			id_valido = true; 
+		}
+	}
+    
     cout <<"Menu de la Lista Posicionada" << endl;
     cout << "1) agregar(int , int)" << endl;	
     cout << "2) borrar(int)" << endl;
@@ -238,13 +249,19 @@ void Interfaz :: escogioListaPosicionada(){
     cout << "10) vaciar();" << endl;		    	
     cout << "11) destruir();" << endl;		
     cout << "12) imprimirLista()" << endl;
-    cout << "13) agregarAlFinal()" << endl; 
+    cout << "13) agregarAlFinal()" << endl;				 
     cout << "14) EXIT" << endl; 
     cout << "15) Burbuja" << endl;  
     cout << "16) Seleccion" << endl; 
     cout << "17) Seleccion recursivo" << endl;
     cout << "18) Insercion" << endl; 
     cout << "19) QuickSort" << endl; 
+    cout << "20) mergeSort" << endl; 
+    cout << "21) UnionOrdenada" << endl; 
+    cout << "22) UnionNoOrdenada" << endl;  
+    cout << "23) InterseccionOrdenadaV1" << endl; 
+    cout << "24) InterseccionNoOrdenadaV2" << endl; 
+    cout << "25) Interseccion" << endl; 
     cin >>option; 
     switch (option){
 	case 1: 
@@ -255,9 +272,28 @@ void Interfaz :: escogioListaPosicionada(){
           
             cout << "Digite el elemento que desea insertar" << endl;
 			cin >> value; 
+			switch(lista_id) {
+				
+				case 1: 
+				insertarPosicion(position, value, &miListaPos); 
+				escogioListaPosicionada();	
+		    
+				break; 
+				
+				
+				case 2: 
+				insertarPosicion(position, value, &aux_1); 
+				escogioListaPosicionada(); 
+				
+				
+				case 3: 
+				insertarPosicion(position, value, &aux_2); 
+				escogioListaPosicionada(); 
+				break; 
+		    
+		    
+			}
 			
-			insertarPosicion(position, value, &miListaPos); 
-		    escogioListaPosicionada();	
 	    break; 
 	case 2: 
 	
@@ -316,17 +352,68 @@ void Interfaz :: escogioListaPosicionada(){
 	    escogioListaPosicionada();
         break; 
 	case 12: 
-		cout << "Imprimiendo lista" << endl; 
-		cout << "------------------------" << endl;
-        cout << imprimirLista(&miListaPos) << endl; 
-        cout << "------------------------" << endl;
-	    escogioListaPosicionada();
+	
+				switch(lista_id) {
+				
+				case 1: 
+					cout << "Imprimiendo lista" << endl; 
+					cout << "------------------------" << endl;
+					cout << imprimirLista(&miListaPos) << endl; 
+					cout << "------------------------" << endl;
+					escogioListaPosicionada();
+				break; 
+				
+				
+				case 2: 
+					cout << "Imprimiendo lista" << endl; 
+					cout << "------------------------" << endl;
+					cout << imprimirLista(&aux_1) << endl; 
+					cout << "------------------------" << endl;
+					escogioListaPosicionada();
+							
+				
+				case 3: 
+					cout << "Imprimiendo lista" << endl; 
+					cout << "------------------------" << endl;
+					cout << imprimirLista(&aux_2) << endl; 
+					cout << "------------------------" << endl;
+					escogioListaPosicionada();
+				break; 
+		    	    
+			}
+			 
         break; 
 	case 13: 
-		cout << "Digite el elemento que desea ingresar al final de la lista" << endl; 
-		cin >>value; 
-		agregarPosicionAlFinal(value, &miListaPos);
-        escogioListaPosicionada(); 
+	
+	
+				switch(lista_id) {
+				
+				case 1: 
+				
+					cout << "Digite el elemento que desea ingresar al final de la lista" << endl; 
+					cin >>value; 
+					agregarPosicionAlFinal(value, &miListaPos);
+					escogioListaPosicionada(); 		    
+				break; 
+				
+				
+				case 2: 
+					cout << "Digite el elemento que desea ingresar al final de la lista" << endl; 
+					cin >>value; 
+					agregarPosicionAlFinal(value, &aux_1);
+					escogioListaPosicionada(); 
+
+				
+				case 3: 			
+					cout << "Digite el elemento que desea ingresar al final de la lista" << endl; 
+					cin >>value; 
+					agregarPosicionAlFinal(value, &aux_2);
+					escogioListaPosicionada(); 
+				break; 
+		    
+		    
+			}
+	    
 	break; 	
 	
 	case 14: 
@@ -335,31 +422,68 @@ void Interfaz :: escogioListaPosicionada(){
 	
 	
 	case 15: 
-		// algoritmos.burbuja(miListaPos); 
+		algoritmos.burbuja(miListaPos); 			//probado y funciona
 		escogioListaPosicionada(); 
 	
 	break; 
 	
 	case 16: 
-		// algoritmos.seleccion(miListaPos);
+		 algoritmos.seleccion(miListaPos);					//probado y funciona. 
 		escogioListaPosicionada();  
 	break; 
 	
 	case 17: 
-		// algoritmos.seleccionRecursivo(miListaPos, miListaPos.primera()); 
+		 algoritmos.seleccionRecursivo(miListaPos, miListaPos.primera()); 	//probado y funciona
 		escogioListaPosicionada(); 
 	
 	break; 
 	
 	case 18: 
-		// algoritmos.insercion(miListaPos);
+		 algoritmos.insercion(miListaPos);		//probado y funciona. 
 		escogioListaPosicionada();  
 	
 	break; 
 	
 	case 19: 
-		// algoritmos.quickSort(miListaPos);
+		algoritmos.quickSort(miListaPos);		//probado y funciona
 		escogioListaPosicionada();  
+	
+	break; 
+	
+	case 20: 
+		algoritmos.mergeSort_v2(miListaPos);		//probado y funciona
+		escogioListaPosicionada();  
+	
+	break; 
+	
+	
+	case 21: 
+		algoritmos.unionOrdenada(miListaPos, aux_1);	//aun no probado 
+		escogioListaPosicionada(); 
+	break; 
+	
+	
+	case 22: 
+		algoritmos.unionNoOrdenada(miListaPos, aux_1); //aun no probado
+		escogioListaPosicionada(); 
+	
+	break; 
+	
+	case 23: 
+		algoritmos.interseccionOrdenada_v1(miListaPos, aux_1, aux_2); //aun no probado. 
+	
+	break; 
+	
+	
+	
+	case 24: 
+		algoritmos.interseccionOrdenada_v2(miListaPos, aux_1, aux_2);	//aun no probado  
+	
+	break; 
+	
+	
+	case 25: 
+		algoritmos.interseccion(miListaPos, aux_1, aux_2);			//aun no probado.  
 	
 	break; 
 	

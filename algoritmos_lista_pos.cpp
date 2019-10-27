@@ -151,39 +151,46 @@ void Algoritmos_Pos::quickSort(Lista_Pos &lista) {
 
 void Algoritmos_Pos::quickSortRecursivo(Lista_Pos &lista, Pos low, Pos high) {
 
+	//cout << "low : " << lista.recuperar(low) << " high : " << lista.recuperar(high) << endl; 
 
-	Pos pivote_position = buscarPivote(lista, low, high); 
-
-	if (pivote_position != PosNula) {
-
-	Pos p_1 = low; 
-	Pos p_2 = high; 
+	if (low != high) {	
 		
-		while (lista.siguiente(p_2) != p_1) {	
-			lista.intercambiar(p_1, p_2);	 
+		Pos pivote_position = buscarPivote(lista, low, high); 
 
-			while (lista.recuperar(p_1) <= lista.recuperar(pivote_position)) {		// p_1 != PosNula? 
-				p_1 = lista.siguiente(p_1); 
-			}
+		if (pivote_position != PosNula) {
 
-
-			while (lista.recuperar(p_2) > lista.recuperar(pivote_position)) {
-				p_2 = lista.anterior(p_2); 		
-			}	
-
+		Pos p_1 = low; 
+		Pos p_2 = high; 
 			
-		}
-		
-		quickSortRecursivo(lista, low, p_2);
-		quickSortRecursivo(lista, p_1, high);  	
-		
-	}	
-		
+			while (/*lista.siguiente(p_2) != p_1*/ p_2 != lista.anterior(p_1)) {	
+				if(p_1 != pivote_position && p_2 != pivote_position) { //FALTABA ESTO
+					lista.intercambiar(p_2, p_1);	 
+				}														//FALTABA ESTO
+				
+				while (lista.recuperar(p_1) < lista.recuperar(pivote_position)) {		// p_1 != PosNula? 
+					p_1 = lista.siguiente(p_1); 
+				}
+
+
+				while (lista.recuperar(p_2) >= lista.recuperar(pivote_position)) {
+					p_2 = lista.anterior(p_2); 		
+				}	
+
+				
+			}
+			
+			quickSortRecursivo(lista, low, p_2);
+			quickSortRecursivo(lista, p_1, high);  	
+			
+		}	
+			
+	}
 }
 
 
 
 Pos Algoritmos_Pos::buscarPivote(Lista_Pos &lista, Pos low, Pos high) {
+cout << lista.imprimirLista(); 	
 Pos pivote_position = PosNula; 
 Pos p_1 = low; 
 
@@ -193,13 +200,23 @@ while (p_1 != high && lista.recuperar(p_1) == lista.recuperar(lista.siguiente(p_
 
 if (p_1 != high) {
 	if (lista.recuperar(p_1) < lista.recuperar(lista.siguiente(p_1))) {
-		pivote_position = low; 
+		//pivote_position = low; 
+		pivote_position = lista.siguiente(p_1); 
 	}
 	else {
-		pivote_position = lista.siguiente(p_1); 
+		pivote_position = low; 
+		//pivote_position = lista.siguiente(p_1); 
 	}
 }
 
+#if 0
+if (pivote_position != PosNula) {
+cout << "el pivote seleccionado corresponde a : " << lista.recuperar(pivote_position) << endl; 
+}
+else {
+		cout << "no hay pivote uyuyuyu " << endl;  
+}
+#endif
 
 return pivote_position; 	
 } 
@@ -261,7 +278,7 @@ void Algoritmos_Pos::quickSort_insercion(Lista_Pos &lista) {
 
 
 
-void unionOrdenada(Lista_Pos &l1, Lista_Pos &l2) {
+void Algoritmos_Pos::unionOrdenada(Lista_Pos &l1, Lista_Pos &l2) {
 
 Pos p_1 = l1.primera(); 
 Pos p_2 = l2.primera(); 
@@ -293,7 +310,7 @@ while (p_2 != PosNula) {
 }
 
 
-void unionNoOrdenada(Lista_Pos &l1, Lista_Pos &l2) {
+void Algoritmos_Pos::unionNoOrdenada(Lista_Pos &l1, Lista_Pos &l2) {
 	
 Pos p_2 = l2.primera(); 
 Pos p_1; 
@@ -323,7 +340,7 @@ while (p_2 != PosNula) {
 	
 }
 
-void interseccionOrdenada_v1(Lista_Pos &l1, Lista_Pos &l2,Lista_Pos &l3) {
+void Algoritmos_Pos::interseccionOrdenada_v1(Lista_Pos &l1, Lista_Pos &l2,Lista_Pos &l3) {
 	l3.iniciar(); 
 	Pos p_1 = l1.primera(); 
 	Pos p_2 = l2.primera(); 
@@ -348,12 +365,104 @@ void interseccionOrdenada_v1(Lista_Pos &l1, Lista_Pos &l2,Lista_Pos &l3) {
 }
 
 
-void interseccionOrdenada_v2(Lista_Pos &l1, Lista_Pos &l2, Lista_Pos &l3) {
+void Algoritmos_Pos::interseccionOrdenada_v2(Lista_Pos &l1, Lista_Pos &l2, Lista_Pos &l3) {
 		  
 		
 
 }
 
+
+
+void Algoritmos_Pos::interseccion(Lista_Pos&l1, Lista_Pos&l2, Lista_Pos&l3) {
+	Pos p_1 = l1.primera(); 
+	Pos p_2 = PosNula; 
+	
+	while (p_1 != PosNula) {
+		p_2 = l2.primera(); 
+		while (p_2 != PosNula) {
+			if (l1.recuperar(p_1) == l2.recuperar(p_2)) {
+				l3.agregarAlFinal(l1.recuperar(p_1));
+				p_2 = PosNula;  
+			}
+			else {
+				p_2 = l2.siguiente(p_2);  
+			}		
+		}
+		
+		p_1 = l1.siguiente(p_1); 
+	}	
+}
+
+
+
+
+void Algoritmos_Pos::mergeSort_v2(Lista_Pos &lista) {
+	
+	if (lista.NumElem() > 1) {
+		int mid = lista.NumElem()/2; 
+		Pos current_pos = lista.primera(); 
+		
+		Lista_Pos primeraMitad;
+		primeraMitad.iniciar();  
+		Lista_Pos segundaMitad;
+		segundaMitad.iniciar();  
+		
+		for (int first_half = 0; first_half < mid; ++first_half) {
+			primeraMitad.agregarAlFinal(lista.recuperar(current_pos)); 
+			current_pos = lista.siguiente(current_pos);  
+		}
+		
+		for (int second_half = mid; second_half < lista.NumElem(); ++second_half) {
+			segundaMitad.agregarAlFinal(lista.recuperar(current_pos));
+			current_pos = lista.siguiente(current_pos);  
+		}
+		
+	 mergeSort_v2(primeraMitad);
+	 mergeSort_v2(segundaMitad);
+	 merge_v2(primeraMitad, segundaMitad, lista);   	
+		
+	}
+	else {
+		//condicion de parada. 
+	}
+	
+}
+
+
+
+void Algoritmos_Pos::merge_v2(Lista_Pos&lista_1, Lista_Pos&lista_2, Lista_Pos&lista) {
+	
+	lista.vaciar(); 
+	Pos current_1 = lista_1.primera(); 
+	Pos current_2 = lista_2.primera(); 
+	
+	while (current_1 != PosNula && current_2 != PosNula) {
+		if (lista_1.recuperar(current_1) < lista_2.recuperar(current_2)) {
+			lista.agregarAlFinal(lista_1.recuperar(current_1)); 
+			current_1 = lista_1.siguiente(current_1);  
+		}
+		else {
+			lista.agregarAlFinal(lista_2.recuperar(current_2));
+			current_2 = lista_2.siguiente(current_2);  
+		}
+		
+	}
+	
+	while (current_1 != PosNula) {
+		lista.agregarAlFinal(lista_1.recuperar(current_1));
+		current_1 = lista_1.siguiente(current_1);  		
+	}
+	
+	
+	while (current_2 != PosNula) {
+		lista.agregarAlFinal(lista_2.recuperar(current_2));
+		current_2 = lista_2.siguiente(current_2);  	
+	}
+	
+	
+	lista_1.destruir(); 
+	lista_2.destruir(); 
+}
 
 
 
@@ -387,6 +496,10 @@ Lista_Pos Algoritmos_Pos::mergeSort(Lista_Pos lista){
         return merge(primeraMitad, segundaMitad);
     }
 }
+
+
+
+
 
 Lista_Pos Algoritmos_Pos::merge(Lista_Pos listaA, Lista_Pos listaB){
     Lista_Pos listaC;
