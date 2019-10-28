@@ -225,9 +225,9 @@ void Interfaz :: escogioListaPosicionada(){
     int value = 0; 
     int lista_id = -1;
     bool id_valido = false;  
-    cout << "Puede trabajar con 3 listas, para utilizar los algoritmos " << endl; 	//DE MOMENTO SOLO AGREGAR/IMPRIMIR Y AGREGARALFINAL
-    while (!id_valido) {															//FUNCIONAN PARA LAS LISTAS AUXILIARES
-		cout << "1) lista del programa \n 2) lista auxiliar 1 \n 3) lista auxiliar 2" << endl;  //SUFICIENTE PARA HACER PRUEBAS. 
+    cout << "Puede trabajar con 3 listas, para utilizar los algoritmos " << endl; 	
+    while (!id_valido) {															
+		cout << "1) lista del programa \n 2) lista auxiliar 1 \n 3) lista auxiliar 2" << endl;  
 		cin >> lista_id; 
 		if ( 0 < lista_id < 4) {
 			id_valido = true; 
