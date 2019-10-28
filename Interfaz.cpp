@@ -644,6 +644,7 @@ void Interfaz :: escogioListaPosicionada(){
 					cout << imprimirLista(&aux_1) << endl; 
 					cout << "------------------------" << endl;
 					escogioListaPosicionada();
+				break; 
 							
 				
 				case 3: 
@@ -676,7 +677,7 @@ void Interfaz :: escogioListaPosicionada(){
 					cin >>value; 
 					agregarPosicionAlFinal(value, &aux_1);
 					escogioListaPosicionada(); 
-
+				break; 
 				
 				case 3: 			
 					cout << "Digite el elemento que desea ingresar al final de la lista" << endl; 
