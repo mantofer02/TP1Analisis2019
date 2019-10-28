@@ -80,6 +80,7 @@ void Algoritmos_Pos::eliminarRepetidos(Lista_Pos &lista){
 		 }
 		 else {
 			 aux = aux_aux;  
+			 esta = false; 
 		 }
 	 }
 	 p_1 = lista.siguiente(p_1); 
