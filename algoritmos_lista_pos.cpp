@@ -59,9 +59,38 @@ int Algoritmos_Pos::buscar(Lista_Pos &lista, int elemento){
     return esta;
 }
 
+
+
 void Algoritmos_Pos::eliminarRepetidos(Lista_Pos &lista){
+ Pos p_1 = lista.primera(); 
+ Pos aux = p_1; 
+ bool esta = false; 
+ Pos aux_aux = PosNula; 
+ 
+ while (p_1 != PosNula) {
+	 aux = lista.siguiente(p_1); 
+	 while (aux != PosNula) {
+		 if (lista.recuperar(p_1) == lista.recuperar(aux)) {
+			 aux_aux = lista.siguiente(aux); 
+			 lista.borrar(aux);
+			 esta = true; 
+		 } 
+		 if (!esta) {
+			 aux = lista.siguiente(aux); 
+		 }
+		 else {
+			 aux = aux_aux;  
+		 }
+	 }
+	 p_1 = lista.siguiente(p_1); 
+ }
+
+
 
 }
+
+
+
 
 void Algoritmos_Pos::burbuja(Lista_Pos &lista) {	
  int amount_elements = lista.NumElem(); 

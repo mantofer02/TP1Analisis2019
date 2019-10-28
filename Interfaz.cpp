@@ -263,6 +263,8 @@ void Interfaz :: escogioListaPosicionada(){
     cout << "26) Buscar" << endl; 
     cout << "27) Invertir" << endl; 
     cout << "28) Simetrica" << endl; 
+    cout << "29) QuickSort_Insercion" << endl; 
+    cout << "30) Eliminar Repetidos" << endl; 
     cout << "14) EXIT" << endl; 
     cin >>option; 
     switch (option){
@@ -874,6 +876,18 @@ void Interfaz :: escogioListaPosicionada(){
 	
 	
 	
+	break; 
+	
+	
+	case 29: 
+		algoritmos.quickSort_insercion(miListaPos); 
+		escogioListaPosicionada(); 
+	break; 
+	
+	
+	case 30: 
+		algoritmos.eliminarRepetidos(miListaPos); 
+		escogioListaPosicionada(); 
 	break; 
 	
 	
