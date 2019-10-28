@@ -9,17 +9,25 @@ Algoritmos_Pos::Algoritmos_Pos() {
 	
 }
 
-int Algoritmos_Pos :: simetrica(Lista_Pos &lista){
-    int esSimetrica = 1;
+int Algoritmos_Pos::simetrica(Lista_Pos &lista){
+    int esSimetrica = 0;
     Pos pos1 = lista.primera();
     Pos pos2 = lista.ultima();
-    while (pos1 < pos2 && lista.recuperar(pos1) == lista.recuperar(pos2)){
+    while (lista.siguiente(pos2) != pos1 && pos1 != pos2 && lista.recuperar(pos1) == lista.recuperar(pos2)){
         pos1 = lista.siguiente(pos1);
         pos2 = lista.anterior(pos2);
     }
     
-    if(pos1 < pos2)
-        esSimetrica = 0;
+    if (pos1 != pos2) {
+		if (lista.siguiente(pos2) == pos1) {
+			esSimetrica = 1; 
+		}
+
+			
+	}
+	else {
+			esSimetrica = 1; 
+	}
     
     return esSimetrica;
 }

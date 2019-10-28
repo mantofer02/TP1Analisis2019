@@ -262,6 +262,7 @@ void Interfaz :: escogioListaPosicionada(){
     cout << "25) Interseccion" << endl; 
     cout << "26) Buscar" << endl; 
     cout << "27) Invertir" << endl; 
+    cout << "28) Simetrica" << endl; 
     cout << "14) EXIT" << endl; 
     cin >>option; 
     switch (option){
@@ -835,6 +836,42 @@ void Interfaz :: escogioListaPosicionada(){
 
 		
 		
+	
+	
+	break; 
+	
+	
+	case 28: 
+	
+	option = 0; 
+	
+	switch(lista_id) {		
+			case 1:
+			option = algoritmos.simetrica(miListaPos); 
+			break; 
+			
+			
+			case 2:
+			option = algoritmos.simetrica(aux_1); 
+			break; 
+			
+			
+			case 3: 
+			option = algoritmos.simetrica(aux_2); 
+			break; 	
+					
+	}
+	
+	if (option != 0) {
+		cout << endl << "la lista es simetrica " << endl << endl; 
+	}
+	else {
+		cout << endl; 
+		cout << "la lista no es simetrica " << endl << endl; 
+	}
+	
+	escogioListaPosicionada(); 
+	
 	
 	
 	break; 
