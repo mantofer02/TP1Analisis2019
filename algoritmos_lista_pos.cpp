@@ -24,11 +24,11 @@ int Algoritmos_Pos :: simetrica(Lista_Pos &lista){
     return esSimetrica;
 }
 
-void Algoritmos_Pos :: invertir(Lista_Pos &lista){
+void Algoritmos_Pos::invertir(Lista_Pos &lista){
     Pos pos1 = lista.primera();
     Pos pos2 = lista.ultima();
     int elemento1;
-    while (pos1 < pos2){
+    while (lista.siguiente(pos2) != pos1 && pos1 != pos2){
         elemento1 = lista.recuperar(pos1);
         lista.modificar(pos1, lista.recuperar(pos2));
         lista.modificar(pos2, elemento1);
@@ -367,8 +367,16 @@ void Algoritmos_Pos::interseccionOrdenada_v1(Lista_Pos &l1, Lista_Pos &l2,Lista_
 
 
 void Algoritmos_Pos::interseccionOrdenada_v2(Lista_Pos &l1, Lista_Pos &l2, Lista_Pos &l3) {
-		  
-		
+
+Pos pos1 = l1.primera(); 
+while (pos1 != PosNula) {
+ if (buscar(l2, l1.recuperar(pos1))) {
+	 l3.agregarAlFinal(l1.recuperar(pos1)); 
+ }
+ pos1 = l1.siguiente(pos1); 	
+}		  
+
+
 
 }
 

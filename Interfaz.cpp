@@ -224,6 +224,7 @@ void Interfaz :: escogioListaPosicionada(){
     int position = 0; 
     int value = 0; 
     int lista_id = -1;
+    int esta = 0; 
     bool id_valido = false;  
     cout << "Puede trabajar con 3 listas, para utilizar los algoritmos " << endl; 	
     while (!id_valido) {															
@@ -259,6 +260,8 @@ void Interfaz :: escogioListaPosicionada(){
     cout << "23) InterseccionOrdenadaV1" << endl; 
     cout << "24) InterseccionNoOrdenadaV2" << endl; 
     cout << "25) Interseccion" << endl; 
+    cout << "26) Buscar" << endl; 
+    cout << "27) Invertir" << endl; 
     cout << "14) EXIT" << endl; 
     cin >>option; 
     switch (option){
@@ -753,7 +756,7 @@ void Interfaz :: escogioListaPosicionada(){
 	
 	
 	
-	case 24: 
+	case 24: //dela en l3, la interseccion de l1 y l2. 
 		algoritmos.interseccionOrdenada_v2(miListaPos, aux_1, aux_2);	//aún no programado
 		escogioListaPosicionada(); 
 	break; 
@@ -763,6 +766,79 @@ void Interfaz :: escogioListaPosicionada(){
 		algoritmos.interseccion(miListaPos, aux_1, aux_2);	//probado y funciona. 
 		escogioListaPosicionada(); 
 	break; 
+	
+	
+	case 26: 
+	
+			esta = 0; 
+			value = 0; 
+			cout << "digite el valor que desea buscar en la lista : "; 
+			cin >>value; 
+			
+					switch(lista_id) {
+						
+						case 1: 
+						esta = algoritmos.buscar(miListaPos, value); 	    
+						break; 
+						
+						
+						case 2: 
+						esta = algoritmos.buscar(aux_1, value);			
+						break; 
+						
+						case 3: 
+						esta = algoritmos.buscar(aux_2, value); 
+						break; 
+					
+					
+					}
+				
+			cout << endl; 
+
+			if(esta != 0) {
+				cout << "el valor ingresado se encuentra en la lista " << endl << endl; 
+			}
+			else {
+				cout << "el valor ingresado no se encuentra en la lista" << endl << endl; 
+			}
+			
+			escogioListaPosicionada();	
+	
+	
+	
+	break; 
+	
+	
+	case 27:
+	
+	 
+	
+	switch(lista_id) {
+		
+		case 1:
+		algoritmos.invertir(miListaPos); 
+		escogioListaPosicionada(); 
+		break; 
+ 
+		case 2:
+		algoritmos.invertir(aux_1);		
+		escogioListaPosicionada(); 
+		break; 
+		
+		case 3:
+		algoritmos.invertir(aux_2); 
+		escogioListaPosicionada(); 
+		break; 
+		
+		
+	}
+
+		
+		
+	
+	
+	break; 
+	
 	
 	default: 
 		cout << "La opcion seleccionada no es valida" << endl; 
