@@ -94,34 +94,32 @@ void Algoritmos_Pos::eliminarRepetidos(Lista_Pos &lista){
 
 
 void Algoritmos_Pos::burbuja(Lista_Pos &lista) {	
- int amount_elements = lista.NumElem(); 
- Pos p_1 = PosNula; 
- Pos p_2 = PosNula; 
- int temp_value = 0;  
+	int amount_elements = lista.NumElem(); 
+	Pos p_1 = PosNula; 
+	Pos p_2 = PosNula; 
+	int temp_value = 0;  
  
- if (amount_elements >= 2) {
-
- 
-	 for (int iteration = 0; iteration < amount_elements; ++iteration) {
-		p_1 = lista.primera(); 
-		p_2 = lista.siguiente(p_1); 	
+	if (amount_elements >= 2) {
+		for (int iteration = 0; iteration < amount_elements; ++iteration) {
+			p_1 = lista.primera(); 
+			p_2 = lista.siguiente(p_1); 	
 		
-		while (lista.siguiente(p_1) != PosNula) {
-			if (lista.recuperar(p_1) > lista.recuperar(p_2)) {
-				temp_value = lista.recuperar(p_1);
-				lista.modificar(p_1, lista.recuperar(p_2));
-				lista.modificar(p_2, temp_value);   
-			}
-			p_1 = lista.siguiente(p_1);
-			p_2 = lista.siguiente(p_2);  		
-		}	
+			while (lista.siguiente(p_1) != PosNula) {
+				if (lista.recuperar(p_1) > lista.recuperar(p_2)) {
+					temp_value = lista.recuperar(p_1);
+					lista.modificar(p_1, lista.recuperar(p_2));
+					lista.modificar(p_2, temp_value);   
+				}
+				p_1 = lista.siguiente(p_1);
+				p_2 = lista.siguiente(p_2);  		
+			}	
 			 
-	 }
+		}
 			
-}
-else {
+	}
+	else {
 	//no hay nada que ordenar. 	
-}
+	}
 		
 }
 
