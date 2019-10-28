@@ -283,7 +283,7 @@ void Algoritmos_Pos::unionOrdenada(Lista_Pos &l1, Lista_Pos &l2) {
 Pos p_1 = l1.primera(); 
 Pos p_2 = l2.primera(); 
 
-while (p_1 != PosNula || p_2 != PosNula) {
+while (p_1 != PosNula && p_2 != PosNula) {
 	if (l1.recuperar(p_1) < l2.recuperar(p_2)) {
 		p_1 = l1.siguiente(p_1); 	
 	}
@@ -340,19 +340,20 @@ while (p_2 != PosNula) {
 	
 }
 
-void Algoritmos_Pos::interseccionOrdenada_v1(Lista_Pos &l1, Lista_Pos &l2,Lista_Pos &l3) {
+void Algoritmos_Pos::interseccionOrdenada_v1(Lista_Pos &l1, Lista_Pos &l2,Lista_Pos &l3) {	//no deja nada en miListaPos y borra aux_2
+	l3.vaciar();
 	l3.iniciar(); 
 	Pos p_1 = l1.primera(); 
 	Pos p_2 = l2.primera(); 
 
 
-	while (p_1 != PosNula || p_2 != PosNula) {
+	while (p_1 != PosNula && p_2 != PosNula) {
 		if (l1.recuperar(p_1) < l2.recuperar(p_2)) {
 			p_1 = l1.siguiente(p_1); 
 		}
 		else {
 		  if (l1.recuperar(p_1) > l2.recuperar(p_2)) {
-			  p_1 = l2.siguiente(p_2); 
+			  p_2 = l2.siguiente(p_2); 
 		  }
 		  else { //son iguales. 
 			 l3.agregarAlFinal(l1.recuperar(p_1));

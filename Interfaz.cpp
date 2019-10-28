@@ -455,34 +455,36 @@ void Interfaz :: escogioListaPosicionada(){
 	break; 
 	
 	
-	case 21: 
-		algoritmos.unionOrdenada(miListaPos, aux_1);	//aun no probado 
+	case 21: //le agrega a l1, los elementos de l2, sin que en l1 queden elementos repetidos. 
+			//requiere l1 y l2 ordenadas sin elementos repetidos. 
+		algoritmos.unionOrdenada(miListaPos, aux_1);	//probado y funciona.
 		escogioListaPosicionada(); 
 	break; 
 	
 	
-	case 22: 
-		algoritmos.unionNoOrdenada(miListaPos, aux_1); //aun no probado
+	case 22: //requiere que l1 y l2 no tenga elementos repetidos. el orden no importa. 
+		algoritmos.unionNoOrdenada(miListaPos, aux_1); //probado y funciona
 		escogioListaPosicionada(); 
 	
 	break; 
 	
-	case 23: 
-		algoritmos.interseccionOrdenada_v1(miListaPos, aux_1, aux_2); //aun no probado. 
-	
+	case 23: //deja en l3, la interseccion de l1 y l2, 
+			//si l3 poseía valores anteriormente se borran. 
+		algoritmos.interseccionOrdenada_v1(miListaPos, aux_1, aux_2); // probado y funciona. 
+		escogioListaPosicionada(); 
 	break; 
 	
 	
 	
 	case 24: 
-		algoritmos.interseccionOrdenada_v2(miListaPos, aux_1, aux_2);	//aun no probado  
-	
+		algoritmos.interseccionOrdenada_v2(miListaPos, aux_1, aux_2);	//aún no programado
+		escogioListaPosicionada(); 
 	break; 
 	
 	
-	case 25: 
-		algoritmos.interseccion(miListaPos, aux_1, aux_2);			//aun no probado.  
-	
+	case 25: //deja en l3, la interseccion de l1, y l2, requiere que no posean elementos repetidos. 
+		algoritmos.interseccion(miListaPos, aux_1, aux_2);	//probado y funciona. 
+		escogioListaPosicionada(); 
 	break; 
 	
 	default: 
