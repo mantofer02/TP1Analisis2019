@@ -248,7 +248,6 @@ void Interfaz :: escogioListaPosicionada(){
     cout << "11) destruir();" << endl;		
     cout << "12) imprimirLista()" << endl;
     cout << "13) agregarAlFinal()" << endl;				 
-    cout << "14) EXIT" << endl; 
     cout << "15) Burbuja" << endl;  
     cout << "16) Seleccion" << endl; 
     cout << "17) Seleccion recursivo" << endl;
@@ -260,6 +259,7 @@ void Interfaz :: escogioListaPosicionada(){
     cout << "23) InterseccionOrdenadaV1" << endl; 
     cout << "24) InterseccionNoOrdenadaV2" << endl; 
     cout << "25) Interseccion" << endl; 
+    cout << "14) EXIT" << endl; 
     cin >>option; 
     switch (option){
 	case 1: 
@@ -283,6 +283,7 @@ void Interfaz :: escogioListaPosicionada(){
 				insertarPosicion(position, value, &aux_1); 
 				escogioListaPosicionada(); 
 				
+				break; 
 				
 				case 3: 
 				insertarPosicion(position, value, &aux_2); 
@@ -293,61 +294,336 @@ void Interfaz :: escogioListaPosicionada(){
 			}
 			
 	    break; 
-	case 2: 
-	
-	    cout << "Digite la posicion del elemento que desea borrar de la lista " << endl;
-		cin >> position; 
-		borrarPosicion(position, &miListaPos); 	
-		escogioListaPosicionada();
+	    
+	    
+	case 2:      
+       
+       			switch(lista_id) {
+				
+					case 1: 
+						cout << "Digite la posicion del elemento que desea borrar de la lista " << endl;
+						cin >> position; 
+						borrarPosicion(position, &miListaPos); 	
+						escogioListaPosicionada();	
+				
+					break; 
+					
+					
+					case 2: 
+						cout << "Digite la posicion del elemento que desea borrar de la lista " << endl;
+						cin >> position; 
+						borrarPosicion(position, &aux_1); 	
+						escogioListaPosicionada();
+					
+					break; 
+					
+					case 3: 
+						cout << "Digite la posicion del elemento que desea borrar de la lista " << endl;
+						cin >> position; 
+						borrarPosicion(position, &aux_2); 	
+						escogioListaPosicionada();
+					break; 
+				
+		    
+			} 
+       
+       
         break; 	
+        
+          
+        
+        
 	case 3: 
+
+
 		cout << "Digite la posicion del elemento que desea modificar de la lista" << endl; 
 		cin >>position; 
 		cout << "Digite el nuevo valor de la posicion que desea modificar" << endl; 
 		cin >>value; 
-		modificarPosicion(position, value, &miListaPos); 
-	    escogioListaPosicionada();
+	    
+	    		switch(lista_id) {
+				
+					case 1: 
+						modificarPosicion(position, value, &miListaPos); 
+						escogioListaPosicionada();
+				
+					break; 
+					
+					
+					case 2: 
+						modificarPosicion(position, value, &aux_1); 
+						escogioListaPosicionada();
+					
+					break; 
+					
+					case 3: 
+						modificarPosicion(position, value, &aux_2); 
+						escogioListaPosicionada(); 
+					break; 
+		    
+		    
+			}
+	    
+	    
+	    
+	    
+	    
+	    
         break; 
 	case 4: 
 		cout << "Digite la posicion del elemento que desea recuperar" << endl; 
-		cin >> position; 
-		cout << "El elemento recuperado de dicha posicion corresponde al  : " <<  recuperarPosicion(position, &miListaPos) << endl; 
-	    escogioListaPosicionada();
+		cin >> position; 	    
+	    
+	    	    		switch(lista_id) {
+				
+					case 1: 
+						cout << "El elemento recuperado de dicha posicion corresponde al  : " <<  recuperarPosicion(position, &miListaPos) << endl; 
+						escogioListaPosicionada();
+				
+					break; 
+					
+					
+					case 2: 
+						cout << "El elemento recuperado de dicha posicion corresponde al  : " <<  recuperarPosicion(position, &aux_1) << endl; 
+						escogioListaPosicionada();
+					
+					break; 
+					
+					case 3: 
+						cout << "El elemento recuperado de dicha posicion corresponde al  : " <<  recuperarPosicion(position, &aux_2) << endl; 
+						escogioListaPosicionada();
+					break; 
+		    
+		    
+			}
+	    
+	    
+	    
+	    
+	    
         break; 
 	case 5: 
 		cout << "Digite la posicion del elemento al que desea conocer su siguiente" << endl; 
 		cin >>position; 
-		cout << "El elemento siguiente a la posicion ingresada corresponde al : " << siguientePosicion(position, &miListaPos) << endl; 
-	    escogioListaPosicionada();
+
+	    
+	    
+	    	  switch(lista_id) {
+				
+					case 1: 
+						cout << "El elemento siguiente a la posicion ingresada corresponde al : " << siguientePosicion(position, &miListaPos) << endl; 
+						escogioListaPosicionada();
+								
+					break; 
+					
+					
+					case 2: 
+						cout << "El elemento siguiente a la posicion ingresada corresponde al : " << siguientePosicion(position, &aux_1) << endl; 
+						escogioListaPosicionada();
+					
+					break; 
+					
+					case 3: 
+						cout << "El elemento siguiente a la posicion ingresada corresponde al : " << siguientePosicion(position, &aux_2) << endl; 
+						escogioListaPosicionada();
+					break; 
+		    
+		    
+			}
+	    	    
+	    
         break; 
 	case 6: 
 		cout << "Digite la posicion del elemento al que desea conocer el anterior" << endl; 
 		cin >>position; 
-		cout << "El elemento anterior a la posicion ingresaada corresponde al : " << anteriorPosicion(position, &miListaPos) << endl; 
-	    escogioListaPosicionada();
+
+	    
+	    	  switch(lista_id) {
+				
+					case 1: 
+						cout << "El elemento anterior a la posicion ingresaada corresponde al : " << anteriorPosicion(position, &miListaPos) << endl; 
+						escogioListaPosicionada();
+								
+					break; 
+					
+					
+					case 2: 
+						cout << "El elemento anterior a la posicion ingresaada corresponde al : " << anteriorPosicion(position, &aux_1) << endl; 
+						escogioListaPosicionada();
+					
+					break; 
+					
+					case 3: 
+						cout << "El elemento anterior a la posicion ingresaada corresponde al : " << anteriorPosicion(position, &aux_2) << endl; 
+						escogioListaPosicionada();
+					break; 
+		    
+		    
+			}
+	    
+	    
+	    
+	    
+	    
         break; 
 	case 7: 
-		cout << "El primer elemento de la lista corresponde al  : " <<  primeraPosicion(&miListaPos) << endl; 
-	    escogioListaPosicionada();
+
+	    
+	    	  switch(lista_id) {
+				
+					case 1: 
+						cout << "El primer elemento de la lista corresponde al  : " <<  primeraPosicion(&miListaPos) << endl; 
+						escogioListaPosicionada();
+								
+					break; 
+					
+					
+					case 2: 
+						cout << "El primer elemento de la lista corresponde al  : " <<  primeraPosicion(&aux_1) << endl; 
+						escogioListaPosicionada();
+					
+					break; 
+					
+					case 3: 
+						cout << "El primer elemento de la lista corresponde al  : " <<  primeraPosicion(&aux_2) << endl; 
+						escogioListaPosicionada();
+					break; 
+		    
+		    
+			}
+	    
+	    
+	    
         break; 
 	case 8: 
-		cout << "El ultimo elemento de la lista corresponde al : " <<  ultimaPosicion(&miListaPos) << endl; 
-	    escogioListaPosicionada();
+
+	    
+	    
+	    	   switch(lista_id) {
+				
+					case 1: 
+						cout << "El ultimo elemento de la lista corresponde al : " <<  ultimaPosicion(&miListaPos) << endl; 
+						escogioListaPosicionada();
+								
+					break; 
+					
+					
+					case 2: 
+						cout << "El ultimo elemento de la lista corresponde al : " <<  ultimaPosicion(&aux_1) << endl; 
+						escogioListaPosicionada();
+					
+					break; 
+					
+					case 3: 
+						cout << "El ultimo elemento de la lista corresponde al : " <<  ultimaPosicion(&aux_2) << endl; 
+						escogioListaPosicionada();
+					break; 
+		    
+		    
+			}
+	    
+	    
+	    
         break; 
 	case 9: 
-		cout << "Se inicio la lista posicionada" << endl; 
-		iniciarLista(&miListaPos); 
-	    escogioListaPosicionada();
+
+	    	    
+	    	   switch(lista_id) {
+				
+					case 1: 
+						cout << "Se inicio la lista posicionada" << endl; 
+						iniciarLista(&miListaPos); 
+						escogioListaPosicionada();
+								
+					break; 
+					
+					
+					case 2: 
+						cout << "Se inicio la lista posicionada" << endl; 
+						iniciarLista(&aux_1); 
+						escogioListaPosicionada();
+					
+					break; 
+					
+					case 3: 
+						cout << "Se inicio la lista posicionada" << endl; 
+						iniciarLista(&aux_2); 
+						escogioListaPosicionada();
+					break; 
+		    
+		    
+			}
+	    
+	    
+	    
+	    
         break; 
 	case 10: 
-		cout << "Se va a vaciar la lista posicionada" << endl; 
-		vaciarLista(&miListaPos); 
-	    escogioListaPosicionada();
+
+	    
+	    
+	    	   switch(lista_id) {
+				
+					case 1: 
+						cout << "Se va a vaciar la lista posicionada" << endl; 
+						vaciarLista(&miListaPos); 
+						escogioListaPosicionada();
+								
+					break; 
+					
+					
+					case 2: 
+						cout << "Se va a vaciar la lista posicionada" << endl; 
+						vaciarLista(&aux_1); 
+						escogioListaPosicionada();
+					
+					break; 
+					
+					case 3: 
+						cout << "Se va a vaciar la lista posicionada" << endl; 
+						vaciarLista(&aux_2); 
+						escogioListaPosicionada();
+					break; 
+		    
+		    
+			}
+	    
+	    
+	    
+	    
         break; 
 	case 11: 
-		cout << "Se va a destruir la lista posicionada" << endl; 
-		destruirLista(&miListaPos); 
-	    escogioListaPosicionada();
+
+	    
+	    
+	    	   switch(lista_id) {
+				
+					case 1: 
+						cout << "Se va a destruir la lista posicionada" << endl; 
+						destruirLista(&miListaPos); 
+						escogioListaPosicionada();
+								
+					break; 
+					
+					
+					case 2: 
+						cout << "Se va a destruir la lista posicionada" << endl; 
+						destruirLista(&aux_1); 
+						escogioListaPosicionada();
+					
+					break; 
+					
+					case 3: 
+						cout << "Se va a destruir la lista posicionada" << endl; 
+						destruirLista(&aux_2); 
+						escogioListaPosicionada();
+					break; 
+		    
+		    
+			}
+	    
+	    
+	    
         break; 
 	case 12: 
 	
