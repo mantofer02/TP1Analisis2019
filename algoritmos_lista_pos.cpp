@@ -9,6 +9,10 @@ Algoritmos_Pos::Algoritmos_Pos() {
 	
 }
 
+//Efecto: Retorna un valor de 0 o 1 correspondiente a si la lista ingresada como parametro es simetrica o no. 
+//Requiere: Que la lista se encuentre inicializada. 
+//Modifica: no modifica nada, solo retorna información de la lista. 
+
 int Algoritmos_Pos::simetrica(Lista_Pos &lista){
     int esSimetrica = 0;
     Pos pos1 = lista.primera();
@@ -32,6 +36,12 @@ int Algoritmos_Pos::simetrica(Lista_Pos &lista){
     return esSimetrica;
 }
 
+
+
+//Efecto: Invierte los elementos correspondientes a la lista, de manera que los deja al revez. 
+//Requiere: Que la lista se encuentre inicializada y que no este vacia. 
+//Modifica: Las etiquetas de todas las posiciones de la lista inviertiendo los elementos. 
+
 void Algoritmos_Pos::invertir(Lista_Pos &lista){
     Pos pos1 = lista.primera();
     Pos pos2 = lista.ultima();
@@ -44,6 +54,11 @@ void Algoritmos_Pos::invertir(Lista_Pos &lista){
         pos2 = lista.anterior(pos2);
     }
 }
+
+
+//Efecto: retorna un valor de 0 o 1 avisando si el elemento ingresado como parametro se encuentra en la dicha lista. 
+//Requiere: que la lista se encuentre inicializada. 
+//Modifica: no modifica nada, solo retorna información de la lista. 
 
 int Algoritmos_Pos::buscar(Lista_Pos &lista, int elemento){
     int esta = 0;
@@ -60,6 +75,10 @@ int Algoritmos_Pos::buscar(Lista_Pos &lista, int elemento){
 }
 
 
+
+//Efecto: Elimina todas las posiciones de la lista que poseen etiquetas repetidas. 
+//Requiere: Que la lista se encuentre incializada. 
+//Modifica: Las posiciones de la lista, eliminando posiciones en caso de que sea necesario. 
 
 void Algoritmos_Pos::eliminarRepetidos(Lista_Pos &lista){
  Pos p_1 = lista.primera(); 
@@ -92,6 +111,9 @@ void Algoritmos_Pos::eliminarRepetidos(Lista_Pos &lista){
 
 
 
+//Efecto: Ordena los elementos de la lista de forma ascendente. 
+//Requiere: Que la lista se encuentre inicializada. 
+//Modifica: las etiquetas correspondientes a las posiciones de la lista. 
 
 void Algoritmos_Pos::burbuja(Lista_Pos &lista) {	
 	int amount_elements = lista.NumElem(); 
@@ -124,6 +146,10 @@ void Algoritmos_Pos::burbuja(Lista_Pos &lista) {
 }
 
 
+//Efecto: ordena la lista de forma ascendente. 
+//Requiere: que la lista se encuentre inicializada. 
+//Modifica: las etiquetas correspondientes a las posiciones de la lista. 
+
 void Algoritmos_Pos::seleccion(Lista_Pos &lista) {
 int amount_elements = lista.NumElem();  
 Pos p_1 = lista.primera();  
@@ -147,6 +173,10 @@ int temp_value = 0;
         p_1 = lista.siguiente(p_1); 
     }	
 }
+
+//Efecto: ordena los elementos de la lista de forma ascendente. 
+//Requiere: que la lista se encuentre inicializada. 
+//Modifica: las etiquetas correspondientes a las posiciones de la lista. 
 
 void Algoritmos_Pos::seleccionRecursivo(Lista_Pos &lista, Pos pos) {
  
@@ -173,6 +203,10 @@ void Algoritmos_Pos::seleccionRecursivo(Lista_Pos &lista, Pos pos) {
 }
 
 
+//Efecto: ordena los elementos de la lista de forma ascendente. 
+//Requiere: que la lista se encuentre inicializada. 
+//Modifica: las etiquetas correspondientes a las posiciones de la lista. 
+
 void Algoritmos_Pos::quickSort(Lista_Pos &lista) {
  
  if (lista.NumElem() >= 2) {
@@ -184,7 +218,7 @@ void Algoritmos_Pos::quickSort(Lista_Pos &lista) {
 	
 }
 
-
+//FORMA PARTE DE QUICKSORT
 void Algoritmos_Pos::quickSortRecursivo(Lista_Pos &lista, Pos low, Pos high) {
 
 	//cout << "low : " << lista.recuperar(low) << " high : " << lista.recuperar(high) << endl; 
@@ -224,7 +258,7 @@ void Algoritmos_Pos::quickSortRecursivo(Lista_Pos &lista, Pos low, Pos high) {
 }
 
 
-
+//FORMA PARTE DE QUICKSORT. 
 Pos Algoritmos_Pos::buscarPivote(Lista_Pos &lista, Pos low, Pos high) {
 cout << lista.imprimirLista(); 	
 Pos pivote_position = PosNula; 
@@ -256,6 +290,12 @@ else {
 
 return pivote_position; 	
 } 
+
+
+
+//Efecto: ordena los elementos de la lista de forma ascendente. 
+//Requiere: que la lista se encuentre inicializada. 
+//Modifica: las etiquetas de las posiciones correspondientes a la lista. 
 
 
 void Algoritmos_Pos::insercion(Lista_Pos &lista) {
@@ -300,6 +340,11 @@ void Algoritmos_Pos::insercion(Lista_Pos &lista) {
 
 
 
+//Efecto: ordena los elementos de la lista de forma ascendente. 
+//Requiere: que la lista se encuentre inicializada. 
+//Modifica: las etiquetas de las posiciones correspondientes a la lista. 
+
+
 void Algoritmos_Pos::quickSort_insercion(Lista_Pos &lista) {
 	if (lista.NumElem() < 100) {
 		
@@ -313,6 +358,11 @@ void Algoritmos_Pos::quickSort_insercion(Lista_Pos &lista) {
 }
 
 
+
+
+//Efecto: agrega a l1, los elementos de l2, que no se encuentren en dicha lista. 
+//Requiere: que ambas listas se encuentren inicializadas. 
+//Modifica: la lista l1, que entra como primer parametro. 
 
 void Algoritmos_Pos::unionOrdenada(Lista_Pos &l1, Lista_Pos &l2) {
 
@@ -346,6 +396,11 @@ while (p_2 != PosNula) {
 }
 
 
+
+//Efecto: agrega a l1, los elementos de l2, que no se encuentren en dicha lista. 
+//Requiere: que ambas listas se encuentren inicializadas. 
+//Modifica: la lista l1, que entra como primer parametro. 
+
 void Algoritmos_Pos::unionNoOrdenada(Lista_Pos &l1, Lista_Pos &l2) {
 	
 Pos p_2 = l2.primera(); 
@@ -376,6 +431,13 @@ while (p_2 != PosNula) {
 	
 }
 
+
+
+//Efecto: deja en l3 unicamente los elementos que posean en comun las listas l1 y l2. 
+//Requiere: que ambas listas se encuentre inicializadas. 
+//Modifica: la lista l3, de poseer elementos anteriormente se eliminaran y se procedera a agregar únicamente la intersección de las otras 2 listas. 
+
+
 void Algoritmos_Pos::interseccionOrdenada_v1(Lista_Pos &l1, Lista_Pos &l2,Lista_Pos &l3) {	//no deja nada en miListaPos y borra aux_2
 	l3.vaciar();
 	l3.iniciar(); 
@@ -402,6 +464,13 @@ void Algoritmos_Pos::interseccionOrdenada_v1(Lista_Pos &l1, Lista_Pos &l2,Lista_
 }
 
 
+
+//Efecto: deja en l3 unicamente los elementos que posean en comun las listas l1 y l2. 
+//Requiere: que ambas listas se encuentre inicializadas. 
+//Modifica: la lista l3, de poseer elementos anteriormente se eliminaran y se procedera a agregar únicamente la intersección de las otras 2 listas. 
+
+
+
 void Algoritmos_Pos::interseccionOrdenada_v2(Lista_Pos &l1, Lista_Pos &l2, Lista_Pos &l3) {
 
 Pos pos1 = l1.primera(); 
@@ -415,6 +484,13 @@ while (pos1 != PosNula) {
 
 
 }
+
+
+
+
+//Efecto: deja en l3 unicamente los elementos que posean en comun las listas l1 y l2. 
+//Requiere: que ambas listas se encuentre inicializadas. 
+//Modifica: la lista l3, de poseer elementos anteriormente se eliminaran y se procedera a agregar únicamente la intersección de las otras 2 listas. 
 
 
 
@@ -439,6 +515,10 @@ void Algoritmos_Pos::interseccion(Lista_Pos&l1, Lista_Pos&l2, Lista_Pos&l3) {
 }
 
 
+
+//Efecto: ordena los elementos de la lista de forma ascendente. 
+//Requiere: que la lista se encuentre inicializada. 
+//Modifica: las etiquetas de las posiciones correspondientes a la lista. 
 
 
 void Algoritmos_Pos::mergeSort_v2(Lista_Pos &lista) {
@@ -475,6 +555,7 @@ void Algoritmos_Pos::mergeSort_v2(Lista_Pos &lista) {
 
 
 
+//FORMA PARTE DE MERGE_SORT.
 void Algoritmos_Pos::merge_v2(Lista_Pos&lista_1, Lista_Pos&lista_2, Lista_Pos&lista) {
 	
 	lista.vaciar(); 
