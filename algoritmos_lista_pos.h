@@ -3,9 +3,9 @@
 
 // #include "lista_pos_Arreglo.h"
 
-#include "lista_pos_LDE.h"
+//#include "lista_pos_LDE.h"
 
-//#include "lista_pos_LSE.h"
+#include "lista_pos_LSE.h"
 
 class Algoritmos_Pos{
     private:

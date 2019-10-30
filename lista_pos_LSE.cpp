@@ -39,9 +39,9 @@ Posicion* Lista_Pos::anterior(Posicion* posicion) {
 
 
 void Lista_Pos::intercambiar(Posicion* p_1, Posicion* p_2) {
-	int temporal_value = p_1.recuperar(); 
-	p_1.modificar(p_2.recuperar()); 
-	p_2.modificar(temporal_value); 		
+	int temporal_value = p_1->recuperar(); 
+	p_1->modificar(p_2->recuperar()); 
+	p_2->modificar(temporal_value); 		
 }	
 	
 
