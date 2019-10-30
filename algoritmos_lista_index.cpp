@@ -86,13 +86,18 @@ void Algoritmos_Index::eliminarRepetidos(Lista_Index &lista){
 //Requiere : Que la listaA y ListaB esten inicializadas y con elementos.
 //Modifica: Una variable que indica si esta contenida o no.
 int Algoritmos_Index :: subLista(Lista_Index &listaA, Lista_Index &listaB){
-	int estaContenida = 1;
+	int estaContenida = 0;
 	int indiceListaA = listaA.primerIndice();
-	// Averigua si ListaA esta contenida en Lista B
-	for(int i = listaA.primerIndice(); i <= listaA.ultimoIndice() && estaContenida ; i++){
-		estaContenida = buscar(listaB, listaA.recuperar(i));
+	for(int j = listaB.primerIndice(); j <= listaB.ultimoIndice(); j++){
+		if(listaA.recuperar(indiceListaA) == listaB.recuperar(j)){
+			indiceListaA++;
+		}
 	}
 
+	if(estaContenida == listaA.ultimoIndice()){
+		estaContenida = 1;
+	}
+	
 	return estaContenida;
 
 }
