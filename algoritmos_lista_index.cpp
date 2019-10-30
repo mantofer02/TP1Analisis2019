@@ -230,7 +230,20 @@ void Algoritmos_Index::quickSortRecursivo(Lista_Index &lista, int low, int high)
 	}
 }
       
-      
+
+//Efecto: ordena los elementos de la lista de forma ascendente. 
+//Requiere: que la lista se encuentre inicializada. 
+//Modifica: las etiquetas de las posiciones correspondientes a la lista. 
+
+
+void Algoritmos_Index::quickSort_insercion(Lista_Index &lista) {
+	if (lista.numElem() < 100) {
+		insercion(lista); 
+	}
+	else {
+		quickSort(lista); 	
+	}
+}      
       
 int Algoritmos_Index::buscarPivote(Lista_Index &lista, int low, int high) {
 	 	
@@ -298,11 +311,8 @@ void Algoritmos_Index::unionNoOrdenada(Lista_Index&l1, Lista_Index&l2) {
 
 	bool is_it_there = false; 
 
-	//while (p_2 != PosNula) {
-
 	while (p_2 <= l2.ultimoIndice()) {
 	p_1 = l1.primerIndice(); 
-	//while (p_1 != PosNula) {
 	  while (p_1 <= l1.ultimoIndice()) {
 		if (l2.recuperar(p_2) == l1.recuperar(p_1)) {
 			is_it_there = true; 
@@ -312,16 +322,12 @@ void Algoritmos_Index::unionNoOrdenada(Lista_Index&l1, Lista_Index&l2) {
 			++p_1; 
 		}	
 	  }
-	//}
 	if (!is_it_there) {
 		l1.agregarAlFinal(l2.recuperar(p_2)); 
 	}	
 
 	++p_2; 					
-}							
-//}	
-
-	
+	}							
 }
 
 //Efecto: deja en l3 unicamente los elementos que posean en comun las listas l1 y l2. 
@@ -346,28 +352,19 @@ void Algoritmos_Index::interseccion(Lista_Index &l1, Lista_Index &l2, Lista_Inde
 			else {
 				++p_2; 
 			}	
-		}	
-		//}
-		
+		}		
 		++p_1; 
-	}
-	//}			
+	}		
 }
 
 
 
 void Algoritmos_Index::interseccionOrdenada_v1(Lista_Index &l1, Lista_Index &l2,Lista_Index &l3) {
-
-	//PREGUNTA 
-	//QUE PASA SI LE DIGO QUE ME DE EL SIGUIENTE DEL ULTIMO, ME DA UN INDICE SIGUIENTE AUNQUE NO ESTE OCUPADO ? . 
-
 	l3.vaciar();
 	l3.iniciar(); 
 	int p_1 = l1.primerIndice(); 
 	int p_2 = l2.primerIndice(); 
 
-
-	//while (p_1 != PosNula && p_2 != PosNula) {
 	while (p_1 <= l1.ultimoIndice() && p_2 <= l2.ultimoIndice()) {
 		if (l1.recuperar(p_1) < l2.recuperar(p_2)) {
 			++p_1; 
@@ -376,14 +373,14 @@ void Algoritmos_Index::interseccionOrdenada_v1(Lista_Index &l1, Lista_Index &l2,
 		  if (l1.recuperar(p_1) > l2.recuperar(p_2)) {
 			 ++p_2; 
 		  }
-		  else { //son iguales. 
+		  else { 
 			 l3.agregarAlFinal(l1.recuperar(p_1));
 			 ++p_1;
 			 ++p_2; 	  
 		  }	
 		}
 	}
-	//}	
+	
 	
 }
 
@@ -391,7 +388,6 @@ void Algoritmos_Index::interseccionOrdenada_v1(Lista_Index &l1, Lista_Index &l2,
 
 void Algoritmos_Index::interseccionOrdenada_v2(Lista_Index &l1, Lista_Index &l2, Lista_Index &l3) {
 	int pos1 = l1.primerIndice(); 
-	//while (pos1 != PosNula) {
 	while (pos1 <= l1.ultimoIndice()) {
 		if (buscar(l2, l1.recuperar(pos1))) {
 			l3.agregarAlFinal(l1.recuperar(pos1)); 

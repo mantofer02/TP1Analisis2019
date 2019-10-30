@@ -269,14 +269,14 @@ void merge(Lista_Index &lista_1, Lista_Index &lista_2, Lista_Index &lista) {
 		//current_2 = lista_2.siguiente(current_2);  	
 	}
 	
-	//lista_1.destruir(); 
-	//lista_2.destruir(); 
+	lista_1.destruir(); 
+	lista_2.destruir(); 
 }
 
 void mergeSort(Lista_Index &lista){
 
-	std::cout << "la lista es : " << std::endl; 
-	lista.imprimirLista(); 
+	// std::cout << "la lista es : " << std::endl; 
+	// lista.imprimirLista(); 
 	if (lista.numElem() > 1) {
 		int mid = lista.numElem()/2; 
 		//int indiceActual = lista.primerIndice(); 
@@ -298,11 +298,11 @@ void mergeSort(Lista_Index &lista){
 			//++indiceActual; 
 		}
 		
-	 std::cout << "me llame con la primera mitad" << std::endl; 	
+	//  std::cout << "me llame con la primera mitad" << std::endl; 	
 	 mergeSort(primeraMitad);
-	 std::cout << "me llame con la segunda mitad" << std::endl; 
+	//  std::cout << "me llame con la segunda mitad" << std::endl; 
 	 mergeSort(segundaMitad);
-	 std::cout << "UYUYUYUYUYUYUYUYUYUYUYUYUYUUYUYUYUYUYUYUYUY" << std::endl; 
+	//  std::cout << "UYUYUYUYUYUYUYUYUYUYUYUYUYUUYUYUYUYUYUYUYUY" << std::endl; 
 	 merge(primeraMitad, segundaMitad, lista);   	
 		
 	}
@@ -370,13 +370,14 @@ int main(){
    std :: cout << "----------------" << std :: endl;
     // std :: cout << algs.simetrica(miLista) << std :: endl;
 
-    // miLista.agregarAlFinal(6);
+    miLista.agregarAlFinal(6);
 	mergeSort(miLista);
 	
 	
-	std::cout << "sali del algoritmo" << std::endl; 
+	// std::cout << "sali del algoritmo" << std::endl; 
 	
 	miLista.imprimirLista();
+	// miLista.destruir();
     // eliminarRepetidos(miLista);
 
     // miLista.borrar(miLista.primerIndice());
