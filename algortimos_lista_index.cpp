@@ -139,3 +139,53 @@ void Algoritmos_Index :: seleccionRecursivo(Lista_Index &lista, int i){
     }
     seleccionRecursivo(lista, i++);
 }
+
+
+void Algoritmos_Index::insercion(Lista_Index &lista) {
+	
+	
+} 
+      
+      
+      
+void Algoritmos_Index::quickSort(Lista_Index &lista) {
+	
+}
+
+      
+void Algoritmos_Index::quickSortRecursivo(Lista_Index &lista) {
+	
+}
+      
+      
+      
+int Algoritmos_Index::buscarPivote(Lista_Inde&lista, int low, int high) {
+	
+	
+}
+
+
+void Algoritmos_Index::unionNoOrdenada(Lista_Index&l1, Lista_Index&l2) {
+	
+}
+
+
+
+void Algoritmos_Index::interseccion(Lista_Index &l1, Lista_Index &l2, Lista_Index &l3) {
+	
+	
+}
+
+
+void Algoritmos_Index::interseccionOrdenada_v1(Lista_Index &l1, Lista_Index &l2,Lista_Index &l3) {
+	
+	
+}
+
+
+
+void Algoritmos_Index::interseccionOrdenada_v2(Lista_Index &l1, Lista_Index &l2, Lista_Index &l3) {
+	
+	
+} 
+
