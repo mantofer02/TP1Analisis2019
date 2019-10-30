@@ -192,6 +192,38 @@ int Algoritmos_Index::buscarPivote(Lista_Inde&lista, int low, int high) {
 }
 
 
+void unionOrdenada(Lista_Index&l1, Lista_Index&l2) {
+int p_1 = l1.primerIndice(); 
+int p_2 = l2.primerIndice(); 
+
+while (p_1 != PosNula && p_2 != PosNula) {		//no estoy seguro de esto. 
+	if (l1.recuperar(p_1) < l2.recuperar(p_2)) {
+		p_1 = l1.siguiente(p_1); 	
+	}
+	else {
+		if (l1.recuperar(p_1) == l2.recuperar(p_2)) {
+			p_1 = l1.siguiente(p_1);
+			p_2 = l2.siguiente(p_2);  
+		}
+		else {	//tengo que agregar p_2 a l1
+			l1.insertar(p_1, l2.recuperar(p_2));
+			 p_1 = l1.siguiente(p_1); 
+			 p_2 = l2.siguiente(p_2); 					
+		}
+	}
+	
+}
+
+
+while (p_2 != PosNula) {
+	l1.agregarAlFinal(l2.recuperar(p_2));
+	p_2 = l2.siguiente(p_2);  	
+}
+	
+	
+}
+
+
 void Algoritmos_Index::unionNoOrdenada(Lista_Index&l1, Lista_Index&l2) {
 	
 }
