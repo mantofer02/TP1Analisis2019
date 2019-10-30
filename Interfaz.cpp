@@ -268,6 +268,7 @@ void Interfaz :: escogioListaPosicionada(){
     cout << "29) QuickSort_Insercion" << endl; 
     cout << "30) Eliminar Repetidos" << endl; 
     cout << "31) Sublista" << endl; 
+    cout << "32) burbujaBidireccional" << endl; 
     cout << "14) EXIT" << endl; 
     cin >>option; 
     switch (option){
@@ -905,6 +906,15 @@ void Interfaz :: escogioListaPosicionada(){
 		escogioListaPosicionada(); 
 		
 	break; 
+	
+	
+	case 32: 
+		algoritmos.burbujaBidireccional(miListaPos);
+		escogioListaPosicionada();  
+	
+	
+	break; 
+	
 	
 	default: 
 		cout << "La opcion seleccionada no es valida" << endl; 
