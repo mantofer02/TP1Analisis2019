@@ -335,12 +335,8 @@ int main(){
 	
 	//unionOrdenada(miLista, aux); 
 	//unionNoOrdenada(miLista, aux); 
-<<<<<<< HEAD
-	// interseccion(miLista, aux, aux_1); 
-=======
 	//interseccion(miLista, aux, aux_1); 
 	interseccionOrdenada_v2(miLista, aux, aux_1); 
->>>>>>> 358948a9f97731270981554551d8b7b44473e4b4
 	
 	// std::cout << "imprimiendo la primera lista" << std::endl; 
     // miLista.imprimirLista();
