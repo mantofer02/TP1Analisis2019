@@ -33,6 +33,7 @@ class Algoritmos_Pos{
       void mergeSort(Lista_Pos &lista);
       void merge(Lista_Pos &lista1, Lista_Pos &lista2, Lista_Pos &lista);
       bool subLista(Lista_Pos &listaA, Lista_Pos &listaB);
+      void burbujaBidireccional(Lista_Pos&lista); 
       
 };
 #endif

@@ -16,6 +16,42 @@ Algoritmos_Pos::Algoritmos_Pos() {
 //Modifica: 
 
 
+void Algoritmos_Pos::burbujaBidireccional(Lista_Pos&lista) {
+	  Pos flag_1 = lista.primera(); 
+	  Pos flag_2 = lista.ultima(); 
+	  
+	  while (lista.siguiente(flag_2) != flag_1 && flag_2 != flag_1) {		  
+	   Pos p_1 = flag_1;
+	   while (p_1 != flag_2) {
+			if (lista.recuperar(p_1) > lista.recuperar(lista.siguiente(p_1))) {
+			 lista.intercambiar(p_1, lista.siguiente(p_1)); 
+			}
+			p_1 = lista.siguiente(p_1); 
+		}
+		
+		  
+		while (p_1 != flag_1) {
+			 if (lista.recuperar(p_1) < lista.recuperar(lista.anterior(p_1))) {
+				lista.intercambiar(p_1, lista.anterior(p_1)); 
+			 }
+			 p_1 = lista.anterior(p_1); 
+		}
+
+		flag_1 = lista.siguiente(flag_1); 
+		flag_2 = lista.anterior(flag_2); 
+	   
+	  }
+	  
+
+ }
+
+
+//Efecto: 
+//Requiere: 
+//Modifica: 
+
+
+
 bool Algoritmos_Pos::subLista(Lista_Pos &listaA, Lista_Pos &listaB){
 	bool estaContenida = true; 
 	int match_counter = 0; 
