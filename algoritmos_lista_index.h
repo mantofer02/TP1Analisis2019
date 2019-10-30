@@ -17,6 +17,7 @@ class Algoritmos_Index{
       void eliminarRepetidos(Lista_Index &lista);  // Falta
       void burbuja(Lista_Index &lista);
       void seleccion(Lista_Index &lista);
+      void listar(Lista_Index &lista);
       void seleccionRecursivo(Lista_Index &lista);
       void seleccionRecursivo(Lista_Index &lista, int);
       Lista_Index mergeSort(Lista_Index &lista);

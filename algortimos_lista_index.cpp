@@ -4,6 +4,14 @@ Algoritmos_Index :: Algoritmos_Index(Lista_Index &lista){
     this->lista = lista;
 }
 
+void Algoritmos_Index :: listar(Lista_Index &lista){
+    if(!lista.vacia()){
+        for(int i = lista.primerIndice(); i <= lista.ultimoIndice(); i++){
+            std :: cout << "Indice -> " << i << " | Elemento -> " << lista.recuperar(i) << std::endl;
+        }
+    }
+}
+
 int Algoritmos_Index::simetrica(Lista_Index &lista){
     int esSimetrica = 0;
     int indice1 = lista.primerIndice();
@@ -20,14 +28,23 @@ int Algoritmos_Index::simetrica(Lista_Index &lista){
     return esSimetrica;
 }
 
+int Algoritmos_Index :: buscar(Lista_Index &lista, int elementoDeseado){
+    int esta = 0;
+    int stop = 0;
+    for(int i = lista.primerIndice(); i <= lista.ultimoIndice() && !stop; i++){
+        if(elementoDeseado == lista.recuperar(i)){
+            esta = 1;
+            stop = 1;
+        }
+    }
+    return esta;
+}
+
 void Algoritmos_Index :: invertir(Lista_Index &lista){
     int indice1 = lista.primerIndice();
     int indice2 = lista.ultimoIndice();
-    int elemento1;
     while (indice1 < indice2 && indice1 != indice2){
-        elemento1 = lista.recuperar(indice1);
-        lista.modificar(indice1, lista.recuperar(indice2));
-        lista.modificar(indice2, elemento1);
+        lista.intercambiar(indice1, indice2);
         indice1++;
         indice2--;
     }
@@ -48,39 +65,42 @@ int Algoritmos_Index::buscar(Lista_Index &lista, int elemento){
 }
 
 void Algoritmos_Index::eliminarRepetidos(Lista_Index &lista){
-
+    int elementoAct;
+    for(int i = lista.primerIndice(); i <= lista.ultimoIndice(); i++){
+        elementoAct = lista.recuperar(i);
+        for(int j = i + 1; j <= lista.ultimoIndice(); j++){
+            if(lista.recuperar(j) == elementoAct){
+                lista.borrar(j);
+            }
+        }
+    }
 }
 
-void Algoritmos_Index::burbuja(Lista_Index &lista) {	
- int amount_elements = lista.numElem(); 
- int indice1 = 0; 
- int indice2 = 0; 
- int temp_value = 0;  
+void Algoritmos_Index::burbuja(Lista_Index &lista){	
+    int amount_elements = lista.numElem(); 
+    int indice1 = 0; 
+    int indice2 = 0; 
+    int temp_value = 0;  
  
- if (amount_elements >= 2) {
-
- 
-	 for (int iteration = 0; iteration < amount_elements; ++iteration) {
-		indice1 = lista.primerIndice(); 
-		indice2 = indice1 + 1; 	
+    if (amount_elements >= 2){
+        for(int iteration = 0; iteration < amount_elements; ++iteration){
+            indice1 = lista.primerIndice(); 
+            indice2 = indice1 + 1; 	
 		
-		while (indice1 <= lista.ultimoIndice()) {
-			if (lista.recuperar(indice1) > lista.recuperar(indice2)) {
-				temp_value = lista.recuperar(indice1);
-				lista.modificar(indice1, lista.recuperar(indice2));
-				lista.modificar(indice2, temp_value);   
-			}
-			indice1++;
-			indice2++;  		
-		}	
-			 
-	 }
-			
-}
-else {
+            while (indice1 <= lista.ultimoIndice()) {
+                if (lista.recuperar(indice1) > lista.recuperar(indice2)) {
+                    temp_value = lista.recuperar(indice1);
+                    lista.modificar(indice1, lista.recuperar(indice2));
+                    lista.modificar(indice2, temp_value);   
+                }
+                indice1++;
+                indice2++;  		
+            }	
+        }
+    }
+    else {
 	//no hay nada que ordenar. 	
-}
-		
+    }	
 }
 
 
@@ -106,5 +126,16 @@ void Algoritmos_Index :: seleccionRecursivo(Lista_Index &lista){
 }
 
 void Algoritmos_Index :: seleccionRecursivo(Lista_Index &lista, int i){
-    
+    if(i < lista.ultimoIndice()){
+       int minActual = i; 
+       for(int j = i + 1; i <= lista.ultimoIndice(); j++){
+            if(lista.recuperar(j) < lista.recuperar(minActual)){
+                minActual = j;
+            }
+            if(minActual != i){
+                lista.intercambiar(i, minActual);
+            }
+        }
+    }
+    seleccionRecursivo(lista, i++);
 }
