@@ -130,7 +130,38 @@ Modiﬁca :  1) aumenta el contador de elementos que se encuentran en la lista.
            2) cambia el valor contenido en el índice del vector al que se agrega.
 */
 
-void Lista_Index :: agregar(int elemento){
+void Lista_Index :: agregar(int indice, int elemento){
+    if(this->vacia()){
+        agregarAlFinal(elemento);
+    }else{
+        if(indice == primerIndex){
+            agregarAlInicio(elemento);
+        }else{
+            if(indice == ultimoIndex){
+                agregarAlFinal(elemento);
+            }else{
+                if(indice < ultimoIndex && indice > primerIndex){
+                    Celda * nueva = new Celda(elemento);
+                    Celda * actual = primera;
+                    // Ver de donde salio el + 1
+                    for(int i = primerIndex + 1; i < indice; i++){
+                        actual = actual->siguiente;
+                    }
+                    Celda * sigAct = actual->siguiente;
+                    actual->siguiente = nueva;
+                    nueva->siguiente = sigAct;
+                    contador++;
+                    ultimoIndex++;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+void Lista_Index :: agregarAlFinal(int elemento){
     if(!primera){
         Celda * nueva = new Celda(elemento);
         primera = nueva;
@@ -142,6 +173,23 @@ void Lista_Index :: agregar(int elemento){
         Celda * nueva = new Celda(elemento);
         ultima->siguiente = nueva;
         ultima = nueva;
+        ultimoIndex++;
+        contador++;
+    }
+}
+
+void Lista_Index :: agregarAlInicio(int elemento){
+    if(!primera){
+        Celda * nueva = new Celda(elemento);
+        primera = nueva;
+        ultima = nueva;
+        primerIndex++;
+        ultimoIndex++;
+        contador++;
+    }else{
+        Celda * nueva = new Celda(elemento);
+        nueva->siguiente = primera;
+        primera = nueva;
         ultimoIndex++;
         contador++;
     }

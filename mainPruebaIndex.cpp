@@ -1,4 +1,6 @@
-#include "lista_index_array.h"
+// #include "lista_index_array.h"
+
+#include "lista_index_LSE.h"
 
 int main(){
 
