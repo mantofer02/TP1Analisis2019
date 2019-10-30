@@ -174,6 +174,33 @@ void interseccion(Lista_Index &l1, Lista_Index &l2, Lista_Index &l3) {			//proba
 	}		
 }
 
+void interseccionOrdenada_v1(Lista_Index &l1, Lista_Index &l2,Lista_Index &l3) {		//probado y funciona. 
+
+
+	l3.vaciar();
+	l3.iniciar(); 
+	int p_1 = l1.primerIndice(); 
+	int p_2 = l2.primerIndice(); 
+
+
+	while (p_1 <= l1.ultimoIndice() && p_2 <= l2.ultimoIndice()) {
+		if (l1.recuperar(p_1) < l2.recuperar(p_2)) {
+			++p_1; 
+		}
+		else {
+		  if (l1.recuperar(p_1) > l2.recuperar(p_2)) {
+			 ++p_2; 
+		  }
+		  else { //son iguales. 
+			 l3.agregarAlFinal(l1.recuperar(p_1));
+			 ++p_1;
+			 ++p_2; 	  
+		  }	
+		}
+	}
+	
+}
+
 
 
 
@@ -207,8 +234,9 @@ int main(){
 	for (int k = 0; k < 15; ++k) 
 		aux_1.agregarAlInicio(k*2);
 		 
-	//invertir(miLista); 
-	//invertir(aux); 
+	invertir(miLista); 
+	invertir(aux); 
+	invertir(aux_1); 
 	
 	
 
@@ -222,7 +250,8 @@ int main(){
 	
 	//unionOrdenada(miLista, aux); 
 	//unionNoOrdenada(miLista, aux); 
-	interseccion(miLista, aux, aux_1); 
+	//interseccion(miLista, aux, aux_1); 
+	interseccionOrdenada_v1(miLista, aux, aux_1); 
 	
 	std::cout << "imprimiendo la primera lista" << std::endl; 
     miLista.imprimirLista();
