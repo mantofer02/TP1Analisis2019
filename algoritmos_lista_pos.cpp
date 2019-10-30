@@ -208,14 +208,12 @@ void Algoritmos_Pos::seleccionRecursivo(Lista_Pos &lista, Pos pos) {
 //Modifica: las etiquetas correspondientes a las posiciones de la lista. 
 
 void Algoritmos_Pos::quickSort(Lista_Pos &lista) {
- 
- if (lista.NumElem() >= 2) {
-	  quickSortRecursivo(lista, lista.primera(), lista.ultima());  
- }
- else { 
+	if (lista.NumElem() >= 2) {
+		quickSortRecursivo(lista, lista.primera(), lista.ultima());  
+	}
+	else { 
 		//no hay nada que modificar. 
- }		
-	
+	}		
 }
 
 //FORMA PARTE DE QUICKSORT
@@ -260,35 +258,35 @@ void Algoritmos_Pos::quickSortRecursivo(Lista_Pos &lista, Pos low, Pos high) {
 
 //FORMA PARTE DE QUICKSORT. 
 Pos Algoritmos_Pos::buscarPivote(Lista_Pos &lista, Pos low, Pos high) {
-cout << lista.imprimirLista(); 	
-Pos pivote_position = PosNula; 
-Pos p_1 = low; 
+	cout << lista.imprimirLista(); 	
+	Pos pivote_position = PosNula; 
+	Pos p_1 = low; 
 
-while (p_1 != high && lista.recuperar(p_1) == lista.recuperar(lista.siguiente(p_1))) {
-	p_1 = lista.siguiente(p_1); 	
-}
+	while (p_1 != high && lista.recuperar(p_1) == lista.recuperar(lista.siguiente(p_1))) {
+		p_1 = lista.siguiente(p_1); 	
+	}
 
-if (p_1 != high) {
-	if (lista.recuperar(p_1) < lista.recuperar(lista.siguiente(p_1))) {
-		//pivote_position = low; 
-		pivote_position = lista.siguiente(p_1); 
+	if (p_1 != high) {
+		if (lista.recuperar(p_1) < lista.recuperar(lista.siguiente(p_1))) {
+			//pivote_position = low; 
+			pivote_position = lista.siguiente(p_1); 
+		}
+		else{
+			pivote_position = low; 
+		//pivote_position = lista.siguiente(p_1); 
+		}
+	}
+
+	#if 0
+	if (pivote_position != PosNula) {
+	cout << "el pivote seleccionado corresponde a : " << lista.recuperar(pivote_position) << endl; 
 	}
 	else {
-		pivote_position = low; 
-		//pivote_position = lista.siguiente(p_1); 
+			cout << "no hay pivote uyuyuyu " << endl;  
 	}
-}
+	#endif
 
-#if 0
-if (pivote_position != PosNula) {
-cout << "el pivote seleccionado corresponde a : " << lista.recuperar(pivote_position) << endl; 
-}
-else {
-		cout << "no hay pivote uyuyuyu " << endl;  
-}
-#endif
-
-return pivote_position; 	
+	return pivote_position; 	
 } 
 
 
@@ -521,7 +519,7 @@ void Algoritmos_Pos::interseccion(Lista_Pos&l1, Lista_Pos&l2, Lista_Pos&l3) {
 //Modifica: las etiquetas de las posiciones correspondientes a la lista. 
 
 
-void Algoritmos_Pos::mergeSort_v2(Lista_Pos &lista) {
+void Algoritmos_Pos::mergeSort(Lista_Pos &lista) {
 	
 	if (lista.NumElem() > 1) {
 		int mid = lista.NumElem()/2; 
@@ -556,7 +554,7 @@ void Algoritmos_Pos::mergeSort_v2(Lista_Pos &lista) {
 
 
 //FORMA PARTE DE MERGE_SORT.
-void Algoritmos_Pos::merge_v2(Lista_Pos&lista_1, Lista_Pos&lista_2, Lista_Pos&lista) {
+void Algoritmos_Pos::merge(Lista_Pos &lista_1, Lista_Pos &lista_2, Lista_Pos &lista) {
 	
 	lista.vaciar(); 
 	Pos current_1 = lista_1.primera(); 
@@ -588,65 +586,4 @@ void Algoritmos_Pos::merge_v2(Lista_Pos&lista_1, Lista_Pos&lista_2, Lista_Pos&li
 	
 	lista_1.destruir(); 
 	lista_2.destruir(); 
-}
-
-
-
-Lista_Pos Algoritmos_Pos::mergeSort(Lista_Pos lista){
-    cout << "Aqui esta la lista" << endl;
-	lista.imprimirLista();
-	if(lista.NumElem() == 1){
-        return lista;
-    }else{
-        Lista_Pos primeraMitad;
-        primeraMitad.iniciar();
-        Lista_Pos segundaMitad;
-        segundaMitad.iniciar();
-        Pos posActual = lista.primera();
-        int i;
-        for (i = 0; i < lista.NumElem()/2; i++){
-            primeraMitad.insertar(posActual, lista.recuperar(posActual));
-            posActual = lista.siguiente(posActual);
-        }
-        
-        for (i = lista.NumElem()/2; i < lista.NumElem(); i++){
-            segundaMitad.insertar(posActual, lista.recuperar(posActual));
-            posActual = lista.siguiente(posActual);
-        }
-        cout << "1" << endl;
-		// primeraMitad.imprimirLista();
-        primeraMitad = mergeSort(primeraMitad);
-		cout << "2" << endl;
-        segundaMitad = mergeSort(segundaMitad);
-		cout << "3" << endl;
-        return merge(primeraMitad, segundaMitad);
-    }
-}
-
-
-
-
-
-Lista_Pos Algoritmos_Pos::merge(Lista_Pos listaA, Lista_Pos listaB){
-    Lista_Pos listaC;
-    listaC.iniciar();
-    while (listaA.NumElem() && listaB.NumElem()){
-        if(listaA.recuperar(listaA.primera()) > listaB.recuperar(listaB.primera())){
-            listaC.insertar(listaC.ultima(), listaB.recuperar(listaB.primera()));
-            listaB.borrar(listaB.primera());
-        }else{
-            listaC.insertar(listaC.ultima(), listaA.recuperar(listaA.primera()));
-            listaB.borrar(listaA.primera());
-        }
-    }
-    while (listaA.NumElem()){
-        listaC.insertar(listaC.ultima(), listaA.recuperar(listaA.primera()));
-        listaA.borrar(listaA.primera());
-    }
-
-    while (listaB.NumElem()){
-        listaC.insertar(listaC.ultima(), listaB.recuperar(listaB.primera()));
-        listaB.borrar(listaB.primera());
-    }
-    return listaC;
 }

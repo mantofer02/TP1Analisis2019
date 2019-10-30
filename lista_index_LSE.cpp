@@ -60,11 +60,11 @@ void Lista_Index :: intercambiar(int indice1, int indice2){
         Celda * actual1 = primera;
         Celda * actual2 = primera;
         
-        for(int i = 1; i < indice1; i++){
+        for(int i = primerIndex; i < indice1; i++){
             actual1 = actual1->siguiente;
         }
 
-        for (int j = 0; j < indice2; j++){
+        for (int j = primerIndex; j < indice2; j++){
             actual2 = actual2->siguiente;
         }
         

@@ -25,7 +25,7 @@ class Algoritmos_Index{
       Lista_Index merge(Lista_Index &lista1, Lista_Index &lista2);
       void insercion(Lista_Index &lista); 
       void quickSort(Lista_Index &lista); 
-      void quickSortRecursivo(Lista_Index &lista);
+      void quickSortRecursivo(Lista_Index &lista, int, int);
       int buscarPivote(Lista_Index &lista, int low, int high);
       void unionOrdenada(Lista_Index&l1, Lista_Index&l2); 
       void unionNoOrdenada(Lista_Index&l1, Lista_Index&l2);

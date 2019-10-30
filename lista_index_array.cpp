@@ -179,6 +179,7 @@ void Lista_Index :: borrar(int indice){
         if(ultimoIndex == 0){
             primerIndex = 0;
         }
+        }
     }
 }
 

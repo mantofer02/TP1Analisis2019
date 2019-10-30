@@ -148,88 +148,119 @@ void Algoritmos_Index :: seleccionRecursivo(Lista_Index &lista, int i){
 
 
 void Algoritmos_Index::insercion(Lista_Index &lista) {
-	
-	if(lista.numElem()>= 2){
-		int indiceAct = lista.primerIndice() + 1;
-		for(indiceAct; indiceAct <= lista.ultimoIndice(); indiceAct++){
-			if(lista.recuperar(indiceAct) < lista.recuperar(indiceAct - 1)){
-				for(int j = indiceAct; j - 1 >= lista.primerIndice(); j--){
-					if(lista.recuperar(j) > lista.recuperar(j - 1))
-						lista.intercambiar(j, j-1);
-				}
-			}
-		}
-	}
-} 
+    int i = lista.primerIndice() + 1;
+    int j;
+    for(i; i <= lista.ultimoIndice(); i++){
+        j = i;
+        while (j > lista.primerIndice() && lista.recuperar(j-1) > lista.recuperar(j)){
+            lista.intercambiar(j , j -1);
+            j--;
+        }
+    }
+}
       
       
       
+
 void Algoritmos_Index::quickSort(Lista_Index &lista) {
-	
+	if (lista.numElem() >= 2) {
+		quickSortRecursivo(lista, lista.primerIndice(), lista.ultimoIndice());  
+	}
+	else { 
+		
+	}		
 }
 
       
-void Algoritmos_Index::quickSortRecursivo(Lista_Index &lista) {
-	
+void Algoritmos_Index::quickSortRecursivo(Lista_Index &lista, int low, int high) {
+	if (low != high) {	
+		int pivote_position = buscarPivote(lista, low, high); 
+		if (pivote_position >= lista.primerIndice() && pivote_position <= lista.ultimoIndice()) {
+		int p_1 = low; 
+		int p_2 = high; 
+			while (/*lista.siguiente(p_2) != p_1*/ p_2 != p_1--) {	
+				if(p_1 != pivote_position && p_2 != pivote_position) { //FALTABA ESTO
+					lista.intercambiar(p_2, p_1);	 
+				}														//FALTABA ESTO
+				
+				while (lista.recuperar(p_1) < lista.recuperar(pivote_position)) {		// p_1 != PosNula? 
+					p_1++; 
+				}
+				while (lista.recuperar(p_2) >= lista.recuperar(pivote_position)) {
+					p_2--; 		
+				}	
+			}
+			quickSortRecursivo(lista, low, p_2);
+			quickSortRecursivo(lista, p_1, high);  	
+		}			
+	}
 }
       
       
       
-int Algoritmos_Index::buscarPivote(Lista_Inde&lista, int low, int high) {
-	
-	
+int Algoritmos_Index::buscarPivote(Lista_Index &lista, int low, int high) {
+	 	
+	int pivote_position = 0; 
+	int p_1 = low; 
+
+	while (p_1 != high && lista.recuperar(p_1) == lista.recuperar(p_1++)){
+		p_1++; 	
+	}
+
+	if (p_1 != high) {
+		if (lista.recuperar(p_1) < lista.recuperar(p_1++)) {
+			//pivote_position = low; 
+			pivote_position = p_1++; 
+		}
+		else{
+			pivote_position = low; 
+		//pivote_position = lista.siguiente(p_1); 
+		}
+	}
+	return pivote_position; 	
 }
 
 
 void Algoritmos_Index::unionOrdenada(Lista_Index&l1, Lista_Index&l2) {
 int p_1 = l1.primerIndice(); 
 int p_2 = l2.primerIndice(); 
-
-int amount_elements_l1 = l1.NumElem(); 
-int amount_elements_l2 = l2.NumElem(); 
-
-
-//while (p_1 != PosNula && p_2 != PosNula) {		//no estoy seguro de esto. 
-while (p_1 <= amount_elements_l1 && p_2 <= amount_elements_l2) {	//este creo si sirve.
-	if (l1.recuperar(p_1) < l2.recuperar(p_2)) {
-		p_1 = l1.siguiente(p_1); 	
-	}
-	else {
-		if (l1.recuperar(p_1) == l2.recuperar(p_2)) {
-			p_1 = l1.siguiente(p_1);
-			p_2 = l2.siguiente(p_2);  
+ 
+	while (p_1 <= l1.ultimoIndice() && p_2 <= l2.ultimoIndice()) {	//este creo si sirve.
+		if (l1.recuperar(p_1) < l2.recuperar(p_2)) {
+			p_1++; 	
 		}
-		else {	//tengo que agregar p_2 a l1
-			l1.insertar(p_1, l2.recuperar(p_2));
-			 p_1 = l1.siguiente(p_1); 
-			 p_2 = l2.siguiente(p_2); 					
+		else {
+			if (l1.recuperar(p_1) == l2.recuperar(p_2)) {
+				p_1++;
+				p_2++;  
+			}
+			else {	//tengo que agregar p_2 a l1
+				l1.agregar(p_1, l2.recuperar(p_2));
+				p_1++; 
+				p_2++; 					
+			}
 		}
+		
+		
+	}	
+	
+	while (p_2 <= l2.ultimoIndice()) {
+		l1.agregarAlFinal(l2.recuperar(p_2));
+		p_2++;  	
 	}
-	
-	
-}	
-//}
-
-
-while (p_2 <= amount_elements_l2) {
-	l1.agregarAlFinal(l2.recuperar(p_2));
-	p_2 = l2.siguiente(p_2);  	
-}
-	
-	
 }
 
 
 void Algoritmos_Index::unionNoOrdenada(Lista_Index&l1, Lista_Index&l2) {
 	
-int p_2 = l2.primerIndice(); 
-int p_1; 
+	int p_2 = l2.primerIndice(); 
+	int p_1; 
 
-bool is_it_there = false; 
+	bool is_it_there = false; 
 
-//while (p_2 != PosNula) {
+	//while (p_2 != PosNula) {
 
-while (p_2 <= l2.NumElem()) {
+	while (p_2 <= l2.numElem()) {
 	p_1 = l1.primerIndice(); 
 	//while (p_1 != PosNula) {
 	  while (p_1 <= l1.NumElem()) {
@@ -318,20 +349,14 @@ void Algoritmos_Index::interseccionOrdenada_v1(Lista_Index &l1, Lista_Index &l2,
 
 
 void Algoritmos_Index::interseccionOrdenada_v2(Lista_Index &l1, Lista_Index &l2, Lista_Index &l3) {
-
-
-int pos1 = l1.primerIndice(); 
-//while (pos1 != PosNula) {
-while (pos1 <= l1.NumElem()) {
-	 if (buscar(l2, l1.recuperar(pos1))) {
-		 l3.agregarAlFinal(l1.recuperar(pos1)); 
-	 }
-	 pos1 = l1.siguiente(pos1); 
-}	
-//}		  
-
-	
-	
+	int pos1 = l1.primerIndice(); 
+	//while (pos1 != PosNula) {
+	while (pos1 <= l1.ultimoIndice()) {
+		if (buscar(l2, l1.recuperar(pos1))) {
+			l3.agregarAlFinal(l1.recuperar(pos1)); 
+		}
+	pos1++; 
+	}		
 } 
 
                     
