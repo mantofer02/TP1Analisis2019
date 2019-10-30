@@ -16,6 +16,19 @@ void eliminarRepetidos(Lista_Index &lista){
     }
 }
 
+
+int buscar(Lista_Index &lista, int elementoDeseado){
+    int esta = 0;
+    int stop = 0;
+    for(int i = lista.primerIndice(); i <= lista.ultimoIndice() && !stop; i++){
+        if(elementoDeseado == lista.recuperar(i)){
+            esta = 1;
+            stop = 1;
+        }
+    }
+    return esta;
+}
+
 void insercion(Lista_Index &lista){
 	
     int i = lista.primerIndice() + 1;
@@ -201,6 +214,17 @@ void interseccionOrdenada_v1(Lista_Index &l1, Lista_Index &l2,Lista_Index &l3) {
 	
 }
 
+void interseccionOrdenada_v2(Lista_Index &l1, Lista_Index &l2, Lista_Index &l3) {
+	l3.vaciar(); 
+	l3.iniciar(); 
+	int pos1 = l1.primerIndice(); 
+	while (pos1 <= l1.ultimoIndice()) {
+		if (buscar(l2, l1.recuperar(pos1))) {
+			l3.agregarAlFinal(l1.recuperar(pos1)); 
+		}
+	pos1++; 
+	}		
+}
 
 
 
@@ -251,7 +275,7 @@ int main(){
 	//unionOrdenada(miLista, aux); 
 	//unionNoOrdenada(miLista, aux); 
 	//interseccion(miLista, aux, aux_1); 
-	interseccionOrdenada_v1(miLista, aux, aux_1); 
+	interseccionOrdenada_v2(miLista, aux, aux_1); 
 	
 	std::cout << "imprimiendo la primera lista" << std::endl; 
     miLista.imprimirLista();

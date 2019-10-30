@@ -458,7 +458,8 @@ void Algoritmos_Pos::interseccionOrdenada_v1(Lista_Pos &l1, Lista_Pos &l2,Lista_
 
 
 void Algoritmos_Pos::interseccionOrdenada_v2(Lista_Pos &l1, Lista_Pos &l2, Lista_Pos &l3) {
-
+l3.vaciar(); 
+l3.iniciar(); 
 Pos pos1 = l1.primera(); 
 while (pos1 != PosNula) {
  if (buscar(l2, l1.recuperar(pos1))) {
