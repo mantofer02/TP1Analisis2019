@@ -1,6 +1,6 @@
 #include "algoritmos_lista_index.h"
 
-//FALTA EL O.B anterior. 
+
 
 Algoritmos_Index :: Algoritmos_Index(Lista_Index &lista){
     this->lista = lista;
@@ -13,6 +13,10 @@ void Algoritmos_Index :: listar(Lista_Index &lista){
         }
     }
 }
+
+//Efecto: Retorna un valor de 0 o 1 correspondiente a si la lista ingresada como parametro es simetrica o no. 
+//Requiere: Que la lista se encuentre inicializada. 
+//Modifica: no modifica nada, solo retorna información de la lista. 
 
 int Algoritmos_Index::simetrica(Lista_Index &lista){
     int esSimetrica = 0;
@@ -30,6 +34,10 @@ int Algoritmos_Index::simetrica(Lista_Index &lista){
     return esSimetrica;
 }
 
+//Efecto: retorna un valor de 0 o 1 avisando si el elemento ingresado como parametro se encuentra en la dicha lista. 
+//Requiere: que la lista se encuentre inicializada. 
+//Modifica: no modifica nada, solo retorna información de la lista. 
+
 int Algoritmos_Index :: buscar(Lista_Index &lista, int elementoDeseado){
     int esta = 0;
     int stop = 0;
@@ -42,6 +50,11 @@ int Algoritmos_Index :: buscar(Lista_Index &lista, int elementoDeseado){
     return esta;
 }
 
+
+//Efecto: Invierte los elementos correspondientes a la lista, de manera que los deja al revez. 
+//Requiere: Que la lista se encuentre inicializada y que no este vacia. 
+//Modifica: Las etiquetas de todas las posiciones de la lista inviertiendo los elementos. 
+
 void Algoritmos_Index :: invertir(Lista_Index &lista){
     int indice1 = lista.primerIndice();
     int indice2 = lista.ultimoIndice();
@@ -51,6 +64,10 @@ void Algoritmos_Index :: invertir(Lista_Index &lista){
         indice2--;
     }
 }
+
+//Efecto: Elimina todas las posiciones de la lista que poseen etiquetas repetidas. 
+//Requiere: Que la lista se encuentre incializada. 
+//Modifica: Las posiciones de la lista, eliminando posiciones en caso de que sea necesario. 
 
 
 void Algoritmos_Index::eliminarRepetidos(Lista_Index &lista){
@@ -65,6 +82,9 @@ void Algoritmos_Index::eliminarRepetidos(Lista_Index &lista){
     }
 }
 
+//Efecto : Revisa si la listaA esta consetina en la listaB
+//Requiere : Que la listaA y ListaB esten inicializadas y con elementos.
+//Modifica: Una variable que indica si esta contenida o no.
 int Algoritmos_Index :: subLista(Lista_Index &listaA, Lista_Index &listaB){
 	int estaContenida = 1;
 	int indiceListaA = listaA.primerIndice();
@@ -80,6 +100,9 @@ int Algoritmos_Index :: subLista(Lista_Index &listaA, Lista_Index &listaB){
 
 }
 
+//Efecto: Ordena los elementos de la lista de forma ascendente. 
+//Requiere: Que la lista se encuentre inicializada. 
+//Modifica: las etiquetas correspondientes a las posiciones de la lista. 
 
 void Algoritmos_Index::burbuja(Lista_Index &lista){	
     int amount_elements = lista.numElem(); 
@@ -108,6 +131,9 @@ void Algoritmos_Index::burbuja(Lista_Index &lista){
     }	
 }
 
+//Efecto: ordena la lista de forma ascendente. 
+//Requiere: que la lista se encuentre inicializada. 
+//Modifica: las etiquetas correspondientes a las posiciones de la lista. 
 
 void Algoritmos_Index::seleccion(Lista_Index &lista) {
     for(int i = lista.primerIndice(); i < lista.ultimoIndice(); i++){
@@ -123,6 +149,9 @@ void Algoritmos_Index::seleccion(Lista_Index &lista) {
     }
 }
 
+//Efecto: ordena los elementos de la lista de forma ascendente. 
+//Requiere: que la lista se encuentre inicializada. 
+//Modifica: las etiquetas correspondientes a las posiciones de la lista. 
 
 void Algoritmos_Index :: seleccionRecursivo(Lista_Index &lista){
     if(lista.numElem() > 1){
@@ -145,7 +174,9 @@ void Algoritmos_Index :: seleccionRecursivo(Lista_Index &lista, int i){
     seleccionRecursivo(lista, i++);
 }
 
-
+//Efecto: ordena los elementos de la lista de forma ascendente. 
+//Requiere: que la lista se encuentre inicializada. 
+//Modifica: las etiquetas de las posiciones correspondientes a la lista. 
 
 void Algoritmos_Index::insercion(Lista_Index &lista) {
     int i = lista.primerIndice() + 1;
@@ -158,9 +189,10 @@ void Algoritmos_Index::insercion(Lista_Index &lista) {
         }
     }
 }
-      
-      
-      
+            
+//Efecto: ordena los elementos de la lista de forma ascendente. 
+//Requiere: que la lista se encuentre inicializada. 
+//Modifica: las etiquetas correspondientes a las posiciones de la lista. 
 
 void Algoritmos_Index::quickSort(Lista_Index &lista) {
 	if (lista.numElem() >= 2) {
@@ -220,10 +252,13 @@ int Algoritmos_Index::buscarPivote(Lista_Index &lista, int low, int high) {
 	return pivote_position; 	
 }
 
+//Efecto: agrega a l1, los elementos de l2, que no se encuentren en dicha lista. 
+//Requiere: que ambas listas se encuentren inicializadas. 
+//Modifica: la lista l1, que entra como primer parametro. 
 
 void Algoritmos_Index::unionOrdenada(Lista_Index&l1, Lista_Index&l2) {
-int p_1 = l1.primerIndice(); 
-int p_2 = l2.primerIndice(); 
+	int p_1 = l1.primerIndice(); 
+	int p_2 = l2.primerIndice(); 
  
 	while (p_1 <= l1.ultimoIndice() && p_2 <= l2.ultimoIndice()) {	
 		if (l1.recuperar(p_1) < l2.recuperar(p_2)) {
@@ -250,6 +285,9 @@ int p_2 = l2.primerIndice();
 	}
 }
 
+//Efecto: agrega a l1, los elementos de l2, que no se encuentren en dicha lista. 
+//Requiere: que ambas listas se encuentren inicializadas. 
+//Modifica: la lista l1, que entra como primer parametro.
 
 void Algoritmos_Index::unionNoOrdenada(Lista_Index&l1, Lista_Index&l2) {
 	
@@ -284,6 +322,9 @@ void Algoritmos_Index::unionNoOrdenada(Lista_Index&l1, Lista_Index&l2) {
 	
 }
 
+//Efecto: deja en l3 unicamente los elementos que posean en comun las listas l1 y l2. 
+//Requiere: que ambas listas se encuentre inicializadas. 
+//Modifica: la lista l3, de poseer elementos anteriormente se eliminaran y se procedera a agregar únicamente la intersección de las otras 2 listas. 
 
 
 void Algoritmos_Index::interseccion(Lista_Index &l1, Lista_Index &l2, Lista_Index &l3) {

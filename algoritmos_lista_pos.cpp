@@ -288,23 +288,7 @@ void Algoritmos_Pos::insercion(Lista_Pos &lista) {
  if (lista.NumElem() >= 2) {
 	Pos p_1 = lista.primera();  
 	Pos p_2; 
-	Pos aux_p_1;  
-	
-	/*
-	int amount_elements = lista.NumElem(); 
-	for (int current_index = 0; current_index < amount_elements; ++current_index) {
-		aux_p_1 = p_1; 
-		p_2 = lista.anterior(p_1); 
-		for (int index = current_index; index != 0; --index) {
-			if (lista.recuperar(p_2) > lista.recuperar(p_1)) {
-				lista.intercambiar(p_1, p_2);
-				p_1 = p_2;  
-			}
-			p_2 = lista.anterior(p_2); 
-		}
-	}
-	
-	*/	
+	Pos aux_p_1;  	
 	while (p_1 != PosNula) {
 		aux_p_1 = p_1; 
 		Pos p_2 = lista.anterior(p_1); 
