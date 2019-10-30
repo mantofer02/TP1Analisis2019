@@ -225,7 +225,7 @@ void Algoritmos_Index::unionOrdenada(Lista_Index&l1, Lista_Index&l2) {
 int p_1 = l1.primerIndice(); 
 int p_2 = l2.primerIndice(); 
  
-	while (p_1 <= l1.ultimoIndice() && p_2 <= l2.ultimoIndice()) {	//este creo si sirve.
+	while (p_1 <= l1.ultimoIndice() && p_2 <= l2.ultimoIndice()) {	
 		if (l1.recuperar(p_1) < l2.recuperar(p_2)) {
 			p_1++; 	
 		}
@@ -260,10 +260,10 @@ void Algoritmos_Index::unionNoOrdenada(Lista_Index&l1, Lista_Index&l2) {
 
 	//while (p_2 != PosNula) {
 
-	while (p_2 <= l2.numElem()) {
+	while (p_2 <= l2.ultimoIndice())) {
 	p_1 = l1.primerIndice(); 
 	//while (p_1 != PosNula) {
-	  while (p_1 <= l1.NumElem()) {
+	  while (p_1 <= l1.ultimoIndice()) {
 		if (l2.recuperar(p_2) == l1.recuperar(p_1)) {
 			is_it_there = true; 
 			//p_1 = PosNula; 
@@ -280,7 +280,7 @@ void Algoritmos_Index::unionNoOrdenada(Lista_Index&l1, Lista_Index&l2) {
 
 	p_2 = l2.siguiente(p_2); //no estoy seguro de si esto realmente funciona, si la lista tiene 7 elementos, y le digo deme el siguiente del 7	
 							 //deberia darme el 8, aunque no sea un indice valido, para eso esta el numElem, porque sino, no se saldría del while. 
-}							 //o si se define una posNula, pues se podría utilizar eso, deme el siguiente del 7, y le da posNula. 
+}							 //o si se define un IndiceNulo, pues se podría utilizar eso, deme el siguiente del 7, y le da IndiceNulo. o -1. 
 //}	
 
 	
@@ -294,13 +294,13 @@ void Algoritmos_Index::interseccion(Lista_Index &l1, Lista_Index &l2, Lista_Inde
 	int p_2 = -1; 
 	
 	//while (p_1 != PosNula) {
-	while (p_1 <= l1.NumElem()) {
+	while (p_1 <= l1.ultimoIndice()) {
 		p_2 = l2.primerIndice(); 
 		//while (p_2 != PosNula) {
-		while (p_2 <= l2.NumElem()) {	//si esto no funciona, se puede cambiar por el for. 
+		while (p_2 <= l2.ultimoIndice()) {	//si esto no funciona, se puede cambiar por el for. 
 			if (l1.recuperar(p_1) == l2.recuperar(p_2)) {
 				l3.agregarAlFinal(l1.recuperar(p_1));
-				p_2 = l2.NumElem()+1;	//para salirme del while.   
+				p_2 = l2.numElem()+1;	//para salirme del while.   
 			}
 			else {
 				p_2 = l2.siguiente(p_2);  
@@ -327,7 +327,7 @@ void Algoritmos_Index::interseccionOrdenada_v1(Lista_Index &l1, Lista_Index &l2,
 
 
 	//while (p_1 != PosNula && p_2 != PosNula) {
-	while (p_1 <= l1.NumElem() && p_2 <= l2.NumElem()) {
+	while (p_1 <= l1.ultimoIndice() && p_2 <= l2.ultimoIndice()) {
 		if (l1.recuperar(p_1) < l2.recuperar(p_2)) {
 			p_1 = l1.siguiente(p_1); 
 		}
