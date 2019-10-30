@@ -481,6 +481,7 @@ while (pos1 != PosNula) {
 
 
 void Algoritmos_Pos::interseccion(Lista_Pos&l1, Lista_Pos&l2, Lista_Pos&l3) {
+	l3.vaciar(); 
 	Pos p_1 = l1.primera(); 
 	Pos p_2 = PosNula; 
 	
