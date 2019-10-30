@@ -164,7 +164,11 @@ Modiﬁca : el contador de elementos.
 
 void Lista_Index :: borrar(int indice){
     int indiceActual = primerIndex;
-    if(indice <= ultimoIndex && indice >= primerIndex){
+    if(indice == ultimoIndex){
+        ultimoIndex--;
+        contador--;
+    }else{
+        if(indice < ultimoIndex && indice >= primerIndex){
             indiceActual = indice;
             while(indiceActual < ultimoIndex){
                 listaIndexada[indiceActual] = listaIndexada[indiceActual + 1];

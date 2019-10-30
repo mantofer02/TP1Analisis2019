@@ -260,23 +260,39 @@ Modiﬁca : el contador de elementos.
 
 */
 void Lista_Index :: borrar(int indice){
-    if(indice >= primerIndex && indice <= ultimoIndex){
+    if(indice == ultimoIndex){
         Celda * actual = primera;
-        if(indice == 1){
-            primera = actual->siguiente;
-            delete actual;
-        }else{
-            for(int i = 0; i < indice; i++){
-                actual = actual->siguiente;
-            }
-            if(actual->siguiente == ultima)
-                ultima = actual;
-            Celda * aBorrar = actual->siguiente;
+        while(actual->siguiente != ultima){
+            actual = actual->siguiente;
+        }
+        Celda * aBorrar = ultima;
+        ultima = actual;
+        ultima->siguiente = 0;
+        delete aBorrar;
+        contador--;
+        ultimoIndex--;
+    }else{
+        if(indice >= primerIndex && indice < ultimoIndex){
+            Celda * actual = primera;
+            if(indice == 1){
+                primera = actual->siguiente;
+                delete actual;
+            }else{
+                for(int i = 0; i < indice; i++){
+                    actual = actual->siguiente;
+                }
+                if(actual->siguiente == ultima)
+                    ultima = actual;
+                Celda * aBorrar = actual->siguiente;
 
-            if(aBorrar->siguiente){
-                actual->siguiente = aBorrar->siguiente;
+                if(aBorrar->siguiente){
+                    actual->siguiente = aBorrar->siguiente;
+                }
+                aBorrar->siguiente = 0;
+                delete aBorrar;
+                contador--;
+                ultimoIndex--;
             }
-            delete aBorrar;
         }
     }
 }

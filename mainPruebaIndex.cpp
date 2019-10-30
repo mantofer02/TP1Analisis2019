@@ -1,6 +1,21 @@
 // #include "lista_index_array.h"
 
-#include "algoritmos_lista_index.h"
+#include "lista_index_LSE.h"
+
+// #include "algoritmos_lista_index.h"
+
+void eliminarRepetidos(Lista_Index &lista){
+    int elementoAct;
+    for(int i = lista.primerIndice(); i <= lista.ultimoIndice(); i++){
+        elementoAct = lista.recuperar(i);
+        for(int j = i + 1; j <= lista.ultimoIndice(); j++){
+            if(lista.recuperar(j) == elementoAct){
+                lista.borrar(j);
+            }
+        }
+    }
+}
+
 
 int main(){
 
@@ -13,7 +28,7 @@ int main(){
     // std :: cout << miLista.numElem() << std :: endl;
     miLista.imprimirLista();
 
-    Algoritmos_Index algs(miLista);
+    // Algoritmos_Index algs(miLista);
 
     // miLista.borrar(14);
     miLista.agregar(3, 99);
@@ -25,7 +40,9 @@ int main(){
 
     miLista.agregarAlFinal(6);
 
-    algs.eliminarRepetidos(miLista);
+    eliminarRepetidos(miLista);
+
+    // miLista.borrar(miLista.ultimoIndice());
 
     miLista.imprimirLista();
 
