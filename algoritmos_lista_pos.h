@@ -12,7 +12,6 @@ class Algoritmos_Pos{
    //   Lista_Pos lista;		//modifica la misma lista, que se le manda por referencia, no necesita tener la lista como atributo, aunque podría, solo que 
    public:						//crearía una al inicio y luego se remplazaría por otra que tiene la interfaz, y para que.  
 	  Algoritmos_Pos(); 		//así todo es void y no hay que retornar nada. 
-     // Algoritmos_Pos(Lista_Pos &lista);
       int simetrica(Lista_Pos &lista); 
       void invertir(Lista_Pos &lista); 
       int buscar(Lista_Pos &lista, int elemento);

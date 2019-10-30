@@ -2,8 +2,8 @@
 
 
 
-Algoritmos_Index :: Algoritmos_Index(Lista_Index &lista){
-    this->lista = lista;
+Algoritmos_Index :: Algoritmos_Index(){
+
 }
 
 void Algoritmos_Index :: listar(Lista_Index &lista){
@@ -358,6 +358,10 @@ void Algoritmos_Index::interseccion(Lista_Index &l1, Lista_Index &l2, Lista_Inde
 }
 
 
+//Efecto: deja en l3 unicamente los elementos que posean en comun las listas l1 y l2. 
+//Requiere: que ambas listas se encuentre inicializadas. 
+//Modifica: la lista l3, de poseer elementos anteriormente se eliminaran y se procedera a agregar únicamente la intersección de las otras 2 listas. 
+
 
 void Algoritmos_Index::interseccionOrdenada_v1(Lista_Index &l1, Lista_Index &l2,Lista_Index &l3) {
 	l3.vaciar();
@@ -385,6 +389,97 @@ void Algoritmos_Index::interseccionOrdenada_v1(Lista_Index &l1, Lista_Index &l2,
 }
 
 
+//Efecto: Ordena los elementos de la lista de forma ascendente. 
+//Requiere: que la lista se encuentre inicializada. 
+//Modifica: las etiquetas correspondientes a las posiciones de la lista. 
+
+
+void Algoritmos_Index::burbujaBidireccional(Lista_Index &lista) {
+	  int flag_1 = lista.primerIndice(); 
+	  int flag_2 = lista.ultimoIndice(); 
+	  
+	  while (lista.siguiente(flag_2) != flag_1 && flag_2 != flag_1) {		  
+		int p_1 = flag_1;
+		while (p_1 != flag_2) {
+			if (lista.recuperar(p_1) > lista.recuperar(lista.siguiente(p_1))) {
+				lista.intercambiar(p_1, lista.siguiente(p_1)); 
+			}
+			p_1 = lista.siguiente(p_1); 
+		}
+	
+		while (p_1 != flag_1) {
+			if (lista.recuperar(p_1) < lista.recuperar(lista.anterior(p_1))) {
+				lista.intercambiar(p_1, lista.anterior(p_1)); 
+			}
+			p_1 = lista.anterior(p_1); 
+		}
+		flag_1 = lista.siguiente(flag_1); 
+		flag_2 = lista.anterior(flag_2); 
+	  }
+}
+
+
+//Efecto: deja en l3 unicamente los elementos que posean en comun las listas l1 y l2. 
+//Requiere: que ambas listas se encuentre inicializadas. 
+//Modifica: la lista l3, de poseer elementos anteriormente se eliminaran y se procedera a agregar únicamente la intersección de las otras 2 listas. 
+
+
+
+void Algoritmos_Index::interseccion(Lista_Index &l1, Lista_Index &l2, Lista_Index &l3) {
+	l3.vaciar(); 
+	l3.iniciar(); 
+	int p_1 = l1.primerIndice(); 
+	int p_2; 
+	// EN INDICES, 0 = POS NULA
+	while (p_1 <= l1.ultimoIndice()) {
+		p_2 = l2.primerIndice(); 
+		while (p_2 != 0) {
+			if (l1.recuperar(p_1) == l2.recuperar(p_2)) {
+				l3.agregarAlFinal(l1.recuperar(p_1));
+				p_2 = 0;  
+			}
+			else {
+				p_2 = l2.siguiente(p_2);  
+			}		
+		}
+		p_1 = l1.siguiente(p_1); 
+	}	
+}
+
+
+//Efecto: deja en l3 unicamente los elementos que posean en comun las listas l1 y l2. 
+//Requiere: que ambas listas se encuentre inicializadas. 
+//Modifica: la lista l3, de poseer elementos anteriormente se eliminaran y se procedera a agregar únicamente la intersección de las otras 2 listas. 
+
+
+void Algoritmos_Index::interseccionOrdenada_v1(Lista_Index &l1, Lista_Index &l2,Lista_Index &l3) {	//no deja nada en miListaPos y borra aux_2
+	l3.vaciar();
+	l3.iniciar(); 
+	int p_1 = l1.primerIndice(); 
+	int p_2 = l2.primerIndice(); 
+
+
+	while (p_1 <= l1.ultimoIndice() && p_2 <= l2.ultimoIndice()) {
+		if (l1.recuperar(p_1) < l2.recuperar(p_2)) {
+			p_1 = l1.siguiente(p_1); 
+		}
+		else {
+			if (l1.recuperar(p_1) > l2.recuperar(p_2)) {
+				p_2 = l2.siguiente(p_2); 
+			}
+			else { 
+				l3.agregarAlFinal(l1.recuperar(p_1));
+				p_1 = l1.siguiente(p_1); 
+				p_2 = l2.siguiente(p_2);  	  
+			}	
+		}
+	}	 
+}
+
+
+//Efecto: deja en l3 unicamente los elementos que posean en comun las listas l1 y l2. 
+//Requiere: que ambas listas se encuentre inicializadas. 
+//Modifica: la lista l3, de poseer elementos anteriormente se eliminaran y se procedera a agregar únicamente la intersección de las otras 2 listas. 
 
 void Algoritmos_Index::interseccionOrdenada_v2(Lista_Index &l1, Lista_Index &l2, Lista_Index &l3) {
 	int pos1 = l1.primerIndice(); 
@@ -397,26 +492,24 @@ void Algoritmos_Index::interseccionOrdenada_v2(Lista_Index &l1, Lista_Index &l2,
 } 
                   
 void Algoritmos_Index::mergeSort(Lista_Index &lista){
-
 	if (lista.numElem() > 1) {
 		int mid = lista.numElem()/2; 
-		int indiceActual = lista.primerIndice(); 
 		
 		Lista_Index primeraMitad;
 		primeraMitad.iniciar();  
 		Lista_Index segundaMitad;
 		segundaMitad.iniciar();  
 
-		for (int i = lista.primerIndice(); i < mid; i++) {
-			primeraMitad.agregarAlFinal(lista.recuperar(indiceActual)); 
-			indiceActual = lista.siguiente(indiceActual);  
+		for (int i = lista.primerIndice()-1; i < mid; i++) {
+			primeraMitad.agregarAlFinal(lista.recuperar(i+1)); 
+		
 		}
 		
 		for (int j = mid; j < lista.ultimoIndice(); j++) {
-			segundaMitad.agregarAlFinal(lista.recuperar(indiceActual));
-			indiceActual = lista.siguiente(indiceActual);  
+			segundaMitad.agregarAlFinal(lista.recuperar(j+1)); 
 		}
 		
+	
 	 mergeSort(primeraMitad);
 	 mergeSort(segundaMitad);
 	 merge(primeraMitad, segundaMitad, lista);   	
@@ -430,30 +523,30 @@ void Algoritmos_Index::mergeSort(Lista_Index &lista){
 
 
 void Algoritmos_Index ::merge(Lista_Index &lista_1, Lista_Index &lista_2, Lista_Index &lista) {
-	
-	lista.vaciar(); 
+	lista.vaciar();
+	lista.iniciar();  
 	int current_1 = lista_1.primerIndice(); 
 	int current_2 = lista_2.primerIndice(); 
 	
 	while (current_1 <= lista_1.ultimoIndice() && current_2 <= lista_2.ultimoIndice()) {
 		if (lista_1.recuperar(current_1) < lista_2.recuperar(current_2)) {
-			lista.agregarAlFinal(lista_1.recuperar(current_1)); 
-			current_1 = lista_1.siguiente(current_1);  
+			lista.agregarAlFinal(lista_1.recuperar(current_1));  
+			++current_1; 
 		}
 		else {
 			lista.agregarAlFinal(lista_2.recuperar(current_2));
-			current_2 = lista_2.siguiente(current_2);  
+			++current_2;   
 		}
 		
 	}
 	while (current_1 <= lista_1.ultimoIndice()) {
-		lista.agregarAlFinal(lista_1.recuperar(current_1));
-		current_1 = lista_1.siguiente(current_1);  		
+		lista.agregarAlFinal(lista_1.recuperar(current_1));  	
+		++current_1; 	
 	}
 	while (current_2 <= lista_2.ultimoIndice()) {
 		lista.agregarAlFinal(lista_2.recuperar(current_2));
-		current_2 = lista_2.siguiente(current_2);  	
-	}
+		++current_2;   	
+	}	
 	lista_1.destruir(); 
 	lista_2.destruir(); 
 }

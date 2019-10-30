@@ -8,15 +8,16 @@
 class Algoritmos_Index{
     private:
       // Ya tiene que venir inicializada
-      Lista_Index lista; 
+      // Lista_Index lista; 
    public:
-      Algoritmos_Index(Lista_Index &lista);
+      Algoritmos_Index();
       int simetrica(Lista_Index &lista); // Se pueden cambiar las firmas y hacerlo por omision, pero hay que ver si se puede quitar
       void invertir(Lista_Index &lista); //Ver si tiene que devolver una lista nueva o modifica la misma
       int buscar(Lista_Index &lista, int);
       void eliminarRepetidos(Lista_Index &lista);
       int subLista(Lista_Index &listaA, Lista_Index &listaB );
       void burbuja(Lista_Index &lista);
+      void burbujaBidireccional(Lista_Index &lista);
       void seleccion(Lista_Index &lista);
       void listar(Lista_Index &lista);
       void seleccionRecursivo(Lista_Index &lista);
