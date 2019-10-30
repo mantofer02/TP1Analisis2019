@@ -233,6 +233,41 @@ while (p_2 <= amount_elements_l2) {
 
 void Algoritmos_Index::unionNoOrdenada(Lista_Index&l1, Lista_Index&l2) {
 	
+int p_2 = l2.primerIndice(); 
+int p_1; 
+
+bool is_it_there = false; 
+
+//while (p_2 != PosNula) {
+
+while (p_2 <= l2.NumElem()) {
+	p_1 = l1.primerIndice(); 
+	//while (p_1 != PosNula) {
+	  while (p_1 <= l1.NumElem()) {
+		if (l2.recuperar(p_2) == l1.recuperar(p_1)) {
+			is_it_there = true; 
+			//p_1 = PosNula; 
+			p_1 = l1.NumElem()+1;	// me salgo del while.  
+		}
+		else {
+			p_1 = l1.siguiente(p_1); 
+		}	
+	  }
+	//}
+	if (!is_it_there) {
+		l1.agregarAlFinal(l2.recuperar(p_2)); 
+	}	
+
+	p_2 = l2.siguiente(p_2); //no estoy seguro de si esto realmente funciona, si la lista tiene 7 elementos, y le digo deme el siguiente del 7	
+							 //deberia darme el 8, aunque no sea un indice valido, para eso esta el numElem, porque sino, no se saldría del while. 
+}							 //o si se define una posNula, pues se podría utilizar eso, deme el siguiente del 7, y le da posNula. 
+//}	
+
+
+	
+	
+	
+	
 }
 
 
