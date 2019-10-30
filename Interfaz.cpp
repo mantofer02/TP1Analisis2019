@@ -161,9 +161,11 @@ void Interfaz :: escogioListaIndexada(){
             escogioListaIndexada();
             break;
         case 5:
+			cout << "Digite el indice donde desea agregar el elemento " << endl; 
+			cin >> parametro2; 
             cout << "Digite el elemento que desea insertar" << endl;
             cin >> parametro1;
-            miListaIndex.agregar(parametro1);
+            miListaIndex.agregar(parametro2, parametro1);
             escogioListaIndexada();
             break;
         case 6:
@@ -732,7 +734,7 @@ void Interfaz :: escogioListaPosicionada(){
 	break; 
 	
 	case 20: 
-		algoritmos.mergeSort_v2(miListaPos);		//probado y funciona
+		algoritmos.mergeSort(miListaPos);		//probado y funciona
 		escogioListaPosicionada();  
 	
 	break; 
