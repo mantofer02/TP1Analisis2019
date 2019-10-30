@@ -37,6 +37,8 @@ class Lista_Index{
         void imprimirLista();
         int primerIndice();
         int ultimoIndice();
+        int siguiente(int);
+        int anterior(int);
     
         
 };

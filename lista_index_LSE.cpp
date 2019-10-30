@@ -24,6 +24,26 @@ void Lista_Index :: iniciar(){
     contador = 0;
 }
 
+
+int Lista_Index::siguiente(int indice) {			//VERIFICAR SI ESTO Y EL DE ANTERIOR ESTA CORRECTO. 
+    int answer = indice; 
+    answer++;
+    if(answer > ultimoIndex){
+        answer = ultimoIndex;
+    } 
+    return answer; 	
+}
+
+int Lista_Index::anterior(int indice) {
+    int answer = indice; 
+    --answer;
+    if(answer < primerIndex){
+        answer = primerIndex;
+    } 				//esto podría llegar a darme un -1 ?. el indice 0 cuenta ?, o comienza en 1. 
+    return answer; 	
+
+}
+
 /*
 Efecto: ninguno, se podría restaurar el contador de índices ocupados en 0, pero simplemente se hace al iniciar nuevamente. 
 Requiere : que la lista exista y se encuentre inicializada. 
