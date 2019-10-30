@@ -14,7 +14,8 @@ class Algoritmos_Index{
       int simetrica(Lista_Index &lista); // Se pueden cambiar las firmas y hacerlo por omision, pero hay que ver si se puede quitar
       void invertir(Lista_Index &lista); //Ver si tiene que devolver una lista nueva o modifica la misma
       int buscar(Lista_Index &lista, int);
-      void eliminarRepetidos(Lista_Index &lista);  // Falta
+      void eliminarRepetidos(Lista_Index &lista);
+      int subLista(Lista_Index &listaA, Lista_Index &listaB );
       void burbuja(Lista_Index &lista);
       void seleccion(Lista_Index &lista);
       void listar(Lista_Index &lista);
@@ -25,7 +26,7 @@ class Algoritmos_Index{
       void insercion(Lista_Index &lista); 
       void quickSort(Lista_Index &lista); 
       void quickSortRecursivo(Lista_Index &lista);
-      int buscarPivote(Lista_Inde&lista, int low, int high);
+      int buscarPivote(Lista_Index &lista, int low, int high);
       void unionOrdenada(Lista_Index&l1, Lista_Index&l2); 
       void unionNoOrdenada(Lista_Index&l1, Lista_Index&l2);
       void interseccion(Lista_Index &l1, Lista_Index &l2, Lista_Index &l3); 

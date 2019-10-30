@@ -16,6 +16,21 @@ void eliminarRepetidos(Lista_Index &lista){
     }
 }
 
+void insercion(Lista_Index &lista) {
+	
+	if(lista.numElem()>= 2){
+		int indiceAct = lista.primerIndice() + 1;
+		for(indiceAct; indiceAct <= lista.ultimoIndice(); indiceAct++){
+			if(lista.recuperar(indiceAct) < lista.recuperar(indiceAct - 1)){
+				for(int j = indiceAct; j - 1 >= lista.primerIndice(); j--){
+					// if(lista.recuperar(j) > lista.recuperar(j - 1))
+						lista.intercambiar(j, j-1);
+				}
+			}
+		}
+	}
+}
+
 
 int main(){
 
@@ -23,7 +38,7 @@ int main(){
     miLista.iniciar();
 
     for(int i = 1; i < 5; i++)
-        miLista.agregarAlFinal(i*2);
+        miLista.agregarAlInicio(i*2);
 
     // std :: cout << miLista.numElem() << std :: endl;
     miLista.imprimirLista();
@@ -42,9 +57,13 @@ int main(){
 
     eliminarRepetidos(miLista);
 
-    // miLista.borrar(miLista.ultimoIndice());
+    // miLista.borrar(miLista.primerIndice());
+
+    insercion(miLista);
 
     miLista.imprimirLista();
+
+    
 
     return 0;
 }

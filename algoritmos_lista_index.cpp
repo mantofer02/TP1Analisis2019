@@ -65,6 +65,22 @@ void Algoritmos_Index::eliminarRepetidos(Lista_Index &lista){
     }
 }
 
+int Algoritmos_Index :: subLista(Lista_Index &listaA, Lista_Index &listaB){
+	int estaContenida = 1;
+	int indiceListaA = listaA.primerIndice();
+	// Averigua si ListaA esta contenida en Lista B
+	for(int i = listaB.primerIndice(); i <= listaB.ultimoIndice() && estaContenida && indiceListaA <= listaA.ultimoIndice(); i++){
+		if(listaA.recuperar(indiceListaA) == listaB.recuperar(i))
+			indiceListaA++;
+		if(listaA.recuperar(indiceListaA) < listaB.recuperar(i))
+			estaContenida = 0;
+	}
+
+	return estaContenida;
+
+}
+
+
 void Algoritmos_Index::burbuja(Lista_Index &lista){	
     int amount_elements = lista.numElem(); 
     int indice1 = 0; 
@@ -133,33 +149,17 @@ void Algoritmos_Index :: seleccionRecursivo(Lista_Index &lista, int i){
 
 void Algoritmos_Index::insercion(Lista_Index &lista) {
 	
- if (lista.NumElem() >= 2) {
-	int p_1 = lista.primerIndice();  
-	int p_2; 
-	int aux_p_1;  
-	
-	
-	int amount_elements = lista.NumElem(); 
-	for (int current_index = 0; current_index < amount_elements; ++current_index) {
-		aux_p_1 = p_1; 
-		p_2 = lista.anterior(p_1); 		//este O.B no esta, seria bueno que ademas se definiera una posNula, como -1, porque claramente el primero no tiene anterior. 
-		for (int index = current_index; index != 0; --index) { // while(p_2 != PosNula, en este caso -1.)
-			if (lista.recuperar(p_2) > lista.recuperar(p_1)) {	//porque sino no debería de dejar recuperar. 
-				lista.intercambiar(p_1, p_2);
-				p_1 = p_2;  
+	if(lista.numElem()>= 2){
+		int indiceAct = lista.primerIndice() + 1;
+		for(indiceAct; indiceAct <= lista.ultimoIndice(); indiceAct++){
+			if(lista.recuperar(indiceAct) < lista.recuperar(indiceAct - 1)){
+				for(int j = indiceAct; j - 1 >= lista.primerIndice(); j--){
+					if(lista.recuperar(j) > lista.recuperar(j - 1))
+						lista.intercambiar(j, j-1);
+				}
 			}
-			p_2 = lista.anterior(p_2); 
 		}
 	}
-		
-
-
-	
-}
-else {
-		//no hay nada que ordenar. 
-} 
-  
 } 
       
       

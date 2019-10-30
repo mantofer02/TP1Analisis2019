@@ -188,10 +188,9 @@ Requiere : que la lista exista y se encuentre inicializada.
 Modiﬁca : no modiﬁca nada, solo retorna información ya existente.
 */
 
-int Lista_Index :: numElem(){
+int Lista_Index::numElem(){
     return contador;
-}
-
+}       
 
 /*
 Efecto : retorna una copia del elemento en el índice solicitado. 
