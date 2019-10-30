@@ -14,6 +14,19 @@ Lista_Index :: Lista_Index(){
 }
 
 
+int Lista_Index::siguiente(int indice) {			//VERIFICAR SI ESTO Y EL DE ANTERIOR ESTA CORRECTO. 
+ int answer = indice; 
+ answer++; 
+ return answer; 	
+}
+
+int Lista_Index::anterior(int indice) {
+ int answer = indice; 
+ --answer; 				//esto podría llegar a darme un -1 ?. el indice 0 cuenta ?, o comienza en 1. 
+ return answer; 	
+
+}
+
 /*
 Efecto: inicializa la lista. 
 Requiere: que la lista exista. 

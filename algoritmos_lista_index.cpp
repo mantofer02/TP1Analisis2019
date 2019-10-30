@@ -260,17 +260,16 @@ void Algoritmos_Index::unionNoOrdenada(Lista_Index&l1, Lista_Index&l2) {
 
 	//while (p_2 != PosNula) {
 
-	while (p_2 <= l2.ultimoIndice())) {
+	while (p_2 <= l2.ultimoIndice()) {
 	p_1 = l1.primerIndice(); 
 	//while (p_1 != PosNula) {
 	  while (p_1 <= l1.ultimoIndice()) {
 		if (l2.recuperar(p_2) == l1.recuperar(p_1)) {
 			is_it_there = true; 
-			//p_1 = PosNula; 
-			p_1 = l1.NumElem()+1;	// me salgo del while.  
+			p_1 = l1.ultimoIndice()+1;	// me salgo del while.  
 		}
 		else {
-			p_1 = l1.siguiente(p_1); 
+			++p_1; 
 		}	
 	  }
 	//}
@@ -278,9 +277,8 @@ void Algoritmos_Index::unionNoOrdenada(Lista_Index&l1, Lista_Index&l2) {
 		l1.agregarAlFinal(l2.recuperar(p_2)); 
 	}	
 
-	p_2 = l2.siguiente(p_2); //no estoy seguro de si esto realmente funciona, si la lista tiene 7 elementos, y le digo deme el siguiente del 7	
-							 //deberia darme el 8, aunque no sea un indice valido, para eso esta el numElem, porque sino, no se saldría del while. 
-}							 //o si se define un IndiceNulo, pues se podría utilizar eso, deme el siguiente del 7, y le da IndiceNulo. o -1. 
+	++p_2; 					
+}							
 //}	
 
 	
@@ -300,15 +298,15 @@ void Algoritmos_Index::interseccion(Lista_Index &l1, Lista_Index &l2, Lista_Inde
 		while (p_2 <= l2.ultimoIndice()) {	//si esto no funciona, se puede cambiar por el for. 
 			if (l1.recuperar(p_1) == l2.recuperar(p_2)) {
 				l3.agregarAlFinal(l1.recuperar(p_1));
-				p_2 = l2.numElem()+1;	//para salirme del while.   
+				p_2 = l2.ultimoIndice()+1;	//para salirme del while.   
 			}
 			else {
-				p_2 = l2.siguiente(p_2);  
+				++p_2; 
 			}	
 		}	
 		//}
 		
-		p_1 = l1.siguiente(p_1); 
+		++p_1; 
 	}
 	//}			
 }
@@ -329,16 +327,16 @@ void Algoritmos_Index::interseccionOrdenada_v1(Lista_Index &l1, Lista_Index &l2,
 	//while (p_1 != PosNula && p_2 != PosNula) {
 	while (p_1 <= l1.ultimoIndice() && p_2 <= l2.ultimoIndice()) {
 		if (l1.recuperar(p_1) < l2.recuperar(p_2)) {
-			p_1 = l1.siguiente(p_1); 
+			++p_1; 
 		}
 		else {
 		  if (l1.recuperar(p_1) > l2.recuperar(p_2)) {
-			  p_2 = l2.siguiente(p_2); 
+			 ++p_2; 
 		  }
 		  else { //son iguales. 
 			 l3.agregarAlFinal(l1.recuperar(p_1));
-			 p_1 = l1.siguiente(p_1); 
-			 p_2 = l2.siguiente(p_2);  	  
+			 ++p_1;
+			 ++p_2; 	  
 		  }	
 		}
 	}

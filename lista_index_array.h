@@ -24,6 +24,8 @@ class Lista_Index{
         void imprimirLista();
         int primerIndice();
         int ultimoIndice();
+        int siguiente(int indice);	//AGREGUE ESTO 
+        int anterior(int indice); 	//AGREGUE ESTO. 
     
     private:
         int contador;
