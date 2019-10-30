@@ -214,7 +214,7 @@ void interseccionOrdenada_v1(Lista_Index &l1, Lista_Index &l2,Lista_Index &l3) {
 	
 }
 
-void interseccionOrdenada_v2(Lista_Index &l1, Lista_Index &l2, Lista_Index &l3) {
+void interseccionOrdenada_v2(Lista_Index &l1, Lista_Index &l2, Lista_Index &l3) {		//probado y funciona. 
 	l3.vaciar(); 
 	l3.iniciar(); 
 	int pos1 = l1.primerIndice(); 
