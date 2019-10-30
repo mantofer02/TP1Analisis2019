@@ -1,14 +1,26 @@
 #include "algoritmos_lista_ord.h"
 
-
 Algoritmos_Ordenada::Algoritmos_Ordenada(Lista_Ord & lista){
     this->lista = lista;
 }
 
+//
+//Efecto: Este algoritmo 
+//Requiere: Este algoritmo 
+//Modifica: Este algoritmo
+
+//Listar(L1)
+//Efecto: Este algoritmo imprime en pantalla la lista L1.  
+//Requiere: Este algoritmo requiere que la lista esté inicializada.
+//Modifica: Este algoritmo no modifica nada.
 void Algoritmos_Ordenada::listar(){
     this->lista.imprimir();
 }
 
+//Iguales(L1,L2) -> entero
+//Efecto: Este algoritmo determina si las listas L1 y L2 son iguales.
+//Requiere: Este algoritmo requiere que ambas listas estén inicializadas. 
+//Modifica: Este algoritmo únicamente devuelve un 1 si las listas son iguales y un 0 si no.
 int Algoritmos_Ordenada::iguales(Lista_Ord & otra){
     int resultado = 1;
     if(this->lista.numElem() == otra.numElem() && this->lista.numElem()!=0 && otra.numElem()!=0){
@@ -30,6 +42,10 @@ int Algoritmos_Ordenada::iguales(Lista_Ord & otra){
     return resultado;
 }
 
+// Copiar(L1,L2)
+//Efecto: Este algoritmo modifica a L2 para que sea igual a L1.
+//Requiere: Este algoritmo requiere que ambas listas sean inicializadas.
+//Modifica: Este algoritmo modifica a L2, haciendola igual a L1.
 void Algoritmos_Ordenada::copiar(Lista_Ord & otra){
     otra.vaciar();
     if(!lista.vacia()){
@@ -43,7 +59,11 @@ void Algoritmos_Ordenada::copiar(Lista_Ord & otra){
     }
 }
 
-int Algoritmos_Ordenada::contenida(Lista_Ord & otra){//falta terminar esto, pero tengo que estudiar jeje  
+//Contenida(L1,L2)-> entero
+//Efecto: Este algoritmo determina si L2 está contenida en L1.
+//Requiere: Este algoritmo requiere que ambas listas estén previamente inicializadas. 
+//Modifica: Este algoritmo únicamente devuelve un 1 si L2 está contenida o un 0 si no.
+int Algoritmos_Ordenada::contenida(Lista_Ord & otra){
     int resultado = 1;
     if(this->lista.numElem() <= otra.numElem() && !otra.vacia()){
         int elemento1 = lista.primero();
@@ -78,6 +98,10 @@ int Algoritmos_Ordenada::contenida(Lista_Ord & otra){//falta terminar esto, pero
     return resultado;       
 }
 
+//Pertenece(L1, elemento) -> entero
+//Efecto: Este algoritmo determina si un elemento pertenece a una lista determinada.
+//Requiere: Este algoritmo requiere que la lista esté inicializada.
+//Modifica: Este algoritmo únicamente devuelve un 1 si el elemento está en la lista o un 0 si no.
 int Algoritmos_Ordenada::pertenece(int elemento){
     int resultado = 0;
     if(lista.numElem() > 0){
@@ -96,6 +120,10 @@ int Algoritmos_Ordenada::pertenece(int elemento){
     return resultado;
 }
 
+//EliminarElementosRepetidos(L1,L2)
+//Efecto: Este algoritmo elimina los elementos repetidos entre L1 y L2 de L1. 
+//Requiere: Este algoritmo requiere que ambas listas estén inicializadas.
+//Modifica: Este algoritmo modifica L1, eliminando los elementos en común entre L1 y L2.
 void Algoritmos_Ordenada::eliminarElementosRepetidos(Lista_Ord & otra){
     int elemento1 = lista.primero();
     int elemento2 = otra.primero();
@@ -119,6 +147,10 @@ void Algoritmos_Ordenada::eliminarElementosRepetidos(Lista_Ord & otra){
     }
 }
 
+//Union(L1,L2)-> L3
+//Efecto: Este algoritmo realiza una unión de dos listas ordenadas L1 y L2 y la almacena y devuelve en una nueva lista L3.
+//Requiere: Este algoritmo requiere que ambas listas estén inicializadas. 
+//Modifica: Este algoritmo genera una nueva Lista Ordenada, que será la unión de L1 y L2.
 Lista_Ord Algoritmos_Ordenada::unionListas(Lista_Ord & otra){
     Lista_Ord respuesta;
     respuesta.iniciar();
@@ -156,7 +188,10 @@ Lista_Ord Algoritmos_Ordenada::unionListas(Lista_Ord & otra){
     return respuesta;
 }
 
-
+//Interseccion(L1,L2) -> L3
+//Efecto: Este algoritmo realiza la intersección entre dos listas L1 y L2 para almacenarla y devolverla en una nueva lista ordenada L3.
+//Requiere: Este algoritmo requiere que ambas listas estén inicializadas.
+//Modifica: Este algoritmo genera una nueva lista L3, que será la intersección entre L1 y L2.
 Lista_Ord Algoritmos_Ordenada::interseccion(Lista_Ord & otra){
     Lista_Ord respuesta;
     respuesta.iniciar();
