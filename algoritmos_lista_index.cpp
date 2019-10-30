@@ -89,11 +89,8 @@ int Algoritmos_Index :: subLista(Lista_Index &listaA, Lista_Index &listaB){
 	int estaContenida = 1;
 	int indiceListaA = listaA.primerIndice();
 	// Averigua si ListaA esta contenida en Lista B
-	for(int i = listaB.primerIndice(); i <= listaB.ultimoIndice() && estaContenida && indiceListaA <= listaA.ultimoIndice(); i++){
-		if(listaA.recuperar(indiceListaA) == listaB.recuperar(i))
-			indiceListaA++;
-		if(listaA.recuperar(indiceListaA) < listaB.recuperar(i))
-			estaContenida = 0;
+	for(int i = listaA.primerIndice(); i <= listaA.ultimoIndice() && estaContenida ; i++){
+		estaContenida = buscar(listaB, listaA.recuperar(i));
 	}
 
 	return estaContenida;
