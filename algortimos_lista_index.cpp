@@ -1,5 +1,7 @@
 #include "algoritmos_lista_index.h"
 
+//FALTA EL O.B anterior. 
+
 Algoritmos_Index :: Algoritmos_Index(Lista_Index &lista){
     this->lista = lista;
 }
