@@ -1,6 +1,6 @@
 // #include "lista_index_array.h"
 
-#include "lista_index_LSE.h"
+#include "algoritmos_lista_index.h"
 
 int main(){
 
@@ -13,8 +13,20 @@ int main(){
     // std :: cout << miLista.numElem() << std :: endl;
     miLista.imprimirLista();
 
+    Algoritmos_Index algs(miLista);
+
     // miLista.borrar(14);
     miLista.agregar(3, 99);
+    miLista.imprimirLista();
+
+
+    std :: cout << "----------------" << std :: endl;
+    // std :: cout << algs.simetrica(miLista) << std :: endl;
+
+    miLista.agregarAlFinal(6);
+
+    algs.eliminarRepetidos(miLista);
+
     miLista.imprimirLista();
 
     return 0;

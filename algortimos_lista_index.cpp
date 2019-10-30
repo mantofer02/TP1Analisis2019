@@ -52,19 +52,6 @@ void Algoritmos_Index :: invertir(Lista_Index &lista){
     }
 }
 
-int Algoritmos_Index::buscar(Lista_Index &lista, int elemento){
-    int esta = 0;
-    int stop = 0;
-    int indiceActual = lista.primerIndice();
-    while (indiceActual <= lista.ultimoIndice() && !stop){
-        if (lista.recuperar(indiceActual) == elemento){
-            esta = 1;
-            stop = 1;
-        }
-        indiceActual++;
-    }
-    return esta;
-}
 
 void Algoritmos_Index::eliminarRepetidos(Lista_Index &lista){
     int elementoAct;
@@ -107,7 +94,7 @@ void Algoritmos_Index::burbuja(Lista_Index &lista){
 
 
 void Algoritmos_Index::seleccion(Lista_Index &lista) {
-    for(int i = lista.primerIndice(); i < lista.ultimoIndice; i++){
+    for(int i = lista.primerIndice(); i < lista.ultimoIndice(); i++){
         int minActual = i;
         for(int j = i + 1; i <= lista.ultimoIndice(); j++){
             if(lista.recuperar(j) < lista.recuperar(minActual)){
