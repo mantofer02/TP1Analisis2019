@@ -21,8 +21,8 @@ class Algoritmos_Index{
       void listar(Lista_Index &lista);
       void seleccionRecursivo(Lista_Index &lista);
       void seleccionRecursivo(Lista_Index &lista, int);	//que diferencia hay ? 
-      Lista_Index mergeSort(Lista_Index &lista);
-      Lista_Index merge(Lista_Index &lista1, Lista_Index &lista2);
+      void mergeSort(Lista_Index &lista);
+      void merge(Lista_Index &lista1, Lista_Index &lista2, Lista_Index &lista);
       void insercion(Lista_Index &lista); 
       void quickSort(Lista_Index &lista); 
       void quickSortRecursivo(Lista_Index &lista, int, int);

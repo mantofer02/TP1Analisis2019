@@ -356,5 +356,65 @@ void Algoritmos_Index::interseccionOrdenada_v2(Lista_Index &l1, Lista_Index &l2,
 	pos1++; 
 	}		
 } 
+                  
+void Algoritmos_Index::mergeSort(Lista_Index &lista){
 
-                    
+	if (lista.numElem() > 1) {
+		int mid = lista.numElem()/2; 
+		int indiceActual = lista.primerIndice(); 
+		
+		Lista_Index primeraMitad;
+		primeraMitad.iniciar();  
+		Lista_Index segundaMitad;
+		segundaMitad.iniciar();  
+
+		for (int i = lista.primerIndice(); i < mid; i++) {
+			primeraMitad.agregarAlFinal(lista.recuperar(indiceActual)); 
+			indiceActual = lista.siguiente(indiceActual);  
+		}
+		
+		for (int j = mid; j < lista.ultimoIndice(); j++) {
+			segundaMitad.agregarAlFinal(lista.recuperar(indiceActual));
+			indiceActual = lista.siguiente(indiceActual);  
+		}
+		
+	 mergeSort(primeraMitad);
+	 mergeSort(segundaMitad);
+	 merge(primeraMitad, segundaMitad, lista);   	
+		
+	}
+	else {
+		//condicion de parada. 
+	}
+	
+}
+
+
+void Algoritmos_Index ::merge(Lista_Index &lista_1, Lista_Index &lista_2, Lista_Index &lista) {
+	
+	lista.vaciar(); 
+	int current_1 = lista_1.primerIndice(); 
+	int current_2 = lista_2.primerIndice(); 
+	
+	while (current_1 <= lista_1.ultimoIndice() && current_2 <= lista_2.ultimoIndice()) {
+		if (lista_1.recuperar(current_1) < lista_2.recuperar(current_2)) {
+			lista.agregarAlFinal(lista_1.recuperar(current_1)); 
+			current_1 = lista_1.siguiente(current_1);  
+		}
+		else {
+			lista.agregarAlFinal(lista_2.recuperar(current_2));
+			current_2 = lista_2.siguiente(current_2);  
+		}
+		
+	}
+	while (current_1 <= lista_1.ultimoIndice()) {
+		lista.agregarAlFinal(lista_1.recuperar(current_1));
+		current_1 = lista_1.siguiente(current_1);  		
+	}
+	while (current_2 <= lista_2.ultimoIndice()) {
+		lista.agregarAlFinal(lista_2.recuperar(current_2));
+		current_2 = lista_2.siguiente(current_2);  	
+	}
+	lista_1.destruir(); 
+	lista_2.destruir(); 
+}

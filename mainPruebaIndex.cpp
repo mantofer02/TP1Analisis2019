@@ -187,6 +187,67 @@ void invertir(Lista_Index &lista){				//probado y funciona.
     }
 }
 
+void merge(Lista_Index &lista_1, Lista_Index &lista_2, Lista_Index &lista) {
+	
+	lista.vaciar(); 
+	int current_1 = lista_1.primerIndice(); 
+	int current_2 = lista_2.primerIndice(); 
+	
+	while (current_1 <= lista_1.ultimoIndice() && current_2 <= lista_2.ultimoIndice()) {
+		if (lista_1.recuperar(current_1) < lista_2.recuperar(current_2)) {
+			lista.agregarAlFinal(lista_1.recuperar(current_1)); 
+			current_1 = lista_1.siguiente(current_1);  
+		}
+		else {
+			lista.agregarAlFinal(lista_2.recuperar(current_2));
+			current_2 = lista_2.siguiente(current_2);  
+		}
+		
+	}
+	while (current_1 <= lista_1.ultimoIndice()) {
+		lista.agregarAlFinal(lista_1.recuperar(current_1));
+		current_1 = lista_1.siguiente(current_1);  		
+	}
+	while (current_2 <= lista_2.ultimoIndice()) {
+		lista.agregarAlFinal(lista_2.recuperar(current_2));
+		current_2 = lista_2.siguiente(current_2);  	
+	}
+	lista_1.destruir(); 
+	lista_2.destruir(); 
+}
+
+void mergeSort(Lista_Index &lista){
+
+	if (lista.numElem() > 1) {
+		int mid = lista.numElem()/2; 
+		int indiceActual = lista.primerIndice(); 
+		
+		Lista_Index primeraMitad;
+		primeraMitad.iniciar();  
+		Lista_Index segundaMitad;
+		segundaMitad.iniciar();  
+
+		for (int i = lista.primerIndice(); i < mid; i++) {
+			primeraMitad.agregarAlFinal(lista.recuperar(indiceActual)); 
+			indiceActual = lista.siguiente(indiceActual);  
+		}
+		
+		for (int j = mid; j < lista.ultimoIndice(); j++) {
+			segundaMitad.agregarAlFinal(lista.recuperar(indiceActual));
+			indiceActual = lista.siguiente(indiceActual);  
+		}
+		
+	 mergeSort(primeraMitad);
+	 mergeSort(segundaMitad);
+	 merge(primeraMitad, segundaMitad, lista);   	
+		
+	}
+	else {
+		//condicion de parada. 
+	}
+	
+}
+
 
 
 int main(){
@@ -201,11 +262,11 @@ int main(){
     for(int i = 1; i < 5; i++)
         miLista.agregarAlInicio(i*2);
         
-    for (int j = 1; j < 10; j++)
-		aux.agregarAlInicio(j*2); 
+    // for (int j = 1; j < 10; j++)
+	// 	aux.agregarAlInicio(j*2); 
 	
-	for (int k = 0; k < 15; ++k) 
-		aux_1.agregarAlInicio(k*2);
+	// for (int k = 0; k < 15; ++k) 
+	// 	aux_1.agregarAlInicio(k*2);
 		 
 	//invertir(miLista); 
 	//invertir(aux); 
@@ -222,29 +283,30 @@ int main(){
 	
 	//unionOrdenada(miLista, aux); 
 	//unionNoOrdenada(miLista, aux); 
-	interseccion(miLista, aux, aux_1); 
+	// interseccion(miLista, aux, aux_1); 
 	
-	std::cout << "imprimiendo la primera lista" << std::endl; 
-    miLista.imprimirLista();
-	std::cout << "imprimiendo la segunda lista" << std::endl; 
-	aux.imprimirLista(); 
-	std::cout << "imprimiendo la tercera lista" << std::endl;  
-	aux_1.imprimirLista(); 
+	// std::cout << "imprimiendo la primera lista" << std::endl; 
+    // miLista.imprimirLista();
+	// std::cout << "imprimiendo la segunda lista" << std::endl; 
+	// aux.imprimirLista(); 
+	// std::cout << "imprimiendo la tercera lista" << std::endl;  
+	// aux_1.imprimirLista(); 
 	
 	
 	
     // Algoritmos_Index algs(miLista);
 
     // miLista.borrar(14);
-    // miLista.agregar(3, 99);
-    // miLista.imprimirLista();
+    miLista.agregar(3, 99);
+    miLista.imprimirLista();
 
 
-   // std :: cout << "----------------" << std :: endl;
+   std :: cout << "----------------" << std :: endl;
     // std :: cout << algs.simetrica(miLista) << std :: endl;
 
     // miLista.agregarAlFinal(6);
-
+	mergeSort(miLista);
+	miLista.imprimirLista();
     // eliminarRepetidos(miLista);
 
     // miLista.borrar(miLista.primerIndice());
