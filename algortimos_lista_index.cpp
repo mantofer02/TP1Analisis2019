@@ -192,11 +192,16 @@ int Algoritmos_Index::buscarPivote(Lista_Inde&lista, int low, int high) {
 }
 
 
-void unionOrdenada(Lista_Index&l1, Lista_Index&l2) {
+void Algoritmos_Index::unionOrdenada(Lista_Index&l1, Lista_Index&l2) {
 int p_1 = l1.primerIndice(); 
 int p_2 = l2.primerIndice(); 
 
-while (p_1 != PosNula && p_2 != PosNula) {		//no estoy seguro de esto. 
+int amount_elements_l1 = l1.NumElem(); 
+int amount_elements_l2 = l2.NumElem(); 
+
+
+//while (p_1 != PosNula && p_2 != PosNula) {		//no estoy seguro de esto. 
+while (p_1 <= amount_elements_l1 && p_2 <= amount_elements_l2) {	//este creo si sirve.
 	if (l1.recuperar(p_1) < l2.recuperar(p_2)) {
 		p_1 = l1.siguiente(p_1); 	
 	}
@@ -212,10 +217,12 @@ while (p_1 != PosNula && p_2 != PosNula) {		//no estoy seguro de esto.
 		}
 	}
 	
-}
+	
+}	
+//}
 
 
-while (p_2 != PosNula) {
+while (p_2 <= amount_elements_l2) {
 	l1.agregarAlFinal(l2.recuperar(p_2));
 	p_2 = l2.siguiente(p_2);  	
 }
