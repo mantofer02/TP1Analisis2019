@@ -139,3 +139,5 @@ void Algoritmos_Index :: seleccionRecursivo(Lista_Index &lista, int i){
     }
     seleccionRecursivo(lista, i++);
 }
+
+
