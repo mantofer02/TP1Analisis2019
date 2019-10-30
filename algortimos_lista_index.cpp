@@ -263,10 +263,6 @@ while (p_2 <= l2.NumElem()) {
 }							 //o si se define una posNula, pues se podría utilizar eso, deme el siguiente del 7, y le da posNula. 
 //}	
 
-
-	
-	
-	
 	
 }
 
@@ -279,7 +275,31 @@ void Algoritmos_Index::interseccion(Lista_Index &l1, Lista_Index &l2, Lista_Inde
 
 
 void Algoritmos_Index::interseccionOrdenada_v1(Lista_Index &l1, Lista_Index &l2,Lista_Index &l3) {
-	
+
+
+	l3.vaciar();
+	l3.iniciar(); 
+	int p_1 = l1.primerIndice(); 
+	int p_2 = l2.primerIndice(); 
+
+
+	//while (p_1 != PosNula && p_2 != PosNula) {
+	while (p_1 <= l1.NumElem() && p_2 <= l2.NumElem()) {
+		if (l1.recuperar(p_1) < l2.recuperar(p_2)) {
+			p_1 = l1.siguiente(p_1); 
+		}
+		else {
+		  if (l1.recuperar(p_1) > l2.recuperar(p_2)) {
+			  p_2 = l2.siguiente(p_2); 
+		  }
+		  else { //son iguales. 
+			 l3.agregarAlFinal(l1.recuperar(p_1));
+			 p_1 = l1.siguiente(p_1); 
+			 p_2 = l2.siguiente(p_2);  	  
+		  }	
+		}
+	}
+	//}	
 	
 }
 
