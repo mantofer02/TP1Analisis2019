@@ -11,9 +11,9 @@ Algoritmos_Pos::Algoritmos_Pos() {
 
 
 
-//Efecto: 
-//Requiere: 
-//Modifica: 
+//Efecto: Ordena los elementos de la lista de forma ascendente. 
+//Requiere: que la lista se encuentre inicializada. 
+//Modifica: las etiquetas correspondientes a las posiciones de la lista. 
 
 
 void Algoritmos_Pos::burbujaBidireccional(Lista_Pos&lista) {
@@ -46,9 +46,9 @@ void Algoritmos_Pos::burbujaBidireccional(Lista_Pos&lista) {
  }
 
 
-//Efecto: 
-//Requiere: 
-//Modifica: 
+//Efecto: retorna un booleano si la listaA se encuentra contenida en cualquier parte de  la listaB
+//Requiere: que ambas listas se encuentren inicializadas. 
+//Modifica: no modifica nada, solo retorna información correspondiente a las listas. 
 
 
 
