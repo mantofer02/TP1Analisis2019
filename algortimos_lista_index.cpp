@@ -269,13 +269,36 @@ while (p_2 <= l2.NumElem()) {
 
 
 void Algoritmos_Index::interseccion(Lista_Index &l1, Lista_Index &l2, Lista_Index &l3) {
+
+	int p_1 = l1.primerIndice(); 
+	int p_2 = -1; 
 	
-	
+	//while (p_1 != PosNula) {
+	while (p_1 <= l1.NumElem()) {
+		p_2 = l2.primerIndice(); 
+		//while (p_2 != PosNula) {
+		while (p_2 <= l2.NumElem()) {	//si esto no funciona, se puede cambiar por el for. 
+			if (l1.recuperar(p_1) == l2.recuperar(p_2)) {
+				l3.agregarAlFinal(l1.recuperar(p_1));
+				p_2 = l2.NumElem()+1;	//para salirme del while.   
+			}
+			else {
+				p_2 = l2.siguiente(p_2);  
+			}	
+		}	
+		//}
+		
+		p_1 = l1.siguiente(p_1); 
+	}
+	//}			
 }
+
 
 
 void Algoritmos_Index::interseccionOrdenada_v1(Lista_Index &l1, Lista_Index &l2,Lista_Index &l3) {
 
+	//PREGUNTA 
+	//QUE PASA SI LE DIGO QUE ME DE EL SIGUIENTE DEL ULTIMO, ME DA UN INDICE SIGUIENTE AUNQUE NO ESTE OCUPADO ? . 
 
 	l3.vaciar();
 	l3.iniciar(); 
@@ -306,6 +329,18 @@ void Algoritmos_Index::interseccionOrdenada_v1(Lista_Index &l1, Lista_Index &l2,
 
 
 void Algoritmos_Index::interseccionOrdenada_v2(Lista_Index &l1, Lista_Index &l2, Lista_Index &l3) {
+
+
+int pos1 = l1.primerIndice(); 
+//while (pos1 != PosNula) {
+while (pos1 <= l1.NumElem()) {
+	 if (buscar(l2, l1.recuperar(pos1))) {
+		 l3.agregarAlFinal(l1.recuperar(pos1)); 
+	 }
+	 pos1 = l1.siguiente(pos1); 
+}	
+//}		  
+
 	
 	
 } 
