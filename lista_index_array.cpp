@@ -54,7 +54,48 @@ Modiﬁca :  1) aumenta el contador de elementos que se encuentran en la lista.
            2) cambia el valor contenido en el índice del vector al que se agrega.
 */
 
-void Lista_Index :: agregar(int elemento){
+void Lista_Index :: agregar(int indice, int elemento){
+    if(this->vacia()){
+        agregarAlFinal(elemento);
+    }else{
+        if(indice == primerIndex){
+            agregarAlInicio(elemento);
+        }else{
+            if(indice == ultimoIndex){
+                agregarAlFinal(elemento);
+            }else{
+                if(indice < ultimoIndex && indice > primerIndex){
+                    if(ultimoIndex < tamanyo - 1){
+                        ultimoIndex++;
+                        contador++;
+                    }
+                    for(int i = ultimoIndex; i > indice; i--){
+                        listaIndexada[i] = listaIndexada[i - 1];
+                    }
+                    listaIndexada[indice] = elemento;
+                }
+            }
+        }
+    }
+}
+
+void Lista_Index:: agregarAlInicio(int elemento){
+    if(primerIndex == 0 && ultimoIndex == 0){
+        primerIndex++;
+    }
+    if(ultimoIndex < tamanyo - 1){
+        ultimoIndex++;
+        contador++;
+    }
+    for(int i = ultimoIndex; i >= primerIndex; i--){
+        listaIndexada[i] = listaIndexada[i - 1];
+    }
+    listaIndexada[primerIndex] = elemento;
+}
+
+
+
+void Lista_Index :: agregarAlFinal(int elemento){
     if(primerIndex == 0 && ultimoIndex == 0){
         primerIndex++;
     }

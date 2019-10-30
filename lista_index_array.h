@@ -13,7 +13,9 @@ class Lista_Index{
         int vacia();
         void destruir();
         ~Lista_Index();
-        void agregar(int);
+        void agregarAlFinal(int);
+        void agregarAlInicio(int);
+        void agregar(int,int);
         void borrar(int);
         int recuperar(int);  
         void modificar(int, int);      
