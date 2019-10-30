@@ -15,15 +15,21 @@ Lista_Index :: Lista_Index(){
 
 
 int Lista_Index::siguiente(int indice) {			//VERIFICAR SI ESTO Y EL DE ANTERIOR ESTA CORRECTO. 
- int answer = indice; 
- answer++; 
- return answer; 	
+    int answer = indice; 
+    answer++;
+    if(answer > ultimoIndex){
+        answer = ultimoIndex;
+    } 
+    return answer; 	
 }
 
 int Lista_Index::anterior(int indice) {
- int answer = indice; 
- --answer; 				//esto podría llegar a darme un -1 ?. el indice 0 cuenta ?, o comienza en 1. 
- return answer; 	
+    int answer = indice; 
+    --answer;
+    if(answer < primerIndex){
+        answer = primerIndex;
+    } 				//esto podría llegar a darme un -1 ?. el indice 0 cuenta ?, o comienza en 1. 
+    return answer; 	
 
 }
 

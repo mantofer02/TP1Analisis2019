@@ -261,11 +261,9 @@ Pos Algoritmos_Pos::buscarPivote(Lista_Pos &lista, Pos low, Pos high) {
 	cout << lista.imprimirLista(); 	
 	Pos pivote_position = PosNula; 
 	Pos p_1 = low; 
-
 	while (p_1 != high && lista.recuperar(p_1) == lista.recuperar(lista.siguiente(p_1))) {
 		p_1 = lista.siguiente(p_1); 	
 	}
-
 	if (p_1 != high) {
 		if (lista.recuperar(p_1) < lista.recuperar(lista.siguiente(p_1))) {
 			//pivote_position = low; 
@@ -276,16 +274,6 @@ Pos Algoritmos_Pos::buscarPivote(Lista_Pos &lista, Pos low, Pos high) {
 		//pivote_position = lista.siguiente(p_1); 
 		}
 	}
-
-	#if 0
-	if (pivote_position != PosNula) {
-	cout << "el pivote seleccionado corresponde a : " << lista.recuperar(pivote_position) << endl; 
-	}
-	else {
-			cout << "no hay pivote uyuyuyu " << endl;  
-	}
-	#endif
-
 	return pivote_position; 	
 } 
 
@@ -540,9 +528,9 @@ void Algoritmos_Pos::mergeSort(Lista_Pos &lista) {
 			current_pos = lista.siguiente(current_pos);  
 		}
 		
-	 mergeSort_v2(primeraMitad);
-	 mergeSort_v2(segundaMitad);
-	 merge_v2(primeraMitad, segundaMitad, lista);   	
+	 mergeSort(primeraMitad);
+	 mergeSort(segundaMitad);
+	 merge(primeraMitad, segundaMitad, lista);   	
 		
 	}
 	else {
