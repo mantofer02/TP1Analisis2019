@@ -9,6 +9,49 @@ Algoritmos_Pos::Algoritmos_Pos() {
 	
 }
 
+
+
+//Efecto: 
+//Requiere: 
+//Modifica: 
+
+
+bool Algoritmos_Pos::subLista(Lista_Pos &listaA, Lista_Pos &listaB){
+	bool estaContenida = true; 
+	int match_counter = 0; 
+	Pos posListaA = listaA.primera(); 
+	Pos posListaB = listaB.primera(); 
+	
+	while (posListaB != PosNula && posListaA != PosNula) {	
+		
+		if(listaA.recuperar(posListaA) == listaB.recuperar(posListaB)) {
+			posListaA = listaA.siguiente(posListaA); 
+			estaContenida = true; 
+			++match_counter; 
+		}
+		else {
+			estaContenida = false; 
+			posListaA = listaA.primera(); 
+		}
+		
+			if (estaContenida || match_counter == 0) {
+				posListaB = listaB.siguiente(posListaB);
+			}
+			else {
+				match_counter = 0; 	
+			}
+				
+	}
+	
+	if (match_counter != listaA.NumElem()) {
+		estaContenida = false; 
+	}
+
+	return estaContenida;
+
+}
+
+
 //Efecto: Retorna un valor de 0 o 1 correspondiente a si la lista ingresada como parametro es simetrica o no. 
 //Requiere: Que la lista se encuentre inicializada. 
 //Modifica: no modifica nada, solo retorna información de la lista. 
