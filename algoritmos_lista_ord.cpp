@@ -185,6 +185,7 @@ Lista_Ord Algoritmos_Ordenada::unionListas(Lista_Ord & lista, Lista_Ord & otra){
             elemento2 = otra.siguiente(elemento2);
         }
     }
+    respuesta.imprimir(); 
     return respuesta;
 }
 

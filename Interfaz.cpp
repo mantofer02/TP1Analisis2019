@@ -234,7 +234,7 @@ void Interfaz :: escogioListaOrdenada(Lista_Ord&miListaOrdena, int tipoDeLista){
 	}
 }
 
-void Interfaz :: escogioListaIndexada(Lista_Index miListaIndex){
+void Interfaz :: escogioListaIndexada( Lista_Index &miListaIndex){
     
     int operacion = 0;
 	int resultado = 0;
@@ -257,23 +257,23 @@ void Interfaz :: escogioListaIndexada(Lista_Index miListaIndex){
 	std::cout << std::endl;
 	std::cout << "12) int simetrica(Lista_Index &lista); "<< std :: endl;
     std::cout << "13) void invertir(Lista_Index &lista); "<< std :: endl;
-    std::cout << "14) int buscar(Lista_Index &lista, int);"<< std :: endl;
+    std::cout << "14) int buscar(lista, int);"<< std :: endl;
     std::cout << "15) void eliminarRepetidos(Lista_Index &lista);"<< std :: endl;
-    std::cout << "16) int subLista(Lista_Index &listaA, Lista_Index &listaB );"<< std :: endl;
+    std::cout << "16) int subLista(listaA,listaB );"<< std :: endl;
     std::cout << "17) void burbuja(Lista_Index &lista);"<< std :: endl;
-    std::cout << "18) void burbujaBidireccional(Lista_Index &lista);"<< std :: endl;
+    std::cout << "18) void burbujaBidireccional(lista);"<< std :: endl;
     std::cout << "19) void seleccion(Lista_Index &lista);"<< std :: endl;
     std::cout << "20) void listar(Lista_Index &lista);"<< std :: endl;
-    std::cout << "21) void seleccionRecursivo(Lista_Index &lista); "<< std :: endl;
-    std::cout << "22) void mergeSort(Lista_Index &lista);"<< std :: endl;
-	std::cout << "23) void insercion(Lista_Index &lista); "<< std :: endl;
-    std::cout << "24) void quickSort(Lista_Index &lista);"<< std :: endl;
-    std::cout << "25) void quickSort_insercion(Lista_Index &lista); "<< std :: endl;
-    std::cout << "26) void unionOrdenada(Lista_Index&l1, Lista_Index&l2); "<< std :: endl;
-    std::cout << "27) void unionNoOrdenada(Lista_Index&l1, Lista_Index&l2);"<< std :: endl;
-    std::cout << "28) void interseccion(Lista_Index &l1, Lista_Index &l2, Lista_Index &l3); "<< std :: endl;
-    std::cout << "29) void interseccionOrdenada_v1(Lista_Index &l1, Lista_Index &l2,Lista_Index &l3); "<< std :: endl;
-    std::cout << "30) void interseccionOrdenada_v2(Lista_Index &l1, Lista_Index &l2, Lista_Index &l3);"<< std :: endl;
+    std::cout << "21) void seleccionRecursivo(lista); "<< std :: endl;
+    std::cout << "22) void mergeSort(lista);"<< std :: endl;
+	std::cout << "23) void insercion(lista); "<< std :: endl;
+    std::cout << "24) void quickSort(lista);"<< std :: endl;
+    std::cout << "25) void quickSort_insercion(lista); "<< std :: endl;
+    std::cout << "26) void unionOrdenada(l1, l2); "<< std :: endl;
+    std::cout << "27) void unionNoOrdenada(l1, l2);"<< std :: endl;
+    std::cout << "28) void interseccion(l1, l2, l3); "<< std :: endl;
+    std::cout << "29) void interseccionOrdenada_v1(l1, l2, l3); "<< std :: endl;
+    std::cout << "30) void interseccionOrdenada_v2(l1, l2, l3);"<< std :: endl;
 	std::cout << "31) EXIT" << std::endl;
 	
 	
@@ -463,37 +463,37 @@ void Interfaz :: escogioListaIndexada(Lista_Index miListaIndex){
 			break;
 		case 28:
 			if(tipoDeLista == IndexadaA){
-				misAlgoritmosInd.interseccion(miListaIndexA, miListaIndexB);
+				misAlgoritmosInd.interseccion(miListaIndexA, miListaIndexB, miListaIndexC);
 			}
 			if(tipoDeLista == IndexadaB){
-				misAlgoritmosInd.interseccion(miListaIndexB, miListaIndexC);
+				misAlgoritmosInd.interseccion(miListaIndexB, miListaIndexC, miListaIndexA);
 			}
 			if(tipoDeLista == IndexadaC){
-				misAlgoritmosInd.interseccion(miListaIndexC, miListaIndexA);
+				misAlgoritmosInd.interseccion(miListaIndexC, miListaIndexA, miListaIndexB);
 			}
 			escogioListaIndexada(miListaIndex);
 			break;
 		case 29:
 			if(tipoDeLista == IndexadaA){
-				misAlgoritmosInd.interseccionOrdenada_v1(miListaIndexA, miListaIndexB);
+				misAlgoritmosInd.interseccionOrdenada_v1(miListaIndexA, miListaIndexB, miListaIndexC);
 			}
 			if(tipoDeLista == IndexadaB){
-				misAlgoritmosInd.interseccionOrdenada_v1(miListaIndexB, miListaIndexC);
+				misAlgoritmosInd.interseccionOrdenada_v1(miListaIndexB, miListaIndexC, miListaIndexA);
 			}
 			if(tipoDeLista == IndexadaC){
-				misAlgoritmosInd.interseccionOrdenada_v1(miListaIndexC, miListaIndexA);
+				misAlgoritmosInd.interseccionOrdenada_v1(miListaIndexC, miListaIndexA, miListaIndexB);
 			}
 			escogioListaIndexada(miListaIndex);
 			break;
 		case 30:
 			if(tipoDeLista == IndexadaA){
-				misAlgoritmosInd.interseccionOrdenada_v2(miListaIndexA, miListaIndexB);
+				misAlgoritmosInd.interseccionOrdenada_v2(miListaIndexA, miListaIndexB, miListaIndexC);
 			}
 			if(tipoDeLista == IndexadaB){
-				misAlgoritmosInd.interseccionOrdenada_v2(miListaIndexB, miListaIndexC);
+				misAlgoritmosInd.interseccionOrdenada_v2(miListaIndexB, miListaIndexC, miListaIndexA);
 			}
 			if(tipoDeLista == IndexadaC){
-				misAlgoritmosInd.interseccionOrdenada_v2(miListaIndexC, miListaIndexA);
+				misAlgoritmosInd.interseccionOrdenada_v2(miListaIndexC, miListaIndexA, miListaIndexB);
 			}
 			escogioListaIndexada(miListaIndex);
 			break;
@@ -516,7 +516,7 @@ void Interfaz :: escogioListaPosicionada(){
     bool id_valido = false;  
     cout << "Puede trabajar con 3 listas, para utilizar los algoritmos " << endl; 	
     cout << "los algoritmos que requieren de 1 unica lista solo funcionan con la lista principal" << endl; 
-    cout << "las listas secundarias son para los algoritmos que requiere mas de 1 lista, sin embargo se corren igualemente desde la lista principal" << endl; 
+    cout << "las listas secundarias son para los algoritmos que requiere mas de 1 lista, todos  los algoritmos se corren desde la lista principal, editando anteriormente las listas secundarias y viendo los resultados en las listas correspondientes" << endl; 
     while (!id_valido) {															
 		std::cout << "1) lista del programa \n 2) lista auxiliar 1 \n 3) lista auxiliar 2" << std::endl;  
 		std::cin >> lista_id; 
@@ -550,11 +550,11 @@ void Interfaz :: escogioListaPosicionada(){
     std::cout << "18) Insercion" << std::endl; 
     std::cout << "19) QuickSort" << std::endl; 
     std::cout << "20) mergeSort" << std::endl; 
-    std::cout << "21) UnionOrdenada" << std::endl; 
-    std::cout << "22) UnionNoOrdenada" << std::endl;  
-    std::cout << "23) InterseccionOrdenadaV1" << std::endl; 
-    std::cout << "24) InterseccionNoOrdenadaV2" << std::endl; 
-    std::cout << "25) Interseccion" << std::endl; 
+    std::cout << "21) UnionOrdenada(listaPrincipal, aux_1)" << std::endl; //agrega a l1, los elementos de l2, que no se encuentren en dicha lista. 
+    std::cout << "22) UnionNoOrdenada(listaPrincipal, aux_1)" << std::endl;  // agrega a l1, los elementos de l2, que no se encuentren en dicha lista.  
+    std::cout << "23) InterseccionOrdenadaV1(listaPrincipal, aux_1, aux_2)" << std::endl; //deja en l3 unicamente los elementos que posean en comun las listas l1 y l2. 
+    std::cout << "24) InterseccionNoOrdenadaV2(listaPrincipal, aux_1, aux_2)" << std::endl; //deja en l3 unicamente los elementos que posean en comun las listas l1 y l2. 
+    std::cout << "25) Interseccion" << std::endl; // deja en l3 unicamente los elementos que posean en comun las listas l1 y l2. 
     std::cout << "26) Buscar" << std::endl; 
     std::cout << "27) Invertir" << std::endl; 
     std::cout << "28) Simetrica" << std::endl; 
@@ -1049,7 +1049,7 @@ void Interfaz :: escogioListaPosicionada(){
 	
 	
 	case 24: //dela en l3, la interseccion de l1 y l2. 
-		misAlgoritmosPos.interseccionOrdenada_v2(miListaPos, aux_1, aux_2);	//aún no programado
+		misAlgoritmosPos.interseccionOrdenada_v2(miListaPos, aux_1, aux_2);	//probado y funciona. 
 		escogioListaPosicionada(); 
 	break; 
 	

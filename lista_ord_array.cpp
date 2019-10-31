@@ -43,7 +43,7 @@ void Lista_Ord::vaciar(){
     delete array;
     array = new int[tamanoMaximo];
     numeroElementos = 0;
-    cout <<"La lista ha sido vaciada con exito.\n"<< endl;
+    //cout <<"La lista ha sido vaciada con exito.\n"<< endl;
 }
 
 //Vacía(L) → Bool
@@ -69,25 +69,25 @@ void Lista_Ord::agregar(int elemento){
                 i = numeroElementos;
                 agregue=1;
                 numeroElementos--;
-                cout << "El elemento "<< elemento << " ya esta en la lista.\n"<< endl;                
+                //cout << "El elemento "<< elemento << " ya esta en la lista.\n"<< endl;                
             }
             if(elemento<array[i]){
                 for(int k = numeroElementos;k>i;k--){
                     array[k] = array[k-1];
                 }
                 array[i] = elemento;
-                cout << "Se agrega el elemento "<< elemento << " con exito.\n"<< endl;
+                //cout << "Se agrega el elemento "<< elemento << " con exito.\n"<< endl;
                 agregue=1;
             }
         }
         if(!agregue){
             array[numeroElementos] = elemento;
-            cout << "Se agrega el elemento "<< elemento << " con exito.\n"<< endl;
+            //cout << "Se agrega el elemento "<< elemento << " con exito.\n"<< endl;
         }
         numeroElementos++;
     }
     else{
-        cout << "La lista esta llena; no se pudo agregar el elemento deseado.\n"<< endl;
+        //cout << "La lista esta llena; no se pudo agregar el elemento deseado.\n"<< endl;
     }
 }
 
@@ -102,7 +102,7 @@ void Lista_Ord::borrar(int elemento){
         for(int i=0;i<=numeroElementos && !encontre;i++){
             if(elemento == array[i]){
                 encontre = 1;
-                cout << "Se borra el elemento "<<elemento<<" con exito.\n"<< endl;
+                //cout << "Se borra el elemento "<<elemento<<" con exito.\n"<< endl;
                 array[i] = 0;
                 for(i;i<numeroElementos;i++){
                     array[i] = array[i+1];
@@ -114,11 +114,11 @@ void Lista_Ord::borrar(int elemento){
             numeroElementos--;
         }
         else{
-            cout << "No se pudo borrar el elemento deseado, ya que no estaba en la lista.\n"<< endl;     
+            //cout << "No se pudo borrar el elemento deseado, ya que no estaba en la lista.\n"<< endl;     
         }
     }
     else{
-        cout << "No se pudo borrar el elemento deseado, ya que la lista esta vacia.\n"<< endl;
+        //cout << "No se pudo borrar el elemento deseado, ya que la lista esta vacia.\n"<< endl;
     }
 }
 
@@ -130,7 +130,7 @@ void Lista_Ord::borrar(int elemento){
 int Lista_Ord::primero(){
     int primero = 0;
     if(vacia()){
-        cout << "La lista esta vacia.\n"<< endl;
+        //cout << "La lista esta vacia.\n"<< endl;
         primero = -1;               
     }
     else{
@@ -147,7 +147,7 @@ int Lista_Ord::primero(){
 int Lista_Ord::ultimo(){
     int ultimo = 0;
     if(vacia()){
-        cout << "La lista esta vacia.\n"<< endl;
+        //cout << "La lista esta vacia.\n"<< endl;
         ultimo = -1;
     }
     else{
@@ -170,14 +170,14 @@ int Lista_Ord::siguiente(int elemento){
                 resultado = array[i+1];
             } 
             else{
-                cout << "El elemento deseado es el último en la lista.\n"<< endl; 
+                //cout << "El elemento deseado es el último en la lista.\n"<< endl; 
                 resultado = -1;
             }
             encontro=1;             
         }
     }
     if(!encontro){
-        cout << "El elemento deseado no esta en la lista.\n"<< endl;
+        //cout << "El elemento deseado no esta en la lista.\n"<< endl;
         resultado=-1;
     }
     return resultado;
@@ -197,14 +197,14 @@ int Lista_Ord::anterior(int elemento){
                 resultado = array[i-1];
             }
             else{
-                cout << "El elemento deseado es el primero en la lista.\n"<< endl;
+                //cout << "El elemento deseado es el primero en la lista.\n"<< endl;
                 resultado = -1;
             }
             encontro=1;             
         }
     }
     if(!encontro){
-        cout << "El elemento deseado no esta en la lista.\n"<< endl;
+        //cout << "El elemento deseado no esta en la lista.\n"<< endl;
         resultado=-1;
     }
     return resultado;
