@@ -13,8 +13,8 @@ class Algoritmos_Ordenada{
         void copiar(Lista_Ord &, Lista_Ord &);
         int contenida(Lista_Ord &, Lista_Ord &);
         int pertenece(Lista_Ord &, int elemento);
-        void eliminarElementosRepetidos(Lista_Ord &, Lista_Ord &);
-        void unionListas(Lista_Ord &, Lista_Ord &, Lista_Ord &);
-        void interseccion(Lista_Ord &, Lista_Ord &, Lista_Ord &);
+        void eliminarElementosRepetidos(Lista_Ord &l1, Lista_Ord &l2);
+        Lista_Ord unionListas(Lista_Ord &l1, Lista_Ord &l2);
+        Lista_Ord interseccion(Lista_Ord &l1, Lista_Ord &l2);
 };
 #endif
