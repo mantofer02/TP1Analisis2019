@@ -380,11 +380,11 @@ void Interfaz :: escogioListaPosicionada(){
     std::cout << "18) Insercion" << std::endl; 
     std::cout << "19) QuickSort" << std::endl; 
     std::cout << "20) mergeSort" << std::endl; 
-    std::cout << "21) UnionOrdenada" << std::endl; 
-    std::cout << "22) UnionNoOrdenada" << std::endl;  
-    std::cout << "23) InterseccionOrdenadaV1" << std::endl; 
-    std::cout << "24) InterseccionNoOrdenadaV2" << std::endl; 
-    std::cout << "25) Interseccion" << std::endl; 
+    std::cout << "21) UnionOrdenada" << std::endl; //agrega a l1, los elementos de l2, que no se encuentren en dicha lista. 
+    std::cout << "22) UnionNoOrdenada" << std::endl;  // agrega a l1, los elementos de l2, que no se encuentren en dicha lista.  
+    std::cout << "23) InterseccionOrdenadaV1" << std::endl; //deja en l3 unicamente los elementos que posean en comun las listas l1 y l2. 
+    std::cout << "24) InterseccionNoOrdenadaV2" << std::endl; //deja en l3 unicamente los elementos que posean en comun las listas l1 y l2. 
+    std::cout << "25) Interseccion" << std::endl; // deja en l3 unicamente los elementos que posean en comun las listas l1 y l2. 
     std::cout << "26) Buscar" << std::endl; 
     std::cout << "27) Invertir" << std::endl; 
     std::cout << "28) Simetrica" << std::endl; 
