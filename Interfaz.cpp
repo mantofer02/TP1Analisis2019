@@ -232,7 +232,7 @@ void Interfaz :: escogioListaOrdenada(Lista_Ord miListaOrdena, int tipoDeLista){
 	}
 }
 
-void Interfaz :: escogioListaIndexada( Lista_Index miListaIndex){
+void Interfaz :: escogioListaIndexada(Lista_Index miListaIndex){
     
     int operacion = 0;
     
@@ -248,7 +248,34 @@ void Interfaz :: escogioListaIndexada( Lista_Index miListaIndex){
     std::cout << "10) numElem()" << std::endl;
     std::cout << "11) imprimirLista()" << std::endl;
     std::cout << "12) EXIT" << std::endl;
-    std::cin >> operacion;
+    /*
+	
+	std::cout << "12) int simetrica(Lista_Index &lista); "<< std :: endl;
+    std::cout << "13) void invertir(Lista_Index &lista); "<< std :: endl;
+    std::cout << "14)  int buscar(Lista_Index &lista, int);"<< std :: endl;
+    std::cout << "15) void eliminarRepetidos(Lista_Index &lista);"<< std :: endl;
+    std::cout << "16) int subLista(Lista_Index &listaA, Lista_Index &listaB );"<< std :: endl;
+    std::cout << "17) void burbuja(Lista_Index &lista);"<< std :: endl;
+    std::cout << "18) void burbujaBidireccional(Lista_Index &lista);"<< std :: endl;
+    std::cout << "19) void seleccion(Lista_Index &lista);"<< std :: endl;
+    std::cout << "20) void listar(Lista_Index &lista);"<< std :: endl;
+    std::cout << "21) void seleccionRecursivo(Lista_Index &lista); "<< std :: endl;
+    std::cout << "22) void mergeSort(Lista_Index &lista);"<< std :: endl;
+	std::cout << "23) void insercion(Lista_Index &lista); "<< std :: endl;
+    std::cout << "24) void quickSort(Lista_Index &lista);"<< std :: endl;
+    std::cout << "25) void quickSort_insercion(Lista_Index &lista); "<< std :: endl;
+    std::cout << "26) void unionOrdenada(Lista_Index&l1, Lista_Index&l2); "<< std :: endl;
+    std::cout << "27) void unionNoOrdenada(Lista_Index&l1, Lista_Index&l2);"<< std :: endl;
+    std::cout << "28) void interseccion(Lista_Index &l1, Lista_Index &l2, Lista_Index &l3); "<< std :: endl;
+    std::cout << "29) void interseccionOrdenada_v1(Lista_Index &l1, Lista_Index &l2,Lista_Index &l3); "<< std :: endl;
+    std::cout << "30) void interseccionOrdenada_v2(Lista_Index &l1, Lista_Index &l2, Lista_Index &l3);"<< std :: endl;
+	
+	"<< std :: endl;
+	*/
+	
+	
+	
+	std::cin >> operacion;
     int parametro1 = 0;
     int parametro2 = 0;
     switch (operacion){
