@@ -126,7 +126,7 @@ void Lista_Pos::modificar(int posicion, int valor) {		//requiere que la posicion
 
 
 int Lista_Pos::siguiente(int posicion){	
-    if (posicion < this->numero_elementos) {			//si es una posicion valida. 
+    if (posicion < this->numero_elementos-1) {			//si es una posicion valida. 
 		return posicion+1; 
     }
 	 else {
