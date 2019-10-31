@@ -568,7 +568,7 @@ void Interfaz :: escogioListaPosicionada(){
     std::cout << "28) Simetrica" << std::endl; 
     std::cout << "29) QuickSort_Insercion" << std::endl; 
     std::cout << "30) Eliminar Repetidos" << std::endl; 
-    std::cout << "31) Sublista" << std::endl; 
+    std::cout << "31) Sublista(listaPrincipal, aux_1)" << std::endl; 
     std::cout << "32) burbujaBidireccional" << std::endl; 
     std::cout << "14) EXIT" << std::endl; 
     std::cin >>option; 
