@@ -526,7 +526,7 @@ void Interfaz :: escogioListaPosicionada(){
     std::cout << "----------------------------------------------------------------" << std::endl; 
     while (!id_valido) {		
 															
-		std::cout << "1) lista del programa \n 2) lista auxiliar 1 \n 3) lista auxiliar 2" << std::endl;  
+		std::cout << " 1) lista del programa \n 2) lista auxiliar 1 \n 3) lista auxiliar 2" << std::endl;  
 		std::cin >> lista_id; 
 		if ( 0 < lista_id < 4) {
 			id_valido = true; 
