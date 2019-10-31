@@ -1,7 +1,7 @@
 #include "algoritmos_lista_ord.h"
 
-Algoritmos_Ordenada::Algoritmos_Ordenada(Lista_Ord & lista){
-    this->lista = lista;
+Algoritmos_Ordenada::Algoritmos_Ordenada(/*Lista_Ord & lista*/){
+    // this->lista = lista;
 }
 
 //

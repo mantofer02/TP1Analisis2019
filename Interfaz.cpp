@@ -28,17 +28,27 @@ void Interfaz :: menu(){
     cin >> tipoDeLista;
     if(tipoDeLista == OrdenadaA)
         cout << "---------------------------------------------" << endl;
-		cout << "                LISTA ORDENADA A           " << endl;
+		cout << "                LISTA ORDENADA A             " << endl;
 		escogioListaOrdenada(miListaOrdenadaA);
 	if(tipoDeLista == OrdenadaB)
+		cout << "---------------------------------------------" << endl;
+		cout << "                LISTA ORDENADA B             " << endl;
 		escogioListaOrdenada(miListaOrdenadaB);
     if(tipoDeLista == IndexadaA)
-        escogioListaIndexada(miListaIndexA);
+        cout << "---------------------------------------------" << endl;
+		cout << "                LISTA INDEXADA A             " << endl;
+		escogioListaIndexada(miListaIndexA);
 	if(tipoDeLista == IndexadaB)
+		cout << "---------------------------------------------" << endl;
+		cout << "                LISTA INDEXADA B             " << endl;
         escogioListaIndexada(miListaIndexB);
 	if(tipoDeLista == IndexadaC)
+		cout << "---------------------------------------------" << endl;
+		cout << "                LISTA INDEXADA C             " << endl;
         escogioListaIndexada(miListaIndexC);
     if(tipoDeLista == Posicionada)
+		cout << "---------------------------------------------" << endl;
+		cout << "                LISTA POSICIONADA A             " << endl;
         escogioListaPosicionada();
 }
 
@@ -712,36 +722,36 @@ void Interfaz :: escogioListaPosicionada(){
 	
 	
 	case 15: 
-		algoritmos.burbuja(miListaPos); 			//probado y funciona
+		misAlgoritmosPos.burbuja(miListaPos); 			//probado y funciona
 		escogioListaPosicionada(); 
 	
 	break; 
 	
 	case 16: 
-		 algoritmos.seleccion(miListaPos);					//probado y funciona. 
+		 misAlgoritmosPos.seleccion(miListaPos);					//probado y funciona. 
 		escogioListaPosicionada();  
 	break; 
 	
 	case 17: 
-		 algoritmos.seleccionRecursivo(miListaPos, miListaPos.primera()); 	//probado y funciona
+		misAlgoritmosPos.seleccionRecursivo(miListaPos, miListaPos.primera()); 	//probado y funciona
 		escogioListaPosicionada(); 
 	
 	break; 
 	
 	case 18: 
-		 algoritmos.insercion(miListaPos);		//probado y funciona. 
+		misAlgoritmosPos.insercion(miListaPos);		//probado y funciona. 
 		escogioListaPosicionada();  
 	
 	break; 
 	
 	case 19: 
-		algoritmos.quickSort(miListaPos);		//probado y funciona
+		misAlgoritmosPos.quickSort(miListaPos);		//probado y funciona
 		escogioListaPosicionada();  
 	
 	break; 
 	
 	case 20: 
-		algoritmos.mergeSort(miListaPos);		//probado y funciona
+		misAlgoritmosPos.mergeSort(miListaPos);		//probado y funciona
 		escogioListaPosicionada();  
 	
 	break; 
@@ -749,33 +759,33 @@ void Interfaz :: escogioListaPosicionada(){
 	
 	case 21: //le agrega a l1, los elementos de l2, sin que en l1 queden elementos repetidos. 
 			//requiere l1 y l2 ordenadas sin elementos repetidos. 
-		algoritmos.unionOrdenada(miListaPos, aux_1);	//probado y funciona.
+		misAlgoritmosPos.unionOrdenada(miListaPos, aux_1);	//probado y funciona.
 		escogioListaPosicionada(); 
 	break; 
 	
 	
 	case 22: //requiere que l1 y l2 no tenga elementos repetidos. el orden no importa. 
-		algoritmos.unionNoOrdenada(miListaPos, aux_1); //probado y funciona
+		misAlgoritmosPos.unionNoOrdenada(miListaPos, aux_1); //probado y funciona
 		escogioListaPosicionada(); 
 	
 	break; 
 	
 	case 23: //deja en l3, la interseccion de l1 y l2, 
 			//si l3 poseía valores anteriormente se borran. 
-		algoritmos.interseccionOrdenada_v1(miListaPos, aux_1, aux_2); // probado y funciona. 
+		misAlgoritmosPos.interseccionOrdenada_v1(miListaPos, aux_1, aux_2); // probado y funciona. 
 		escogioListaPosicionada(); 
 	break; 
 	
 	
 	
 	case 24: //dela en l3, la interseccion de l1 y l2. 
-		algoritmos.interseccionOrdenada_v2(miListaPos, aux_1, aux_2);	//aún no programado
+		misAlgoritmosPos.interseccionOrdenada_v2(miListaPos, aux_1, aux_2);	//aún no programado
 		escogioListaPosicionada(); 
 	break; 
 	
 	
 	case 25: //deja en l3, la interseccion de l1, y l2, requiere que no posean elementos repetidos. 
-		algoritmos.interseccion(miListaPos, aux_1, aux_2);	//probado y funciona. 
+		misAlgoritmosPos.interseccion(miListaPos, aux_1, aux_2);	//probado y funciona. 
 		escogioListaPosicionada(); 
 	break; 
 	
@@ -790,16 +800,16 @@ void Interfaz :: escogioListaPosicionada(){
 					switch(lista_id) {
 						
 						case 1: 
-						esta = algoritmos.buscar(miListaPos, value); 	    
+						esta = misAlgoritmosPos.buscar(miListaPos, value); 	    
 						break; 
 						
 						
 						case 2: 
-						esta = algoritmos.buscar(aux_1, value);			
+						esta = misAlgoritmosPos.buscar(aux_1, value);			
 						break; 
 						
 						case 3: 
-						esta = algoritmos.buscar(aux_2, value); 
+						esta = misAlgoritmosPos.buscar(aux_2, value); 
 						break; 
 					
 					
@@ -828,17 +838,17 @@ void Interfaz :: escogioListaPosicionada(){
 	switch(lista_id) {
 		
 		case 1:
-		algoritmos.invertir(miListaPos); 
+		misAlgoritmosPos.invertir(miListaPos); 
 		escogioListaPosicionada(); 
 		break; 
  
 		case 2:
-		algoritmos.invertir(aux_1);		
+		misAlgoritmosPos.invertir(aux_1);		
 		escogioListaPosicionada(); 
 		break; 
 		
 		case 3:
-		algoritmos.invertir(aux_2); 
+		misAlgoritmosPos.invertir(aux_2); 
 		escogioListaPosicionada(); 
 		break; 
 		
@@ -858,17 +868,17 @@ void Interfaz :: escogioListaPosicionada(){
 	
 	switch(lista_id) {		
 			case 1:
-			option = algoritmos.simetrica(miListaPos); 
+			option = misAlgoritmosPos.simetrica(miListaPos); 
 			break; 
 			
 			
 			case 2:
-			option = algoritmos.simetrica(aux_1); 
+			option = misAlgoritmosPos.simetrica(aux_1); 
 			break; 
 			
 			
 			case 3: 
-			option = algoritmos.simetrica(aux_2); 
+			option = misAlgoritmosPos.simetrica(aux_2); 
 			break; 	
 					
 	}
@@ -889,19 +899,19 @@ void Interfaz :: escogioListaPosicionada(){
 	
 	
 	case 29: 
-		algoritmos.quickSort_insercion(miListaPos); 
+		misAlgoritmosPos.quickSort_insercion(miListaPos); 
 		escogioListaPosicionada(); 
 	break; 
 	
 	
 	case 30: 
-		algoritmos.eliminarRepetidos(miListaPos); 
+		misAlgoritmosPos.eliminarRepetidos(miListaPos); 
 		escogioListaPosicionada(); 
 	break; 
 	
 	
 	case 31:
-		if(algoritmos.subLista(miListaPos, aux_1)) {
+		if(misAlgoritmosPos.subLista(miListaPos, aux_1)) {
 			cout << "si esta contenida" << endl; 
 		} 
 		else {
@@ -914,7 +924,7 @@ void Interfaz :: escogioListaPosicionada(){
 	
 	
 	case 32: 
-		algoritmos.burbujaBidireccional(miListaPos);
+		misAlgoritmosPos.burbujaBidireccional(miListaPos);
 		escogioListaPosicionada();  
 	
 	

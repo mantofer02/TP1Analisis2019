@@ -5,9 +5,9 @@
 
 class Algoritmos_Ordenada{
     private:
-        Lista_Ord lista;
+        // Lista_Ord lista;
     public:
-        Algoritmos_Ordenada(Lista_Ord &);
+        Algoritmos_Ordenada();
         void listar(Lista_Ord &);
         int iguales(Lista_Ord &, Lista_Ord &);
         void copiar(Lista_Ord &, Lista_Ord &);
