@@ -12,233 +12,307 @@ Interfaz :: Interfaz(){
   //  miListaPos = new Lista_Pos();
     miListaPos.iniciar();
     tipoDeLista = 0;
-    cout << "Bienvenido " << endl;
+    std::cout << "Bienvenido " << std::endl;
     menu();
 }
 
 void Interfaz :: menu(){
-    cout << "Digite :" << endl;
-    cout << "1: Si desea el menu de lista OrdenadaA" << endl;
-    cout << "2: Si desea el menu de lista OrdenadaB" << endl;
-    cout << "3: Si desea el menu de lista Posicionada" << endl;
-	cout << "4: Si desea el menu de lista IndexadaA" << endl;
-	cout << "5: Si desea el menu de lista IndexadaB" << endl;
-	cout << "6: Si desea el menu de lista IndexadaC" << endl;
-    cout << "7: Exit" << endl;
-    cin >> tipoDeLista;
+    std::cout << "Digite :" << std::endl;
+    std::cout << "1: Si desea el menu de lista OrdenadaA" << std::endl;
+    std::cout << "2: Si desea el menu de lista OrdenadaB" << std::endl;
+    std::cout << "3: Si desea el menu de lista Posicionada" << std::endl;
+	std::cout << "4: Si desea el menu de lista IndexadaA" << std::endl;
+	std::cout << "5: Si desea el menu de lista IndexadaB" << std::endl;
+	std::cout << "6: Si desea el menu de lista IndexadaC" << std::endl;
+    std::cout << "7: Exit" << std::endl;
+    std::cin >> tipoDeLista;
     if(tipoDeLista == OrdenadaA)
-        cout << "---------------------------------------------" << endl;
-		cout << "                LISTA ORDENADA A             " << endl;
+        std::cout << "---------------------------------------------" << std::endl;
+		std::cout << "                LISTA ORDENADA A             " << std::endl;
 		escogioListaOrdenada(miListaOrdenadaA);
 	if(tipoDeLista == OrdenadaB)
-		cout << "---------------------------------------------" << endl;
-		cout << "                LISTA ORDENADA B             " << endl;
+		std::cout << "---------------------------------------------" << std::endl;
+		std::cout << "                LISTA ORDENADA B             " << std::endl;
 		escogioListaOrdenada(miListaOrdenadaB);
     if(tipoDeLista == IndexadaA)
-        cout << "---------------------------------------------" << endl;
-		cout << "                LISTA INDEXADA A             " << endl;
+        std::cout << "---------------------------------------------" << std::endl;
+		std::cout << "                LISTA INDEXADA A             " << std::endl;
 		escogioListaIndexada(miListaIndexA);
 	if(tipoDeLista == IndexadaB)
-		cout << "---------------------------------------------" << endl;
-		cout << "                LISTA INDEXADA B             " << endl;
+		std::cout << "---------------------------------------------" << std::endl;
+		std::cout << "                LISTA INDEXADA B             " << std::endl;
         escogioListaIndexada(miListaIndexB);
 	if(tipoDeLista == IndexadaC)
-		cout << "---------------------------------------------" << endl;
-		cout << "                LISTA INDEXADA C             " << endl;
+		std::cout << "---------------------------------------------" << std::endl;
+		std::cout << "                LISTA INDEXADA C             " << std::endl;
         escogioListaIndexada(miListaIndexC);
     if(tipoDeLista == Posicionada)
-		cout << "---------------------------------------------" << endl;
-		cout << "                LISTA POSICIONADA A             " << endl;
+		std::cout << "---------------------------------------------" << std::endl;
+		std::cout << "                LISTA POSICIONADA A             " << std::endl;
         escogioListaPosicionada();
 }
 
 void Interfaz :: escogioListaOrdenada(Lista_Ord miListaOrdena){
     int operacion = 0;
-    cout << "Menu lista Ordenada" << endl;
-    cout << "1) iniciar();" << endl;
-    cout << "2) destruir();" << endl;
-    cout << "3) vaciar();" << endl;
-    cout << "4) vacia();" << endl; 
-    cout << "5) agregar(int)" << endl;
-    cout << "6) borrar(int)" << endl;
-    cout << "7) primero()" << endl;
-    cout << "8) ultimo()" << endl;
-    cout << "9) siguiente(int)" << endl;
-    cout << "10) anterior(int)" << endl;
-    cout << "11) numElem()" << endl;
-    cout << "12) imprimirLista()" << endl;
-    cout << "13) EXIT" << endl;
-    cin >> operacion;
+    std::cout << "Menu lista Ordenada" << std::endl;
+    std::cout << "1) iniciar();" << std::endl;
+    std::cout << "2) destruir();" << std::endl;
+    std::cout << "3) vaciar();" << std::endl;
+    std::cout << "4) vacia();" << std::endl; 
+    std::cout << "5) agregar(int)" << std::endl;
+    std::cout << "6) borrar(int)" << std::endl;
+    std::cout << "7) primero()" << std::endl;
+    std::cout << "8) ultimo()" << std::endl;
+    std::cout << "9) siguiente(int)" << std::endl;
+    std::cout << "10) anterior(int)" << std::endl;
+    std::cout << "11) numElem()" << std::endl;
+    std::cout << "12) imprimirLista()" << std::endl;
+    std::cout << std::endl;
+	std::cout << "----------------------------" << std::endl;
+	std::cout << "         Algoritmos         " << std::endl;
+    std::cout << "----------------------------" << std::endl;
+	std::cout << std::endl;
+	std::cout << "13) iguales(ListaOrdA, ListaOrdB)" << std::endl;
+	std::cout << "14) copiar(lista, laOtraLista)" << std::endl;
+	std::cout << "15) contenida(listaActual, laOtraLista)" << std::endl;
+	std::cout << "16) pertenece(listaActual, laOtraLista)" << std::endl;
+	std::cout << "17) eliminarElementosRepetidos(listaActual, otraLista)" << std::endl;
+	std::cout << "18) unionListas(listaActual, laOtraLista)" << std::endl;
+	std::cout << "19) interseccion(listaActual, laOtraLista)" << std::endl;
+	std::cout << "20) EXIT" << std::endl;
+    std::cin >> operacion;
     int parametro = 0;
     switch (operacion){
         case 1:
-            cout << "Se inicio la lista" << endl;
+            std::cout << "Se inicio la lista" << std::endl;
             miListaOrdena.iniciar();
             escogioListaOrdenada(miListaOrdena);
             break;
         case 2:
-            cout << "Se va a destruir la lista ordenada" << endl;
+            std::cout << "Se va a destruir la lista ordenada" << std::endl;
             miListaOrdena.destruir();
             escogioListaOrdenada(miListaOrdena);
             break;
         case 3: 
-            cout << "Se va a vaciar la lista ordenada" << endl;
+            std::cout << "Se va a vaciar la lista ordenada" << std::endl;
             miListaOrdena.vaciar();
             escogioListaOrdenada(miListaOrdena);
             break;
         case 4:
             if(miListaOrdena.vacia()){
-            cout << "Esta Vacia" << endl;
+            std::cout << "Esta Vacia" << std::endl;
             }else{
-                cout << "No esta vacia" << endl;
+                std::cout << "No esta vacia" << std::endl;
             }
             escogioListaOrdenada(miListaOrdena);
             break;
         case 5:
-            cout << "Digite el elmento que desea agregar" << endl;
-            cin >> parametro;
+            std::cout << "Digite el elmento que desea agregar" << std::endl;
+            std::cin >> parametro;
             miListaOrdena.agregar(parametro);
             escogioListaOrdenada(miListaOrdena);
             break;
         case 6:
-            cout << "Digite el elemento que desea borrar de la lista " << endl;
-            cin >> parametro;
+            std::cout << "Digite el elemento que desea borrar de la lista " << std::endl;
+            std::cin >> parametro;
             miListaOrdena.borrar(parametro);
             escogioListaOrdenada(miListaOrdena);
             break;
         case 7:
-            cout << "Este es el primer elemento : " << miListaOrdena.primero() << endl;
+            std::cout << "Este es el primer elemento : " << miListaOrdena.primero() << std::endl;
             escogioListaOrdenada(miListaOrdena);
             break;
         case 8:
-            cout << "Este es el ultimo elemento : " << miListaOrdena.ultimo() << endl;
+            std::cout << "Este es el ultimo elemento : " << miListaOrdena.ultimo() << std::endl;
             escogioListaOrdenada(miListaOrdena);
             break;
         case 9:
-            cout << "Inserte un elemento " << endl;
-            cin >> parametro;
-            cout << "Este es el siguiente --->" << miListaOrdena.siguiente(parametro) << endl;
+            std::cout << "Inserte un elemento " << std::endl;
+            std::cin >> parametro;
+            std::cout << "Este es el siguiente --->" << miListaOrdena.siguiente(parametro) << std::endl;
             escogioListaOrdenada(miListaOrdena);
             break;
         case 10:
-            cout << "Inserte un elemento " << endl;
-            cin >> parametro;
-            cout << "Este es el anterior ---> " << miListaOrdena.anterior(parametro) << endl;
+            std::cout << "Inserte un elemento " << std::endl;
+            std::cin >> parametro;
+            std::cout << "Este es el anterior ---> " << miListaOrdena.anterior(parametro) << std::endl;
             escogioListaOrdenada(miListaOrdena);
             break;
         case 11:
-            cout << "Hay " << miListaOrdena.numElem() << "elementos en la lista." << endl;
+            std::cout << "Hay " << miListaOrdena.numElem() << "elementos en la lista." << std::endl;
             escogioListaOrdenada(miListaOrdena);
             break;
         
         case 12:
-            cout << "------------------------" << endl;
+            std::cout << "------------------------" << std::endl;
             miListaOrdena.imprimir();
-            cout << "------------------------" << endl;
+            std::cout << "------------------------" << std::endl;
+			escogioListaOrdenada(miListaOrdena);
+			break;
         case 13:
-            menu();
+            int resultado = misAlgoritmosOrd.iguales(miListaOrdenadaA, miListaOrdenadaB);
+			if(resultado)
+				std::cout << "Son Iguales" << std::endl;
+			else{
+				std::cout << "No son iguales" << std::endl;
+			}
+			escogioListaOrdenada(miListaOrdena);
             break;
-      }
+		case 14:
+			if(tipoDeLista == OrdenadaA){
+				misAlgoritmosOrd.copiar(miListaOrdena, miListaOrdenadaB);
+			}else{
+				misAlgoritmosOrd.copiar(miListaOrdena, miListaOrdenadaA);
+			}
+			escogioListaOrdenada(miListaOrdena);
+			break;
+		case 15:
+			int resultado = 0;
+			if(tipoDeLista == OrdenadaA){
+				resultado = misAlgoritmosOrd.contenida(miListaOrdena, miListaOrdenadaB);
+			}else{
+				resultado = misAlgoritmosOrd.contenida(miListaOrdena, miListaOrdenadaA);
+			}
+			if(resultado)
+				std::cout << "Esta Lista esta contenida en la segunda" << std::endl;
+			else{
+				std::cout << "No esta contenida" << std::endl;
+			}
+			escogioListaOrdenada(miListaOrdena);
+			break;
+		case 16:
+			int resultado = 0;
+			int elementoBuscado; 
+			std::cout << "Escriba elmento" << std::endl;
+			std::cin >> elementoBuscado;
+			if(tipoDeLista == OrdenadaA){
+				resultado = misAlgoritmosOrd.pertenece(miListaOrdena, elementoBuscado);
+	
+			if(resultado)
+				std::cout << "Esta Lista esta" << std::endl;
+			else{
+				std::cout << "No esta contenida" << std::endl;
+			}
+			escogioListaOrdenada(miListaOrdena);
+			break;
+		case 17:
+			if(tipoDeLista == OrdenadaA){
+				misAlgoritmosOrd.contenida(miListaOrdena, miListaOrdenadaB);
+			}else{
+				resultado = misAlgoritmosOrd.contenida(miListaOrdena, miListaOrdenadaA);
+			}
+			if(resultado)
+				std::cout << "Esta Lista esta contenida en la segunda" << std::endl;
+			else{
+				std::cout << "No esta contenida" << std::endl;
+			}
+			escogioListaOrdenada(miListaOrdena);
+			break;
+		case 18:
+			misAlgoritmosOrd.unionListas(miListaOrdenadaA, miListaOrdenadaB);
+			escogioListaOrdenada(miListaOrdena);
+			break;
+	}
 }
 
 void Interfaz :: escogioListaIndexada( Lista_Index miListaIndex){
     
     int operacion = 0;
     
-    cout << "1) iniciar();" << endl;
-    cout << "2) destruir();" << endl;
-    cout << "3) vaciar();" << endl;
-    cout << "4) vacia();" << endl; 
-    cout << "5) agregar(int , int)" << endl;
-    cout << "6) borrar(int)" << endl;
-    cout << "7) recuperar(int)" << endl;
-    cout << "8) modificarElemento(int, int)" << endl;
-    cout << "9) intercambiar(int,int)" << endl;
-    cout << "10) numElem()" << endl;
-    cout << "11) imprimirLista()" << endl;
-    cout << "12) EXIT" << endl;
-    cin >> operacion;
+    std::cout << "1) iniciar();" << std::endl;
+    std::cout << "2) destruir();" << std::endl;
+    std::cout << "3) vaciar();" << std::endl;
+    std::cout << "4) vacia();" << std::endl; 
+    std::cout << "5) agregar(int , int)" << std::endl;
+    std::cout << "6) borrar(int)" << std::endl;
+    std::cout << "7) recuperar(int)" << std::endl;
+    std::cout << "8) modificarElemento(int, int)" << std::endl;
+    std::cout << "9) intercambiar(int,int)" << std::endl;
+    std::cout << "10) numElem()" << std::endl;
+    std::cout << "11) imprimirLista()" << std::endl;
+    std::cout << "12) EXIT" << std::endl;
+    std::cin >> operacion;
     int parametro1 = 0;
     int parametro2 = 0;
     switch (operacion){
         case 1:
-            cout << "Se inicio la lista" << endl;
+            std::cout << "Se inicio la lista" << std::endl;
             miListaIndex.iniciar();
             escogioListaIndexada(miListaIndex);
             break;
         case 2:
-            cout << "Se va a destruir la lista indexada" << endl;
+            std::cout << "Se va a destruir la lista indexada" << std::endl;
             miListaIndex.destruir();
             escogioListaIndexada(miListaIndex);
             break;
         case 3: 
-            cout << "Se va a vaciar la lista indexada" << endl;
+            std::cout << "Se va a vaciar la lista indexada" << std::endl;
             miListaIndex.vaciar();
             escogioListaIndexada(miListaIndex);
             break;
         case 4:
             if(miListaIndex.vacia() == true){
-            cout << "Esta Vacia" << endl;
+            std::cout << "Esta Vacia" << std::endl;
             }else{
-                cout << "No esta vacia" << endl;
+                std::cout << "No esta vacia" << std::endl;
             }
             escogioListaIndexada(miListaIndex);
             break;
         case 5:
-			cout << "Digite el indice donde desea agregar el elemento " << endl; 
-			cin >> parametro2; 
-            cout << "Digite el elemento que desea insertar" << endl;
-            cin >> parametro1;
+			std::cout << "Digite el indice donde desea agregar el elemento " << std::endl; 
+			std::cin >> parametro2; 
+            std::cout << "Digite el elemento que desea insertar" << std::endl;
+            std::cin >> parametro1;
             miListaIndex.agregar(parametro2, parametro1);
             escogioListaIndexada(miListaIndex);
             break;
         case 6:
-            cout << "Digite el indice del elemento que desea borrar de la lista " << endl;
-            cin >> parametro1;
+            std::cout << "Digite el indice del elemento que desea borrar de la lista " << std::endl;
+            std::cin >> parametro1;
             miListaIndex.borrar(parametro1);
             escogioListaIndexada(miListaIndex);
             break;
         case 7:
-            cout << "¿Que indice desea ver ?" << endl;
-            cin >> parametro1;
+            std::cout << "¿Que indice desea ver ?" << std::endl;
+            std::cin >> parametro1;
             if(miListaIndex.recuperar(parametro1) < 1){
-                cout << "Este indice no posee elemento" << endl;
+                std::cout << "Este indice no posee elemento" << std::endl;
             }else{
-                cout << "Indice : " << parametro1 << "Elemento :" << miListaIndex.recuperar(parametro1) << endl; 
+                std::cout << "Indice : " << parametro1 << "Elemento :" << miListaIndex.recuperar(parametro1) << std::endl; 
             }
             escogioListaIndexada(miListaIndex);
             break;
         case 8:
-            cout << "Digite un indice para la lista indexada" << endl;
-            cin >> parametro1;
-            cout << "Digite el elemento que desea modificar" << endl;
-            cin >> parametro2;
+            std::cout << "Digite un indice para la lista indexada" << std::endl;
+            std::cin >> parametro1;
+            std::cout << "Digite el elemento que desea modificar" << std::endl;
+            std::cin >> parametro2;
             miListaIndex.modificar(parametro1, parametro2);
             escogioListaIndexada(miListaIndex);
             break;
         case 9:
-            cout << "1er Indice : " << endl;
-            cin >> parametro1;
-            cout << "2ndo Indice : " << endl;
-            cin >> parametro2;
+            std::cout << "1er Indice : " << std::endl;
+            std::cin >> parametro1;
+            std::cout << "2ndo Indice : " << std::endl;
+            std::cin >> parametro2;
             miListaIndex.intercambiar(parametro1, parametro2);
             escogioListaIndexada(miListaIndex);
             break;
         case 10:
-            cout << "Hay " << miListaIndex.numElem() << "elementos en la lista." << endl;
+            std::cout << "Hay " << miListaIndex.numElem() << "elementos en la lista." << std::endl;
             escogioListaIndexada(miListaIndex);
             break;
         case 11:
-            cout << "------------------------" << endl;
+            std::cout << "------------------------" << std::endl;
             miListaIndex.imprimirLista();
-            cout << "------------------------" << endl;
+            std::cout << "------------------------" << std::endl;
             escogioListaIndexada(miListaIndex);
             break;
         case 12:
             menu();
             break;    
         default: 
-            cout << "La opcion seleccionada no es valida" << endl; 
+            std::cout << "La opcion seleccionada no es valida" << std::endl; 
             escogioListaIndexada(miListaIndex); 	
             break; 
         }
@@ -251,58 +325,58 @@ void Interfaz :: escogioListaPosicionada(){
     int lista_id = -1;
     int esta = 0; 
     bool id_valido = false;  
-    cout << "Puede trabajar con 3 listas, para utilizar los algoritmos " << endl; 	
+    std::cout << "Puede trabajar con 3 listas, para utilizar los algoritmos " << std::endl; 	
     while (!id_valido) {															
-		cout << "1) lista del programa \n 2) lista auxiliar 1 \n 3) lista auxiliar 2" << endl;  
-		cin >> lista_id; 
+		std::cout << "1) lista del programa \n 2) lista auxiliar 1 \n 3) lista auxiliar 2" << std::endl;  
+		std::cin >> lista_id; 
 		if ( 0 < lista_id < 4) {
 			id_valido = true; 
 		}
 	}
     
-    cout <<"Menu de la Lista Posicionada" << endl;
-    cout << "1) agregar(int , int)" << endl;	
-    cout << "2) borrar(int)" << endl;
-    cout << "3) modificarElemento(int, int)" << endl;
-    cout << "4) recuperar(int)" << endl;	
-    cout << "5) siguiente(int)" << endl; 
-    cout << "6) anterior(int)" << endl; 
-    cout << "7) primero()" << endl; 
-    cout << "8) ultimo()" << endl;  
-    cout << "9) iniciar();" << endl;	
-    cout << "10) vaciar();" << endl;		    	
-    cout << "11) destruir();" << endl;		
-    cout << "12) imprimirLista()" << endl;
-    cout << "13) agregarAlFinal()" << endl;				 
-    cout << "15) Burbuja" << endl;  
-    cout << "16) Seleccion" << endl; 
-    cout << "17) Seleccion recursivo" << endl;
-    cout << "18) Insercion" << endl; 
-    cout << "19) QuickSort" << endl; 
-    cout << "20) mergeSort" << endl; 
-    cout << "21) UnionOrdenada" << endl; 
-    cout << "22) UnionNoOrdenada" << endl;  
-    cout << "23) InterseccionOrdenadaV1" << endl; 
-    cout << "24) InterseccionNoOrdenadaV2" << endl; 
-    cout << "25) Interseccion" << endl; 
-    cout << "26) Buscar" << endl; 
-    cout << "27) Invertir" << endl; 
-    cout << "28) Simetrica" << endl; 
-    cout << "29) QuickSort_Insercion" << endl; 
-    cout << "30) Eliminar Repetidos" << endl; 
-    cout << "31) Sublista" << endl; 
-    cout << "32) burbujaBidireccional" << endl; 
-    cout << "14) EXIT" << endl; 
-    cin >>option; 
+    std::cout <<"Menu de la Lista Posicionada" << std::endl;
+    std::cout << "1) agregar(int , int)" << std::endl;	
+    std::cout << "2) borrar(int)" << std::endl;
+    std::cout << "3) modificarElemento(int, int)" << std::endl;
+    std::cout << "4) recuperar(int)" << std::endl;	
+    std::cout << "5) siguiente(int)" << std::endl; 
+    std::cout << "6) anterior(int)" << std::endl; 
+    std::cout << "7) primero()" << std::endl; 
+    std::cout << "8) ultimo()" << std::endl;  
+    std::cout << "9) iniciar();" << std::endl;	
+    std::cout << "10) vaciar();" << std::endl;		    	
+    std::cout << "11) destruir();" << std::endl;		
+    std::cout << "12) imprimirLista()" << std::endl;
+    std::cout << "13) agregarAlFinal()" << std::endl;				 
+    std::cout << "15) Burbuja" << std::endl;  
+    std::cout << "16) Seleccion" << std::endl; 
+    std::cout << "17) Seleccion recursivo" << std::endl;
+    std::cout << "18) Insercion" << std::endl; 
+    std::cout << "19) QuickSort" << std::endl; 
+    std::cout << "20) mergeSort" << std::endl; 
+    std::cout << "21) UnionOrdenada" << std::endl; 
+    std::cout << "22) UnionNoOrdenada" << std::endl;  
+    std::cout << "23) InterseccionOrdenadaV1" << std::endl; 
+    std::cout << "24) InterseccionNoOrdenadaV2" << std::endl; 
+    std::cout << "25) Interseccion" << std::endl; 
+    std::cout << "26) Buscar" << std::endl; 
+    std::cout << "27) Invertir" << std::endl; 
+    std::cout << "28) Simetrica" << std::endl; 
+    std::cout << "29) QuickSort_Insercion" << std::endl; 
+    std::cout << "30) Eliminar Repetidos" << std::endl; 
+    std::cout << "31) Sublista" << std::endl; 
+    std::cout << "32) burbujaBidireccional" << std::endl; 
+    std::cout << "14) EXIT" << std::endl; 
+    std::cin >>option; 
     switch (option){
 	case 1: 
 	
-		    cout << "Digite una posicion para la lista posicionada" << endl;
-			cin >> position; 
+		    std::cout << "Digite una posicion para la lista posicionada" << std::endl;
+			std::cin >> position; 
 
           
-            cout << "Digite el elemento que desea insertar" << endl;
-			cin >> value; 
+            std::cout << "Digite el elemento que desea insertar" << std::endl;
+			std::cin >> value; 
 			switch(lista_id) {
 				
 				case 1: 
@@ -331,8 +405,8 @@ void Interfaz :: escogioListaPosicionada(){
        			switch(lista_id) {
 				
 					case 1: 
-						cout << "Digite la posicion del elemento que desea borrar de la lista " << endl;
-						cin >> position; 
+						std::cout << "Digite la posicion del elemento que desea borrar de la lista " << std::endl;
+						std::cin >> position; 
 						borrarPosicion(position, &miListaPos); 	
 						escogioListaPosicionada();	
 				
@@ -340,16 +414,16 @@ void Interfaz :: escogioListaPosicionada(){
 					
 					
 					case 2: 
-						cout << "Digite la posicion del elemento que desea borrar de la lista " << endl;
-						cin >> position; 
+						std::cout << "Digite la posicion del elemento que desea borrar de la lista " << std::endl;
+						std::cin >> position; 
 						borrarPosicion(position, &aux_1); 	
 						escogioListaPosicionada();
 					
 					break; 
 					
 					case 3: 
-						cout << "Digite la posicion del elemento que desea borrar de la lista " << endl;
-						cin >> position; 
+						std::cout << "Digite la posicion del elemento que desea borrar de la lista " << std::endl;
+						std::cin >> position; 
 						borrarPosicion(position, &aux_2); 	
 						escogioListaPosicionada();
 					break; 
@@ -366,10 +440,10 @@ void Interfaz :: escogioListaPosicionada(){
 	case 3: 
 
 
-		cout << "Digite la posicion del elemento que desea modificar de la lista" << endl; 
-		cin >>position; 
-		cout << "Digite el nuevo valor de la posicion que desea modificar" << endl; 
-		cin >>value; 
+		std::cout << "Digite la posicion del elemento que desea modificar de la lista" << std::endl; 
+		std::cin >>position; 
+		std::cout << "Digite el nuevo valor de la posicion que desea modificar" << std::endl; 
+		std::cin >>value; 
 	    
 	    		switch(lista_id) {
 				
@@ -396,26 +470,26 @@ void Interfaz :: escogioListaPosicionada(){
 	    
         break; 
 	case 4: 
-		cout << "Digite la posicion del elemento que desea recuperar" << endl; 
-		cin >> position; 	    
+		std::cout << "Digite la posicion del elemento que desea recuperar" << std::endl; 
+		std::cin >> position; 	    
 	    
 	    	    		switch(lista_id) {
 				
 					case 1: 
-						cout << "El elemento recuperado de dicha posicion corresponde al  : " <<  recuperarPosicion(position, &miListaPos) << endl; 
+						std::cout << "El elemento recuperado de dicha posicion corresponde al  : " <<  recuperarPosicion(position, &miListaPos) << std::endl; 
 						escogioListaPosicionada();
 				
 					break; 
 					
 					
 					case 2: 
-						cout << "El elemento recuperado de dicha posicion corresponde al  : " <<  recuperarPosicion(position, &aux_1) << endl; 
+						std::cout << "El elemento recuperado de dicha posicion corresponde al  : " <<  recuperarPosicion(position, &aux_1) << std::endl; 
 						escogioListaPosicionada();
 					
 					break; 
 					
 					case 3: 
-						cout << "El elemento recuperado de dicha posicion corresponde al  : " <<  recuperarPosicion(position, &aux_2) << endl; 
+						std::cout << "El elemento recuperado de dicha posicion corresponde al  : " <<  recuperarPosicion(position, &aux_2) << std::endl; 
 						escogioListaPosicionada();
 					break; 
 		    
@@ -428,28 +502,28 @@ void Interfaz :: escogioListaPosicionada(){
 	    
         break; 
 	case 5: 
-		cout << "Digite la posicion del elemento al que desea conocer su siguiente" << endl; 
-		cin >>position; 
+		std::cout << "Digite la posicion del elemento al que desea conocer su siguiente" << std::endl; 
+		std::cin >>position; 
 
 	    
 	    
 	    	  switch(lista_id) {
 				
 					case 1: 
-						cout << "El elemento siguiente a la posicion ingresada corresponde al : " << siguientePosicion(position, &miListaPos) << endl; 
+						std::cout << "El elemento siguiente a la posicion ingresada corresponde al : " << siguientePosicion(position, &miListaPos) << std::endl; 
 						escogioListaPosicionada();
 								
 					break; 
 					
 					
 					case 2: 
-						cout << "El elemento siguiente a la posicion ingresada corresponde al : " << siguientePosicion(position, &aux_1) << endl; 
+						std::cout << "El elemento siguiente a la posicion ingresada corresponde al : " << siguientePosicion(position, &aux_1) << std::endl; 
 						escogioListaPosicionada();
 					
 					break; 
 					
 					case 3: 
-						cout << "El elemento siguiente a la posicion ingresada corresponde al : " << siguientePosicion(position, &aux_2) << endl; 
+						std::cout << "El elemento siguiente a la posicion ingresada corresponde al : " << siguientePosicion(position, &aux_2) << std::endl; 
 						escogioListaPosicionada();
 					break; 
 		    
@@ -459,27 +533,27 @@ void Interfaz :: escogioListaPosicionada(){
 	    
         break; 
 	case 6: 
-		cout << "Digite la posicion del elemento al que desea conocer el anterior" << endl; 
-		cin >>position; 
+		std::cout << "Digite la posicion del elemento al que desea conocer el anterior" << std::endl; 
+		std::cin >>position; 
 
 	    
 	    	  switch(lista_id) {
 				
 					case 1: 
-						cout << "El elemento anterior a la posicion ingresaada corresponde al : " << anteriorPosicion(position, &miListaPos) << endl; 
+						std::cout << "El elemento anterior a la posicion ingresaada corresponde al : " << anteriorPosicion(position, &miListaPos) << std::endl; 
 						escogioListaPosicionada();
 								
 					break; 
 					
 					
 					case 2: 
-						cout << "El elemento anterior a la posicion ingresaada corresponde al : " << anteriorPosicion(position, &aux_1) << endl; 
+						std::cout << "El elemento anterior a la posicion ingresaada corresponde al : " << anteriorPosicion(position, &aux_1) << std::endl; 
 						escogioListaPosicionada();
 					
 					break; 
 					
 					case 3: 
-						cout << "El elemento anterior a la posicion ingresaada corresponde al : " << anteriorPosicion(position, &aux_2) << endl; 
+						std::cout << "El elemento anterior a la posicion ingresaada corresponde al : " << anteriorPosicion(position, &aux_2) << std::endl; 
 						escogioListaPosicionada();
 					break; 
 		    
@@ -497,20 +571,20 @@ void Interfaz :: escogioListaPosicionada(){
 	    	  switch(lista_id) {
 				
 					case 1: 
-						cout << "El primer elemento de la lista corresponde al  : " <<  primeraPosicion(&miListaPos) << endl; 
+						std::cout << "El primer elemento de la lista corresponde al  : " <<  primeraPosicion(&miListaPos) << std::endl; 
 						escogioListaPosicionada();
 								
 					break; 
 					
 					
 					case 2: 
-						cout << "El primer elemento de la lista corresponde al  : " <<  primeraPosicion(&aux_1) << endl; 
+						std::cout << "El primer elemento de la lista corresponde al  : " <<  primeraPosicion(&aux_1) << std::endl; 
 						escogioListaPosicionada();
 					
 					break; 
 					
 					case 3: 
-						cout << "El primer elemento de la lista corresponde al  : " <<  primeraPosicion(&aux_2) << endl; 
+						std::cout << "El primer elemento de la lista corresponde al  : " <<  primeraPosicion(&aux_2) << std::endl; 
 						escogioListaPosicionada();
 					break; 
 		    
@@ -527,20 +601,20 @@ void Interfaz :: escogioListaPosicionada(){
 	    	   switch(lista_id) {
 				
 					case 1: 
-						cout << "El ultimo elemento de la lista corresponde al : " <<  ultimaPosicion(&miListaPos) << endl; 
+						std::cout << "El ultimo elemento de la lista corresponde al : " <<  ultimaPosicion(&miListaPos) << std::endl; 
 						escogioListaPosicionada();
 								
 					break; 
 					
 					
 					case 2: 
-						cout << "El ultimo elemento de la lista corresponde al : " <<  ultimaPosicion(&aux_1) << endl; 
+						std::cout << "El ultimo elemento de la lista corresponde al : " <<  ultimaPosicion(&aux_1) << std::endl; 
 						escogioListaPosicionada();
 					
 					break; 
 					
 					case 3: 
-						cout << "El ultimo elemento de la lista corresponde al : " <<  ultimaPosicion(&aux_2) << endl; 
+						std::cout << "El ultimo elemento de la lista corresponde al : " <<  ultimaPosicion(&aux_2) << std::endl; 
 						escogioListaPosicionada();
 					break; 
 		    
@@ -556,7 +630,7 @@ void Interfaz :: escogioListaPosicionada(){
 	    	   switch(lista_id) {
 				
 					case 1: 
-						cout << "Se inicio la lista posicionada" << endl; 
+						std::cout << "Se inicio la lista posicionada" << std::endl; 
 						iniciarLista(&miListaPos); 
 						escogioListaPosicionada();
 								
@@ -564,14 +638,14 @@ void Interfaz :: escogioListaPosicionada(){
 					
 					
 					case 2: 
-						cout << "Se inicio la lista posicionada" << endl; 
+						std::cout << "Se inicio la lista posicionada" << std::endl; 
 						iniciarLista(&aux_1); 
 						escogioListaPosicionada();
 					
 					break; 
 					
 					case 3: 
-						cout << "Se inicio la lista posicionada" << endl; 
+						std::cout << "Se inicio la lista posicionada" << std::endl; 
 						iniciarLista(&aux_2); 
 						escogioListaPosicionada();
 					break; 
@@ -590,7 +664,7 @@ void Interfaz :: escogioListaPosicionada(){
 	    	   switch(lista_id) {
 				
 					case 1: 
-						cout << "Se va a vaciar la lista posicionada" << endl; 
+						std::cout << "Se va a vaciar la lista posicionada" << std::endl; 
 						vaciarLista(&miListaPos); 
 						escogioListaPosicionada();
 								
@@ -598,14 +672,14 @@ void Interfaz :: escogioListaPosicionada(){
 					
 					
 					case 2: 
-						cout << "Se va a vaciar la lista posicionada" << endl; 
+						std::cout << "Se va a vaciar la lista posicionada" << std::endl; 
 						vaciarLista(&aux_1); 
 						escogioListaPosicionada();
 					
 					break; 
 					
 					case 3: 
-						cout << "Se va a vaciar la lista posicionada" << endl; 
+						std::cout << "Se va a vaciar la lista posicionada" << std::endl; 
 						vaciarLista(&aux_2); 
 						escogioListaPosicionada();
 					break; 
@@ -624,7 +698,7 @@ void Interfaz :: escogioListaPosicionada(){
 	    	   switch(lista_id) {
 				
 					case 1: 
-						cout << "Se va a destruir la lista posicionada" << endl; 
+						std::cout << "Se va a destruir la lista posicionada" << std::endl; 
 						destruirLista(&miListaPos); 
 						escogioListaPosicionada();
 								
@@ -632,14 +706,14 @@ void Interfaz :: escogioListaPosicionada(){
 					
 					
 					case 2: 
-						cout << "Se va a destruir la lista posicionada" << endl; 
+						std::cout << "Se va a destruir la lista posicionada" << std::endl; 
 						destruirLista(&aux_1); 
 						escogioListaPosicionada();
 					
 					break; 
 					
 					case 3: 
-						cout << "Se va a destruir la lista posicionada" << endl; 
+						std::cout << "Se va a destruir la lista posicionada" << std::endl; 
 						destruirLista(&aux_2); 
 						escogioListaPosicionada();
 					break; 
@@ -655,28 +729,28 @@ void Interfaz :: escogioListaPosicionada(){
 				switch(lista_id) {
 				
 				case 1: 
-					cout << "Imprimiendo lista" << endl; 
-					cout << "------------------------" << endl;
-					cout << imprimirLista(&miListaPos) << endl; 
-					cout << "------------------------" << endl;
+					std::cout << "Imprimiendo lista" << std::endl; 
+					std::cout << "------------------------" << std::endl;
+					std::cout << imprimirLista(&miListaPos) << std::endl; 
+					std::cout << "------------------------" << std::endl;
 					escogioListaPosicionada();
 				break; 
 				
 				
 				case 2: 
-					cout << "Imprimiendo lista" << endl; 
-					cout << "------------------------" << endl;
-					cout << imprimirLista(&aux_1) << endl; 
-					cout << "------------------------" << endl;
+					std::cout << "Imprimiendo lista" << std::endl; 
+					std::cout << "------------------------" << std::endl;
+					std::cout << imprimirLista(&aux_1) << std::endl; 
+					std::cout << "------------------------" << std::endl;
 					escogioListaPosicionada();
 				break; 
 							
 				
 				case 3: 
-					cout << "Imprimiendo lista" << endl; 
-					cout << "------------------------" << endl;
-					cout << imprimirLista(&aux_2) << endl; 
-					cout << "------------------------" << endl;
+					std::cout << "Imprimiendo lista" << std::endl; 
+					std::cout << "------------------------" << std::endl;
+					std::cout << imprimirLista(&aux_2) << std::endl; 
+					std::cout << "------------------------" << std::endl;
 					escogioListaPosicionada();
 				break; 
 		    	    
@@ -690,23 +764,23 @@ void Interfaz :: escogioListaPosicionada(){
 				
 				case 1: 
 				
-					cout << "Digite el elemento que desea ingresar al final de la lista" << endl; 
-					cin >>value; 
+					std::cout << "Digite el elemento que desea ingresar al final de la lista" << std::endl; 
+					std::cin >>value; 
 					agregarPosicionAlFinal(value, &miListaPos);
 					escogioListaPosicionada(); 		    
 				break; 
 				
 				
 				case 2: 
-					cout << "Digite el elemento que desea ingresar al final de la lista" << endl; 
-					cin >>value; 
+					std::cout << "Digite el elemento que desea ingresar al final de la lista" << std::endl; 
+					std::cin >>value; 
 					agregarPosicionAlFinal(value, &aux_1);
 					escogioListaPosicionada(); 
 				break; 
 				
 				case 3: 			
-					cout << "Digite el elemento que desea ingresar al final de la lista" << endl; 
-					cin >>value; 
+					std::cout << "Digite el elemento que desea ingresar al final de la lista" << std::endl; 
+					std::cin >>value; 
 					agregarPosicionAlFinal(value, &aux_2);
 					escogioListaPosicionada(); 
 				break; 
@@ -794,8 +868,8 @@ void Interfaz :: escogioListaPosicionada(){
 	
 			esta = 0; 
 			value = 0; 
-			cout << "digite el valor que desea buscar en la lista : "; 
-			cin >>value; 
+			std::cout << "digite el valor que desea buscar en la lista : "; 
+			std::cin >>value; 
 			
 					switch(lista_id) {
 						
@@ -815,13 +889,13 @@ void Interfaz :: escogioListaPosicionada(){
 					
 					}
 				
-			cout << endl; 
+			std::cout << std::endl; 
 
 			if(esta != 0) {
-				cout << "el valor ingresado se encuentra en la lista " << endl << endl; 
+				std::cout << "el valor ingresado se encuentra en la lista " << std::endl << std::endl; 
 			}
 			else {
-				cout << "el valor ingresado no se encuentra en la lista" << endl << endl; 
+				std::cout << "el valor ingresado no se encuentra en la lista" << std::endl << std::endl; 
 			}
 			
 			escogioListaPosicionada();	
@@ -884,11 +958,11 @@ void Interfaz :: escogioListaPosicionada(){
 	}
 	
 	if (option != 0) {
-		cout << endl << "la lista es simetrica " << endl << endl; 
+		std::cout << std::endl << "la lista es simetrica " << std::endl << std::endl; 
 	}
 	else {
-		cout << endl; 
-		cout << "la lista no es simetrica " << endl << endl; 
+		std::cout << std::endl; 
+		std::cout << "la lista no es simetrica " << std::endl << std::endl; 
 	}
 	
 	escogioListaPosicionada(); 
@@ -912,10 +986,10 @@ void Interfaz :: escogioListaPosicionada(){
 	
 	case 31:
 		if(misAlgoritmosPos.subLista(miListaPos, aux_1)) {
-			cout << "si esta contenida" << endl; 
+			std::cout << "si esta contenida" << std::endl; 
 		} 
 		else {
-			cout << "no esta contenida" << endl; 
+			std::cout << "no esta contenida" << std::endl; 
 		}
 		
 		escogioListaPosicionada(); 
@@ -932,7 +1006,7 @@ void Interfaz :: escogioListaPosicionada(){
 	
 	
 	default: 
-		cout << "La opcion seleccionada no es valida" << endl; 
+		std::cout << "La opcion seleccionada no es valida" << std::endl; 
 		escogioListaPosicionada(); 	
 	break; 
     }
@@ -993,7 +1067,7 @@ int Interfaz :: anteriorPosicion(int indice, Lista_Pos* lista) {
 		value = lista->recuperar(before_one); 
 	} 
 	else {
-		cout << "la posición que desea ingresar no es valida " << endl; 
+		std::cout << "la posición que desea ingresar no es valida " << std::endl; 
 	}
 	return value;  
 }
