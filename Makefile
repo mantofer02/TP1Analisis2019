@@ -1,6 +1,6 @@
 all : one
 
-	#run "make one" in terminal
+	#run "make one", "make two", or "make three"  depende de cuales listas desea ejecutar, los include deben corresponder a que se vayan a compilar. 
 one: main.cpp Interfaz.cpp lista_pos_LDE.cpp lista_ord_array.cpp lista_index_array.cpp algoritmos_lista_pos.cpp algoritmos_lista_index.cpp algoritmos_lista_ord.cpp
 	g++ main.cpp Interfaz.cpp lista_pos_LDE.cpp lista_ord_array.cpp lista_index_array.cpp algoritmos_lista_pos.cpp algoritmos_lista_index.cpp algoritmos_lista_ord.cpp -o start
 	./start
