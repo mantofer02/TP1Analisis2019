@@ -11,6 +11,8 @@
 Interfaz :: Interfaz(){
   //  miListaPos = new Lista_Pos();
     miListaPos.iniciar();
+    aux_1.iniciar(); 
+    aux_2.iniciar(); 
     this->tipoDeLista = 0;
     std::cout << "Bienvenido " << std::endl;
     menu();
