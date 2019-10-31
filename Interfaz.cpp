@@ -368,7 +368,12 @@ void Interfaz :: escogioListaPosicionada(){
     std::cout << "10) vaciar();" << std::endl;		    	
     std::cout << "11) destruir();" << std::endl;		
     std::cout << "12) imprimirLista()" << std::endl;
-    std::cout << "13) agregarAlFinal()" << std::endl;				 
+    std::cout << "13) agregarAlFinal()" << std::endl;
+    std::cout << std::endl;
+	std::cout << "----------------------------" << std::endl;
+	std::cout << "         Algoritmos         " << std::endl;
+    std::cout << "----------------------------" << std::endl;
+	std::cout << std::endl;		 
     std::cout << "15) Burbuja" << std::endl;  
     std::cout << "16) Seleccion" << std::endl; 
     std::cout << "17) Seleccion recursivo" << std::endl;
