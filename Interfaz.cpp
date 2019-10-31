@@ -159,32 +159,32 @@ void Interfaz :: escogioListaOrdenada(Lista_Ord miListaOrdena, int tipoDeLista){
 			break;
         case 13:           
 			resultado1 = misAlgoritmosOrd.iguales(miListaOrdenadaA, miListaOrdenadaB);
-			// if(resultado1){
-			// 	std::cout << "Son Iguales" << std::endl;
-			// }else{
-			// 	std::cout << "No son iguales" << std::endl;
-			// }
+			if(resultado1){
+				std::cout << "Son Iguales" << std::endl;
+			}else{
+				std::cout << "No son iguales" << std::endl;
+			}
 			escogioListaOrdenada(miListaOrdena, tipoDeLista);
             break;
 		case 14:
-			// if(tipoDeLista == OrdenadaA){
-			// 	misAlgoritmosOrd.copiar(miListaOrdena, miListaOrdenadaB);
-			// }else{
-			// 	misAlgoritmosOrd.copiar(miListaOrdena, miListaOrdenadaA);
-			// }
+			if(tipoDeLista == OrdenadaA){
+				misAlgoritmosOrd.copiar(miListaOrdena, miListaOrdenadaB);
+			}else{
+				misAlgoritmosOrd.copiar(miListaOrdena, miListaOrdenadaA);
+			}
 			escogioListaOrdenada(miListaOrdena, tipoDeLista);
 			break;
 		case 15:
-			// if(tipoDeLista == OrdenadaA){
-			// 	resultado = misAlgoritmosOrd.contenida(miListaOrdena, miListaOrdenadaB);
-			// }else{
-			// 	resultado = misAlgoritmosOrd.contenida(miListaOrdena, miListaOrdenadaA);
-			// }
-			// if(resultado){
-			// 	std::cout << "Esta Lista esta contenida en la segunda" << std::endl;
-			// }else{
-			// 	std::cout << "No esta contenida" << std::endl;
-			// }
+			if(tipoDeLista == OrdenadaA){
+				resultado = misAlgoritmosOrd.contenida(miListaOrdena, miListaOrdenadaB);
+			}else{
+				resultado = misAlgoritmosOrd.contenida(miListaOrdena, miListaOrdenadaA);
+			}
+			if(resultado){
+				std::cout << "Esta Lista esta contenida en la segunda" << std::endl;
+			}else{
+				std::cout << "No esta contenida" << std::endl;
+			}
 			escogioListaOrdenada(miListaOrdena, tipoDeLista);
 			break;
 		case 16:
@@ -192,28 +192,28 @@ void Interfaz :: escogioListaOrdenada(Lista_Ord miListaOrdena, int tipoDeLista){
 			int elementoBuscado; 
 			std::cout << "Escriba elmento" << std::endl;
 			std::cin >> elementoBuscado;
-			// if(tipoDeLista == OrdenadaA){
-			// 	resultado = misAlgoritmosOrd.pertenece(miListaOrdena, elementoBuscado);
+			if(tipoDeLista == OrdenadaA){
+				resultado = misAlgoritmosOrd.pertenece(miListaOrdena, elementoBuscado);
 	
-			// if(resultado){
-			// 	std::cout << "Esta Lista esta" << std::endl;
-			// }else{
-			// 	std::cout << "No esta contenida" << std::endl;
-			// }
-			// }
+				if(resultado){
+					std::cout << "Esta Lista esta" << std::endl;
+				}else{
+					std::cout << "No esta contenida" << std::endl;
+				}
+			}
 			escogioListaOrdenada(miListaOrdena, tipoDeLista);
 			break;
 		case 17:
-			// if(tipoDeLista == OrdenadaA){
-			// 	misAlgoritmosOrd.contenida(miListaOrdena, miListaOrdenadaB);
-			// }else{
-			// 	resultado = misAlgoritmosOrd.contenida(miListaOrdena, miListaOrdenadaA);
-			// }
-			// if(resultado){
-			// 	std::cout << "Esta Lista esta contenida en la segunda" << std::endl;
-			// }else{
-			// 	std::cout << "No esta contenida" << std::endl;
-			// }
+			if(tipoDeLista == OrdenadaA){
+				misAlgoritmosOrd.contenida(miListaOrdena, miListaOrdenadaB);
+			}else{
+				resultado = misAlgoritmosOrd.contenida(miListaOrdena, miListaOrdenadaA);
+			}
+			if(resultado){
+				std::cout << "Esta Lista esta contenida en la segunda" << std::endl;
+			}else{
+				std::cout << "No esta contenida" << std::endl;
+			}
 			escogioListaOrdenada(miListaOrdena, tipoDeLista);
 			break;
 		case 18:
