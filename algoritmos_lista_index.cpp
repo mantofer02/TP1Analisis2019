@@ -97,7 +97,7 @@ int Algoritmos_Index :: subLista(Lista_Index &listaA, Lista_Index &listaB){
 	if(estaContenida == listaA.ultimoIndice()){
 		estaContenida = 1;
 	}
-	
+
 	return estaContenida;
 
 }
@@ -416,7 +416,7 @@ void Algoritmos_Index::mergeSort(Lista_Index &lista){
 			indiceActual = lista.siguiente(indiceActual);  
 		}
 		
-		for (int j = mid; j < lista.ultimoIndice(); j++) {
+		for (int j = mid; j <= lista.ultimoIndice(); j++) {
 			segundaMitad.agregarAlFinal(lista.recuperar(indiceActual));
 			indiceActual = lista.siguiente(indiceActual);  
 		}
@@ -431,7 +431,6 @@ void Algoritmos_Index::mergeSort(Lista_Index &lista){
 	}
 	
 }
-
 
 void Algoritmos_Index ::merge(Lista_Index &lista_1, Lista_Index &lista_2, Lista_Index &lista) {
 	
