@@ -325,7 +325,9 @@ void Interfaz :: escogioListaPosicionada(){
     int lista_id = -1;
     int esta = 0; 
     bool id_valido = false;  
-    std::cout << "Puede trabajar con 3 listas, para utilizar los algoritmos " << std::endl; 	
+    cout << "Puede trabajar con 3 listas, para utilizar los algoritmos " << endl; 	
+    cout << "los algoritmos que requieren de 1 unica lista solo funcionan con la lista principal" << endl; 
+    cout << "las listas secundarias son para los algoritmos que requiere mas de 1 lista, sin embargo se corren igualemente desde la lista principal" << endl; 
     while (!id_valido) {															
 		std::cout << "1) lista del programa \n 2) lista auxiliar 1 \n 3) lista auxiliar 2" << std::endl;  
 		std::cin >> lista_id; 

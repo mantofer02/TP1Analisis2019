@@ -424,7 +424,7 @@ void Algoritmos_Index::burbujaBidireccional(Lista_Index &lista) {
 //Modifica: la lista l3, de poseer elementos anteriormente se eliminaran y se procedera a agregar únicamente la intersección de las otras 2 listas. 
 
 
-
+/*
 void Algoritmos_Index::interseccion(Lista_Index &l1, Lista_Index &l2, Lista_Index &l3) {
 	l3.vaciar(); 
 	l3.iniciar(); 
@@ -446,11 +446,12 @@ void Algoritmos_Index::interseccion(Lista_Index &l1, Lista_Index &l2, Lista_Inde
 	}	
 }
 
+*/
 
 //Efecto: deja en l3 unicamente los elementos que posean en comun las listas l1 y l2. 
 //Requiere: que ambas listas se encuentre inicializadas. 
 //Modifica: la lista l3, de poseer elementos anteriormente se eliminaran y se procedera a agregar únicamente la intersección de las otras 2 listas. 
-
+/*
 
 void Algoritmos_Index::interseccionOrdenada_v1(Lista_Index &l1, Lista_Index &l2,Lista_Index &l3) {	//no deja nada en miListaPos y borra aux_2
 	l3.vaciar();
@@ -475,7 +476,7 @@ void Algoritmos_Index::interseccionOrdenada_v1(Lista_Index &l1, Lista_Index &l2,
 		}
 	}	 
 }
-
+*/
 
 //Efecto: deja en l3 unicamente los elementos que posean en comun las listas l1 y l2. 
 //Requiere: que ambas listas se encuentre inicializadas. 
