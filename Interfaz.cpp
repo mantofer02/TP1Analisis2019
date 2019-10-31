@@ -11,7 +11,7 @@
 Interfaz :: Interfaz(){
   //  miListaPos = new Lista_Pos();
     miListaPos.iniciar();
-    tipoDeLista = 0;
+    this->tipoDeLista = 0;
     std::cout << "Bienvenido " << std::endl;
     menu();
 }
@@ -29,11 +29,11 @@ void Interfaz :: menu(){
     if(tipoDeLista == OrdenadaA)
         std::cout << "---------------------------------------------" << std::endl;
 		std::cout << "                LISTA ORDENADA A             " << std::endl;
-		escogioListaOrdenada(miListaOrdenadaA);
+		escogioListaOrdenada(miListaOrdenadaA, tipoDeLista);
 	if(tipoDeLista == OrdenadaB)
 		std::cout << "---------------------------------------------" << std::endl;
 		std::cout << "                LISTA ORDENADA B             " << std::endl;
-		escogioListaOrdenada(miListaOrdenadaB);
+		escogioListaOrdenada(miListaOrdenadaB, tipoDeLista);
     if(tipoDeLista == IndexadaA)
         std::cout << "---------------------------------------------" << std::endl;
 		std::cout << "                LISTA INDEXADA A             " << std::endl;
@@ -52,8 +52,9 @@ void Interfaz :: menu(){
         escogioListaPosicionada();
 }
 
-void Interfaz :: escogioListaOrdenada(Lista_Ord miListaOrdena){
+void Interfaz :: escogioListaOrdenada(Lista_Ord miListaOrdena, int tipoDeLista){
     int operacion = 0;
+	this->tipoDeLista = tipoDeLista;
     std::cout << "Menu lista Ordenada" << std::endl;
     std::cout << "1) iniciar();" << std::endl;
     std::cout << "2) destruir();" << std::endl;
@@ -86,17 +87,17 @@ void Interfaz :: escogioListaOrdenada(Lista_Ord miListaOrdena){
         case 1:
             std::cout << "Se inicio la lista" << std::endl;
             miListaOrdena.iniciar();
-            escogioListaOrdenada(miListaOrdena);
+            escogioListaOrdenada(miListaOrdena, tipoDeLista);
             break;
         case 2:
             std::cout << "Se va a destruir la lista ordenada" << std::endl;
             miListaOrdena.destruir();
-            escogioListaOrdenada(miListaOrdena);
+            escogioListaOrdenada(miListaOrdena, tipoDeLista);
             break;
         case 3: 
             std::cout << "Se va a vaciar la lista ordenada" << std::endl;
             miListaOrdena.vaciar();
-            escogioListaOrdenada(miListaOrdena);
+            escogioListaOrdenada(miListaOrdena, tipoDeLista);
             break;
         case 4:
             if(miListaOrdena.vacia()){
@@ -104,50 +105,50 @@ void Interfaz :: escogioListaOrdenada(Lista_Ord miListaOrdena){
             }else{
                 std::cout << "No esta vacia" << std::endl;
             }
-            escogioListaOrdenada(miListaOrdena);
+            escogioListaOrdenada(miListaOrdena, tipoDeLista);
             break;
         case 5:
             std::cout << "Digite el elmento que desea agregar" << std::endl;
             std::cin >> parametro;
             miListaOrdena.agregar(parametro);
-            escogioListaOrdenada(miListaOrdena);
+            escogioListaOrdenada(miListaOrdena, tipoDeLista);
             break;
         case 6:
             std::cout << "Digite el elemento que desea borrar de la lista " << std::endl;
             std::cin >> parametro;
             miListaOrdena.borrar(parametro);
-            escogioListaOrdenada(miListaOrdena);
+            escogioListaOrdenada(miListaOrdena, tipoDeLista);
             break;
         case 7:
             std::cout << "Este es el primer elemento : " << miListaOrdena.primero() << std::endl;
-            escogioListaOrdenada(miListaOrdena);
+            escogioListaOrdenada(miListaOrdena, tipoDeLista);
             break;
         case 8:
             std::cout << "Este es el ultimo elemento : " << miListaOrdena.ultimo() << std::endl;
-            escogioListaOrdenada(miListaOrdena);
+            escogioListaOrdenada(miListaOrdena, tipoDeLista);
             break;
         case 9:
             std::cout << "Inserte un elemento " << std::endl;
             std::cin >> parametro;
             std::cout << "Este es el siguiente --->" << miListaOrdena.siguiente(parametro) << std::endl;
-            escogioListaOrdenada(miListaOrdena);
+            escogioListaOrdenada(miListaOrdena, tipoDeLista);
             break;
         case 10:
             std::cout << "Inserte un elemento " << std::endl;
             std::cin >> parametro;
             std::cout << "Este es el anterior ---> " << miListaOrdena.anterior(parametro) << std::endl;
-            escogioListaOrdenada(miListaOrdena);
+            escogioListaOrdenada(miListaOrdena, tipoDeLista);
             break;
         case 11:
             std::cout << "Hay " << miListaOrdena.numElem() << "elementos en la lista." << std::endl;
-            escogioListaOrdenada(miListaOrdena);
+            escogioListaOrdenada(miListaOrdena, tipoDeLista);
             break;
         
         case 12:
             std::cout << "------------------------" << std::endl;
             miListaOrdena.imprimir();
             std::cout << "------------------------" << std::endl;
-			escogioListaOrdenada(miListaOrdena);
+			escogioListaOrdenada(miListaOrdena, tipoDeLista);
 			break;
         case 13:
             int resultado1 = 0;
@@ -157,16 +158,16 @@ void Interfaz :: escogioListaOrdenada(Lista_Ord miListaOrdena){
 			}else{
 				std::cout << "No son iguales" << std::endl;
 			}
-			escogioListaOrdenada(miListaOrdena);
-            
+			escogioListaOrdenada(miListaOrdena, tipoDeLista);
+            break;
 		case 14:
 			if(tipoDeLista == OrdenadaA){
 				misAlgoritmosOrd.copiar(miListaOrdena, miListaOrdenadaB);
 			}else{
 				misAlgoritmosOrd.copiar(miListaOrdena, miListaOrdenadaA);
 			}
-			escogioListaOrdenada(miListaOrdena);
-			
+			escogioListaOrdenada(miListaOrdena, tipoDeLista);
+			break;
 		case 15:
 			int resultado = 0;
 			if(tipoDeLista == OrdenadaA){
@@ -179,7 +180,7 @@ void Interfaz :: escogioListaOrdenada(Lista_Ord miListaOrdena){
 			}else{
 				std::cout << "No esta contenida" << std::endl;
 			}
-			escogioListaOrdenada(miListaOrdena);
+			escogioListaOrdenada(miListaOrdena, tipoDeLista);
 			break;
 		case 16:
 			int resultado = 0;
@@ -194,7 +195,8 @@ void Interfaz :: escogioListaOrdenada(Lista_Ord miListaOrdena){
 			}else{
 				std::cout << "No esta contenida" << std::endl;
 			}
-			escogioListaOrdenada(miListaOrdena);
+			}
+			escogioListaOrdenada(miListaOrdena, tipoDeLista);
 			break;
 		case 17:
 			if(tipoDeLista == OrdenadaA){
@@ -207,20 +209,20 @@ void Interfaz :: escogioListaOrdenada(Lista_Ord miListaOrdena){
 			}else{
 				std::cout << "No esta contenida" << std::endl;
 			}
-			escogioListaOrdenada(miListaOrdena);
+			escogioListaOrdenada(miListaOrdena, tipoDeLista);
 			break;
 		case 18:
 			misAlgoritmosOrd.unionListas(miListaOrdenadaA, miListaOrdenadaB);
-			escogioListaOrdenada(miListaOrdena);
+			escogioListaOrdenada(miListaOrdena, tipoDeLista);
 			break;
 		case 19:
 			misAlgoritmosOrd.interseccion(miListaOrdenadaA, miListaOrdenadaB);
-			escogioListaOrdenada(miListaOrdena);
+			escogioListaOrdenada(miListaOrdena, tipoDeLista);
 			break;
 		case 20:
 			menu();
 			break;
-		}
+		
 	}
 }
 
