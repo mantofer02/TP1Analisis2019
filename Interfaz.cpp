@@ -54,6 +54,8 @@ void Interfaz :: menu(){
 
 void Interfaz :: escogioListaOrdenada(Lista_Ord miListaOrdena, int tipoDeLista){
     int operacion = 0;
+	int resultado1 = 0;
+	int resultado = 0;
 	this->tipoDeLista = tipoDeLista;
     std::cout << "Menu lista Ordenada" << std::endl;
     std::cout << "1) iniciar();" << std::endl;
@@ -149,8 +151,7 @@ void Interfaz :: escogioListaOrdenada(Lista_Ord miListaOrdena, int tipoDeLista){
             std::cout << "------------------------" << std::endl;
 			escogioListaOrdenada(miListaOrdena, tipoDeLista);
 			break;
-        case 13:
-            int resultado1 = 0;
+        case 13:           
 			resultado1 = misAlgoritmosOrd.iguales(miListaOrdenadaA, miListaOrdenadaB);
 			// if(resultado1){
 			// 	std::cout << "Son Iguales" << std::endl;
@@ -168,7 +169,6 @@ void Interfaz :: escogioListaOrdenada(Lista_Ord miListaOrdena, int tipoDeLista){
 			escogioListaOrdenada(miListaOrdena, tipoDeLista);
 			break;
 		case 15:
-			int resultado = 0;
 			// if(tipoDeLista == OrdenadaA){
 			// 	resultado = misAlgoritmosOrd.contenida(miListaOrdena, miListaOrdenadaB);
 			// }else{
@@ -182,7 +182,7 @@ void Interfaz :: escogioListaOrdenada(Lista_Ord miListaOrdena, int tipoDeLista){
 			escogioListaOrdenada(miListaOrdena, tipoDeLista);
 			break;
 		case 16:
-			int resultado = 0;
+			// int resultado = 0;
 			int elementoBuscado; 
 			std::cout << "Escriba elmento" << std::endl;
 			std::cin >> elementoBuscado;
