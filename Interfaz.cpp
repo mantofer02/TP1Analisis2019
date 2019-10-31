@@ -1,8 +1,11 @@
 #include "Interfaz.h"
 
-#define Ordenada 1
-#define Posicionada 2
-#define Indexada 3
+#define OrdenadaA 1
+#define OrdenadaB 2
+#define Posicionada 3
+#define IndexadaA 4
+#define IndexadaB 5
+#define IndexadaC 6
 
 
 Interfaz :: Interfaz(){
@@ -15,20 +18,31 @@ Interfaz :: Interfaz(){
 
 void Interfaz :: menu(){
     cout << "Digite :" << endl;
-    cout << "1: Si desea el menu de lista Ordenada" << endl;
-    cout << "2: Si desea el menu Posicionada" << endl;
-    cout << "3: Si desea el menu Indexada" << endl;
-    cout << "4: Exit" << endl;
+    cout << "1: Si desea el menu de lista OrdenadaA" << endl;
+    cout << "2: Si desea el menu de lista OrdenadaB" << endl;
+    cout << "3: Si desea el menu de lista Posicionada" << endl;
+	cout << "4: Si desea el menu de lista IndexadaA" << endl;
+	cout << "5: Si desea el menu de lista IndexadaB" << endl;
+	cout << "6: Si desea el menu de lista IndexadaC" << endl;
+    cout << "7: Exit" << endl;
     cin >> tipoDeLista;
-    if(tipoDeLista == Ordenada)
-        escogioListaOrdenada();
-    if(tipoDeLista == Indexada)
-        escogioListaIndexada();
+    if(tipoDeLista == OrdenadaA)
+        cout << "---------------------------------------------" << endl;
+		cout << "                LISTA ORDENADA A           " << endl;
+		escogioListaOrdenada(miListaOrdenadaA);
+	if(tipoDeLista == OrdenadaB)
+		escogioListaOrdenada(miListaOrdenadaB);
+    if(tipoDeLista == IndexadaA)
+        escogioListaIndexada(miListaIndexA);
+	if(tipoDeLista == IndexadaB)
+        escogioListaIndexada(miListaIndexB);
+	if(tipoDeLista == IndexadaC)
+        escogioListaIndexada(miListaIndexC);
     if(tipoDeLista == Posicionada)
         escogioListaPosicionada();
 }
 
-void Interfaz :: escogioListaOrdenada(){
+void Interfaz :: escogioListaOrdenada(Lista_Ord miListaOrdena){
     int operacion = 0;
     cout << "Menu lista Ordenada" << endl;
     cout << "1) iniciar();" << endl;
@@ -50,17 +64,17 @@ void Interfaz :: escogioListaOrdenada(){
         case 1:
             cout << "Se inicio la lista" << endl;
             miListaOrdena.iniciar();
-            escogioListaOrdenada();
+            escogioListaOrdenada(miListaOrdena);
             break;
         case 2:
             cout << "Se va a destruir la lista ordenada" << endl;
             miListaOrdena.destruir();
-            escogioListaOrdenada();
+            escogioListaOrdenada(miListaOrdena);
             break;
         case 3: 
             cout << "Se va a vaciar la lista ordenada" << endl;
             miListaOrdena.vaciar();
-            escogioListaOrdenada();
+            escogioListaOrdenada(miListaOrdena);
             break;
         case 4:
             if(miListaOrdena.vacia()){
@@ -68,43 +82,43 @@ void Interfaz :: escogioListaOrdenada(){
             }else{
                 cout << "No esta vacia" << endl;
             }
-            escogioListaOrdenada();
+            escogioListaOrdenada(miListaOrdena);
             break;
         case 5:
             cout << "Digite el elmento que desea agregar" << endl;
             cin >> parametro;
             miListaOrdena.agregar(parametro);
-            escogioListaOrdenada();
+            escogioListaOrdenada(miListaOrdena);
             break;
         case 6:
             cout << "Digite el elemento que desea borrar de la lista " << endl;
             cin >> parametro;
             miListaOrdena.borrar(parametro);
-            escogioListaOrdenada();
+            escogioListaOrdenada(miListaOrdena);
             break;
         case 7:
             cout << "Este es el primer elemento : " << miListaOrdena.primero() << endl;
-            escogioListaOrdenada();
+            escogioListaOrdenada(miListaOrdena);
             break;
         case 8:
             cout << "Este es el ultimo elemento : " << miListaOrdena.ultimo() << endl;
-            escogioListaOrdenada();
+            escogioListaOrdenada(miListaOrdena);
             break;
         case 9:
             cout << "Inserte un elemento " << endl;
             cin >> parametro;
             cout << "Este es el siguiente --->" << miListaOrdena.siguiente(parametro) << endl;
-            escogioListaOrdenada();
+            escogioListaOrdenada(miListaOrdena);
             break;
         case 10:
             cout << "Inserte un elemento " << endl;
             cin >> parametro;
             cout << "Este es el anterior ---> " << miListaOrdena.anterior(parametro) << endl;
-            escogioListaOrdenada();
+            escogioListaOrdenada(miListaOrdena);
             break;
         case 11:
             cout << "Hay " << miListaOrdena.numElem() << "elementos en la lista." << endl;
-            escogioListaOrdenada();
+            escogioListaOrdenada(miListaOrdena);
             break;
         
         case 12:
@@ -117,7 +131,7 @@ void Interfaz :: escogioListaOrdenada(){
       }
 }
 
-void Interfaz :: escogioListaIndexada(){
+void Interfaz :: escogioListaIndexada( Lista_Index miListaIndex){
     
     int operacion = 0;
     
@@ -140,17 +154,17 @@ void Interfaz :: escogioListaIndexada(){
         case 1:
             cout << "Se inicio la lista" << endl;
             miListaIndex.iniciar();
-            escogioListaIndexada();
+            escogioListaIndexada(miListaIndex);
             break;
         case 2:
             cout << "Se va a destruir la lista indexada" << endl;
             miListaIndex.destruir();
-            escogioListaIndexada();
+            escogioListaIndexada(miListaIndex);
             break;
         case 3: 
             cout << "Se va a vaciar la lista indexada" << endl;
             miListaIndex.vaciar();
-            escogioListaIndexada();
+            escogioListaIndexada(miListaIndex);
             break;
         case 4:
             if(miListaIndex.vacia() == true){
@@ -158,7 +172,7 @@ void Interfaz :: escogioListaIndexada(){
             }else{
                 cout << "No esta vacia" << endl;
             }
-            escogioListaIndexada();
+            escogioListaIndexada(miListaIndex);
             break;
         case 5:
 			cout << "Digite el indice donde desea agregar el elemento " << endl; 
@@ -166,13 +180,13 @@ void Interfaz :: escogioListaIndexada(){
             cout << "Digite el elemento que desea insertar" << endl;
             cin >> parametro1;
             miListaIndex.agregar(parametro2, parametro1);
-            escogioListaIndexada();
+            escogioListaIndexada(miListaIndex);
             break;
         case 6:
             cout << "Digite el indice del elemento que desea borrar de la lista " << endl;
             cin >> parametro1;
             miListaIndex.borrar(parametro1);
-            escogioListaIndexada();
+            escogioListaIndexada(miListaIndex);
             break;
         case 7:
             cout << "¿Que indice desea ver ?" << endl;
@@ -182,7 +196,7 @@ void Interfaz :: escogioListaIndexada(){
             }else{
                 cout << "Indice : " << parametro1 << "Elemento :" << miListaIndex.recuperar(parametro1) << endl; 
             }
-            escogioListaIndexada();
+            escogioListaIndexada(miListaIndex);
             break;
         case 8:
             cout << "Digite un indice para la lista indexada" << endl;
@@ -190,7 +204,7 @@ void Interfaz :: escogioListaIndexada(){
             cout << "Digite el elemento que desea modificar" << endl;
             cin >> parametro2;
             miListaIndex.modificar(parametro1, parametro2);
-            escogioListaIndexada();
+            escogioListaIndexada(miListaIndex);
             break;
         case 9:
             cout << "1er Indice : " << endl;
@@ -198,27 +212,26 @@ void Interfaz :: escogioListaIndexada(){
             cout << "2ndo Indice : " << endl;
             cin >> parametro2;
             miListaIndex.intercambiar(parametro1, parametro2);
-            escogioListaIndexada();
+            escogioListaIndexada(miListaIndex);
             break;
         case 10:
             cout << "Hay " << miListaIndex.numElem() << "elementos en la lista." << endl;
-            escogioListaIndexada();
+            escogioListaIndexada(miListaIndex);
             break;
         case 11:
             cout << "------------------------" << endl;
             miListaIndex.imprimirLista();
             cout << "------------------------" << endl;
-            escogioListaIndexada();
+            escogioListaIndexada(miListaIndex);
             break;
         case 12:
             menu();
             break;    
         default: 
             cout << "La opcion seleccionada no es valida" << endl; 
-            escogioListaIndexada(); 	
+            escogioListaIndexada(miListaIndex); 	
             break; 
         }
-
 }
 
 void Interfaz :: escogioListaPosicionada(){
@@ -302,10 +315,7 @@ void Interfaz :: escogioListaPosicionada(){
 		    
 		    
 			}
-			
-	    break; 
-	    
-	    
+	    break;     
 	case 2:      
        
        			switch(lista_id) {
@@ -373,11 +383,6 @@ void Interfaz :: escogioListaPosicionada(){
 		    
 		    
 			}
-	    
-	    
-	    
-	    
-	    
 	    
         break; 
 	case 4: 
