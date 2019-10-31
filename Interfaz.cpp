@@ -60,7 +60,7 @@ void Interfaz :: menu(){
 	}	
 }
 
-void Interfaz :: escogioListaOrdenada(Lista_Ord miListaOrdena, int tipoDeLista){
+void Interfaz :: escogioListaOrdenada(Lista_Ord&miListaOrdena, int tipoDeLista){
     int operacion = 0;
 	int resultado1 = 0;
 	int resultado = 0;
