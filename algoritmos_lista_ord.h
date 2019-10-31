@@ -14,7 +14,7 @@ class Algoritmos_Ordenada{
         int contenida(Lista_Ord &, Lista_Ord &);
         int pertenece(Lista_Ord &, int elemento);
         void eliminarElementosRepetidos(Lista_Ord &, Lista_Ord &);
-        Lista_Ord unionListas(Lista_Ord &, Lista_Ord &);
-        Lista_Ord interseccion(Lista_Ord &, Lista_Ord &);
+        void unionListas(Lista_Ord &, Lista_Ord &, Lista_Ord &);
+        void interseccion(Lista_Ord &, Lista_Ord &, Lista_Ord &);
 };
 #endif

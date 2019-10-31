@@ -151,8 +151,7 @@ void Algoritmos_Ordenada::eliminarElementosRepetidos(Lista_Ord & lista, Lista_Or
 //Efecto: Este algoritmo realiza una unión de dos listas ordenadas L1 y L2 y la almacena y devuelve en una nueva lista L3.
 //Requiere: Este algoritmo requiere que ambas listas estén inicializadas. 
 //Modifica: Este algoritmo genera una nueva Lista Ordenada, que será la unión de L1 y L2.
-Lista_Ord Algoritmos_Ordenada::unionListas(Lista_Ord & lista, Lista_Ord & otra){
-    Lista_Ord respuesta;
+void Algoritmos_Ordenada::unionListas(Lista_Ord & lista, Lista_Ord & otra, Lista_Ord & respuesta){
     respuesta.iniciar();
     int elemento1 = lista.primero();
     int elemento2 = otra.primero();
@@ -185,15 +184,13 @@ Lista_Ord Algoritmos_Ordenada::unionListas(Lista_Ord & lista, Lista_Ord & otra){
             elemento2 = otra.siguiente(elemento2);
         }
     }
-    return respuesta;
 }
 
 //Interseccion(L1,L2) -> L3
 //Efecto: Este algoritmo realiza la intersección entre dos listas L1 y L2 para almacenarla y devolverla en una nueva lista ordenada L3.
 //Requiere: Este algoritmo requiere que ambas listas estén inicializadas.
 //Modifica: Este algoritmo genera una nueva lista L3, que será la intersección entre L1 y L2.
-Lista_Ord Algoritmos_Ordenada::interseccion(Lista_Ord & lista, Lista_Ord & otra){
-    Lista_Ord respuesta;
+void Algoritmos_Ordenada::interseccion(Lista_Ord & lista, Lista_Ord & otra, Lista_Ord & respuesta){
     respuesta.iniciar();
     int elemento1 = lista.primero();
     int elemento2 = otra.primero();
@@ -212,5 +209,4 @@ Lista_Ord Algoritmos_Ordenada::interseccion(Lista_Ord & lista, Lista_Ord & otra)
             }
         }
     }
-    return respuesta;
 }
