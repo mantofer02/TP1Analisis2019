@@ -234,7 +234,7 @@ void Interfaz :: escogioListaOrdenada(Lista_Ord&miListaOrdena, int tipoDeLista){
 	}
 }
 
-void Interfaz :: escogioListaIndexada( Lista_Index miListaIndex){
+void Interfaz :: escogioListaIndexada( Lista_Index&miListaIndex){
     
     int operacion = 0;
     
