@@ -26,30 +26,36 @@ void Interfaz :: menu(){
 	std::cout << "6: Si desea el menu de lista IndexadaC" << std::endl;
     std::cout << "7: Exit" << std::endl;
     std::cin >> tipoDeLista;
-    if(tipoDeLista == OrdenadaA)
+    if(tipoDeLista == OrdenadaA){
         std::cout << "---------------------------------------------" << std::endl;
 		std::cout << "                LISTA ORDENADA A             " << std::endl;
 		escogioListaOrdenada(miListaOrdenadaA, tipoDeLista);
-	if(tipoDeLista == OrdenadaB)
+	}
+	if(tipoDeLista == OrdenadaB){
 		std::cout << "---------------------------------------------" << std::endl;
 		std::cout << "                LISTA ORDENADA B             " << std::endl;
 		escogioListaOrdenada(miListaOrdenadaB, tipoDeLista);
-    if(tipoDeLista == IndexadaA)
+	}	
+    if(tipoDeLista == IndexadaA){
         std::cout << "---------------------------------------------" << std::endl;
 		std::cout << "                LISTA INDEXADA A             " << std::endl;
 		escogioListaIndexada(miListaIndexA);
-	if(tipoDeLista == IndexadaB)
+	}
+	if(tipoDeLista == IndexadaB){
 		std::cout << "---------------------------------------------" << std::endl;
 		std::cout << "                LISTA INDEXADA B             " << std::endl;
         escogioListaIndexada(miListaIndexB);
-	if(tipoDeLista == IndexadaC)
+	}
+	if(tipoDeLista == IndexadaC){
 		std::cout << "---------------------------------------------" << std::endl;
 		std::cout << "                LISTA INDEXADA C             " << std::endl;
         escogioListaIndexada(miListaIndexC);
-    if(tipoDeLista == Posicionada)
+	}
+    if(tipoDeLista == Posicionada){
 		std::cout << "---------------------------------------------" << std::endl;
 		std::cout << "                LISTA POSICIONADA A             " << std::endl;
         escogioListaPosicionada();
+	}	
 }
 
 void Interfaz :: escogioListaOrdenada(Lista_Ord miListaOrdena, int tipoDeLista){
