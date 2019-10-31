@@ -108,8 +108,8 @@ int Algoritmos_Index :: subLista(Lista_Index &listaA, Lista_Index &listaB){
 
 void Algoritmos_Index::burbuja(Lista_Index &lista){	
     int amount_elements = lista.numElem(); 
-    int indice1 = 0; 
-    int indice2 = 0; 
+    int indice1 = lista.primerIndice(); 
+    int indice2 = lista.primerIndice(); 
     int temp_value = 0;  
  
     if (amount_elements >= 2){
@@ -117,7 +117,7 @@ void Algoritmos_Index::burbuja(Lista_Index &lista){
             indice1 = lista.primerIndice(); 
             indice2 = indice1 + 1; 	
 		
-            while (indice1 <= lista.ultimoIndice()) {
+            while (indice2 <= lista.ultimoIndice()) {
                 if (lista.recuperar(indice1) > lista.recuperar(indice2)) {
                     temp_value = lista.recuperar(indice1);
                     lista.modificar(indice1, lista.recuperar(indice2));
