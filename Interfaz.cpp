@@ -194,15 +194,15 @@ void Interfaz :: escogioListaOrdenada(Lista_Ord&miListaOrdena, int tipoDeLista){
 			int elementoBuscado; 
 			std::cout << "Escriba elmento" << std::endl;
 			std::cin >> elementoBuscado;
-			if(tipoDeLista == OrdenadaA){
+			
 				resultado = misAlgoritmosOrd.pertenece(miListaOrdena, elementoBuscado);
 	
 				if(resultado){
-					std::cout << "Esta Lista esta" << std::endl;
+					std::cout << "Esta" << std::endl;
 				}else{
-					std::cout << "No esta contenida" << std::endl;
+					std::cout << "No esta" << std::endl;
 				}
-			}
+	
 			escogioListaOrdenada(miListaOrdena, tipoDeLista);
 			break;
 		case 17:
@@ -234,9 +234,10 @@ void Interfaz :: escogioListaOrdenada(Lista_Ord&miListaOrdena, int tipoDeLista){
 	}
 }
 
-void Interfaz :: escogioListaIndexada( Lista_Index miListaIndex){
+void Interfaz :: escogioListaIndexada( Lista_Index &miListaIndex){
     
     int operacion = 0;
+	int resultado = 0;
     
     std::cout << "1) iniciar();" << std::endl;
     std::cout << "2) destruir();" << std::endl;
@@ -249,8 +250,34 @@ void Interfaz :: escogioListaIndexada( Lista_Index miListaIndex){
     std::cout << "9) intercambiar(int,int)" << std::endl;
     std::cout << "10) numElem()" << std::endl;
     std::cout << "11) imprimirLista()" << std::endl;
-    std::cout << "12) EXIT" << std::endl;
-    std::cin >> operacion;
+	std::cout << std::endl;
+	std::cout << "----------------------------" << std::endl;
+	std::cout << "         Algoritmos         " << std::endl;
+    std::cout << "----------------------------" << std::endl;
+	std::cout << std::endl;
+	std::cout << "12) int simetrica(Lista_Index &lista); "<< std :: endl;
+    std::cout << "13) void invertir(Lista_Index &lista); "<< std :: endl;
+    std::cout << "14) int buscar(lista, int);"<< std :: endl;
+    std::cout << "15) void eliminarRepetidos(Lista_Index &lista);"<< std :: endl;
+    std::cout << "16) int subLista(listaA,listaB );"<< std :: endl;
+    std::cout << "17) void burbuja(Lista_Index &lista);"<< std :: endl;
+    std::cout << "18) void burbujaBidireccional(lista);"<< std :: endl;
+    std::cout << "19) void seleccion(Lista_Index &lista);"<< std :: endl;
+    std::cout << "20) void listar(Lista_Index &lista);"<< std :: endl;
+    std::cout << "21) void seleccionRecursivo(lista); "<< std :: endl;
+    std::cout << "22) void mergeSort(lista);"<< std :: endl;
+	std::cout << "23) void insercion(lista); "<< std :: endl;
+    std::cout << "24) void quickSort(lista);"<< std :: endl;
+    std::cout << "25) void quickSort_insercion(lista); "<< std :: endl;
+    std::cout << "26) void unionOrdenada(l1, l2); "<< std :: endl;
+    std::cout << "27) void unionNoOrdenada(l1, l2);"<< std :: endl;
+    std::cout << "28) void interseccion(l1, l2, l3); "<< std :: endl;
+    std::cout << "29) void interseccionOrdenada_v1(l1, l2, l3); "<< std :: endl;
+    std::cout << "30) void interseccionOrdenada_v2(l1, l2, l3);"<< std :: endl;
+	std::cout << "31) EXIT" << std::endl;
+	
+	
+	std::cin >> operacion;
     int parametro1 = 0;
     int parametro2 = 0;
     switch (operacion){
@@ -328,9 +355,152 @@ void Interfaz :: escogioListaIndexada( Lista_Index miListaIndex){
             escogioListaIndexada(miListaIndex);
             break;
         case 12:
-            menu();
-            break;    
-        default: 
+			resultado = misAlgoritmosInd.simetrica(miListaIndex);
+            if(resultado){
+				std::cout << "Es simetrica" << std::endl;
+			}else{
+				std::cout << "No es simetrica" << std::endl;
+			}
+			break;
+		case 13:
+			misAlgoritmosInd.invertir(miListaIndex);
+			std :: cout << "Se inviertio la lista" << std :: endl;
+			break;
+		case 14:
+			int elementoBuscado; 
+			std::cout << "Escriba elmento" << std::endl;
+			std::cin >> elementoBuscado;
+			
+				resultado = misAlgoritmosInd.buscar(miListaIndex, elementoBuscado);
+	
+				if(resultado){
+					std::cout << "Esta" << std::endl;
+				}else{
+					std::cout << "No esta" << std::endl;
+				}
+			escogioListaIndexada(miListaIndex);
+			break;
+		case 15:
+			misAlgoritmosInd.eliminarRepetidos(miListaIndex);
+			escogioListaIndexada(miListaIndex);
+			break;
+		case 16:
+			if(tipoDeLista == IndexadaA){
+				resultado = misAlgoritmosInd.subLista(miListaIndexA, miListaIndexB);
+			}
+			if(tipoDeLista == IndexadaB){
+				resultado = misAlgoritmosInd.subLista(miListaIndexB, miListaIndexC);
+			}
+			if(tipoDeLista == IndexadaC){
+				resultado = misAlgoritmosInd.subLista(miListaIndexC, miListaIndexA);
+			}
+			if(resultado){
+				std::cout << "Es Sublista" << std::endl;
+				}else{
+				std::cout << "No es Sublista" << std::endl;
+			}
+			escogioListaIndexada(miListaIndex);
+			break;
+		case 17:
+			misAlgoritmosInd.burbuja(miListaIndex);
+			escogioListaIndexada(miListaIndex);
+			break;
+		case 18:
+			misAlgoritmosInd.burbujaBidireccional(miListaIndex);
+			escogioListaIndexada(miListaIndex);
+			break;
+		case 19:
+			misAlgoritmosInd.seleccion(miListaIndex);
+			escogioListaIndexada(miListaIndex);
+			break;
+		case 20:
+			misAlgoritmosInd.listar(miListaIndex);
+			escogioListaIndexada(miListaIndex);
+			break;
+		case 21:
+			misAlgoritmosInd.seleccionRecursivo(miListaIndex);
+			escogioListaIndexada(miListaIndex);
+			break;
+		case 22:
+			misAlgoritmosInd.mergeSort(miListaIndex);
+			escogioListaIndexada(miListaIndex);
+			break;
+		case 23:
+			misAlgoritmosInd.insercion(miListaIndex);
+			escogioListaIndexada(miListaIndex);
+			break;
+		case 24:
+			misAlgoritmosInd.quickSort(miListaIndex);
+			escogioListaIndexada(miListaIndex);
+			break;
+		case 25:
+			misAlgoritmosInd.quickSort_insercion(miListaIndex);
+			escogioListaIndexada(miListaIndex);
+			break;
+		case 26:
+			if(tipoDeLista == IndexadaA){
+				misAlgoritmosInd.unionOrdenada(miListaIndexA, miListaIndexB);
+			}
+			if(tipoDeLista == IndexadaB){
+				misAlgoritmosInd.unionOrdenada(miListaIndexB, miListaIndexC);
+			}
+			if(tipoDeLista == IndexadaC){
+				misAlgoritmosInd.unionOrdenada(miListaIndexC, miListaIndexA);
+			}
+			escogioListaIndexada(miListaIndex);
+			break;
+		case 27:
+			if(tipoDeLista == IndexadaA){
+				misAlgoritmosInd.unionNoOrdenada(miListaIndexA, miListaIndexB);
+			}
+			if(tipoDeLista == IndexadaB){
+				misAlgoritmosInd.unionNoOrdenada(miListaIndexB, miListaIndexC);
+			}
+			if(tipoDeLista == IndexadaC){
+				misAlgoritmosInd.unionNoOrdenada(miListaIndexC, miListaIndexA);
+			}
+			escogioListaIndexada(miListaIndex);
+			break;
+		case 28:
+			if(tipoDeLista == IndexadaA){
+				misAlgoritmosInd.interseccion(miListaIndexA, miListaIndexB, miListaIndexC);
+			}
+			if(tipoDeLista == IndexadaB){
+				misAlgoritmosInd.interseccion(miListaIndexB, miListaIndexC, miListaIndexA);
+			}
+			if(tipoDeLista == IndexadaC){
+				misAlgoritmosInd.interseccion(miListaIndexC, miListaIndexA, miListaIndexB);
+			}
+			escogioListaIndexada(miListaIndex);
+			break;
+		case 29:
+			if(tipoDeLista == IndexadaA){
+				misAlgoritmosInd.interseccionOrdenada_v1(miListaIndexA, miListaIndexB, miListaIndexC);
+			}
+			if(tipoDeLista == IndexadaB){
+				misAlgoritmosInd.interseccionOrdenada_v1(miListaIndexB, miListaIndexC, miListaIndexA);
+			}
+			if(tipoDeLista == IndexadaC){
+				misAlgoritmosInd.interseccionOrdenada_v1(miListaIndexC, miListaIndexA, miListaIndexB);
+			}
+			escogioListaIndexada(miListaIndex);
+			break;
+		case 30:
+			if(tipoDeLista == IndexadaA){
+				misAlgoritmosInd.interseccionOrdenada_v2(miListaIndexA, miListaIndexB, miListaIndexC);
+			}
+			if(tipoDeLista == IndexadaB){
+				misAlgoritmosInd.interseccionOrdenada_v2(miListaIndexB, miListaIndexC, miListaIndexA);
+			}
+			if(tipoDeLista == IndexadaC){
+				misAlgoritmosInd.interseccionOrdenada_v2(miListaIndexC, miListaIndexA, miListaIndexB);
+			}
+			escogioListaIndexada(miListaIndex);
+			break;
+		case 31:
+			menu();
+			break;
+		default: 
             std::cout << "La opcion seleccionada no es valida" << std::endl; 
             escogioListaIndexada(miListaIndex); 	
             break; 
@@ -343,10 +513,17 @@ void Interfaz :: escogioListaPosicionada(){
     int value = 0; 
     int lista_id = -1;
     int esta = 0; 
-    bool id_valido = false;  
-    cout << "Puede trabajar con 3 listas, para utilizar los algoritmos " << endl; 	
-    cout << "los algoritmos que requieren de 1 unica lista solo funcionan con la lista principal" << endl; 
-    cout << "las listas secundarias son para los algoritmos que requiere mas de 1 lista, sin embargo se corren igualemente desde la lista principal" << endl; 
+    bool id_valido = false;
+    cout << "---------------------------------------------------------------" << endl; 
+    cout << "..............................................................." << endl;   
+    cout << "Puede trabajar con 3 listas para utilizar los algoritmos " << endl; 	
+    cout << "Los algoritmos que requieren de una unica lista solo funcionan con la lista principal" << endl; 
+    cout << "Las listas secundarias son para los algoritmos que requiere mas de 1 lista " << endl; 
+    cout << "Todos  los algoritmos deben ejecutarsen desde la lista principal" << endl; 
+    cout << "Editando anteriormente las listas secundarias y viendo los resultados en las listas correspondientes" << endl;
+    cout << "Esto según las clausas de Efecto y en que lista quedan los resultados" << endl;  
+    cout << "................................................................" << endl; 
+    cout << "----------------------------------------------------------------" << endl; 
     while (!id_valido) {															
 		std::cout << "1) lista del programa \n 2) lista auxiliar 1 \n 3) lista auxiliar 2" << std::endl;  
 		std::cin >> lista_id; 
@@ -380,11 +557,11 @@ void Interfaz :: escogioListaPosicionada(){
     std::cout << "18) Insercion" << std::endl; 
     std::cout << "19) QuickSort" << std::endl; 
     std::cout << "20) mergeSort" << std::endl; 
-    std::cout << "21) UnionOrdenada" << std::endl; 
-    std::cout << "22) UnionNoOrdenada" << std::endl;  
-    std::cout << "23) InterseccionOrdenadaV1" << std::endl; 
-    std::cout << "24) InterseccionNoOrdenadaV2" << std::endl; 
-    std::cout << "25) Interseccion" << std::endl; 
+    std::cout << "21) UnionOrdenada(listaPrincipal, aux_1)" << std::endl; //agrega a l1, los elementos de l2, que no se encuentren en dicha lista. 
+    std::cout << "22) UnionNoOrdenada(listaPrincipal, aux_1)" << std::endl;  // agrega a l1, los elementos de l2, que no se encuentren en dicha lista.  
+    std::cout << "23) InterseccionOrdenadaV1(listaPrincipal, aux_1, aux_2)" << std::endl; //deja en l3 unicamente los elementos que posean en comun las listas l1 y l2. 
+    std::cout << "24) InterseccionNoOrdenadaV2(listaPrincipal, aux_1, aux_2)" << std::endl; //deja en l3 unicamente los elementos que posean en comun las listas l1 y l2. 
+    std::cout << "25) Interseccion" << std::endl; // deja en l3 unicamente los elementos que posean en comun las listas l1 y l2. 
     std::cout << "26) Buscar" << std::endl; 
     std::cout << "27) Invertir" << std::endl; 
     std::cout << "28) Simetrica" << std::endl; 
@@ -879,7 +1056,7 @@ void Interfaz :: escogioListaPosicionada(){
 	
 	
 	case 24: //dela en l3, la interseccion de l1 y l2. 
-		misAlgoritmosPos.interseccionOrdenada_v2(miListaPos, aux_1, aux_2);	//aún no programado
+		misAlgoritmosPos.interseccionOrdenada_v2(miListaPos, aux_1, aux_2);	//probado y funciona. 
 		escogioListaPosicionada(); 
 	break; 
 	
