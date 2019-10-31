@@ -236,10 +236,11 @@ void Interfaz :: escogioListaOrdenada(Lista_Ord&miListaOrdena, int tipoDeLista){
 
 void Interfaz :: escogioListaIndexada( Lista_Index &miListaIndex){
     
-    int operacion = 0;
+    int operacion = -1;
 	int resultado = 0;
     
-    std::cout << "1) iniciar();" << std::endl;
+    std::cout << "0) iniciar();" << std::endl;
+	std::cout << "1) agregarAlFinal(int);" << std::endl;
     std::cout << "2) destruir();" << std::endl;
     std::cout << "3) vaciar();" << std::endl;
     std::cout << "4) vacia();" << std::endl; 
@@ -281,9 +282,15 @@ void Interfaz :: escogioListaIndexada( Lista_Index &miListaIndex){
     int parametro1 = 0;
     int parametro2 = 0;
     switch (operacion){
-        case 1:
+        case 0:
             std::cout << "Se inicio la lista" << std::endl;
             miListaIndex.iniciar();
+            escogioListaIndexada(miListaIndex);
+            break;
+		case 1:
+			std::cout << "Digite el elemento que desea insertar" << std::endl;
+            std::cin >> parametro1;
+            miListaIndex.agregarAlFinal(parametro1);
             escogioListaIndexada(miListaIndex);
             break;
         case 2:
