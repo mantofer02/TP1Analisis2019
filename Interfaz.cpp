@@ -879,7 +879,7 @@ void Interfaz :: escogioListaPosicionada(){
 	
 	
 	case 24: //dela en l3, la interseccion de l1 y l2. 
-		misAlgoritmosPos.interseccionOrdenada_v2(miListaPos, aux_1, aux_2);	//aún no programado
+		misAlgoritmosPos.interseccionOrdenada_v2(miListaPos, aux_1, aux_2);	//probado y funciona. 
 		escogioListaPosicionada(); 
 	break; 
 	
