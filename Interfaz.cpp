@@ -220,6 +220,7 @@ void Interfaz :: escogioListaOrdenada(Lista_Ord miListaOrdena){
 		case 20:
 			menu();
 			break;
+		}
 	}
 }
 
