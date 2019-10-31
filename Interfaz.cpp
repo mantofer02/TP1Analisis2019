@@ -11,6 +11,8 @@
 Interfaz :: Interfaz(){
   //  miListaPos = new Lista_Pos();
     miListaPos.iniciar();
+    aux_1.iniciar(); 
+    aux_2.iniciar(); 
     this->tipoDeLista = 0;
     std::cout << "Bienvenido " << std::endl;
     menu();
@@ -58,7 +60,7 @@ void Interfaz :: menu(){
 	}	
 }
 
-void Interfaz :: escogioListaOrdenada(Lista_Ord miListaOrdena, int tipoDeLista){
+void Interfaz :: escogioListaOrdenada(Lista_Ord&miListaOrdena, int tipoDeLista){
     int operacion = 0;
 	int resultado1 = 0;
 	int resultado = 0;
@@ -366,7 +368,12 @@ void Interfaz :: escogioListaPosicionada(){
     std::cout << "10) vaciar();" << std::endl;		    	
     std::cout << "11) destruir();" << std::endl;		
     std::cout << "12) imprimirLista()" << std::endl;
-    std::cout << "13) agregarAlFinal()" << std::endl;				 
+    std::cout << "13) agregarAlFinal()" << std::endl;
+    std::cout << std::endl;
+	std::cout << "----------------------------" << std::endl;
+	std::cout << "         Algoritmos         " << std::endl;
+    std::cout << "----------------------------" << std::endl;
+	std::cout << std::endl;		 
     std::cout << "15) Burbuja" << std::endl;  
     std::cout << "16) Seleccion" << std::endl; 
     std::cout << "17) Seleccion recursivo" << std::endl;

@@ -31,7 +31,7 @@ class Interfaz{
     public: 
         Interfaz();
         void menu();
-        void escogioListaOrdenada(Lista_Ord, int);
+        void escogioListaOrdenada(Lista_Ord&, int);
         void escogioListaIndexada(Lista_Index);
         void escogioListaPosicionada();
         ~Interfaz();
