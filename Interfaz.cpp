@@ -514,17 +514,18 @@ void Interfaz :: escogioListaPosicionada(){
     int lista_id = -1;
     int esta = 0; 
     bool id_valido = false;
-    cout << "---------------------------------------------------------------" << endl; 
-    cout << "..............................................................." << endl;   
-    cout << "Puede trabajar con 3 listas para utilizar los algoritmos " << endl; 	
-    cout << "Los algoritmos que requieren de una unica lista solo funcionan con la lista principal" << endl; 
-    cout << "Las listas secundarias son para los algoritmos que requiere mas de 1 lista " << endl; 
-    cout << "Todos  los algoritmos deben ejecutarsen desde la lista principal" << endl; 
-    cout << "Editando anteriormente las listas secundarias y viendo los resultados en las listas correspondientes" << endl;
-    cout << "Esto según las clausas de Efecto y en que lista quedan los resultados" << endl;  
-    cout << "................................................................" << endl; 
-    cout << "----------------------------------------------------------------" << endl; 
-    while (!id_valido) {															
+    std::cout << "---------------------------------------------------------------" << std::endl; 
+    std::cout << "..............................................................." << std::endl;   
+    std::cout << "Puede trabajar con 3 listas para utilizar los algoritmos " << std::endl; 	
+    std::cout << "Los algoritmos que requieren de una unica lista solo funcionan con la lista principal" << std::endl; 
+    std::cout << "Las listas secundarias son para los algoritmos que requiere mas de 1 lista " << std::endl; 
+    std::cout << "Todos  los algoritmos deben ejecutarsen desde la lista principal" << std::endl; 
+    std::cout << "Editando anteriormente las listas secundarias y viendo los resultados en las listas correspondientes" << std::endl;
+    std::cout << "Esto según las clausas de Efecto y en que lista quedan los resultados" << std::endl;  
+    std::cout << "................................................................" << std::endl; 
+    std::cout << "----------------------------------------------------------------" << std::endl; 
+    while (!id_valido) {		
+															
 		std::cout << "1) lista del programa \n 2) lista auxiliar 1 \n 3) lista auxiliar 2" << std::endl;  
 		std::cin >> lista_id; 
 		if ( 0 < lista_id < 4) {
