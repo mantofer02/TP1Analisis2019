@@ -150,14 +150,15 @@ void Interfaz :: escogioListaOrdenada(Lista_Ord miListaOrdena){
 			escogioListaOrdenada(miListaOrdena);
 			break;
         case 13:
-            int resultado = misAlgoritmosOrd.iguales(miListaOrdenadaA, miListaOrdenadaB);
-			if(resultado)
+            int resultado1 = 0;
+			resultado1 = misAlgoritmosOrd.iguales(miListaOrdenadaA, miListaOrdenadaB);
+			if(resultado1){
 				std::cout << "Son Iguales" << std::endl;
-			else{
+			}else{
 				std::cout << "No son iguales" << std::endl;
 			}
 			escogioListaOrdenada(miListaOrdena);
-            break;
+            
 		case 14:
 			if(tipoDeLista == OrdenadaA){
 				misAlgoritmosOrd.copiar(miListaOrdena, miListaOrdenadaB);
@@ -165,7 +166,7 @@ void Interfaz :: escogioListaOrdenada(Lista_Ord miListaOrdena){
 				misAlgoritmosOrd.copiar(miListaOrdena, miListaOrdenadaA);
 			}
 			escogioListaOrdenada(miListaOrdena);
-			break;
+			
 		case 15:
 			int resultado = 0;
 			if(tipoDeLista == OrdenadaA){
@@ -173,9 +174,9 @@ void Interfaz :: escogioListaOrdenada(Lista_Ord miListaOrdena){
 			}else{
 				resultado = misAlgoritmosOrd.contenida(miListaOrdena, miListaOrdenadaA);
 			}
-			if(resultado)
+			if(resultado){
 				std::cout << "Esta Lista esta contenida en la segunda" << std::endl;
-			else{
+			}else{
 				std::cout << "No esta contenida" << std::endl;
 			}
 			escogioListaOrdenada(miListaOrdena);
@@ -188,9 +189,9 @@ void Interfaz :: escogioListaOrdenada(Lista_Ord miListaOrdena){
 			if(tipoDeLista == OrdenadaA){
 				resultado = misAlgoritmosOrd.pertenece(miListaOrdena, elementoBuscado);
 	
-			if(resultado)
+			if(resultado){
 				std::cout << "Esta Lista esta" << std::endl;
-			else{
+			}else{
 				std::cout << "No esta contenida" << std::endl;
 			}
 			escogioListaOrdenada(miListaOrdena);
@@ -201,9 +202,9 @@ void Interfaz :: escogioListaOrdenada(Lista_Ord miListaOrdena){
 			}else{
 				resultado = misAlgoritmosOrd.contenida(miListaOrdena, miListaOrdenadaA);
 			}
-			if(resultado)
+			if(resultado){
 				std::cout << "Esta Lista esta contenida en la segunda" << std::endl;
-			else{
+			}else{
 				std::cout << "No esta contenida" << std::endl;
 			}
 			escogioListaOrdenada(miListaOrdena);
@@ -211,6 +212,13 @@ void Interfaz :: escogioListaOrdenada(Lista_Ord miListaOrdena){
 		case 18:
 			misAlgoritmosOrd.unionListas(miListaOrdenadaA, miListaOrdenadaB);
 			escogioListaOrdenada(miListaOrdena);
+			break;
+		case 19:
+			misAlgoritmosOrd.interseccion(miListaOrdenadaA, miListaOrdenadaB);
+			escogioListaOrdenada(miListaOrdena);
+			break;
+		case 20:
+			menu();
 			break;
 	}
 }
