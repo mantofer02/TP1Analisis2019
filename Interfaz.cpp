@@ -733,13 +733,13 @@ void Interfaz :: escogioListaPosicionada(){
 	break; 
 	
 	case 17: 
-		misAlgoritmosPos.seleccionRecursivo(miListaPos, miListaPos.primera()); 	//probado y funciona
+		 misAlgoritmosPos.seleccionRecursivo(miListaPos, miListaPos.primera()); 	//probado y funciona
 		escogioListaPosicionada(); 
 	
 	break; 
 	
 	case 18: 
-		misAlgoritmosPos.insercion(miListaPos);		//probado y funciona. 
+		 misAlgoritmosPos.insercion(miListaPos);		//probado y funciona. 
 		escogioListaPosicionada();  
 	
 	break; 
