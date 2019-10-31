@@ -1,41 +1,38 @@
 #ifndef miInterfaz1
 #define miInterfaz2
 
-#include <iostream>
-
-#include "lista_index_LSE.h"
-//  #include "lista_index_array.h"
-// #include "lista_pos_Arreglo.h"
-
-#include "lista_ord_array.h"
-// #include "lista_ord_LSE.h"
-
-// #include "lista_pos_Arreglo.h"
-// #include "lista_pos_LSE.h"
-#include "lista_pos_LDE.h"
-
- #include "algoritmos_lista_pos.h"
-
-//Falta 
+// #include <iostream>
 
 
-using namespace std;
+#include "algoritmos_lista_pos.h"
+#include "algoritmos_lista_index.h"
+#include "algoritmos_lista_ord.h"
+
+
+
+// using namespace std;
 
 class Interfaz{
     private:
         int tipoDeLista;
-        Lista_Ord miListaOrdena;
-        Lista_Index miListaIndex;
+        Lista_Ord miListaOrdenadaA;
+        Lista_Ord miListaOrdenadaB;
+        // Lista_Index miListaIndex;
+        Lista_Index miListaIndexA;
+        Lista_Index miListaIndexB;
+        Lista_Index miListaIndexC;
         Lista_Pos miListaPos; 
         Lista_Pos aux_1; 		//se necesitan para los algoritmos de uniones e intersecciones. 
         Lista_Pos aux_2; 
-		 Algoritmos_Pos algoritmos; 
+        Algoritmos_Pos misAlgoritmosPos;
+        Algoritmos_Index misAlgoritmosInd;
+        Algoritmos_Ordenada misAlgoritmosOrd; 
 
     public: 
         Interfaz();
         void menu();
-        void escogioListaOrdenada();
-        void escogioListaIndexada();
+        void escogioListaOrdenada(Lista_Ord&, int);
+        void escogioListaIndexada(Lista_Index&);
         void escogioListaPosicionada();
         ~Interfaz();
         

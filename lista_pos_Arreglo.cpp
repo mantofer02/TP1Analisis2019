@@ -31,9 +31,9 @@ void Lista_Pos::destruir() {
 
 
 void Lista_Pos::intercambiar(int p_1, int p_2) {
-	int temporal_value = this->listaPos[p_1]; 
-	this->listaPos[p_1] = this->listaPos[p_2];
-	this->listaPos[p_2] = temporal_value;  	
+	int temporal_value = this->ListaPos[p_1]; 
+	this->ListaPos[p_1] = this->ListaPos[p_2];
+	this->ListaPos[p_2] = temporal_value;  	
 }
 
 
@@ -126,7 +126,7 @@ void Lista_Pos::modificar(int posicion, int valor) {		//requiere que la posicion
 
 
 int Lista_Pos::siguiente(int posicion){	
-    if (posicion < this->numero_elementos) {			//si es una posicion valida. 
+    if (posicion < this->numero_elementos-1) {			//si es una posicion valida. 
 		return posicion+1; 
     }
 	 else {

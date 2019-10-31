@@ -11,9 +11,45 @@ Algoritmos_Pos::Algoritmos_Pos() {
 
 
 
-//Efecto: 
-//Requiere: 
-//Modifica: 
+//Efecto: Ordena los elementos de la lista de forma ascendente. 
+//Requiere: que la lista se encuentre inicializada. 
+//Modifica: las etiquetas correspondientes a las posiciones de la lista. 
+
+
+void Algoritmos_Pos::burbujaBidireccional(Lista_Pos&lista) {
+	  Pos flag_1 = lista.primera(); 
+	  Pos flag_2 = lista.ultima(); 
+	  
+	  while (lista.siguiente(flag_2) != flag_1 && flag_2 != flag_1) {		  
+	   Pos p_1 = flag_1;
+	   while (p_1 != flag_2) {
+			if (lista.recuperar(p_1) > lista.recuperar(lista.siguiente(p_1))) {
+			 lista.intercambiar(p_1, lista.siguiente(p_1)); 
+			}
+			p_1 = lista.siguiente(p_1); 
+		}
+		
+		  
+		while (p_1 != flag_1) {
+			 if (lista.recuperar(p_1) < lista.recuperar(lista.anterior(p_1))) {
+				lista.intercambiar(p_1, lista.anterior(p_1)); 
+			 }
+			 p_1 = lista.anterior(p_1); 
+		}
+
+		flag_1 = lista.siguiente(flag_1); 
+		flag_2 = lista.anterior(flag_2); 
+	   
+	  }
+	  
+
+ }
+
+
+//Efecto: retorna un booleano si la listaA se encuentra contenida en cualquier parte de  la listaB
+//Requiere: que ambas listas se encuentren inicializadas. 
+//Modifica: no modifica nada, solo retorna información correspondiente a las listas. 
+
 
 
 bool Algoritmos_Pos::subLista(Lista_Pos &listaA, Lista_Pos &listaB){
@@ -482,22 +518,18 @@ void Algoritmos_Pos::interseccionOrdenada_v1(Lista_Pos &l1, Lista_Pos &l2,Lista_
 //Requiere: que ambas listas se encuentre inicializadas. 
 //Modifica: la lista l3, de poseer elementos anteriormente se eliminaran y se procedera a agregar únicamente la intersección de las otras 2 listas. 
 
-
-
 void Algoritmos_Pos::interseccionOrdenada_v2(Lista_Pos &l1, Lista_Pos &l2, Lista_Pos &l3) {
-l3.vaciar(); 
-l3.iniciar(); 
-Pos pos1 = l1.primera(); 
-while (pos1 != PosNula) {
- if (buscar(l2, l1.recuperar(pos1))) {
-	 l3.agregarAlFinal(l1.recuperar(pos1)); 
- }
- pos1 = l1.siguiente(pos1); 	
-}		  
-
-
-
+	l3.vaciar(); 
+	l3.iniciar(); 
+	Pos pos1 = l1.primera(); 
+	while (pos1 != PosNula) {
+		if (buscar(l2, l1.recuperar(pos1))) {
+		l3.agregarAlFinal(l1.recuperar(pos1)); 
+	}
+	pos1 = l1.siguiente(pos1); 	
+	}		  
 }
+
 
 
 //Efecto: deja en l3 unicamente los elementos que posean en comun las listas l1 y l2. 
@@ -598,8 +630,6 @@ void Algoritmos_Pos::merge(Lista_Pos &lista_1, Lista_Pos &lista_2, Lista_Pos &li
 		lista.agregarAlFinal(lista_2.recuperar(current_2));
 		current_2 = lista_2.siguiente(current_2);  	
 	}
-	
-	
 	lista_1.destruir(); 
 	lista_2.destruir(); 
 }

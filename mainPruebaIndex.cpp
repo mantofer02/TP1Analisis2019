@@ -240,56 +240,69 @@ void invertir(Lista_Index &lista){				//probado y funciona.
 
 void merge(Lista_Index &lista_1, Lista_Index &lista_2, Lista_Index &lista) {
 	
-	lista.vaciar(); 
+	lista.vaciar();
+	lista.iniciar();  
 	int current_1 = lista_1.primerIndice(); 
 	int current_2 = lista_2.primerIndice(); 
 	
 	while (current_1 <= lista_1.ultimoIndice() && current_2 <= lista_2.ultimoIndice()) {
 		if (lista_1.recuperar(current_1) < lista_2.recuperar(current_2)) {
 			lista.agregarAlFinal(lista_1.recuperar(current_1)); 
-			current_1 = lista_1.siguiente(current_1);  
+			//current_1 = lista_1.siguiente(current_1);  
+			++current_1; 
 		}
 		else {
 			lista.agregarAlFinal(lista_2.recuperar(current_2));
-			current_2 = lista_2.siguiente(current_2);  
+			//current_2 = lista_2.siguiente(current_2);
+			++current_2;   
 		}
 		
 	}
 	while (current_1 <= lista_1.ultimoIndice()) {
 		lista.agregarAlFinal(lista_1.recuperar(current_1));
-		current_1 = lista_1.siguiente(current_1);  		
+		//current_1 = lista_1.siguiente(current_1);  	
+		++current_1; 	
 	}
 	while (current_2 <= lista_2.ultimoIndice()) {
 		lista.agregarAlFinal(lista_2.recuperar(current_2));
-		current_2 = lista_2.siguiente(current_2);  	
+		++current_2; 
+		//current_2 = lista_2.siguiente(current_2);  	
 	}
+	
 	lista_1.destruir(); 
 	lista_2.destruir(); 
 }
 
 void mergeSort(Lista_Index &lista){
 
+	// std::cout << "la lista es : " << std::endl; 
+	// lista.imprimirLista(); 
 	if (lista.numElem() > 1) {
 		int mid = lista.numElem()/2; 
-		int indiceActual = lista.primerIndice(); 
+		//int indiceActual = lista.primerIndice(); 
 		
 		Lista_Index primeraMitad;
 		primeraMitad.iniciar();  
 		Lista_Index segundaMitad;
 		segundaMitad.iniciar();  
 
-		for (int i = lista.primerIndice(); i < mid; i++) {
-			primeraMitad.agregarAlFinal(lista.recuperar(indiceActual)); 
-			indiceActual = lista.siguiente(indiceActual);  
+		for (int i = lista.primerIndice()-1; i < mid; i++) {
+			primeraMitad.agregarAlFinal(lista.recuperar(i+1)); 
+			//indiceActual = lista.siguiente(indiceActual);  
+			//++indiceActual; 
 		}
 		
 		for (int j = mid; j < lista.ultimoIndice(); j++) {
-			segundaMitad.agregarAlFinal(lista.recuperar(indiceActual));
-			indiceActual = lista.siguiente(indiceActual);  
+			segundaMitad.agregarAlFinal(lista.recuperar(j+1));
+			//indiceActual = lista.siguiente(indiceActual);  
+			//++indiceActual; 
 		}
 		
+	//  std::cout << "me llame con la primera mitad" << std::endl; 	
 	 mergeSort(primeraMitad);
+	//  std::cout << "me llame con la segunda mitad" << std::endl; 
 	 mergeSort(segundaMitad);
+	//  std::cout << "UYUYUYUYUYUYUYUYUYUYUYUYUYUUYUYUYUYUYUYUYUY" << std::endl; 
 	 merge(primeraMitad, segundaMitad, lista);   	
 		
 	}
@@ -319,24 +332,24 @@ int main(){
 	// for (int k = 0; k < 15; ++k) 
 	// 	aux_1.agregarAlInicio(k*2);
 		 
-	invertir(miLista); 
-	invertir(aux); 
-	invertir(aux_1); 
+	//invertir(miLista); 
+	//invertir(aux); 
+	//invertir(aux_1); 
 	
 	
 
-    std::cout << "imprimiendo la primera lista" << std::endl; 
-    miLista.imprimirLista();
-	std::cout << "imprimiendo la segunda lista" << std::endl; 
-	aux.imprimirLista();
-	std::cout << "imprimiendo la tercera lista" << std::endl;  
-	aux_1.imprimirLista(); 
+   // std::cout << "imprimiendo la primera lista" << std::endl; 
+    //miLista.imprimirLista();
+	//std::cout << "imprimiendo la segunda lista" << std::endl; 
+	//aux.imprimirLista();
+	//std::cout << "imprimiendo la tercera lista" << std::endl;  
+	//aux_1.imprimirLista(); 
 	
 	
 	//unionOrdenada(miLista, aux); 
 	//unionNoOrdenada(miLista, aux); 
 	//interseccion(miLista, aux, aux_1); 
-	interseccionOrdenada_v2(miLista, aux, aux_1); 
+	//interseccionOrdenada_v2(miLista, aux, aux_1); 
 	
 	// std::cout << "imprimiendo la primera lista" << std::endl; 
     // miLista.imprimirLista();
@@ -357,9 +370,14 @@ int main(){
    std :: cout << "----------------" << std :: endl;
     // std :: cout << algs.simetrica(miLista) << std :: endl;
 
-    // miLista.agregarAlFinal(6);
+    miLista.agregarAlFinal(6);
 	mergeSort(miLista);
+	
+	
+	// std::cout << "sali del algoritmo" << std::endl; 
+	
 	miLista.imprimirLista();
+	// miLista.destruir();
     // eliminarRepetidos(miLista);
 
     // miLista.borrar(miLista.primerIndice());

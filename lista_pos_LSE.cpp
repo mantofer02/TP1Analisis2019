@@ -22,26 +22,35 @@ void Lista_Pos::iniciar(){
 //Modifica: Este operador básico no modifica nada.
 
 Posicion* Lista_Pos::anterior(Posicion* posicion) {
-	Posicion* temporal = nullptr; 
 	
 	if (posicion != nullptr) {
 	
-		temporal = primera(); 
-		while (temporal->siguiente() != posicion) {
-			temporal = temporal->siguiente(); 
+	
+		if (posicion != this->primera()) {
+			Posicion* temporal = this->primera(); 
+			while (temporal->siguiente() != posicion) {
+				temporal = temporal->siguiente(); 
+			}
+			return temporal; 
+		}
+		else {
+			return nullptr; 
 		}
 	
+	
+	}
+	else {
+		return nullptr; 
 	}
 	
-	return temporal; 	
 }
 
 
 
 void Lista_Pos::intercambiar(Posicion* p_1, Posicion* p_2) {
-	int temporal_value = p_1.recuperar(); 
-	p_1.modificar(p_2.recuperar()); 
-	p_2.modificar(temporal_value); 		
+	int temporal_value = p_1->recuperar(); 
+	p_1->modificar(p_2->recuperar()); 
+	p_2->modificar(temporal_value); 		
 }	
 	
 

@@ -50,6 +50,7 @@ Requiere : que la lista exista y se encuentre inicializada.
 Modiﬁca : no modiﬁca nada.
 */
 void Lista_Index :: destruir(){
+    // std :: cout << "Vine a morir" << std :: endl;
     if(primera){
         Celda * actual = primera;
         while(primera != ultima){
@@ -59,12 +60,12 @@ void Lista_Index :: destruir(){
             }
             ultima = actual;
             delete ultima->siguiente;
-            delete actual;
         }
         delete primera;
         primera = 0;
         ultima = 0;
     }
+    // std :: cout << "Mori con exito" << std :: endl;
 }
 
 /*

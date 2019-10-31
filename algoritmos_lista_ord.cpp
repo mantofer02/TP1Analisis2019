@@ -1,7 +1,7 @@
 #include "algoritmos_lista_ord.h"
 
-Algoritmos_Ordenada::Algoritmos_Ordenada(Lista_Ord & lista){
-    this->lista = lista;
+Algoritmos_Ordenada::Algoritmos_Ordenada(/*Lista_Ord & lista*/){
+    // this->lista = lista;
 }
 
 //
@@ -185,6 +185,7 @@ Lista_Ord Algoritmos_Ordenada::unionListas(Lista_Ord & lista, Lista_Ord & otra){
             elemento2 = otra.siguiente(elemento2);
         }
     }
+    respuesta.imprimir(); 
     return respuesta;
 }
 
@@ -212,5 +213,6 @@ Lista_Ord Algoritmos_Ordenada::interseccion(Lista_Ord & lista, Lista_Ord & otra)
             }
         }
     }
+    respuesta.imprimir();
     return respuesta;
 }

@@ -25,7 +25,7 @@ Lista_Ord::~Lista_Ord(){
 //Requiere: Que la lista no haya sido inicializada anteriormente.
 //Modifica: Los espacios de memoria que la Lista_Ord va utilizar (Si es estática, no se necesitan más espacios de memoria para el manejo de la lista).
 void Lista_Ord::iniciar(){
-    cout << "La lista ha sido inicializada con exito.\n"<< endl;                    
+    //cout << "La lista ha sido inicializada con exito.\n"<< endl;                    
 }
 
 //Destruir(L)
@@ -72,11 +72,11 @@ void Lista_Ord::agregar(int elemento){
             nuevo->siguiente = temp;
             primeraPosicion = nuevo;
             agregue=1;    
-            cout << "Se agrega el elemento "<< elemento << " con exito.\n";          
+            //cout << "Se agrega el elemento "<< elemento << " con exito.\n";          
         }
         while(temp!=nullptr && !agregue){
             if(temp->elemento == elemento){
-                cout << "El elemento "<< elemento <<" ya esta en la lista.\n"<< endl;
+                //cout << "El elemento "<< elemento <<" ya esta en la lista.\n"<< endl;
                 agregue = 1;
                 temp=nullptr;
                 numeroElementos--;
@@ -87,7 +87,7 @@ void Lista_Ord::agregar(int elemento){
                         nuevo->siguiente = temp->siguiente;
                         temp->siguiente = nuevo;
                         agregue = 1;
-                        cout << "Se agrega el elemento "<< elemento << " con exito.\n";
+                        //cout << "Se agrega el elemento "<< elemento << " con exito.\n";
                     }
                     else{
                         temp = temp->siguiente;
@@ -101,13 +101,13 @@ void Lista_Ord::agregar(int elemento){
         if(!agregue){
             ultimaPosicion->siguiente = nuevo;
             ultimaPosicion = nuevo;
-            cout << "Se agrega el elemento "<< elemento << " con exito.\n";
+           // cout << "Se agrega el elemento "<< elemento << " con exito.\n";
         }
     }
     else{
         primeraPosicion = nuevo;
         ultimaPosicion = nuevo;
-        cout << "Se agrega el elemento "<< elemento << " con exito.\n";
+       // cout << "Se agrega el elemento "<< elemento << " con exito.\n";
     }
     numeroElementos++;
 }
@@ -143,11 +143,11 @@ void Lista_Ord::borrar(int elemento){
         }
         numeroElementos--;
         if(!borre){
-            cout << "No se pudo borrar el elemento deseado, ya que el elemento no esta en la lista.\n";    
+           // cout << "No se pudo borrar el elemento deseado, ya que el elemento no esta en la lista.\n";    
         }
     }
     else{
-       cout << "No se pudo borrar el elemento deseado, ya que la lista esta vacia.\n";
+       //cout << "No se pudo borrar el elemento deseado, ya que la lista esta vacia.\n";
     }
 }
 
@@ -162,7 +162,7 @@ int Lista_Ord::primero(){
         resultado = primeraPosicion->elemento;
     }
     else{
-        cout << "La lista esta vacia, por lo que no se puede devolver un primer elemento.\n";
+       // cout << "La lista esta vacia, por lo que no se puede devolver un primer elemento.\n";
     }
     return resultado;
 }
@@ -178,7 +178,7 @@ int Lista_Ord::ultimo(){
         resultado = ultimaPosicion->elemento;
     }
     else{
-        cout << "La lista esta vacia, por lo que no se puede devolver un ultimo elemento.\n";
+        //cout << "La lista esta vacia, por lo que no se puede devolver un ultimo elemento.\n";
     }
     return resultado;
 }
@@ -194,7 +194,7 @@ int Lista_Ord::siguiente(int elemento){
     if(temp){
         if(ultimaPosicion->elemento == elemento){
             resultado = -1;
-            cout << "El elemento deseado es el ultimo de la lista.\n";
+           // cout << "El elemento deseado es el ultimo de la lista.\n";
         }
         else{
             int encontre = 0;
@@ -208,13 +208,13 @@ int Lista_Ord::siguiente(int elemento){
                 }
             }
             if(!encontre){
-                cout << "El elemento deseado no esta en la lista\n";
+                //cout << "El elemento deseado no esta en la lista\n";
             }
         }
     }
     else{
         resultado = -1;
-        cout <<"La lista esta vacia.\n"<< endl;
+        //cout <<"La lista esta vacia.\n"<< endl;
     }
     return resultado;
 }
@@ -230,7 +230,7 @@ int Lista_Ord::anterior(int elemento){
     if(temp){
         if(temp->elemento == elemento){
             resultado = -1;
-            cout << "El elemento deseado es el primero de la lista.\n";
+            //cout << "El elemento deseado es el primero de la lista.\n";
         }
         else{
             int encontre = 0;
@@ -244,13 +244,13 @@ int Lista_Ord::anterior(int elemento){
                 }
             }
             if(!encontre){
-                cout << "El elemento deseado no esta en la lista\n";
+                //cout << "El elemento deseado no esta en la lista\n";
             }
         }
     }
     else{
         resultado = -1;
-        cout <<"La lista esta vacia.\n"<< endl;
+       // cout <<"La lista esta vacia.\n"<< endl;
     }    
     return resultado;
 }
@@ -280,13 +280,13 @@ void Lista_Ord::Elemento::imprimir(){
     }
 }
 
-void Lista_Ord::imprimirMenu(Lista_Ord * lista){
-    cout << "Bienvenido al programa de prueba de la lista ordenada implementada a través de una lista simplemente enlazada. Digite los dígitos correspondientes a los operadores básicos que desea usar:\n" << endl;
-    cout << "1. Iniciar.\n2. Destruir.\n3. Vaciar.\n4. Vacia.\n5. Agregar.\n6. Borrar.\n7. Primero.\n8. Ultimo.\n9. Siguiente.\n10. Anterior.\n11. NumElem\n12. Imprimir.\n13. Salir." << endl;
-    int decision = 0;
-    if(!(cin >> decision)){
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+/* //void Lista_Ord::imprimirMenu(Lista_Ord * lista){
+//   cout << "Bienvenido al programa de prueba de la lista ordenada implementada a través de una lista simplemente enlazada. Digite los dígitos correspondientes a los operadores básicos que desea usar:\n" << endl;
+//  cout << "1. Iniciar.\n2. Destruir.\n3. Vaciar.\n4. Vacia.\n5. Agregar.\n6. Borrar.\n7. Primero.\n8. Ultimo.\n9. Siguiente.\n10. Anterior.\n11. NumElem\n12. Imprimir.\n13. Salir." << endl;
+//int decision = 0;
+//  if(!(cin >> decision)){
+//    cin.clear();
+//  cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cout << "El valor que introdujo no es valido. Por favor intente de nuevo." << endl;
         imprimirMenu(lista);
     }
@@ -406,4 +406,4 @@ void Lista_Ord::imprimirMenu(Lista_Ord * lista){
             imprimirMenu(lista);
         }
     }
-}
+} */
