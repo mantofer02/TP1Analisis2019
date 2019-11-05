@@ -1,8 +1,12 @@
 //#include "algoritmos_lista_pos.h"
-//#include "lista_pos_LDE.h"
-//#include "lista_pos_LSE.h"
 
-#include "lista_pos_Arreglo.h"
+
+#include <math.h>
+#include <stdlib.h>
+#include <time.h>
+//#include "lista_pos_Arreglo.h"
+#include "lista_pos_LDE.h"
+//#include "lista_pos_LSE.h"
 
 void invertir(Lista_Pos &lista){
     Pos pos1 = lista.primera();
@@ -121,9 +125,6 @@ void quickSort(Lista_Pos &lista) {
 //FORMA PARTE DE MERGE_SORT.
 void merge(Lista_Pos &lista_1, Lista_Pos &lista_2, Lista_Pos &lista) {
 	
-	std::cout << "la lista 1 es : " << lista_1.imprimirLista() << std::endl; 
-	std::cout << "la lista 2 es : " << lista_2.imprimirLista() << std::endl; 
-	
 	lista.vaciar(); 
 	Pos current_1 = lista_1.primera(); 
 	Pos current_2 = lista_2.primera(); 
@@ -151,7 +152,6 @@ void merge(Lista_Pos &lista_1, Lista_Pos &lista_2, Lista_Pos &lista) {
 		current_2 = lista_2.siguiente(current_2);  	
 	}
 	
-	std::cout << "el resultado final fue : " << lista.imprimirLista() << std::endl; 
 	lista_1.destruir(); 
 	lista_2.destruir(); 
 }
@@ -160,7 +160,6 @@ void merge(Lista_Pos &lista_1, Lista_Pos &lista_2, Lista_Pos &lista) {
 
 void mergeSort(Lista_Pos &lista) {
 	
-	std::cout << "la lista es : " << lista.imprimirLista() << std::endl; 
 	if (lista.NumElem() > 1) {
 		int mid = lista.NumElem()/2; 
 		Pos current_pos = lista.primera(); 
@@ -180,11 +179,8 @@ void mergeSort(Lista_Pos &lista) {
 			current_pos = lista.siguiente(current_pos);  
 		}
 	
-	 std::cout << "Primera Mitad" << std::endl; 	
 	 mergeSort(primeraMitad);
-	 std::cout << "Segunda Mitad" << std::endl; 
 	 mergeSort(segundaMitad);
-	 std::cout << "UYUYUYUYUYUYUYUYUY" << std::endl; 
 	 merge(primeraMitad, segundaMitad, lista);   	
 		
 	}
@@ -196,8 +192,8 @@ void mergeSort(Lista_Pos &lista) {
 
 
 
-
-
+void permutar(Lista_Pos&lista, int max_pos); 
+void insertarPosicion(int indice, int valor, Lista_Pos* lista); 
 
 
 
@@ -207,30 +203,57 @@ Lista_Pos lista;
 lista.iniciar(); 
 
 
-	lista.agregarAlFinal(5);
-		lista.agregarAlFinal(9); 
-		lista.agregarAlFinal(3);
-		lista.agregarAlFinal(0);  
-		lista.agregarAlFinal(2*2);  
-			lista.agregarAlFinal(10); 
-	
+srand(time(NULL)); 
 
+ //int total_iterations = 100000000; 
+int total_iterations = 10; 
+//int distance_random = 1000; 
+int distance_random = 10; 
 
+int current_number = 0; 
 
-
-std::cout << lista.imprimirLista() << std::endl; 
-
-//insercion(lista);
-//quickSort(lista); 
-mergeSort(lista); 
-
-std::cout << "ya hice quicksort" << std::endl;
-
-std::cout << lista.imprimirLista() << std::endl;  
-
+ for (int iteration = 0; iteration < total_iterations; ++iteration) {
+	 //int random_number = rand() % distance_random; 
+	 //lista.agregarAlFinal(random_number); 
+	lista.agregarAlFinal(current_number++); 
+ }
  
-
-
+ 
+ 
+ 
+ for (int permutation = 0; permutation < 10; ++permutation) {
+	std::cout << lista.imprimirLista() << std::endl; 
+	permutar(lista, lista.NumElem()); 
+	std::cout << lista.imprimirLista() << std::endl; 		 
+ }
+ 
+	
     
     return 0;
+}
+
+
+void permutar(Lista_Pos&lista, int max_pos) {
+ 
+ int first_position =0; 
+ int second_position = 0; 
+ 
+ while (first_position == second_position) {  
+	 first_position = rand() % (max_pos-1) + 1; 
+	 second_position = rand() % (max_pos-1) + 1;
+ } 
+ 
+ Pos pos_1 = lista.traducir(first_position);
+ Pos pos_2 = lista.traducir(second_position); 
+ 
+ 
+ lista.intercambiar(pos_1, pos_2); 
+ 
+}
+
+
+
+void insertarPosicion(int indice, int valor, Lista_Pos* lista) {
+	Pos temporal = lista->traducir(indice);
+	lista->insertar(temporal, valor);  	
 }
