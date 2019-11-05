@@ -7,6 +7,7 @@
 //#include "lista_pos_Arreglo.h"
 #include "lista_pos_LDE.h"
 //#include "lista_pos_LSE.h"
+#include <chrono>
 
 void invertir(Lista_Pos &lista){
     Pos pos1 = lista.primera();
@@ -194,7 +195,8 @@ void mergeSort(Lista_Pos &lista) {
 
 void permutar(Lista_Pos&lista, int max_pos); 
 void insertarPosicion(int indice, int valor, Lista_Pos* lista); 
-
+void copiarLista(Lista_Pos&lista1, Lista_Pos&lista2); 
+void modificarLista(Lista_Pos&lista1, Lista_Pos&lista2); 
 
 
 
@@ -202,6 +204,8 @@ int main(){
 Lista_Pos lista; 
 lista.iniciar(); 
 
+Lista_Pos aux; 
+aux.iniciar(); 
 
 srand(time(NULL)); 
 
@@ -215,22 +219,78 @@ int current_number = 0;
  for (int iteration = 0; iteration < total_iterations; ++iteration) {
 	 //int random_number = rand() % distance_random; 
 	 //lista.agregarAlFinal(random_number); 
-	lista.agregarAlFinal(current_number++); 
+	lista.agregarAlFinal(current_number); 
+	aux.agregarAlFinal(current_number++);
  }
  
  
  
+ double total_time = 0.0; 
  
- for (int permutation = 0; permutation < 10; ++permutation) {
-	std::cout << lista.imprimirLista() << std::endl; 
-	permutar(lista, lista.NumElem()); 
-	std::cout << lista.imprimirLista() << std::endl; 		 
+
+ 
+ for (int permutation = 0; permutation < 3; ++permutation) {		//la cantidad de permutaciones que se deseen hacer. 
+	 
+	 modificarLista(aux, lista); 
+	 
+	std::cout << lista.imprimirLista() << std::endl;
+	
+	auto start = std::chrono::high_resolution_clock::now();
+		//espacion del algoritmo. 
+		mergeSort(lista); 
+	auto finish = std::chrono::high_resolution_clock::now();
+	 
+	 
+	std::cout << lista.imprimirLista() << std::endl; 	
+	 
+	 
+	 
+
+	 
+	std::chrono::duration<double> elapsed = finish - start;
+	
+	
+	total_time+= elapsed.count(); 	 
+	
+	permutar(aux, aux.NumElem()); 
  }
+ 
+  std::cout << "el tiempo total es : " << total_time << std::endl; 
  
 	
+
     
     return 0;
 }
+
+
+void copiarLista(Lista_Pos&lista1, Lista_Pos&lista2) {
+	lista2.vaciar(); 
+	lista2.iniciar(); 
+	Pos p_1 = lista1.primera(); 
+	while (p_1 != PosNula) {
+		lista2.agregarAlFinal(lista1.recuperar(p_1)); 
+		p_1 = lista1.siguiente(p_1); 
+		
+	}	
+}
+
+
+
+void modificarLista(Lista_Pos&lista1, Lista_Pos&lista2) 
+{
+ Pos p_1 = lista1.primera(); 
+ Pos p_2 = lista2.primera(); 
+ while (p_1 != PosNula) 
+ {
+	lista2.modificar(p_2, lista1.recuperar(p_1)); 
+	p_1 = lista1.siguiente(p_1); 
+	p_2 = lista2.siguiente(p_2); 
+ } 
+ 	
+	
+}
+
 
 
 void permutar(Lista_Pos&lista, int max_pos) {
