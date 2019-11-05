@@ -209,56 +209,62 @@ aux.iniciar();
 
 srand(time(NULL)); 
 
- //int total_iterations = 100000000; 
-int total_iterations = 10; 
+//int total_iterations = 100000000; 		//con una lista de este tamaño dura un pichazo en los algoritmos, pero la pc si la crea. 
+int total_iterations = 100000; 	
 //int distance_random = 1000; 
-int distance_random = 10; 
+
 
 int current_number = 0; 
 
  for (int iteration = 0; iteration < total_iterations; ++iteration) {
 	 //int random_number = rand() % distance_random; 
 	 //lista.agregarAlFinal(random_number); 
-	lista.agregarAlFinal(current_number); 
-	aux.agregarAlFinal(current_number++);
+	lista.agregarAlFinal(current_number++); 
+	//aux.agregarAlFinal(current_number++);		//por alguna razon si meto esto aqui la compu se pega xd. 
  }
- 
- 
+
+ copiarLista(lista, aux);						//tarda mas pero no se pega haha. 
+  
  
  double total_time = 0.0; 
  
-
+ int total_permutations = 100; 
  
- for (int permutation = 0; permutation < 3; ++permutation) {		//la cantidad de permutaciones que se deseen hacer. 
+ for (int permutation = 0; permutation < total_permutations; ++permutation) {		//la cantidad de permutaciones que se deseen hacer. 
 	 
-	 modificarLista(aux, lista); 
-	 
-	std::cout << lista.imprimirLista() << std::endl;
-	
-	auto start = std::chrono::high_resolution_clock::now();
+	 modificarLista(aux, lista); 	//copia la lista, pero modificando las etiquetas nadamas. 
+									//es necesario porque despues de correr el algoritmo queda ordenado, se necesita volver a su estado anterior. 
+									
+	auto start = std::chrono::high_resolution_clock::now();	//start es de un tipo de dato raro, por eso se usa auto
 		//espacion del algoritmo. 
 		mergeSort(lista); 
-	auto finish = std::chrono::high_resolution_clock::now();
-	 
-	 
-	std::cout << lista.imprimirLista() << std::endl; 	
-	 
-	 
-	 
+		///////////////////////
+	auto finish = std::chrono::high_resolution_clock::now();	
+	
 
-	 
 	std::chrono::duration<double> elapsed = finish - start;
 	
 	
 	total_time+= elapsed.count(); 	 
 	
-	permutar(aux, aux.NumElem()); 
+	permutar(aux, aux.NumElem()); 	//permuta la lista para generar una nueva lista diferente. 
  }
+ 
+ std::cout << lista.imprimirLista() << std::endl; 
  
   std::cout << "el tiempo total es : " << total_time << std::endl; 
  
-	
+  std::cout << "el promedio del algoritmo es : " << total_time/total_permutations << std::endl; 
 
+	
+  
+  
+  
+  //CON 
+  //TOTAL_ITERATIONS = 100000		la longitud de la lista
+  //TOTAL_PERMUTATIONS = 100		la cantidad de permutaciones que se hacen, osea se ejecuta el algoritmo con 100 listas diferentes. 
+  //dura tiempo total = 17.6842 	 promedio = 0.176842
+  //dado la longitud de la lista, la cantidad de permutaciones considero que es pequeña, basicamente es travesear los numeros. 
     
     return 0;
 }
