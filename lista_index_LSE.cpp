@@ -11,7 +11,7 @@ Lista_Index :: Lista_Index(){
     contador = 0;
 }
 
-Lista_Index :: Lista_Index(int basura){
+void Lista_Index :: iniciar(int basura){
     primera = 0;
     ultima = 0;
     primerIndex = 0;
