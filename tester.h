@@ -10,9 +10,9 @@
 
 //Esta constante hay que estar cambiandola, probando listas pequeñas, medias, grandes, etc ..
 // #define SIZELISTAS 500
-// #define SIZELISTAS 1000
+ #define SIZELISTAS 1000
 //#define SIZELISTAS 5000
- #define SIZELISTAS 10000
+// #define SIZELISTAS 10000
 
 // #define SIZELISTA 1000000			//solo funciona con mergesort, los demas demoran demasiado. 
 
