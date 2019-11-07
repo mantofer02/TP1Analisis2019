@@ -4,34 +4,56 @@ Tester :: Tester(){
     srand(time(NULL));
   
     setListasIndex();
-//    setListasPos();
+    // setListasPos();
     
-    testBurbuja();
+    // testBurbuja();
+
+    // destruirListasIndex();
+    // destruirListasPos();
     
     //setListasIndex();
     //setListasPos();
     
    // testInsercion();
     
+    // destruirListasIndex();
+    // destruirListasPos();
+
     //setListasIndex();
     //setListasPos();
     
-   // testSeleccion();
+   testSeleccion();
     
+    destruirListasIndex();
+    // destruirListasPos();
+
     //setListasIndex();
     //setListasPos();
     
-   // testSeleccionR();
+//    testSeleccionR();
     
+    // destruirListasIndex();
+    // destruirListasPos();
+
     //setListasIndex();
    // setListasPos();
     
-   // testQuickSort();
+    // destruirListasIndex();
+    // destruirListasPos();
+
+//    testQuickSort();
     
- //   setListasIndex();
-//    setListasPos();
+    // destruirListasIndex();
+    // destruirListasPos();
+
+    //setListasIndex();
+    //setListasPos();
     
-//    testMergeSort();
+    // testMergeSort();
+
+    // destruirListasIndex();
+    // destruirListasPos();
+
 }
 
 void Tester :: setListasIndex(){
@@ -53,6 +75,23 @@ void Tester :: setListasIndex(){
     
 }
 
+void Tester :: destruirListasIndex(){
+    listaIndexPerfecta.destruir();
+    listaIndexMala.destruir();
+    for(int j = 0; j < MUESTRA; j++){
+        vectorIndex[j].destruir();
+    }
+}
+
+
+void Tester :: destruirListasPos(){
+    listaPosPerfecta.destruir();
+    listaPosMala.destruir();
+    for(int j = 0; j < MUESTRA; j++){
+        vectorPos[j].destruir();
+    }
+}
+
 void Tester :: setListasPos(){
     listaPosPerfecta.iniciar(SIZELISTAS);
     listaPosMala.iniciar(SIZELISTAS);
@@ -72,6 +111,8 @@ void Tester :: setListasPos(){
         }
     }
 }
+
+
 
 void Tester :: testBurbuja(){
     /* EMPIEZA PRUEBAS INDEX */
@@ -152,13 +193,13 @@ void Tester :: testInsercion(){
 
     /* TERMINA PRUEBAS INDEX*/
 
-    misAlgoritmosPos.insercion(listaPosPerfecta);
-    misAlgoritmosPos.insercion(listaPosMala);
+    // misAlgoritmosPos.insercion(listaPosPerfecta);
+    // misAlgoritmosPos.insercion(listaPosMala);
 
-    /* En este for se mide los tiempos de cada lista aleatoria*/
-    for(int i = 0; i < MUESTRA; i++){
-        misAlgoritmosPos.insercion(vectorPos[i]);
-    }
+    // /* En este for se mide los tiempos de cada lista aleatoria*/
+    // for(int i = 0; i < MUESTRA; i++){
+    //     misAlgoritmosPos.insercion(vectorPos[i]);
+    // }
 }
 
 void Tester :: testSeleccion(){
@@ -174,13 +215,13 @@ void Tester :: testSeleccion(){
 
     /* TERMINA PRUEBAS INDEX*/
 
-    misAlgoritmosPos.seleccion(listaPosPerfecta);
-    misAlgoritmosPos.seleccion(listaPosMala);
+    // misAlgoritmosPos.seleccion(listaPosPerfecta);
+    // misAlgoritmosPos.seleccion(listaPosMala);
 
-    /* En este for se mide los tiempos de cada lista aleatoria*/
-    for(int i = 0; i < MUESTRA; i++){
-        misAlgoritmosPos.seleccion(vectorPos[i]);
-    }
+    // /* En este for se mide los tiempos de cada lista aleatoria*/
+    // for(int i = 0; i < MUESTRA; i++){
+    //     misAlgoritmosPos.seleccion(vectorPos[i]);
+    // }
 }
 
 void Tester :: testSeleccionR(){
@@ -196,13 +237,13 @@ void Tester :: testSeleccionR(){
 
     /* TERMINA PRUEBAS INDEX*/
 
-    misAlgoritmosPos.seleccionRecursivo(listaPosPerfecta, listaPosPerfecta.primera());
-    misAlgoritmosPos.seleccionRecursivo(listaPosMala, listaPosMala.primera());
+    // misAlgoritmosPos.seleccionRecursivo(listaPosPerfecta, listaPosPerfecta.primera());
+    // misAlgoritmosPos.seleccionRecursivo(listaPosMala, listaPosMala.primera());
 
-    /* En este for se mide los tiempos de cada lista aleatoria*/
-    for(int i = 0; i < MUESTRA; i++){
-        misAlgoritmosPos.seleccionRecursivo(vectorPos[i], vectorPos[i].primera());
-    }
+    // /* En este for se mide los tiempos de cada lista aleatoria*/
+    // for(int i = 0; i < MUESTRA; i++){
+    //     misAlgoritmosPos.seleccionRecursivo(vectorPos[i], vectorPos[i].primera());
+    // }
 }
 
 void Tester :: testQuickSort(){
@@ -212,19 +253,19 @@ void Tester :: testQuickSort(){
     misAlgoritmosIndex.quickSort(listaIndexMala);
 
     /* En este for se mide los tiempos de cada lista aleatoria*/
-    for(int i = 0; i < MUESTRA; i++){
-        misAlgoritmosIndex.quickSort(vectorIndex[i]);
-    }
+    // for(int i = 0; i < MUESTRA; i++){
+    //     misAlgoritmosIndex.quickSort(vectorIndex[i]);
+    // }
 
     /* TERMINA PRUEBAS INDEX*/
 
-    misAlgoritmosPos.quickSort(listaPosPerfecta);
-    misAlgoritmosPos.quickSort(listaPosMala);
+    // misAlgoritmosPos.quickSort(listaPosPerfecta);
+    // misAlgoritmosPos.quickSort(listaPosMala);
 
-    /* En este for se mide los tiempos de cada lista aleatoria*/
-    for(int i = 0; i < MUESTRA; i++){
-        misAlgoritmosPos.quickSort(vectorPos[i]);
-    }
+    // /* En este for se mide los tiempos de cada lista aleatoria*/
+    // for(int i = 0; i < MUESTRA; i++){
+    //     misAlgoritmosPos.quickSort(vectorPos[i]);
+    // }
 }
 
 void Tester :: testMergeSort(){
@@ -234,17 +275,17 @@ void Tester :: testMergeSort(){
     misAlgoritmosIndex.mergeSort(listaIndexMala);
 
     /* En este for se mide los tiempos de cada lista aleatoria*/
-    for(int i = 0; i < MUESTRA; i++){
-        misAlgoritmosIndex.mergeSort(vectorIndex[i]);
-    }
+    // for(int i = 0; i < MUESTRA; i++){
+    //     misAlgoritmosIndex.mergeSort(vectorIndex[i]);
+    // }
 
     /* TERMINA PRUEBAS INDEX*/
 
-    misAlgoritmosPos.mergeSort(listaPosPerfecta);
-    misAlgoritmosPos.mergeSort(listaPosMala);
+    // misAlgoritmosPos.mergeSort(listaPosPerfecta);
+    // misAlgoritmosPos.mergeSort(listaPosMala);
 
-    /* En este for se mide los tiempos de cada lista aleatoria*/
-    for(int i = 0; i < MUESTRA; i++){
-        misAlgoritmosPos.mergeSort(vectorPos[i]);
-    }
+    // /* En este for se mide los tiempos de cada lista aleatoria*/
+    // for(int i = 0; i < MUESTRA; i++){
+    //     misAlgoritmosPos.mergeSort(vectorPos[i]);
+    // }
 }

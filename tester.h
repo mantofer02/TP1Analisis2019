@@ -6,7 +6,7 @@
 #include <iostream>
 
 #define MUESTRA 100 // Espacio Muestral de listas
-#define SIZELISTAS 100
+#define SIZELISTAS 10
 
 //Esta constante hay que estar cambiandola, probando listas pequeñas, medias, grandes, etc ..
 // #define SIZELISTAS 500
@@ -27,6 +27,8 @@ class Tester{
     public:
         Tester();
         void setListasPos();
+        void destruirListasPos();
+        void destruirListasIndex();
         void setListasIndex();
         void testBurbuja();
         void testInsercion();
