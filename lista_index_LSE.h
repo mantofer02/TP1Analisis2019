@@ -19,6 +19,7 @@ class Lista_Index{
         Celda * ultima;
     public:
         Lista_Index();
+        Lista_Index(int);
         void iniciar();
         void vaciar();
         int vacia();

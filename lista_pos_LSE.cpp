@@ -4,13 +4,18 @@
 Lista_Pos::Lista_Pos() : numero_elementos(0), primera_posicion(nullptr), ultima_posicion(nullptr) {	
     } 
 
-
 //Iniciar()
 //Efecto: Este operador básico inicializa la Lista Posicionada, para poder empezar su uso, asignándole memoria. 
 //Requiere:Este operador básico requiere de espacio disponible para inicializar la lista. 
 //Modifica:Este operador básico modifica la memoria, en la cual almacena la lista y los elementos almacenados en las posiciones respectivas. 
 
 void Lista_Pos::iniciar(){	
+	numero_elementos = 0; 
+	primera_posicion = nullptr; 
+	ultima_posicion = nullptr; 
+}
+
+void Lista_Pos::iniciar(int basura){	
 	numero_elementos = 0; 
 	primera_posicion = nullptr; 
 	ultima_posicion = nullptr; 

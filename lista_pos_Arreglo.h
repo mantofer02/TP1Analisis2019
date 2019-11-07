@@ -18,7 +18,9 @@ class Lista_Pos{
 		int longitud; 		
 	public: 
 		Lista_Pos(); 
+		// Lista_Pos(int); 
 		void iniciar(); 								//O.B
+		void iniciar(int);
 		void destruir(); 								//0.B
 		bool vacia(); 									//O.B
 		void vaciar(); 									//O.B

@@ -32,7 +32,9 @@ private:
 	Posicion* ultima_posicion; 
 public:
 	Lista_Pos();
+	// Lista_Pos(int);
 	void iniciar(); 										//O.B
+	void iniciar(int);
 	void destruir(); 										//O.B
 	void vaciar();											//O.B 
 	bool vacia(); 											//O.B
