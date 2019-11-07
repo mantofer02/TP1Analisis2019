@@ -1,7 +1,6 @@
 #include "tester.h"
 
 tester :: tester(){
-    setListasIndex();
     srand(time(NULL));
     
     setListasIndex();
