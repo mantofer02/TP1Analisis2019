@@ -519,7 +519,6 @@ void Tester :: testMergeSort(){
     elapsed_seconds = finish_time.tv_sec - start_time.tv_sec	+ 1e-9 * (finish_time.tv_nsec - start_time.tv_nsec);
     std::cout << "El tiempo de duración de mergesort con la peor lista posicionada es : " << elapsed_seconds << " s." <<endl;
 
-<<<<<<< HEAD
     /* En este for se mide los tiempos de cada lista aleatoria*/
     for(int i = 0; i < MUESTRA; i++){
         clock_gettime(CLOCK_MONOTONIC, &start_time);
@@ -532,10 +531,4 @@ void Tester :: testMergeSort(){
     elapsed_seconds/=MUESTRA;
     std::cout << "El tiempo de duración promedio de mergesort con lista indexadas aleatorias es : " << elapsed_seconds << " s." <<endl;
 
-=======
-    // /* En este for se mide los tiempos de cada lista aleatoria*/
-    // for(int i = 0; i < MUESTRA; i++){
-    //     misAlgoritmosPos.mergeSort(vectorPos[i]);
-    // }
->>>>>>> f0aae051b8fd4d7b8880c9041a4c471692e965fe
 }
