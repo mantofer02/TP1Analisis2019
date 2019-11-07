@@ -3,10 +3,22 @@
 Tester :: Tester(){
     srand(time(NULL));
   
+<<<<<<< HEAD
     setListasIndex();
 //    setListasPos();
     
     testBurbuja();
+=======
+    //setListasIndex();
+     setListasPos();		//ya funciona setListaPos
+     
+	std::cout << "ya se inicializo todo" << std::endl; 
+    
+     testBurbuja();
+
+    // destruirListasIndex();
+    // destruirListasPos();
+>>>>>>> f0aae051b8fd4d7b8880c9041a4c471692e965fe
     
     setListasIndex();
     //setListasPos();
@@ -16,9 +28,18 @@ Tester :: Tester(){
     setListasIndex();
     //setListasPos();
     
+<<<<<<< HEAD
     testSeleccion();
     
     setListasIndex();
+=======
+   //testSeleccion();
+    
+    //destruirListasIndex();
+    // destruirListasPos();
+
+    //setListasIndex();
+>>>>>>> f0aae051b8fd4d7b8880c9041a4c471692e965fe
     //setListasPos();
     
     testSeleccionR();
@@ -54,32 +75,50 @@ void Tester :: setListasIndex(){
 }
 
 void Tester :: setListasPos(){
-    listaPosPerfecta.iniciar(SIZELISTAS);
-    listaPosMala.iniciar(SIZELISTAS);
+	
+    listaPosPerfecta.iniciar();		//iniciar no recibe parametro. 
+    listaPosMala.iniciar();
     for(int i = 1; i <= SIZELISTAS; i++){
+<<<<<<< HEAD
         listaPosPerfecta.agregarAlFinal(i);// ESTO ESTÁ MAL, MARCO DICE CAMBIAR CONSTRUCTOR
         listaPosMala.agregarAlFinal(SIZELISTAS - i);
+=======
+        listaPosPerfecta.agregarAlFinal(i);// mejor tipo de entrada
+        //std::cout << "LLEGO ACA" << endl;
+        listaPosMala.agregarAlFinal(SIZELISTAS - i);	//peor tipo de entrada. 
+        //std::cout << "LLEGO ACA" << endl;    
+>>>>>>> f0aae051b8fd4d7b8880c9041a4c471692e965fe
     }
+    
     int numero = 0;
+<<<<<<< HEAD
+=======
+    //std::cout << "LLEGO ACA" << endl;
+>>>>>>> f0aae051b8fd4d7b8880c9041a4c471692e965fe
     for(int j = 0; j < MUESTRA; j++){
-        vectorPos[j].iniciar(SIZELISTAS);
+        vectorPos[j].iniciar();
         for(int k = 0; k < SIZELISTAS; k++){
             numero = rand() % SIZELISTAS + 1;
             vectorPos[j].agregarAlFinal(numero);
         }
     }
+    
 }
 
 void Tester :: testBurbuja(){
+	 	
     /* EMPIEZA PRUEBAS INDEX */
     struct timespec start_time;
     struct timespec finish_time;
+    double elapsed_seconds = 0.0; 
+    
+    #if 0 					//el compilador se brinca el codigo, solo cambiar 0 por 1. 
     clock_gettime(CLOCK_MONOTONIC, &start_time);
     
     misAlgoritmosIndex.burbuja(listaIndexPerfecta);
     
     clock_gettime(CLOCK_MONOTONIC, &finish_time);
-    double elapsed_seconds = finish_time.tv_sec - start_time.tv_sec	+ 1e-9 * (finish_time.tv_nsec - start_time.tv_nsec);
+    elapsed_seconds = finish_time.tv_sec - start_time.tv_sec	+ 1e-9 * (finish_time.tv_nsec - start_time.tv_nsec);
     std::cout << "El tiempo de duración de burbuja con la mejor lista es indexada: " << elapsed_seconds << " s." <<endl;
 
     clock_gettime(CLOCK_MONOTONIC, &start_time);
@@ -91,6 +130,7 @@ void Tester :: testBurbuja(){
     std::cout << "El tiempo de duración de burbuja con la peor lista indexada es: " << elapsed_seconds << " s." <<endl;
 
     /* En este for se mide los tiempos de cada lista aleatoria*/
+    elapsed_seconds = 0.0; 
     for(int i = 0; i < MUESTRA; i++){
         clock_gettime(CLOCK_MONOTONIC, &start_time);
 
@@ -98,16 +138,20 @@ void Tester :: testBurbuja(){
 
         clock_gettime(CLOCK_MONOTONIC, &finish_time);
         elapsed_seconds += finish_time.tv_sec - start_time.tv_sec + 1e-9 * (finish_time.tv_nsec - start_time.tv_nsec);
+        std::cout << "listas ordenadas : " << i << std::endl; 
 
     }
     elapsed_seconds/=(double)MUESTRA;    
     std::cout << "El tiempo de duración promedio de burbuja con listas indexadas aleatorias es: " << elapsed_seconds << " s." << endl;
 
     /* TERMINA PRUEBAS INDEX*/
+    #endif 
     
+    
+    #if 1			
     clock_gettime(CLOCK_MONOTONIC, &start_time);
     
-   // misAlgoritmosPos.burbuja(listaPosPerfecta);
+    misAlgoritmosPos.burbuja(listaPosPerfecta);
     
     clock_gettime(CLOCK_MONOTONIC, &finish_time);
     elapsed_seconds = finish_time.tv_sec - start_time.tv_sec	+ 1e-9 * (finish_time.tv_nsec - start_time.tv_nsec);
@@ -115,13 +159,14 @@ void Tester :: testBurbuja(){
 
     clock_gettime(CLOCK_MONOTONIC, &start_time);
     
-    //misAlgoritmosPos.burbuja(listaPosMala);
+    misAlgoritmosPos.burbuja(listaPosMala);
     
     clock_gettime(CLOCK_MONOTONIC, &finish_time);
     elapsed_seconds = finish_time.tv_sec - start_time.tv_sec	+ 1e-9 * (finish_time.tv_nsec - start_time.tv_nsec);
     std::cout << "El tiempo de duración de burbuja con la peor lista posicionada es: " << elapsed_seconds << " s." <<endl;
 
 
+<<<<<<< HEAD
     /* En este for se mide los tiempos de cada lista aleatoria*/
     for(int i = 0; i < MUESTRA; i++){
         clock_gettime(CLOCK_MONOTONIC, &start_time);
@@ -133,10 +178,30 @@ void Tester :: testBurbuja(){
     }
     elapsed_seconds/=(double)MUESTRA;    
     std::cout << "El tiempo de duración promedio de burbuja con listas posicionadas aleatorias es: " << elapsed_seconds << " s." << endl;
+=======
+     //En este for se mide los tiempos de cada lista aleatoria*/
+     elapsed_seconds = 0.0; 
+    for(int i = 0; i < MUESTRA; i++){
+        clock_gettime(CLOCK_MONOTONIC, &start_time);
+    
+        misAlgoritmosPos.burbuja(vectorPos[i]);
+    
+        clock_gettime(CLOCK_MONOTONIC, &finish_time);
+        elapsed_seconds += finish_time.tv_sec - start_time.tv_sec	+ 1e-9 * (finish_time.tv_nsec - start_time.tv_nsec);
+        std::cout << "listas ordenadas : " << i << std::endl; 
+    }
+    elapsed_seconds/=(double)MUESTRA;    
+    std::cout << "El tiempo de duración promedio de burbuja con listas posicionadas aleatorias es: " << elapsed_seconds << " s." << endl;
+
+
+	#endif
+>>>>>>> f0aae051b8fd4d7b8880c9041a4c471692e965fe
 
 }
 
 void Tester :: testInsercion(){
+	
+	#if 0
     /* EMPIEZA PRUEBAS INDEX */
     struct timespec start_time;
     struct timespec finish_time;
@@ -171,6 +236,9 @@ void Tester :: testInsercion(){
     std::cout << "El tiempo de duración promedio de insercion con listas indexadas aleatorias es: " << elapsed_seconds << " s." <<endl;
 
     /* TERMINA PRUEBAS INDEX*/
+	#endif
+	
+	#if 0 
 
     clock_gettime(CLOCK_MONOTONIC, &start_time);
     
@@ -184,6 +252,7 @@ void Tester :: testInsercion(){
     
     //misAlgoritmosPos.insercion(listaPosMala);
 
+<<<<<<< HEAD
     clock_gettime(CLOCK_MONOTONIC, &finish_time);
     elapsed_seconds = finish_time.tv_sec - start_time.tv_sec	+ 1e-9 * (finish_time.tv_nsec - start_time.tv_nsec);
     std::cout << "El tiempo de duración de insercion con la peor lista posicionada es : " << elapsed_seconds << " s." <<endl;
@@ -198,6 +267,14 @@ void Tester :: testInsercion(){
         //}
     std::cout << "El tiempo de duración de insercion con listas posicionadas aleatorias es: " << elapsed_seconds << " s." <<endl;
     
+=======
+    // /* En este for se mide los tiempos de cada lista aleatoria*/
+    // for(int i = 0; i < MUESTRA; i++){
+    //     misAlgoritmosPos.insercion(vectorPos[i]);
+    // }
+    
+    #endif
+>>>>>>> f0aae051b8fd4d7b8880c9041a4c471692e965fe
 }
 
 void Tester :: testSeleccion(){
@@ -442,6 +519,7 @@ void Tester :: testMergeSort(){
     elapsed_seconds = finish_time.tv_sec - start_time.tv_sec	+ 1e-9 * (finish_time.tv_nsec - start_time.tv_nsec);
     std::cout << "El tiempo de duración de mergesort con la peor lista posicionada es : " << elapsed_seconds << " s." <<endl;
 
+<<<<<<< HEAD
     /* En este for se mide los tiempos de cada lista aleatoria*/
     for(int i = 0; i < MUESTRA; i++){
         clock_gettime(CLOCK_MONOTONIC, &start_time);
@@ -454,4 +532,10 @@ void Tester :: testMergeSort(){
     elapsed_seconds/=MUESTRA;
     std::cout << "El tiempo de duración promedio de mergesort con lista indexadas aleatorias es : " << elapsed_seconds << " s." <<endl;
 
+=======
+    // /* En este for se mide los tiempos de cada lista aleatoria*/
+    // for(int i = 0; i < MUESTRA; i++){
+    //     misAlgoritmosPos.mergeSort(vectorPos[i]);
+    // }
+>>>>>>> f0aae051b8fd4d7b8880c9041a4c471692e965fe
 }

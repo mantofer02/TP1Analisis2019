@@ -1,12 +1,12 @@
-#include "lista_index_array.h"
+// #include "lista_index_array.h"
 
-// #include "lista_index_LSE.h"
+#include "lista_index_LSE.h"
 
 
-void seleccion(Lista_Index &lista) {
-    for(int i = lista.primerIndice(); i <=lista.ultimoIndice(); i++){
-        int minActual = i;
-        for(int j = minActual + 1; minActual < lista.ultimoIndice(); j++){
+void seleccionRecursivo(Lista_Index &lista, int i){
+    if(i < lista.ultimoIndice()){
+       int minActual = i; 
+       for(int j = minActual + 1; minActual < lista.ultimoIndice(); j++){
             if(lista.recuperar(j) < lista.recuperar(minActual)){
                 minActual = j;
             }
@@ -14,9 +14,17 @@ void seleccion(Lista_Index &lista) {
                 lista.intercambiar(i, minActual);
             }
         }
+    seleccionRecursivo(lista, lista.siguiente(i));
     }
+    
 }
 
+
+void seleccionRecursivo(Lista_Index &lista){
+    if(lista.numElem() > 1){
+        seleccionRecursivo(lista, lista.primerIndice());
+    }
+}
 
 int main(){
 
@@ -30,7 +38,7 @@ int main(){
     
 	miLista.imprimirLista();
 
-	seleccion(miLista);
+	seleccionRecursivo(miLista);
 
 	miLista.imprimirLista();
 

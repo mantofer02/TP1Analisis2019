@@ -138,7 +138,7 @@ void Algoritmos_Index::burbuja(Lista_Index &lista){
 //Modifica: las etiquetas correspondientes a las posiciones de la lista. 
 
 void Algoritmos_Index::seleccion(Lista_Index &lista) {
-    for(int i = lista.primerIndice(); i <=lista.ultimoIndice(); i++){
+    for(int i = lista.primerIndice(); i <lista.ultimoIndice(); i++){
         int minActual = i;
         for(int j = minActual + 1; minActual < lista.ultimoIndice(); j++){
             if(lista.recuperar(j) < lista.recuperar(minActual)){
@@ -155,16 +155,10 @@ void Algoritmos_Index::seleccion(Lista_Index &lista) {
 //Requiere: que la lista se encuentre inicializada. 
 //Modifica: las etiquetas correspondientes a las posiciones de la lista. 
 
-void Algoritmos_Index :: seleccionRecursivo(Lista_Index &lista){
-    if(lista.numElem() > 1){
-        seleccionRecursivo(lista, lista.primerIndice());
-    }
-}
-
 void Algoritmos_Index :: seleccionRecursivo(Lista_Index &lista, int i){
     if(i < lista.ultimoIndice()){
        int minActual = i; 
-       for(int j = i + 1; i <= lista.ultimoIndice(); j++){
+       for(int j = minActual + 1; minActual < lista.ultimoIndice(); j++){
             if(lista.recuperar(j) < lista.recuperar(minActual)){
                 minActual = j;
             }
@@ -172,8 +166,15 @@ void Algoritmos_Index :: seleccionRecursivo(Lista_Index &lista, int i){
                 lista.intercambiar(i, minActual);
             }
         }
+    seleccionRecursivo(lista, lista.siguiente(i));
     }
-    seleccionRecursivo(lista, i++);
+}
+
+
+void Algoritmos_Index :: seleccionRecursivo(Lista_Index &lista){
+    if(lista.numElem() > 1){
+        seleccionRecursivo(lista, lista.primerIndice());
+    }
 }
 
 //Efecto: ordena los elementos de la lista de forma ascendente. 
