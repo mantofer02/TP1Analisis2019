@@ -138,9 +138,9 @@ void Algoritmos_Index::burbuja(Lista_Index &lista){
 //Modifica: las etiquetas correspondientes a las posiciones de la lista. 
 
 void Algoritmos_Index::seleccion(Lista_Index &lista) {
-    for(int i = lista.primerIndice(); i < lista.ultimoIndice(); i++){
+    for(int i = lista.primerIndice(); i <=lista.ultimoIndice(); i++){
         int minActual = i;
-        for(int j = i + 1; i <= lista.ultimoIndice(); j++){
+        for(int j = minActual + 1; minActual < lista.ultimoIndice(); j++){
             if(lista.recuperar(j) < lista.recuperar(minActual)){
                 minActual = j;
             }
