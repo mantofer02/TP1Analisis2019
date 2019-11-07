@@ -5,8 +5,8 @@
 #include <stdlib.h>
 #include <time.h>
 //#include "lista_pos_Arreglo.h"
-#include "lista_pos_LDE.h"
-//#include "lista_pos_LSE.h"
+//#include "lista_pos_LDE.h"
+#include "lista_pos_LSE.h"
 #include <chrono>
 
 void invertir(Lista_Pos &lista){
@@ -305,6 +305,8 @@ void insercion(Lista_Pos &lista) {
 
 
 
+
+
 void permutar(Lista_Pos&lista, int max_pos); 
 void insertarPosicion(int indice, int valor, Lista_Pos* lista); 
 void copiarLista(Lista_Pos&lista1, Lista_Pos&lista2); 
@@ -322,16 +324,16 @@ aux.iniciar();
 srand(time(NULL)); 
 
 //int total_iterations = 100000000; 		//con una lista de este tamaño dura un pichazo en los algoritmos, pero la pc si la crea. 
-int total_iterations = 10000; 	
+int total_iterations = 1000000; 	
 int distance_random = 10000; 
 
 
 int current_number = 0; 
 
  for (int iteration = 0; iteration < total_iterations; ++iteration) {
-	 int random_number = rand() % distance_random; 
-	 lista.agregarAlFinal(random_number); 
-	//lista.agregarAlFinal(current_number++); 
+	 //int random_number = rand() % distance_random; 
+	 //lista.agregarAlFinal(random_number); 
+	lista.agregarAlFinal(current_number++); 
 	//aux.agregarAlFinal(current_number++);		//por alguna razon si meto esto aqui la compu se pega xd. 
  }
 
@@ -340,7 +342,7 @@ int current_number = 0;
  
  double total_time = 0.0; 
  
- int total_permutations = 1000; 
+ int total_permutations = 1; 
  
  for (int permutation = 0; permutation < total_permutations; ++permutation) {		//la cantidad de permutaciones que se deseen hacer. 
 	 
@@ -349,7 +351,7 @@ int current_number = 0;
 									
 	auto start = std::chrono::high_resolution_clock::now();	//start es de un tipo de dato raro, por eso se usa auto
 		//espacion del algoritmo. 
-		insercion(lista); 
+		invertir(lista); 
 		///////////////////////
 	auto finish = std::chrono::high_resolution_clock::now();	
 	
@@ -408,8 +410,6 @@ int current_number = 0;
   //bidireccional con longitud = 10 000 y 100 permutaciones de la lista // la lista comienza desordenada aleatoriamente en un rango de [0,10000] y 100 permutaciones.  
   //promedio = 1.68726 sec tiempo total =   168.726 
   
-  
-  
   //SELECCION 
   //PRUEBA 1
   //seleccion con longitud = 10 000 y 100 permutaciones de la lista // la lista comienza ordenada y se va desordenando en cada permutacion 
@@ -438,6 +438,31 @@ int current_number = 0;
   //promedio = 1.14265 sec tiempo total = 1142.65 sec (se conporta similar a 100 permutaciones)
   
   
+  //INVERTIR (UTILIZA EL O.B ANTERIOR) se puede comparar con la LSE. 
+  //PRUEBA 1 
+  //invertir con longitud de = 1 000 000 y 100 permutaciones (las permutaciones son indiferentes, solo se hicieron para sacar un promedio)
+  //promedio = 0.0213121 sec tiempo total = 2.13121 sec //las permutaciones no cambian nada, solo se realizo esta prueba. 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+													//LISTA SIMPLEMENTE ENLAZADA (LSE)
+													
+	//INVERITR
+	//PRUEBA 1 
+	//invertir con longitud = 10 000 y 100 permutaciones
+	//promedio = 0.189947 sec (con 10 mil elementos da un tiempo muy similar a la LDE con 1 millon de elementos)
+	//invertir con longitud = 100 000 y 100 permutaciones 
+	//promedio = 19.2769 sec (comienza a durar tiempos altos y ni siquiera se acerca al millon de elementos)
+	//invertir con longitud = 1 000 000 y 100 permutaciones (DURA DEMASIADO, YA HABIA PASADO COMO MEDIA HORA Y NADA)
+
+
+	
   
     return 0;
 }
