@@ -3,6 +3,7 @@
 #include <array>
 #include <stdlib.h>     /* srand, rand */
 #include <time.h>       /* time */
+#include <iostream>
 
 #define MUESTRA 100 // Espacio Muestral de listas
 #define SIZELISTAS 100
@@ -13,7 +14,7 @@
 // #define SIZELISTAS 5000
 // #define SIZELISTAS 10000
 
-class tester{
+class Tester{
     private:
         array<Lista_Pos, MUESTRA> vectorPos;
         Lista_Pos listaPosPerfecta;
@@ -24,7 +25,7 @@ class tester{
         Algoritmos_Index misAlgoritmosIndex;
         Algoritmos_Pos misAlgoritmosPos;
     public:
-        tester();
+        Tester();
         void setListasPos();
         void setListasIndex();
         void testBurbuja();

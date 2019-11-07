@@ -6,7 +6,7 @@
 using namespace std; 
 
 
-#define length 30
+#define length 100
 #define PosNula -1
 
 typedef int Pos; 

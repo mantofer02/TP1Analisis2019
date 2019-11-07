@@ -1,7 +1,7 @@
 #ifndef ALGORITMO
 #define ALGORITMO
 
- #include "lista_pos_Arreglo.h"
+#include "lista_pos_Arreglo.h"
 
 //#include "lista_pos_LDE.h"
 
