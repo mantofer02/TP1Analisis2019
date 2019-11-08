@@ -506,14 +506,8 @@ void Algoritmos_Index::mergeSort(Lista_Index &lista){
 		
 		}
 		
-<<<<<<< HEAD
-		for (int j = mid; j <= lista.ultimoIndice(); j++) {
-			segundaMitad.agregarAlFinal(lista.recuperar(indiceActual));
-			indiceActual = lista.siguiente(indiceActual);  
-=======
 		for (int j = mid; j < lista.ultimoIndice(); j++) {
 			segundaMitad.agregarAlFinal(lista.recuperar(j+1)); 
->>>>>>> 440e3e7aba8f05eb5d71af4a5172bc089ea5e84a
 		}
 		
 	
