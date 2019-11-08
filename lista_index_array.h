@@ -6,6 +6,7 @@
 class Lista_Index{
     public:
         Lista_Index();
+        Lista_Index(int);
         void iniciar();
         void iniciar(int); 
         // hacer un iniciar con una firma diferente
@@ -29,6 +30,7 @@ class Lista_Index{
     
     private:
         int contador;
+        int size;
         int primerIndex;
         int ultimoIndex;
         int tamanyo;

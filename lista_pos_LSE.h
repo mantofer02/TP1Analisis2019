@@ -28,7 +28,9 @@ class Lista_Pos {
 		Posicion* ultima_posicion; 
 	public: 
 		Lista_Pos();
+		// Lista_Pos(int);
 		void iniciar(); 										//O.B
+		void iniciar(int);
 		Posicion* siguiente(Posicion* posicion); 				//O.B
 		Posicion* anterior(Posicion* posicion);					//0.B 
 		void modificar(Posicion* posicion, int valor); 			//O.B

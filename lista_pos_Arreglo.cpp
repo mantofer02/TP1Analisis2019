@@ -1,9 +1,12 @@
 #include "lista_pos_Arreglo.h"
 
 Lista_Pos::Lista_Pos(){
-	
+	this->longitud = length;
 }
 
+void Lista_Pos:: iniciar(int entrada){
+	this->longitud = entrada;
+}
 
 //Iniciar()
 //Efecto: Este operador básico inicializa la Lista Posicionada, para poder empezar su uso, asignándole memoria. 
@@ -12,7 +15,7 @@ Lista_Pos::Lista_Pos(){
 
 
 void Lista_Pos::iniciar() {			//hay que cononcer M.
-    this->longitud = length;  
+    //this->longitud = length;  
     this->ListaPos = (int*)calloc(longitud, sizeof(int)); 
     this->numero_elementos = 0; 	
 }

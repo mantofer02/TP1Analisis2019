@@ -9,6 +9,15 @@ Metodo Constructor de Lista_Index
 Lista_Index :: Lista_Index(){
     contador = 0;
     tamanyo = 0;
+    size = TAMANYO;
+    primerIndex = 0;
+    ultimoIndex = 0;
+}
+
+Lista_Index :: Lista_Index(int algo){
+    contador = 0;
+    tamanyo = 0;
+    size = algo;
     primerIndex = 0;
     ultimoIndex = 0;
 }
@@ -41,8 +50,8 @@ Modiﬁca :   1) parámetro contador con la cantidad de elementos, lo deja en 0.
 */
 
 void Lista_Index :: iniciar(){
-    listaIndexada = new int[TAMANYO + 1];
-    tamanyo = TAMANYO + 1;
+    listaIndexada = new int[size + 1];
+    tamanyo = size + 1;
     primerIndex = 0;
     ultimoIndex = 0;
     contador = 0;

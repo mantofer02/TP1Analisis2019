@@ -138,9 +138,9 @@ void Algoritmos_Index::burbuja(Lista_Index &lista){
 //Modifica: las etiquetas correspondientes a las posiciones de la lista. 
 
 void Algoritmos_Index::seleccion(Lista_Index &lista) {
-    for(int i = lista.primerIndice(); i < lista.ultimoIndice(); i++){
+    for(int i = lista.primerIndice(); i <lista.ultimoIndice(); i++){
         int minActual = i;
-        for(int j = i + 1; i <= lista.ultimoIndice(); j++){
+        for(int j = minActual + 1; minActual < lista.ultimoIndice(); j++){
             if(lista.recuperar(j) < lista.recuperar(minActual)){
                 minActual = j;
             }
@@ -155,16 +155,10 @@ void Algoritmos_Index::seleccion(Lista_Index &lista) {
 //Requiere: que la lista se encuentre inicializada. 
 //Modifica: las etiquetas correspondientes a las posiciones de la lista. 
 
-void Algoritmos_Index :: seleccionRecursivo(Lista_Index &lista){
-    if(lista.numElem() > 1){
-        seleccionRecursivo(lista, lista.primerIndice());
-    }
-}
-
 void Algoritmos_Index :: seleccionRecursivo(Lista_Index &lista, int i){
     if(i < lista.ultimoIndice()){
        int minActual = i; 
-       for(int j = i + 1; i <= lista.ultimoIndice(); j++){
+       for(int j = minActual + 1; minActual < lista.ultimoIndice(); j++){
             if(lista.recuperar(j) < lista.recuperar(minActual)){
                 minActual = j;
             }
@@ -172,8 +166,15 @@ void Algoritmos_Index :: seleccionRecursivo(Lista_Index &lista, int i){
                 lista.intercambiar(i, minActual);
             }
         }
+    seleccionRecursivo(lista, lista.siguiente(i));
     }
-    seleccionRecursivo(lista, i++);
+}
+
+
+void Algoritmos_Index :: seleccionRecursivo(Lista_Index &lista){
+    if(lista.numElem() > 1){
+        seleccionRecursivo(lista, lista.primerIndice());
+    }
 }
 
 //Efecto: ordena los elementos de la lista de forma ascendente. 
@@ -196,39 +197,57 @@ void Algoritmos_Index::insercion(Lista_Index &lista) {
 //Requiere: que la lista se encuentre inicializada. 
 //Modifica: las etiquetas correspondientes a las posiciones de la lista. 
 
-void Algoritmos_Index::quickSort(Lista_Index &lista) {
-	if (lista.numElem() >= 2) {
-		quickSortRecursivo(lista, lista.primerIndice(), lista.ultimoIndice());  
-	}
-	else { 
-		
+int Algoritmos_Index :: buscarPivote(Lista_Index &lista, int inicio, int n) {
+		int pivote;
+		int size = lista.numElem() - 1;
+		int indice = inicio + 1;
+		while (lista.recuperar(inicio) == lista.recuperar(indice) && indice <= n) {
+			indice++;
+		}
+		if (indice <= n) {
+			if (lista.recuperar(inicio) < lista.recuperar(indice)) {
+				pivote = indice;
+			}else {
+				pivote = inicio;
+			}
 	}		
+			
+				else{
+					pivote = -1;               
+		}
+		return pivote;
+	}
+
+void Algoritmos_Index :: quickSortRecursivo(Lista_Index &lista, int inicio, int n) {
+	int pivote, ind_izq, ind_der;
+	if (inicio != n) {
+		pivote = buscarPivote(lista, inicio, n);
+		if (pivote != -1) {          
+			pivote = lista.recuperar(pivote);
+			ind_izq = inicio;
+			ind_der = n;
+			while (ind_izq < ind_der) {
+				lista.intercambiar(ind_der, ind_izq);
+				while (lista.recuperar(ind_izq) < pivote) {
+					ind_izq++;
+				}
+
+				while (lista.recuperar(ind_der) >= pivote) {
+					ind_der--;
+				}
+			}
+			quickSortRecursivo(lista,inicio, ind_der);
+			quickSortRecursivo(lista,ind_izq, n);
+		}
+	}	
 }
 
-      
-void Algoritmos_Index::quickSortRecursivo(Lista_Index &lista, int low, int high) {
-	if (low != high) {	
-		int pivote_position = buscarPivote(lista, low, high); 
-		if (pivote_position >= lista.primerIndice() && pivote_position <= lista.ultimoIndice()) {
-		int p_1 = low; 
-		int p_2 = high; 
-			while (/*lista.siguiente(p_2) != p_1*/ p_2 != p_1--) {	
-				if(p_1 != pivote_position && p_2 != pivote_position) { //FALTABA ESTO
-					lista.intercambiar(p_2, p_1);	 
-				}														//FALTABA ESTO
-				
-				while (lista.recuperar(p_1) < lista.recuperar(pivote_position)) {		// p_1 != PosNula? 
-					p_1++; 
-				}
-				while (lista.recuperar(p_2) >= lista.recuperar(pivote_position)) {
-					p_2--; 		
-				}	
-			}
-			quickSortRecursivo(lista, low, p_2);
-			quickSortRecursivo(lista, p_1, high);  	
-		}			
+void Algoritmos_Index :: quickSort(Lista_Index &lista) {
+		int elementos = lista.numElem();
+		if (elementos >= 2) {
+			quickSortRecursivo(lista , lista.primerIndice(), lista.ultimoIndice() );
+		}
 	}
-}
       
 
 //Efecto: ordena los elementos de la lista de forma ascendente. 
@@ -245,28 +264,6 @@ void Algoritmos_Index::quickSort_insercion(Lista_Index &lista) {
 	}
 }      
       
-int Algoritmos_Index::buscarPivote(Lista_Index &lista, int low, int high) {
-	 	
-	int pivote_position = 0; 
-	int p_1 = low; 
-
-	while (p_1 != high && lista.recuperar(p_1) == lista.recuperar(p_1++)){
-		p_1++; 	
-	}
-
-	if (p_1 != high) {
-		if (lista.recuperar(p_1) < lista.recuperar(p_1++)) {
-			//pivote_position = low; 
-			pivote_position = p_1++; 
-		}
-		else{
-			pivote_position = low; 
-		//pivote_position = lista.siguiente(p_1); 
-		}
-	}
-	return pivote_position; 	
-}
-
 //Efecto: agrega a l1, los elementos de l2, que no se encuentren en dicha lista. 
 //Requiere: que ambas listas se encuentren inicializadas. 
 //Modifica: la lista l1, que entra como primer parametro. 
@@ -501,13 +498,13 @@ void Algoritmos_Index::mergeSort(Lista_Index &lista){
 		Lista_Index segundaMitad;
 		segundaMitad.iniciar();  
 
-		for (int i = lista.primerIndice()-1; i < mid; i++) {
-			primeraMitad.agregarAlFinal(lista.recuperar(i+1)); 
+		for (int i = lista.primerIndice(); i < mid; i++) {
+			primeraMitad.agregarAlFinal(lista.recuperar(i)); 
 		
 		}
 		
-		for (int j = mid; j < lista.ultimoIndice(); j++) {
-			segundaMitad.agregarAlFinal(lista.recuperar(j+1)); 
+		for (int j = mid; j <= lista.ultimoIndice(); j++) {
+			segundaMitad.agregarAlFinal(lista.recuperar(j)); 
 		}
 		
 	

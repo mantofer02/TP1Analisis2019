@@ -1,5 +1,8 @@
-#include "Interfaz.h"
+//#include "Interfaz.h"
+#include "tester.h"
 
 int main(){
-    Interfaz miInterfaz;
+//    Interfaz miInterfaz;
+    Tester miTester;
+    return 0;
 }

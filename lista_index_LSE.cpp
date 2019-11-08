@@ -10,6 +10,15 @@ Lista_Index :: Lista_Index(){
     ultimoIndex = 0;
     contador = 0;
 }
+
+void Lista_Index :: iniciar(int basura){
+    primera = 0;
+    ultima = 0;
+    primerIndex = 0;
+    ultimoIndex = 0;
+    contador = 0;
+}
+
 /*
 Efecto: inicializa la lista. 
 Requiere: que la lista exista. 

@@ -16,6 +16,12 @@ void Lista_Pos::iniciar(){
 	ultima_posicion = nullptr; 
 }
 
+void Lista_Pos::iniciar(int basura){	
+	numero_elementos = 0; 
+	primera_posicion = nullptr; 
+	ultima_posicion = nullptr; 
+}
+
 //Destruir() 
 //Efecto: Este operador básico libera toda la memoria asignada a la lista, tanto los elementos como la lista en sí. 
 //Requiere: Este operador básico requiere una Lista Posicionada previamente inicializada. 
