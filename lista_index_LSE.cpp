@@ -252,7 +252,9 @@ Modiﬁca : Establece el contador de índices ocupados en 0.
 */
 
 void Lista_Index :: vaciar(){
-    destruir();
+    // destruir();
+    
+    
     contador = 0;
     primerIndex = 0;
     ultimoIndex = 0;
