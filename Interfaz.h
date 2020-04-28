@@ -22,7 +22,7 @@ class Interfaz{
         Lista_Index miListaIndexB;
         Lista_Index miListaIndexC;
         Lista_Pos miListaPos; 
-        Lista_Pos aux_1; 		//se necesitan para los algoritmos de uniones e intersecciones. 
+        Lista_Pos aux_1; 		 
         Lista_Pos aux_2; 
         Algoritmos_Pos misAlgoritmosPos;
         Algoritmos_Index misAlgoritmosInd;
