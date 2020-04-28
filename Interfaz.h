@@ -1,7 +1,7 @@
 #ifndef miInterfaz1
 #define miInterfaz2
 
-// #include <iostream>
+//#include <iostream>
 
 
 #include "algoritmos_lista_pos.h"
